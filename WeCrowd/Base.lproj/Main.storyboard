@@ -30,9 +30,12 @@
                                 <state key="normal" title="View My Campaigns">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="MwS-ML-hOQ" kind="show" identifier="segue-view-merchantlogin" id="4ST-3k-x5R"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRP-fF-Ets">
-                                <rect key="frame" x="16" y="205" width="568" height="65"/>
+                                <rect key="frame" x="184" y="205" width="232" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="54"/>
                                 <color key="textColor" red="0.42745098039215684" green="0.74509803921568629" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,11 +51,46 @@
                             <constraint firstItem="CRP-fF-Ets" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="185" id="plS-hf-ClC"/>
                             <constraint firstItem="CRP-fF-Ets" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rmp-K3-4I5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rmp-K3-4I5"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="557" y="648"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bAy-lE-NeR">
+            <objects>
+                <viewController id="MwS-ML-hOQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="czX-YX-Htl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gp0-hn-b1G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Vk-Nd-WAN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeCrowd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76J-ET-fHD">
+                                <rect key="frame" x="184" y="120" width="232" height="65"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <color key="textColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="100" id="PNC-yj-2Ec"/>
+                            <constraint firstAttribute="centerX" secondItem="76J-ET-fHD" secondAttribute="centerX" id="gG4-1T-OP8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npx-mk-GDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1264" y="648"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
