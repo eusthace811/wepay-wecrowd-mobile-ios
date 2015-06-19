@@ -9,11 +9,12 @@
 #import "WCLoginViewController.h"
 #import "WCCampaignBaseModel.h"
 
-@interface WCLoginViewController ()
 
-@end
+#pragma mark - Implementation
 
 @implementation WCLoginViewController
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,5 +25,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - IBOutlets
 
 @end
