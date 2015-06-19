@@ -22,6 +22,7 @@
 		C396765F1B2A5AD30071CEB5 /* WCCampaignDonation.m in Sources */ = {isa = PBXBuildFile; fileRef = C396765E1B2A5AD30071CEB5 /* WCCampaignDonation.m */; };
 		C39676621B2A5B430071CEB5 /* WCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676611B2A5B430071CEB5 /* WCUser.m */; };
 		C39676651B2A5FA10071CEB5 /* WCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676641B2A5FA10071CEB5 /* WCMerchant.m */; };
+		C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		C39676611B2A5B430071CEB5 /* WCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCUser.m; path = Source/Models/WCUser.m; sourceTree = "<group>"; };
 		C39676631B2A5FA10071CEB5 /* WCMerchant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCMerchant.h; path = Source/Models/WCMerchant.h; sourceTree = "<group>"; };
 		C39676641B2A5FA10071CEB5 /* WCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCMerchant.m; path = Source/Models/WCMerchant.m; sourceTree = "<group>"; };
+		C39C9B4D1B34B8E900C5E9A7 /* WCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCClient.h; path = Source/Internal/WCClient.h; sourceTree = "<group>"; };
+		C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCClient.m; path = Source/Internal/WCClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +222,8 @@
 		C39C9B4C1B34B86900C5E9A7 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				C39C9B4D1B34B8E900C5E9A7 /* WCClient.h */,
+				C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			files = (
 				C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */,
 				C39676651B2A5FA10071CEB5 /* WCMerchant.m in Sources */,
+				C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */,
 				C39676561B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m in Sources */,
 				C3060E0D1B2652D500A9F596 /* WCLoginViewController.m in Sources */,
 				C39676591B2A53AE0071CEB5 /* WCCampaignDetailModel.m in Sources */,
