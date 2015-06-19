@@ -28,7 +28,7 @@
 
 #pragma mark - IBOutlets
 
-- (IBAction) login:(id)sender {
+- (IBAction) login: (id)sender {
 
 }
 

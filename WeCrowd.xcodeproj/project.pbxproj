@@ -143,6 +143,7 @@
 		C3060E2A1B29FF0F00A9F596 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C39C9B4C1B34B86900C5E9A7 /* Internal */,
 				C3060E2E1B29FF8100A9F596 /* AppDelegate */,
 				C3060E2C1B29FF6500A9F596 /* Controllers */,
 				C3060E351B2A017D00A9F596 /* Models */,
@@ -213,6 +214,13 @@
 			children = (
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C39C9B4C1B34B86900C5E9A7 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
