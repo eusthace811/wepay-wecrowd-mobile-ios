@@ -1,19 +1,20 @@
 //
-//  WCEntryViewController.m
+//  WCLoginViewController.m
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/8/15.
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import "WCEntryViewController.h"
+#import "WCLoginViewController.h"
 #import "WCCampaignBaseModel.h"
 
-@interface WCEntryViewController ()
 
-@end
+#pragma mark - Implementation
 
-@implementation WCEntryViewController
+@implementation WCLoginViewController
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,5 +25,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - IBOutlets
 
 @end

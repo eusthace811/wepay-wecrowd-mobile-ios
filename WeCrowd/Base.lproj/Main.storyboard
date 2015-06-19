@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Entry View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WCEntryViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="557" y="648"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="bAy-lE-NeR">
             <objects>
-                <viewController id="MwS-ML-hOQ" sceneMemberID="viewController">
+                <viewController id="MwS-ML-hOQ" customClass="WCLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="czX-YX-Htl"/>
                         <viewControllerLayoutGuide type="bottom" id="Gp0-hn-b1G"/>
@@ -107,20 +107,32 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxD-Hv-Pif">
-                                <rect key="frame" x="271" y="371" width="59" height="41"/>
+                                <rect key="frame" x="311" y="371" width="59" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV9-tB-ZPu">
+                                <rect key="frame" x="233" y="371" width="54" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="fMU-iz-f5E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="sV9-tB-ZPu" secondAttribute="centerX" constant="40" id="4gC-Mx-iXt"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="32" id="5WH-he-Gi0"/>
+                            <constraint firstItem="sV9-tB-ZPu" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="16" id="8Xi-TC-2NN"/>
                             <constraint firstItem="HxD-Hv-Pif" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="16" id="FsP-mM-bMk"/>
                             <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="100" id="PNC-yj-2Ec"/>
                             <constraint firstItem="EjD-OD-ML4" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="32" id="Vfl-9m-bPu"/>
-                            <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" id="Vxm-e7-506"/>
+                            <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" constant="-40" id="Vxm-e7-506"/>
                             <constraint firstItem="EjD-OD-ML4" firstAttribute="top" secondItem="76J-ET-fHD" secondAttribute="bottom" constant="32" id="W19-83-clm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tyb-ZU-jrP" secondAttribute="trailing" constant="32" id="ZL9-OO-5om"/>
                             <constraint firstAttribute="centerY" secondItem="EjD-OD-ML4" secondAttribute="centerY" constant="14" id="ZQN-N9-RN9"/>
