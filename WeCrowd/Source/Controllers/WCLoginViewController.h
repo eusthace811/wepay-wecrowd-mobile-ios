@@ -1,5 +1,5 @@
 //
-//  WCEntryViewController.h
+//  WCLoginViewController.h
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/8/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WCEntryViewController : UIViewController
+@interface WCLoginViewController : UIViewController
 
 
 @end
