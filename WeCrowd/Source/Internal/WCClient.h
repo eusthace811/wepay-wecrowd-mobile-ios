@@ -10,4 +10,10 @@
 
 @interface WCClient : NSObject
 
++ (void) makePostRequestToEndPoint:(NSURL *) endpoint
+                            values:(NSDictionary *) params
+                       accessToken:(NSString *) accessToken
+                      successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                      errorHandler:(void (^)(NSError * error)) errorHandler;
+
 @end
