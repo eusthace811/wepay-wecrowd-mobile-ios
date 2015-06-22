@@ -156,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="557" y="1366"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Campaign Feed View Controller-->
         <scene sceneID="xxs-ja-3GE">
             <objects>
-                <tableViewController id="tkk-YJ-SKn" sceneMemberID="viewController">
+                <tableViewController id="tkk-YJ-SKn" customClass="WCCampaignFeedViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="C3h-SM-41T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

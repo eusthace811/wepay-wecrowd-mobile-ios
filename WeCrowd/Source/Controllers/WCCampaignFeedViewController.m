@@ -12,11 +12,15 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
 
 @interface WCCampaignFeedViewController ()
 
+@property (nonatomic, strong) NSMutableArray* campaigns;
+
 @end
 
 @implementation WCCampaignFeedViewController
 
-- (void)viewDidLoad {
+#pragma mark - UIViewController
+
+- (void) viewDidLoad {
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -26,18 +30,18 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return CAMPAIGN_FEED_SECTION_COUNT;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // TODO: return data-driven amount
     return 1;
 }
