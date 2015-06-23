@@ -125,7 +125,7 @@
                                     <constraint firstAttribute="width" constant="200" id="bce-4s-ZYA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bce-4s-ZYA"/>

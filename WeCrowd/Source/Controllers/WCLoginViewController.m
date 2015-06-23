@@ -7,15 +7,15 @@
 //
 
 #import "WCLoginViewController.h"
-#import "WCCampaignBaseModel.h"
+#import "WCClient.h"
 
 #pragma mark - Interface
 
 
 @interface WCLoginViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UITextField* emailField;
+@property (weak, nonatomic) IBOutlet UITextField* passwordField;
 
 @end
 
@@ -40,7 +40,18 @@
 
 - (IBAction) login: (id)sender {
     // Make the login request to the server
+    NSDictionary* loginInformation = @{ @"email"    : self.emailField.text,
+                                        @"password" : self.passwordField.text };
     
+    [WCClient makePostRequestToEndPoint:@"http://0.0.0.0:3000/api/login"
+                                 values:loginInformation
+                            accessToken:nil
+                           successBlock:^(NSDictionary *returnData) {
+                               NSLog(@"Do something with the return data");
+                           } errorHandler:^(NSError *error) {
+                               NSLog(@"Error: don't know how to handle it yet");
+                           }
+     ];
 }
 
 
