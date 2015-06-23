@@ -10,7 +10,7 @@
 
 @interface WCClient : NSObject
 
-+ (void) makePostRequestToEndPoint:(NSURL *) endpoint
++ (void) makePostRequestToEndPoint:(NSString *) endpoint
                             values:(NSDictionary *) params
                        accessToken:(NSString *) accessToken
                       successBlock:(void (^)(NSDictionary * returnData)) successHandler
