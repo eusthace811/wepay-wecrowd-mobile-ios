@@ -28,7 +28,7 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
     WCCampaignHeaderModel* testheaderModel;
     
     testBaseModel = [[WCCampaignBaseModel alloc] initWithCampaign:@"ID"
-                                                            title:@"Title"
+                                                            title:@"Title Test"
                                                           endDate:nil donationTarget:0
                                                    donationAmount:0];
     testheaderModel = [[WCCampaignHeaderModel alloc] initWithCampaignBaseModel:testBaseModel
@@ -48,20 +48,23 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
     return CAMPAIGN_FEED_SECTION_COUNT;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // TODO: return data-driven amount
-    return 1;
+- (NSInteger) tableView:(UITableView *)tableView
+  numberOfRowsInSection:(NSInteger)section
+{
+    return [self.campaigns count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *) tableView
+         cellForRowAtIndexPath:(NSIndexPath *) indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CampaignCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    WCCampaignHeaderModel* headerModel = [self.campaigns objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = headerModel.baseModel.title;
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
