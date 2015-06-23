@@ -170,13 +170,54 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cm-Ju-3W6" id="QvT-W9-jCc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campaign Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-Vo-gKT">
-                                            <rect key="frame" x="8" y="8" width="277" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-Vo-gKT">
+                                            <rect key="frame" x="8" y="8" width="146" height="26"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="mlu-an-yCV">
+                                            <rect key="frame" x="445" y="8" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="H56-eJ-L06"/>
+                                                <constraint firstAttribute="width" constant="80" id="IsP-42-xfj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgR-Jp-vGB">
+                                            <rect key="frame" x="8" y="37" width="124" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pledge Goal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQo-be-iPb">
+                                            <rect key="frame" x="8" y="66" width="94" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mlu-an-yCV" secondAttribute="bottom" id="740-cu-Gv5"/>
+                                        <constraint firstItem="OQo-be-iPb" firstAttribute="top" secondItem="VgR-Jp-vGB" secondAttribute="bottom" constant="8" id="8GY-Mo-05M"/>
+                                        <constraint firstItem="OQo-be-iPb" firstAttribute="leading" secondItem="VgR-Jp-vGB" secondAttribute="trailing" constant="32" id="DTE-4X-MDF"/>
+                                        <constraint firstItem="OQo-be-iPb" firstAttribute="leading" secondItem="QvT-W9-jCc" secondAttribute="leadingMargin" id="G6V-Ly-Anr"/>
+                                        <constraint firstAttribute="centerY" secondItem="VgR-Jp-vGB" secondAttribute="centerY" id="IEH-ew-BW0"/>
+                                        <constraint firstItem="mlu-an-yCV" firstAttribute="top" secondItem="QvT-W9-jCc" secondAttribute="topMargin" id="K9K-sZ-96t"/>
+                                        <constraint firstItem="VgR-Jp-vGB" firstAttribute="leading" secondItem="QvT-W9-jCc" secondAttribute="leadingMargin" id="PSD-DE-ydk"/>
+                                        <constraint firstItem="gLd-Vo-gKT" firstAttribute="leading" secondItem="QvT-W9-jCc" secondAttribute="leadingMargin" id="PZh-UM-XhL"/>
+                                        <constraint firstAttribute="centerY" secondItem="OQo-be-iPb" secondAttribute="centerY" id="ZCx-AB-doO"/>
+                                        <constraint firstItem="gLd-Vo-gKT" firstAttribute="top" secondItem="QvT-W9-jCc" secondAttribute="topMargin" id="cda-ja-CY0"/>
+                                        <constraint firstItem="mlu-an-yCV" firstAttribute="trailing" secondItem="QvT-W9-jCc" secondAttribute="trailingMargin" id="lty-g9-tJw"/>
+                                        <constraint firstAttribute="centerY" secondItem="mlu-an-yCV" secondAttribute="centerY" id="u1E-os-qBb"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="DTE-4X-MDF"/>
+                                            <exclude reference="ZCx-AB-doO"/>
+                                            <exclude reference="740-cu-Gv5"/>
+                                            <exclude reference="K9K-sZ-96t"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -191,5 +232,8 @@
             <point key="canvasLocation" x="1271" y="648"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="300" height="55"/>
+    </resources>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>
