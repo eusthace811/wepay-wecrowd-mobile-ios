@@ -13,10 +13,10 @@
 static NSInteger const kCampaignFeedSectionCount = 1;
 
 // UITableViewCell tags
-static NSInteger const kCampaignCellTitleTag         = 100;
-static NSInteger const kCampaignCellTimeRemainingTag = 101;
-static NSInteger const kCampaignCellPledgeGoalTag    = 102;
-static NSInteger const kCampaignCellThumbnailImageTag   = 103;
+static NSInteger const kCampaignCellTitleTag          = 100;
+static NSInteger const kCampaignCellTimeRemainingTag  = 101;
+static NSInteger const kCampaignCellPledgeGoalTag     = 102;
+static NSInteger const kCampaignCellThumbnailImageTag = 103;
 
 // UITableViewCell identifiers
 static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
@@ -37,6 +37,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     WCCampaignBaseModel* testBaseModel;
     WCCampaignHeaderModel* testheaderModel;
     
+    // TODO: use donation target and amount from server
     testBaseModel = [[WCCampaignBaseModel alloc] initWithCampaign:@"ID"
                                                             title:@"Title Test"
                                                           endDate:nil
@@ -102,7 +103,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
     pledgeProgress = [NSString stringWithFormat:@"%.f", model.baseModel.donationTargetAmount / model.baseModel.donationAmount];
     pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
-    
     
     // configure the display information within the view
     ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.baseModel.title;
