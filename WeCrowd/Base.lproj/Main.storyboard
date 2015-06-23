@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IPZ-ga-4r4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="vui-Qc-eRP">
+            <objects>
+                <navigationController id="IPZ-ga-4r4" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dQh-hD-ily">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.38583996539662646" blue="0.23645853432886366" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fzf-JB-DLY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBt-kk-MkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-725" y="649"/>
+        </scene>
+        <!--WeCrowd-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
@@ -18,17 +41,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-a5-BK4">
-                                <rect key="frame" x="208" y="271" width="185" height="35"/>
+                                <rect key="frame" x="208" y="315" width="185" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Browse all campaigns">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tkk-YJ-SKn" kind="showDetail" id="1WF-Wa-cR5"/>
+                                    <segue destination="tkk-YJ-SKn" kind="show" id="1WF-Wa-cR5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
-                                <rect key="frame" x="214" y="330" width="173" height="35"/>
+                                <rect key="frame" x="214" y="374" width="173" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="View My Campaigns">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,7 +61,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRP-fF-Ets">
-                                <rect key="frame" x="184" y="174" width="232" height="65"/>
+                                <rect key="frame" x="184" y="218" width="232" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="54"/>
                                 <color key="textColor" red="0.42745098039215684" green="0.74509803921568629" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -60,12 +83,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="WeCrowd" id="hV6-I7-wNt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="648"/>
+            <point key="canvasLocation" x="54" y="649"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="bAy-lE-NeR">
             <objects>
                 <viewController id="MwS-ML-hOQ" customClass="WCLoginViewController" sceneMemberID="viewController">
@@ -110,28 +134,16 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxD-Hv-Pif">
-                                <rect key="frame" x="311" y="371" width="59" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <rect key="frame" x="274" y="371" width="62" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV9-tB-ZPu">
-                                <rect key="frame" x="233" y="371" width="54" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="fMU-iz-f5E"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="sV9-tB-ZPu" secondAttribute="centerX" constant="40" id="4gC-Mx-iXt"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="32" id="5WH-he-Gi0"/>
-                            <constraint firstItem="sV9-tB-ZPu" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="16" id="8Xi-TC-2NN"/>
                             <constraint firstItem="HxD-Hv-Pif" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="16" id="FsP-mM-bMk"/>
                             <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="100" id="PNC-yj-2Ec"/>
                             <constraint firstItem="EjD-OD-ML4" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="32" id="Vfl-9m-bPu"/>
@@ -139,6 +151,7 @@
                             <constraint firstItem="EjD-OD-ML4" firstAttribute="top" secondItem="76J-ET-fHD" secondAttribute="bottom" constant="32" id="W19-83-clm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tyb-ZU-jrP" secondAttribute="trailing" constant="32" id="ZL9-OO-5om"/>
                             <constraint firstAttribute="centerY" secondItem="EjD-OD-ML4" secondAttribute="centerY" constant="14" id="ZQN-N9-RN9"/>
+                            <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" constant="-4.5" id="fJt-95-PqG"/>
                             <constraint firstAttribute="centerX" secondItem="76J-ET-fHD" secondAttribute="centerX" id="gG4-1T-OP8"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="top" secondItem="EjD-OD-ML4" secondAttribute="bottom" constant="24" id="suE-Pj-P1B"/>
                             <constraint firstAttribute="centerX" secondItem="EjD-OD-ML4" secondAttribute="centerX" id="wCA-2D-YPm"/>
@@ -148,15 +161,17 @@
                             <mask key="constraints">
                                 <exclude reference="PNC-yj-2Ec"/>
                                 <exclude reference="wCA-2D-YPm"/>
+                                <exclude reference="Vxm-e7-506"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" id="XPA-Uq-fio"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npx-mk-GDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="1366"/>
+            <point key="canvasLocation" x="54" y="1440"/>
         </scene>
-        <!--Campaign Feed View Controller-->
+        <!--All Campaigns-->
         <scene sceneID="xxs-ja-3GE">
             <objects>
                 <tableViewController id="tkk-YJ-SKn" customClass="WCCampaignFeedViewController" sceneMemberID="viewController">
@@ -226,10 +241,11 @@
                             <outlet property="delegate" destination="tkk-YJ-SKn" id="DNm-ko-uF5"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="All Campaigns" id="QCa-y8-8n7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-yv-FnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="648"/>
+            <point key="canvasLocation" x="857" y="649"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
