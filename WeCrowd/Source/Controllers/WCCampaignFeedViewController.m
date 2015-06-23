@@ -13,7 +13,10 @@
 static NSInteger const kCampaignFeedSectionCount = 1;
 
 // UITableViewCell tags
-static NSInteger const kCampaignCellTitleTag = 100;
+static NSInteger const kCampaignCellTitleTag         = 100;
+static NSInteger const kCampaignCellTimeRemainingTag = 101;
+static NSInteger const kCampaignCellPledgeGoalTag    = 102;
+static NSInteger const kCampaignCellHeaderImageTag   = 103;
 
 // UITableViewCell identifiers
 static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
@@ -36,10 +39,12 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     
     testBaseModel = [[WCCampaignBaseModel alloc] initWithCampaign:@"ID"
                                                             title:@"Title Test"
-                                                          endDate:nil donationTarget:0
-                                                   donationAmount:0];
+                                                          endDate:nil
+                                                   donationTarget:100
+                                                   donationAmount:10];
+    // TODO: use thumbnail image from server
     testheaderModel = [[WCCampaignHeaderModel alloc] initWithCampaignBaseModel:testBaseModel
-                                                                thumbnailImage:nil];
+                                                                thumbnailImage:[UIImage imageNamed:@"Logo"]];
     self.campaigns = [NSMutableArray array];
     [self.campaigns addObject:testheaderModel];
 }
@@ -88,8 +93,22 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 - (void) configureCell:(UITableViewCell *) cell
              withModel:(WCCampaignHeaderModel *) model
 {
+    NSDateFormatter* standardDateFormat = [NSDateFormatter new];
+    NSString* timeRemaining, *pledgeProgress;
+    
+    // format the view information
+    [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
+    // TODO: use end date from server
+    timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
+    pledgeProgress = [NSString stringWithFormat:@"%.f", model.baseModel.donationTargetAmount / model.baseModel.donationAmount];
+    pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
+    
+    
     // configure the display information within the view
     ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.baseModel.title;
+    ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
+    ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
+    ((UIImageView *) [cell viewWithTag:kCampaignCellHeaderImageTag]).image = model.thumbnailImage;
 }
     
 
