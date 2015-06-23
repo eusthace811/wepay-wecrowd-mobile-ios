@@ -15,6 +15,7 @@
 		C3060E151B2652D600A9F596 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3060E131B2652D600A9F596 /* LaunchScreen.xib */; };
 		C3060E211B2652D600A9F596 /* WeCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E201B2652D600A9F596 /* WeCrowdTests.m */; };
 		C3060E341B2A017200A9F596 /* WCCampaignBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E331B2A017200A9F596 /* WCCampaignBaseModel.m */; };
+		C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */; };
 		C39676561B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676551B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m */; };
 		C39676591B2A53AE0071CEB5 /* WCCampaignDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676581B2A53AE0071CEB5 /* WCCampaignDetailModel.m */; };
 		C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C396765B1B2A57380071CEB5 /* WCCreditCardModel.m */; };
@@ -49,6 +50,8 @@
 		C3060E201B2652D600A9F596 /* WeCrowdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeCrowdTests.m; sourceTree = "<group>"; };
 		C3060E321B2A017200A9F596 /* WCCampaignBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignBaseModel.h; path = Source/Models/WCCampaignBaseModel.h; sourceTree = "<group>"; };
 		C3060E331B2A017200A9F596 /* WCCampaignBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignBaseModel.m; path = Source/Models/WCCampaignBaseModel.m; sourceTree = "<group>"; };
+		C37283E91B38C9C400EE627C /* WCCampaignFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignFeedViewController.h; path = Source/Controllers/WCCampaignFeedViewController.h; sourceTree = "<group>"; };
+		C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignFeedViewController.m; path = Source/Controllers/WCCampaignFeedViewController.m; sourceTree = "<group>"; };
 		C39676541B2A4D5A0071CEB5 /* WCCampaignHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignHeaderModel.h; path = Source/Models/WCCampaignHeaderModel.h; sourceTree = "<group>"; };
 		C39676551B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignHeaderModel.m; path = Source/Models/WCCampaignHeaderModel.m; sourceTree = "<group>"; };
 		C39676571B2A53AE0071CEB5 /* WCCampaignDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignDetailModel.h; path = Source/Models/WCCampaignDetailModel.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 			children = (
 				C3060E0B1B2652D500A9F596 /* WCLoginViewController.h */,
 				C3060E0C1B2652D500A9F596 /* WCLoginViewController.m */,
+				C37283E91B38C9C400EE627C /* WCCampaignFeedViewController.h */,
+				C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				C396765F1B2A5AD30071CEB5 /* WCCampaignDonation.m in Sources */,
 				C3060E341B2A017200A9F596 /* WCCampaignBaseModel.m in Sources */,
 				C39676621B2A5B430071CEB5 /* WCUser.m in Sources */,
+				C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */,
 				C3060E071B2652D500A9F596 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

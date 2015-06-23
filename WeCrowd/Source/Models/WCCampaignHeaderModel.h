@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@class WCCampaignBaseModel;
+#import "WCCampaignBaseModel.h"
 
 #pragma mark - Interface
 
