@@ -11,6 +11,7 @@
 
 // Requests
 static NSInteger const kTimeoutInterval = 5;
+static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
 
 #pragma mark - Interface
 
@@ -23,18 +24,19 @@ static NSInteger const kTimeoutInterval = 5;
 
 @implementation WCClient
 
-+ (void) makePostRequestToEndPoint:(NSString *) endpoint
-                           values:(NSDictionary *) params
-                      accessToken:(NSString *) accessToken
-                     successBlock:(void (^)(NSDictionary * returnData)) successHandler
-                     errorHandler:(void (^)(NSError * error)) errorHandler
+
+#pragma mark Request / Response
++ (void) makePostRequestToEndPoint:(NSURL *) endpoint
+                            values:(NSDictionary *) params
+                       accessToken:(NSString *) accessToken
+                      successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                      errorHandler:(void (^)(NSError * error)) errorHandler
 {
     NSError* parseError = nil;
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:endpoint]
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:endpoint
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:kTimeoutInterval];
-    
-    
+    // Configure the  request
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -99,6 +101,12 @@ static NSInteger const kTimeoutInterval = 5;
     } else if (!extractedData) {
         NSLog(@"Error: data extraction failed.");
     }
+}
+
+#pragma mark - Helper Functions
+
++ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
+    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
 }
 
 @end

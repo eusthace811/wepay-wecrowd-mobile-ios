@@ -43,7 +43,7 @@
     NSDictionary* loginInformation = @{ @"email"    : self.emailField.text,
                                         @"password" : self.passwordField.text };
     
-    [WCClient makePostRequestToEndPoint:@"http://0.0.0.0:3000/api/login"
+    [WCClient makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
                                  values:loginInformation
                             accessToken:nil
                            successBlock:^(NSDictionary *returnData) {
