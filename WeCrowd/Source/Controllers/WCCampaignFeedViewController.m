@@ -9,7 +9,14 @@
 #import "WCCampaignFeedViewController.h"
 #import "WCCampaignHeaderModel.h"
 
-static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
+// UITableViewDataSource
+static NSInteger const kCampaignFeedSectionCount = 1;
+
+// UITableViewCell tags
+static NSInteger const kCampaignCellTitleTag = 100;
+
+// UITableViewCell identifiers
+static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @interface WCCampaignFeedViewController ()
 
@@ -45,7 +52,7 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-    return CAMPAIGN_FEED_SECTION_COUNT;
+    return kCampaignFeedSectionCount;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView
@@ -57,11 +64,12 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
 - (UITableViewCell *)tableView:(UITableView *) tableView
          cellForRowAtIndexPath:(NSIndexPath *) indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CampaignCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCampaignCellReuseIdentifier
+                                                            forIndexPath:indexPath];
     
     WCCampaignHeaderModel* headerModel = [self.campaigns objectAtIndex:indexPath.row];
     
-    ((UILabel *) [cell viewWithTag:100]).text = headerModel.baseModel.title;
+    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = headerModel.baseModel.title;
     
     return cell;
 }
