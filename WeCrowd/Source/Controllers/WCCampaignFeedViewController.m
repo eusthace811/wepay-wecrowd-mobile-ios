@@ -8,7 +8,6 @@
 
 #import "WCCampaignFeedViewController.h"
 #import "WCCampaignHeaderModel.h"
-#import "WCCampaignBaseModel.h"
 
 static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
 
