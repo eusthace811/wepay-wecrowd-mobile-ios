@@ -9,6 +9,16 @@
 #import "WCLoginViewController.h"
 #import "WCCampaignBaseModel.h"
 
+#pragma mark - Interface
+
+
+@interface WCLoginViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+@end
+
 
 #pragma mark - Implementation
 
@@ -29,7 +39,8 @@
 #pragma mark - IBOutlets
 
 - (IBAction) login: (id)sender {
-
+    // Make the login request to the server
+    
 }
 
 

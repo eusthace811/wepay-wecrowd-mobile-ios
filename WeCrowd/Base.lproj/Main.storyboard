@@ -168,6 +168,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="XPA-Uq-fio"/>
+                    <connections>
+                        <outlet property="emailField" destination="EjD-OD-ML4" id="ITB-jp-ebh"/>
+                        <outlet property="passwordField" destination="tyb-ZU-jrP" id="THy-XZ-J3c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npx-mk-GDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
