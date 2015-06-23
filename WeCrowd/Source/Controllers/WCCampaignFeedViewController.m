@@ -61,15 +61,14 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     return [self.campaigns count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *) tableView
-         cellForRowAtIndexPath:(NSIndexPath *) indexPath
+- (UITableViewCell *) tableView:(UITableView *) tableView
+          cellForRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCampaignCellReuseIdentifier
                                                             forIndexPath:indexPath];
     
-    WCCampaignHeaderModel* headerModel = [self.campaigns objectAtIndex:indexPath.row];
+    [self configureCell:cell withModel:[self.campaigns objectAtIndex:indexPath.row]];
     
-    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = headerModel.baseModel.title;
     
     return cell;
 }
@@ -83,5 +82,15 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Configuration Methods
+
+- (void) configureCell:(UITableViewCell *) cell
+             withModel:(WCCampaignHeaderModel *) model
+{
+    // configure the display information within the view
+    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.baseModel.title;
+}
+    
 
 @end
