@@ -9,8 +9,7 @@
         <scene sceneID="vui-Qc-eRP">
             <objects>
                 <navigationController id="IPZ-ga-4r4" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dQh-hD-ily">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="dQh-hD-ily">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
