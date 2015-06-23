@@ -16,7 +16,7 @@ static NSInteger const kCampaignFeedSectionCount = 1;
 static NSInteger const kCampaignCellTitleTag         = 100;
 static NSInteger const kCampaignCellTimeRemainingTag = 101;
 static NSInteger const kCampaignCellPledgeGoalTag    = 102;
-static NSInteger const kCampaignCellHeaderImageTag   = 103;
+static NSInteger const kCampaignCellThumbnailImageTag   = 103;
 
 // UITableViewCell identifiers
 static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
@@ -108,7 +108,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.baseModel.title;
     ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
-    ((UIImageView *) [cell viewWithTag:kCampaignCellHeaderImageTag]).image = model.thumbnailImage;
+    ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
 }
     
 
