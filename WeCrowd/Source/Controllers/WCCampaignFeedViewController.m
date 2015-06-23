@@ -7,6 +7,8 @@
 //
 
 #import "WCCampaignFeedViewController.h"
+#import "WCCampaignHeaderModel.h"
+#import "WCCampaignBaseModel.h"
 
 static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
 
@@ -23,11 +25,17 @@ static NSInteger const CAMPAIGN_FEED_SECTION_COUNT = 1;
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    WCCampaignBaseModel* testBaseModel;
+    WCCampaignHeaderModel* testheaderModel;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    testBaseModel = [[WCCampaignBaseModel alloc] initWithCampaign:@"ID"
+                                                            title:@"Title"
+                                                          endDate:nil donationTarget:0
+                                                   donationAmount:0];
+    testheaderModel = [[WCCampaignHeaderModel alloc] initWithCampaignBaseModel:testBaseModel
+                                                                thumbnailImage:nil];
+    self.campaigns = [NSMutableArray array];
+    [self.campaigns addObject:testheaderModel];
 }
 
 - (void) didReceiveMemoryWarning {
