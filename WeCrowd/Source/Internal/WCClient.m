@@ -13,49 +13,25 @@
 static NSInteger const kTimeoutInterval = 5;
 static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
 
-#pragma mark - Interface
-
-@interface WCClient ()
-
-@end
-
 
 #pragma mark - Implementation
 
 @implementation WCClient
 
+#pragma mark External Methods
 
-#pragma mark Request / Response
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint
                             values:(NSDictionary *) params
                        accessToken:(NSString *) accessToken
                       successBlock:(void (^)(NSDictionary * returnData)) successHandler
                       errorHandler:(void (^)(NSError * error)) errorHandler
 {
-    NSError* parseError = nil;
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:endpoint
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:kTimeoutInterval];
-    // Configure the  request
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"charset" forHTTPHeaderField:@"utf-8"];
-    [request setValue:@"WeCrowd iOS" forHTTPHeaderField:@"User-Agent"];
-    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:params
-                                                         options:kNilOptions
-                                                           error:&parseError]];
-    
-    // Set access token (Not super sure what this does since the cases I've seen have all been nil
-    if(accessToken) {
-        [request setValue:[NSString stringWithFormat:@"Bearer: %@", accessToken]
-       forHTTPHeaderField:@"Authorization"];
-    }
-    
-    // Handle improperly formatted data
-    if (parseError) {
-        errorHandler(parseError);
-    } else {
+    NSURLRequest* request = [self createDefaultRequestWithURL:endpoint
+                                                       method:@"POST"
+                                                     bodyData:params
+                                                  accessToken:accessToken];
+    if (request) {
+        // Handle success
         NSOperationQueue* queue = [NSOperationQueue mainQueue];
         
         // Send the request asynchronously and process the response
@@ -70,6 +46,46 @@ static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
                                             errorHandler:errorHandler];
                                }
          ];
+    } else {
+        NSLog(@"Error: Unable to create URL with given parameters.");
+    }
+}
+
++ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
+    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
+}
+
+#pragma mark - Internal Methods
+
++ (NSURLRequest *) createDefaultRequestWithURL:(NSURL *) URL
+                                        method:(NSString *) method
+                                      bodyData:(id) data
+                                   accessToken:(NSString *) accessToken
+{
+    NSError* parseError = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:kTimeoutInterval];
+    // Configure the  request
+    [request setHTTPMethod:method];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"charset" forHTTPHeaderField:@"utf-8"];
+    [request setValue:@"WeCrowd iOS" forHTTPHeaderField:@"User-Agent"];
+    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:data
+                                                         options:kNilOptions
+                                                           error:&parseError]];
+    
+    // Set access token (Not super sure what this does since the cases I've seen have all been nil
+    if (accessToken) {
+        [request setValue:[NSString stringWithFormat:@"Bearer: %@", accessToken]
+       forHTTPHeaderField:@"Authorization"];
+    }
+    
+    if (parseError) {
+        return nil;
+    } else {
+        return request;
     }
 }
 
@@ -101,12 +117,6 @@ static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
     } else if (!extractedData) {
         NSLog(@"Error: data extraction failed.");
     }
-}
-
-#pragma mark - Helper Functions
-
-+ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
-    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
 }
 
 @end
