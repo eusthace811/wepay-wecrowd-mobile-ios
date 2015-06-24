@@ -49,8 +49,9 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     [WCClient makeGetRequestToEndpoint:[WCClient apiURLWithEndpoint:@"/campaigns"]
                                 values:nil
                            accessToken:nil
-                          successBlock:^(NSDictionary *returnData) {
+                          successBlock:^(id returnData) {
                               NSLog(@"Success: Fetched campaigns");
+                              [self processCampaignData:returnData];
                           }
                           errorHandler:^(NSError *error) {
                               // TODO: Handle Error
@@ -97,7 +98,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 }
 */
 
-#pragma mark - Configuration Methods
+#pragma mark - Internal Helpers
 
 - (void) configureCell:(UITableViewCell *) cell
              withModel:(WCCampaignHeaderModel *) model
@@ -117,6 +118,11 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
+}
+
+- (void) processCampaignData:(id) data
+{
+    
 }
 
 @end

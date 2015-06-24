@@ -24,7 +24,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint
                             values:(NSDictionary *) params
                        accessToken:(NSString *) accessToken
-                      successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                      successBlock:(void (^)(id returnData)) successHandler
                       errorHandler:(void (^)(NSError * error)) errorHandler
 {
     [self makeRequestToEndPoint:endpoint
@@ -38,7 +38,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 + (void) makeGetRequestToEndpoint:(NSURL *) endpoint
                            values:(NSDictionary *) values
                       accessToken:(NSString *) accessToken
-                     successBlock:(void (^)(NSDictionary *)) successHandler
+                     successBlock:(void (^)(id returnData)) successHandler
                      errorHandler:(void (^)(NSError *)) errorHandler
 {
     [self makeRequestToEndPoint:endpoint
@@ -59,7 +59,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
                         method:(NSString *) method
                         values:(NSDictionary *) params
                    accessToken:(NSString *) accessToken
-                  successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                  successBlock:(void (^)(id returnData)) successHandler
                   errorHandler:(void (^)(NSError * error)) errorHandler
 {
     [self createDefaultRequestWithURL:endpoint
@@ -129,11 +129,11 @@ static NSString* const kHTTPRequestGet  = @"GET";
 + (void) processResponse:(NSURLResponse *) response
                     data:(NSData *) data
                    error:(NSError *) error
-            successBlock:(void (^)(NSDictionary* returnData)) successHandler
+            successBlock:(void (^)(id returnData)) successHandler
             errorHandler:(void (^)(NSError* error)) errorHandler
 {
     // Build a dictionary from the raw data
-    NSDictionary* extractedData = nil;
+    id extractedData = nil;
     
     if ([data length] >= 1) {
         extractedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];

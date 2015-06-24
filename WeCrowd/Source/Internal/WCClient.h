@@ -13,13 +13,13 @@
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint
                             values:(NSDictionary *) params
                        accessToken:(NSString *) accessToken
-                      successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                      successBlock:(void (^)(id returnData)) successHandler
                       errorHandler:(void (^)(NSError * error)) errorHandler;
 
 + (void) makeGetRequestToEndpoint:(NSURL *) endpoint
                            values:(NSDictionary *) values
                       accessToken:(NSString *) accessToken
-                     successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                     successBlock:(void (^)(id returnData)) successHandler
                      errorHandler:(void (^)(NSError * error)) errorHandler;
 
 + (NSURL *) apiURLWithEndpoint:(NSString *) endpoint;
