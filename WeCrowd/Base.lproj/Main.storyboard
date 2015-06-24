@@ -125,7 +125,7 @@
                                     <constraint firstAttribute="width" constant="200" id="bce-4s-ZYA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bce-4s-ZYA"/>
@@ -138,6 +138,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="MwS-ML-hOQ" eventType="touchUpInside" id="nUW-Vk-Qua"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,6 +168,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="XPA-Uq-fio"/>
+                    <connections>
+                        <outlet property="emailField" destination="EjD-OD-ML4" id="ITB-jp-ebh"/>
+                        <outlet property="passwordField" destination="tyb-ZU-jrP" id="THy-XZ-J3c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npx-mk-GDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
