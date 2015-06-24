@@ -106,6 +106,5 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
 }
-    
 
 @end
