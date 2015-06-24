@@ -50,10 +50,11 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                 values:nil
                            accessToken:nil
                           successBlock:^(NSDictionary *returnData) {
-                              NSLog(@"Successfully retrieved campaigns");
+                              NSLog(@"Success: Fetched campaigns");
                           }
                           errorHandler:^(NSError *error) {
-                              // Handle error
+                              // TODO: Handle Error
+                              NSLog(@"Error: Unable to fetch campaigns.");
                           }];
 }
 
