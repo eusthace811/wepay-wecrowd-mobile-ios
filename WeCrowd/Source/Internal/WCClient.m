@@ -53,6 +53,7 @@ static NSString* const kHTTPRequestPost = @"POST";
                           accessToken:accessToken
                       completionBlock:^(NSMutableURLRequest *returnRequest, NSError *error) {
                           if (error) {
+                              // Encountered a parse error while creating the request
                               errorHandler(error);
                           } else {
                               // Request was successfully created
@@ -89,7 +90,8 @@ static NSString* const kHTTPRequestPost = @"POST";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"utf-8" forHTTPHeaderField:@"charset"];
     
-    // Set access token (Not super sure what this does since the cases I've seen have all been nil)
+    // Set the access token if it exists
+    // (Not super sure what this does since the cases I've seen have all been nil)
     if (accessToken) {
         [request setValue:[NSString stringWithFormat:@"bearer %@", accessToken]
        forHTTPHeaderField:@"Authorization"];
@@ -110,7 +112,7 @@ static NSString* const kHTTPRequestPost = @"POST";
                     data:(NSData *) data
                    error:(NSError *) error
             successBlock:(void (^)(NSDictionary* returnData)) successHandler
-            errorHandler:(void (^)(NSError* error))  errorHandler
+            errorHandler:(void (^)(NSError* error)) errorHandler
 {
     // Build a dictionary from the raw data
     NSDictionary* extractedData = nil;
@@ -127,12 +129,13 @@ static NSString* const kHTTPRequestPost = @"POST";
         if (statusCode == 200) {
             successHandler(extractedData);
         } else {
-            NSLog(@"Error: response carrying status code %ld.", statusCode);
+            // TODO: There was a connection error
         }
     } else if (error) {
+        // TODO: There was a connection error with the request
         errorHandler(error);
     } else if (!extractedData) {
-        NSLog(@"Error: data extraction failed.");
+        // TODO: There was an error in the data extracted from the request
     }
 }
 

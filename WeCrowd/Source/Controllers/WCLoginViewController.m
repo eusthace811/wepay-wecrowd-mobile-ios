@@ -12,7 +12,7 @@
 #pragma mark - Interface
 
 
-@interface WCLoginViewController ()
+@interface WCLoginViewController () <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField* emailField;
 @property (weak, nonatomic) IBOutlet UITextField* passwordField;
@@ -49,14 +49,31 @@
                            successBlock:^(NSDictionary *returnData) {
                                // check the status of the return data
                                if ([returnData objectForKey:@"error_code"]) {
-                                   NSLog(@"Error: API: %@", [returnData objectForKey:@"error_message"]);
+                                   // Alert the user of the error
+                                   UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:@"Unable to login"
+                                                                                        message:@"Unable to log you in. Please check your email and password before trying again."
+                                                                                       delegate:self
+                                                                              cancelButtonTitle:@"Close"
+                                                                              otherButtonTitles:nil];
+                                   [errorAlert show];
                                } else {
+                                   // Disable the control and push the next view
+                                   ((UIControl *) sender).userInteractionEnabled = false;
+                                   
+                                   #ifdef DEBUG
                                    NSLog(@"Success: Login complete.");
+                                   #endif
                                }
                            }
                            errorHandler:^(NSError *error) {
-                               // TODO: notify user of the  error
-                               NSLog(@"Error: don't know how to handle it yet");
+                               // This means there was either a connection error or a parse error
+                               // In either case, just prompt the user to try again
+                               UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:@"Please try again"
+                                                                                    message:@"Unable to log you in. Please try again."
+                                                                                   delegate:self
+                                                                          cancelButtonTitle:@"Close"
+                                                                          otherButtonTitles:nil];
+                               [errorAlert show];
                            }
      ];
 }
