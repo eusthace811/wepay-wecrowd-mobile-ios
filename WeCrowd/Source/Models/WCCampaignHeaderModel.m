@@ -7,6 +7,7 @@
 //
 
 #import "WCCampaignHeaderModel.h"
+#import "WCCampaignBaseModel.h"
 
 #pragma mark - Interface
 
