@@ -43,9 +43,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                                           endDate:nil
                                                    donationTarget:100
                                                    donationAmount:10];
-    // TODO: use thumbnail image from server
-    testheaderModel = [[WCCampaignHeaderModel alloc] initWithCampaignBaseModel:testBaseModel
-                                                                thumbnailImage:[UIImage imageNamed:@"Logo"]];
     self.campaigns = [NSMutableArray array];
     [self.campaigns addObject:testheaderModel];
 }
@@ -101,11 +98,11 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
     // TODO: use end date from server
     timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
-    pledgeProgress = [NSString stringWithFormat:@"%.f", model.baseModel.donationTargetAmount / model.baseModel.donationAmount];
+    pledgeProgress = [NSString stringWithFormat:@"%.f", model.donationTargetAmount / model.donationAmount];
     pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
     
     // configure the display information within the view
-    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.baseModel.title;
+    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.title;
     ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
