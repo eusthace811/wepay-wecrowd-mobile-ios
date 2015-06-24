@@ -29,22 +29,21 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @implementation WCCampaignFeedViewController
 
+#pragma mark - UITableViewController
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.campaigns = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
 #pragma mark - UIViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-    WCCampaignBaseModel* testBaseModel;
-    WCCampaignHeaderModel* testheaderModel;
-    
-    // TODO: use donation target and amount from server
-    testBaseModel = [[WCCampaignBaseModel alloc] initWithCampaign:@"ID"
-                                                            title:@"Title Test"
-                                                          endDate:nil
-                                                   donationTarget:100
-                                                   donationAmount:10];
-    self.campaigns = [NSMutableArray array];
-    [self.campaigns addObject:testheaderModel];
 }
 
 - (void) didReceiveMemoryWarning {
