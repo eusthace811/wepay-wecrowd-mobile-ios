@@ -8,12 +8,11 @@
 
 #import "WCCampaignHeaderModel.h"
 
-
 #pragma mark - Interface
 
 @interface WCCampaignHeaderModel ()
 
-@property (strong, nonatomic, readwrite) UIImage* thumbnailImage;
+@property (strong, nonatomic, readwrite) UIImage * thumbnailImage;
 
 @end
 
