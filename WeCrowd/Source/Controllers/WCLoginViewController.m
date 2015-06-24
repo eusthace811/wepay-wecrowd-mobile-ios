@@ -40,15 +40,22 @@
 
 - (IBAction) login: (id)sender {
     // Make the login request to the server
-    NSDictionary* loginInformation = @{ @"email"    : self.emailField.text,
-                                        @"password" : self.passwordField.text };
+    NSDictionary* loginInformation = @{ @"user_email"   : self.emailField.text,
+                                        @"password"     : self.passwordField.text };
     
     [WCClient makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
                                  values:loginInformation
                             accessToken:nil
                            successBlock:^(NSDictionary *returnData) {
-                               NSLog(@"Do something with the return data");
-                           } errorHandler:^(NSError *error) {
+                               // check the status of the return data
+                               if ([returnData objectForKey:@"error_code"]) {
+                                   NSLog(@"Error: API: %@", [returnData objectForKey:@"error_message"]);
+                               } else {
+                                   NSLog(@"Success: Login complete.");
+                               }
+                           }
+                           errorHandler:^(NSError *error) {
+                               // TODO: notify user of the  error
                                NSLog(@"Error: don't know how to handle it yet");
                            }
      ];

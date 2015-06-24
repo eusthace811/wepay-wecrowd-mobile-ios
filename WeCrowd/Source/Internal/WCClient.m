@@ -86,14 +86,12 @@ static NSString* const kHTTPRequestPost = @"POST";
                                                        timeoutInterval:kTimeoutInterval];
     // Configure the  request
     [request setHTTPMethod:method];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"charset" forHTTPHeaderField:@"utf-8"];
-    [request setValue:@"WeCrowd iOS" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"utf-8" forHTTPHeaderField:@"charset"];
     
     // Set access token (Not super sure what this does since the cases I've seen have all been nil)
     if (accessToken) {
-        [request setValue:[NSString stringWithFormat:@"Bearer: %@", accessToken]
+        [request setValue:[NSString stringWithFormat:@"bearer %@", accessToken]
        forHTTPHeaderField:@"Authorization"];
     }
     
