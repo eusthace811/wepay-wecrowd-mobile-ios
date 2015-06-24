@@ -24,7 +24,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @interface WCCampaignFeedViewController ()
 
-@property (nonatomic, strong) NSMutableArray* campaigns;
+@property (nonatomic, strong) NSMutableArray *campaigns;
 
 @end
 
@@ -32,7 +32,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 #pragma mark - UITableViewController
 
-- (id) initWithCoder:(NSCoder *)aDecoder
+- (id) initWithCoder:(NSCoder *) aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
         self.campaigns = [NSMutableArray array];
@@ -45,17 +45,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-    [WCClient makeGetRequestToEndpoint:[WCClient apiURLWithEndpoint:@"/campaigns"]
-                                values:nil
-                           accessToken:nil
-                          successBlock:^(id returnData) {
-                              NSLog(@"Success: Fetched campaigns");
-                          }
-                          errorHandler:^(NSError *error) {
-                              // TODO: Handle Error
-                              NSLog(@"Error: Unable to fetch campaigns.");
-                          }];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -65,12 +54,12 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
     return kCampaignFeedSectionCount;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView
-  numberOfRowsInSection:(NSInteger)section
+- (NSInteger) tableView:(UITableView *) tableView
+  numberOfRowsInSection:(NSInteger) section
 {
     return [self.campaigns count];
 }
