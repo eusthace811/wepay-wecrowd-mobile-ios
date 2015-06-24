@@ -19,7 +19,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 @implementation WCClient
 
-#pragma mark External Methods
+#pragma mark - External Methods
 
 + (void) loginWithUsername:(NSString *) username
                   password:(NSString *) password
@@ -45,25 +45,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
      ];
 }
 
-+ (void) makeGetRequestToEndpoint:(NSURL *) endpoint
-                           values:(NSDictionary *) values
-                      accessToken:(NSString *) accessToken
-                     successBlock:(void (^)(id returnData)) successHandler
-                     errorHandler:(void (^)(NSError *)) errorHandler
-{
-    [self makeRequestToEndPoint:endpoint
-                         method:kHTTPRequestGet
-                         values:values
-                    accessToken:accessToken
-                   successBlock:successHandler
-                   errorHandler:errorHandler];
-}
-
-+ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
-    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
-}
-
-#pragma mark - Internal Methods
+#pragma mark - Endpoint Requests
 
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint
                             values:(NSDictionary *) params
@@ -74,6 +56,20 @@ static NSString* const kHTTPRequestGet  = @"GET";
     [self makeRequestToEndPoint:endpoint
                          method:kHTTPRequestPost
                          values:params
+                    accessToken:accessToken
+                   successBlock:successHandler
+                   errorHandler:errorHandler];
+}
+
++ (void) makeGetRequestToEndpoint:(NSURL *) endpoint
+                           values:(NSDictionary *) values
+                      accessToken:(NSString *) accessToken
+                     successBlock:(void (^)(id returnData)) successHandler
+                     errorHandler:(void (^)(NSError *)) errorHandler
+{
+    [self makeRequestToEndPoint:endpoint
+                         method:kHTTPRequestGet
+                         values:values
                     accessToken:accessToken
                    successBlock:successHandler
                    errorHandler:errorHandler];
@@ -114,6 +110,8 @@ static NSString* const kHTTPRequestGet  = @"GET";
      ];
 }
 
+#pragma mark - Helpers
+
 + (void) createDefaultRequestWithURL:(NSURL *) URL
                               method:(NSString *) method
                             bodyData:(id) bodyData
@@ -149,6 +147,12 @@ static NSString* const kHTTPRequestGet  = @"GET";
         completion(request, nil);
     }
 }
+
++ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
+    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
+}
+
+#pragma mark - Data Processing
 
 + (void) processResponse:(NSURLResponse *) response
                     data:(NSData *) data

@@ -14,12 +14,4 @@
                   password:(NSString *) password
            completionBlock:(void (^)(NSError *)) completionBlock;
 
-+ (void) makeGetRequestToEndpoint:(NSURL *) endpoint
-                           values:(NSDictionary *) values
-                      accessToken:(NSString *) accessToken
-                     successBlock:(void (^)(id returnData)) successHandler
-                     errorHandler:(void (^)(NSError *error)) errorHandler;
-
-+ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint;
-
 @end
