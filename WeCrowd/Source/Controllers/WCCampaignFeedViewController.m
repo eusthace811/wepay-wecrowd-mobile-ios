@@ -8,6 +8,7 @@
 
 #import "WCCampaignFeedViewController.h"
 #import "WCCampaignHeaderModel.h"
+#import "WCClient.h"
 
 // UITableViewDataSource
 static NSInteger const kCampaignFeedSectionCount = 1;
@@ -44,6 +45,16 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    [WCClient makeGetRequestToEndpoint:[WCClient apiURLWithEndpoint:@"/campaigns"]
+                                values:nil
+                           accessToken:nil
+                          successBlock:^(NSDictionary *returnData) {
+                              NSLog(@"Successfully retrieved campaigns");
+                          }
+                          errorHandler:^(NSError *error) {
+                              // Handle error
+                          }];
 }
 
 - (void) didReceiveMemoryWarning {

@@ -13,6 +13,7 @@
 static NSInteger const kTimeoutInterval = 5;
 static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
 static NSString* const kHTTPRequestPost = @"POST";
+static NSString* const kHTTPRequestGet  = @"GET";
 
 #pragma mark - Implementation
 
@@ -29,6 +30,20 @@ static NSString* const kHTTPRequestPost = @"POST";
     [self makeRequestToEndPoint:endpoint
                          method:kHTTPRequestPost
                          values:params
+                    accessToken:accessToken
+                   successBlock:successHandler
+                   errorHandler:errorHandler];
+}
+
++ (void) makeGetRequestToEndpoint:(NSURL *) endpoint
+                           values:(NSDictionary *) values
+                      accessToken:(NSString *) accessToken
+                     successBlock:(void (^)(NSDictionary *)) successHandler
+                     errorHandler:(void (^)(NSError *)) errorHandler
+{
+    [self makeRequestToEndPoint:endpoint
+                         method:kHTTPRequestGet
+                         values:values
                     accessToken:accessToken
                    successBlock:successHandler
                    errorHandler:errorHandler];
@@ -97,9 +112,12 @@ static NSString* const kHTTPRequestPost = @"POST";
        forHTTPHeaderField:@"Authorization"];
     }
     
-    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:bodyData
-                                                         options:kNilOptions
-                                                           error:&parseError]];
+    // Set the body data if there is any
+    if (bodyData) {
+        [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:bodyData
+                                                             options:kNilOptions
+                                                               error:&parseError]];
+    }
     
     if (parseError) {
         completion(nil, parseError);

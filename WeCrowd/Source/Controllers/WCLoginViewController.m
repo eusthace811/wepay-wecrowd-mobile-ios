@@ -9,8 +9,8 @@
 #import "WCLoginViewController.h"
 #import "WCClient.h"
 
-#pragma mark - Interface
 
+#pragma mark - Interface
 
 @interface WCLoginViewController () <UIAlertViewDelegate>
 
@@ -28,8 +28,10 @@
 
 - (IBAction) login:(id) sender {
     // Make the login request to the server
-    NSDictionary* loginInformation = @{ @"user_email"   : self.emailField.text,
-                                        @"password"     : self.passwordField.text };
+//    NSDictionary* loginInformation = @{ @"user_email"   : self.emailField.text,
+//                                        @"password"     : self.passwordField.text };
+    NSDictionary* loginInformation = @{ @"user_email"   : @"zachv+3@wepay.com",
+                                        @"password"     : @"password" };
     
     [WCClient makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
                                  values:loginInformation
