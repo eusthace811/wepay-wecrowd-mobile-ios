@@ -24,21 +24,9 @@
 
 @implementation WCLoginViewController
 
-#pragma mark - UIViewController
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - IBOutlets
 
-- (IBAction) login: (id)sender {
+- (IBAction) login:(id) sender {
     // Make the login request to the server
     NSDictionary* loginInformation = @{ @"user_email"   : self.emailField.text,
                                         @"password"     : self.passwordField.text };
