@@ -26,29 +26,12 @@ static NSString* const kHTTPRequestPost = @"POST";
                       successBlock:(void (^)(NSDictionary * returnData)) successHandler
                       errorHandler:(void (^)(NSError * error)) errorHandler
 {
-    NSURLRequest* request = [self createDefaultRequestWithURL:endpoint
-                                                       method:kHTTPRequestPost
-                                                     bodyData:params
-                                                  accessToken:accessToken];
-    if (request) {
-        // Handle success
-        NSOperationQueue* queue = [NSOperationQueue mainQueue];
-        
-        // Send the request asynchronously and process the response
-        [NSURLConnection sendAsynchronousRequest:request
-                                           queue:queue
-                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                                   // Process the server's response
-                                   [self processResponse:response
-                                                    data:data
-                                                   error:connectionError
-                                            successBlock:successHandler
-                                            errorHandler:errorHandler];
-                               }
-         ];
-    } else {
-        NSLog(@"Error: Unable to create request with given parameters.");
-    }
+    [self makeRequestToEndPoint:endpoint
+                         method:kHTTPRequestPost
+                         values:params
+                    accessToken:accessToken
+                   successBlock:successHandler
+                   errorHandler:errorHandler];
 }
 
 + (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
@@ -57,10 +40,45 @@ static NSString* const kHTTPRequestPost = @"POST";
 
 #pragma mark - Internal Methods
 
-+ (NSURLRequest *) createDefaultRequestWithURL:(NSURL *) URL
-                                        method:(NSString *) method
-                                      bodyData:(id) data
-                                   accessToken:(NSString *) accessToken
++ (void) makeRequestToEndPoint:(NSURL *) endpoint
+                        method:(NSString *) method
+                        values:(NSDictionary *) params
+                   accessToken:(NSString *) accessToken
+                  successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                  errorHandler:(void (^)(NSError * error)) errorHandler
+{
+    [self createDefaultRequestWithURL:endpoint
+                               method:method
+                             bodyData:params
+                          accessToken:accessToken
+                      completionBlock:^(NSMutableURLRequest *returnRequest, NSError *error) {
+                          if (error) {
+                              errorHandler(error);
+                          } else {
+                              // Request was successfully created
+                              NSOperationQueue* queue = [NSOperationQueue mainQueue];
+                              
+                              // Send the request asynchronously and process the response
+                              [NSURLConnection sendAsynchronousRequest:returnRequest
+                                                                 queue:queue
+                                                     completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                                         // Process the server's response
+                                                         [self processResponse:response
+                                                                          data:data
+                                                                         error:connectionError
+                                                                  successBlock:successHandler
+                                                                  errorHandler:errorHandler];
+                                                     }];
+                          }
+                      }
+     ];
+}
+
++ (void) createDefaultRequestWithURL:(NSURL *) URL
+                              method:(NSString *) method
+                            bodyData:(id) bodyData
+                         accessToken:(NSString *) accessToken
+                     completionBlock:(void (^)(NSMutableURLRequest *returnRequest, NSError * error)) completion
 {
     NSError* parseError = nil;
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL
@@ -72,20 +90,21 @@ static NSString* const kHTTPRequestPost = @"POST";
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"charset" forHTTPHeaderField:@"utf-8"];
     [request setValue:@"WeCrowd iOS" forHTTPHeaderField:@"User-Agent"];
-    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:data
-                                                         options:kNilOptions
-                                                           error:&parseError]];
     
-    // Set access token (Not super sure what this does since the cases I've seen have all been nil
+    // Set access token (Not super sure what this does since the cases I've seen have all been nil)
     if (accessToken) {
         [request setValue:[NSString stringWithFormat:@"Bearer: %@", accessToken]
        forHTTPHeaderField:@"Authorization"];
     }
     
+    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:bodyData
+                                                         options:kNilOptions
+                                                           error:&parseError]];
+    
     if (parseError) {
-        return nil;
+        completion(nil, parseError);
     } else {
-        return request;
+        completion(request, nil);
     }
 }
 
