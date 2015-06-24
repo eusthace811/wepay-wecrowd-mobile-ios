@@ -12,7 +12,7 @@
 // Requests
 static NSInteger const kTimeoutInterval = 5;
 static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
-
+static NSString* const kHTTPRequestPost = @"POST";
 
 #pragma mark - Implementation
 
@@ -27,7 +27,7 @@ static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
                       errorHandler:(void (^)(NSError * error)) errorHandler
 {
     NSURLRequest* request = [self createDefaultRequestWithURL:endpoint
-                                                       method:@"POST"
+                                                       method:kHTTPRequestPost
                                                      bodyData:params
                                                   accessToken:accessToken];
     if (request) {
@@ -47,7 +47,7 @@ static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
                                }
          ];
     } else {
-        NSLog(@"Error: Unable to create URL with given parameters.");
+        NSLog(@"Error: Unable to create request with given parameters.");
     }
 }
 
