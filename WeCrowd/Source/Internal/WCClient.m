@@ -27,21 +27,21 @@ static NSString* const kHTTPRequestGet  = @"GET";
 {
     [self makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
                              values:@ { @"user_email" : username, @"password" : password }
-                            accessToken:nil
-                           successBlock:^(NSDictionary *returnData) {
-                               // check the status of the return data
-                               if ([returnData objectForKey:@"error_code"]) {
-                                   // TODO: create an actual error to hand off
-                                   completionBlock(nil);
-                               } else {
-                                   completionBlock(nil);
-                               }
-                           }
-                           errorHandler:^(NSError *error) {
-                               // This means there was either a connection error or a parse error
+                        accessToken:nil
+                       successBlock:^(NSDictionary *returnData) {
+                           // check the status of the return data
+                           if ([returnData objectForKey:@"error_code"]) {
                                // TODO: create an actual error to hand off
                                completionBlock(nil);
+                           } else {
+                               completionBlock(nil);
                            }
+                       }
+                       errorHandler:^(NSError *error) {
+                           // This means there was either a connection error or a parse error
+                           // TODO: create an actual error to hand off
+                           completionBlock(nil);
+                       }
      ];
 }
 
