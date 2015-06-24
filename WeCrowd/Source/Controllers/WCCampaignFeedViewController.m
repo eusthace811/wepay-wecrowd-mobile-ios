@@ -51,7 +51,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                            accessToken:nil
                           successBlock:^(id returnData) {
                               NSLog(@"Success: Fetched campaigns");
-                              [self processCampaignData:returnData];
                           }
                           errorHandler:^(NSError *error) {
                               // TODO: Handle Error
@@ -118,11 +117,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
-}
-
-- (void) processCampaignData:(id) data
-{
-    
 }
 
 @end
