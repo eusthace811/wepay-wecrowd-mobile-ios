@@ -12,7 +12,7 @@
 
 #pragma mark - Interface
 
-@interface WCLoginViewController () <UIAlertViewDelegate>
+@interface WCLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField* emailField;
 @property (weak, nonatomic) IBOutlet UITextField* passwordField;
@@ -27,6 +27,34 @@
 #pragma mark - IBOutlets
 
 - (IBAction) login:(id) sender {
+    NSString *username, *password;
+    
+    #ifdef DEBUG
+    username = self.emailField.text;
+    password = self.passwordField.text;
+    #else
+    username = @"zachv+3@wepay.com";
+    password = @"password";
+    #endif
+    
+    [WCClient loginWithUsername:username
+                       password:password
+                completionBlock:^(NSError *error) {
+                    if (error) {
+                        // Notify the user of the error
+                        [[[UIAlertView alloc] initWithTitle:@"Please try again"
+                                                   message:@"Unable to log you in. Please check your\
+                                                            information and try again."
+                                                  delegate:self
+                                         cancelButtonTitle:@"Close"
+                                         otherButtonTitles:nil] show];
+                    } else {
+                        // Disable the control and push the next view
+                        ((UIControl *) sender).userInteractionEnabled = false;
+                        
+                        [self performSegueWithIdentifier:@"merchantLoginToFeedSegue" sender:self];
+                    }
+                }];
 }
 
 
