@@ -21,18 +21,28 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 #pragma mark External Methods
 
-+ (void) makePostRequestToEndPoint:(NSURL *) endpoint
-                            values:(NSDictionary *) params
-                       accessToken:(NSString *) accessToken
-                      successBlock:(void (^)(id returnData)) successHandler
-                      errorHandler:(void (^)(NSError * error)) errorHandler
++ (void) loginWithUsername:(NSString *) username
+                  password:(NSString *) password
+           completionBlock:(void (^)(NSError *)) completionBlock
 {
-    [self makeRequestToEndPoint:endpoint
-                         method:kHTTPRequestPost
-                         values:params
-                    accessToken:accessToken
-                   successBlock:successHandler
-                   errorHandler:errorHandler];
+    [self makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
+                             values:@ { @"user_email" : username, @"password" : password }
+                            accessToken:nil
+                           successBlock:^(NSDictionary *returnData) {
+                               // check the status of the return data
+                               if ([returnData objectForKey:@"error_code"]) {
+                                   // TODO: create an actual error to hand off
+                                   completionBlock(nil);
+                               } else {
+                                   completionBlock(nil);
+                               }
+                           }
+                           errorHandler:^(NSError *error) {
+                               // This means there was either a connection error or a parse error
+                               // TODO: create an actual error to hand off
+                               completionBlock(nil);
+                           }
+     ];
 }
 
 + (void) makeGetRequestToEndpoint:(NSURL *) endpoint
@@ -54,6 +64,20 @@ static NSString* const kHTTPRequestGet  = @"GET";
 }
 
 #pragma mark - Internal Methods
+
++ (void) makePostRequestToEndPoint:(NSURL *) endpoint
+                            values:(NSDictionary *) params
+                       accessToken:(NSString *) accessToken
+                      successBlock:(void (^)(id returnData)) successHandler
+                      errorHandler:(void (^)(NSError * error)) errorHandler
+{
+    [self makeRequestToEndPoint:endpoint
+                         method:kHTTPRequestPost
+                         values:params
+                    accessToken:accessToken
+                   successBlock:successHandler
+                   errorHandler:errorHandler];
+}
 
 + (void) makeRequestToEndPoint:(NSURL *) endpoint
                         method:(NSString *) method

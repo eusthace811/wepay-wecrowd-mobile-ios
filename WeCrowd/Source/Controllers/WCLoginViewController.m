@@ -27,47 +27,6 @@
 #pragma mark - IBOutlets
 
 - (IBAction) login:(id) sender {
-    // Make the login request to the server
-//    NSDictionary* loginInformation = @{ @"user_email"   : self.emailField.text,
-//                                        @"password"     : self.passwordField.text };
-    NSDictionary* loginInformation = @{ @"user_email"   : @"zachv+3@wepay.com",
-                                        @"password"     : @"password" };
-    
-    [WCClient makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
-                                 values:loginInformation
-                            accessToken:nil
-                           successBlock:^(NSDictionary *returnData) {
-                               // check the status of the return data
-                               if ([returnData objectForKey:@"error_code"]) {
-                                   // Alert the user of the error
-                                   UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:@"Unable to login"
-                                                                                        message:@"Unable to log you in. Please check your email and password before trying again."
-                                                                                       delegate:self
-                                                                              cancelButtonTitle:@"Close"
-                                                                              otherButtonTitles:nil];
-                                   [errorAlert show];
-                               } else {
-                                   // Disable the control and push the next view
-                                   ((UIControl *) sender).userInteractionEnabled = false;
-                                   
-                                   [self performSegueWithIdentifier:@"merchantLoginToFeedSegue" sender:self];
-                                   
-                                   #ifdef DEBUG
-                                   NSLog(@"Success: Login complete.");
-                                   #endif
-                               }
-                           }
-                           errorHandler:^(NSError *error) {
-                               // This means there was either a connection error or a parse error
-                               // In either case, just prompt the user to try again
-                               UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:@"Please try again"
-                                                                                    message:@"Unable to log you in. Please try again."
-                                                                                   delegate:self
-                                                                          cancelButtonTitle:@"Close"
-                                                                          otherButtonTitles:nil];
-                               [errorAlert show];
-                           }
-     ];
 }
 
 
