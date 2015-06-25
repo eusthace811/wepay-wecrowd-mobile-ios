@@ -38,8 +38,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     if (self = [super initWithCoder:aDecoder]) {
         WCUser *currentUser = [WCLoginManager currentUser];
         
-        self.campaigns = [NSMutableArray array];
-        
         [WCClient fetchAllCampaignsForUser:currentUser.userID
                                  withToken:currentUser.token
                            completionBlock:^(NSArray *campaigns, NSError *error) {
@@ -47,6 +45,10 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                    // TODO: alert the user that campaign fetching failed
                                } else {
                                    self.campaigns = campaigns;
+                                   
+                                   // Force a refresh of the table since we can't guarantee
+                                   // when the request will finish until this block
+                                   [self.tableView reloadData];
                                }
                            }];
     }

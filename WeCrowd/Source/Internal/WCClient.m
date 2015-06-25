@@ -7,7 +7,7 @@
 //
 
 #import "WCClient.h"
-
+#import "WCCampaignHeaderModel.h"
 
 // Requests
 static NSInteger const kTimeoutInterval = 5;
@@ -67,8 +67,33 @@ static NSString* const kHTTPRequestGet  = @"GET";
                              values:@{ @"user_id" : userID, @"token" : token }
                         accessToken:nil
                        successBlock:^(NSArray * returnData) {
+                           NSMutableArray *campaigns = [NSMutableArray arrayWithCapacity:[returnData count]];
+                           
+                           // Process the list of dictionaries
+                           for (int i = 0; i < [returnData count]; ++i) {
+                               WCCampaignHeaderModel *campaignModel;
+                               NSDictionary *campaign;
+                               NSString *campaignID, *campaignName;
+                               CGFloat campaignGoal;
+                               
+                               campaign = returnData[i];
+                               
+                               campaignID = [campaign objectForKey:@"campaign_id"];
+                               campaignName = [campaign objectForKey:@"campaign_name"];
+                               // campaignGoal = [campaign objectForKey:@"campaign_goal"];
+                               
+                               campaignModel = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
+                                                                                         title:campaignName endDate:nil
+                                                                                donationTarget:campaignGoal
+                                                                                donationAmount:0];
+                               
+                               campaigns[i] = campaignModel;
+                               
+                           }
+                           
+                           completionBlock(campaigns, nil);
+                           
                            NSLog(@"Success: fetched campaigns for user");
-                           completionBlock(returnData, nil);
                        }
                        errorHandler:^(NSError *error) {
                            NSLog(@"Error: failed to fetch user campaigns");

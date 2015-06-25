@@ -27,8 +27,10 @@ static WCUser *user = nil;
                        password:password
                 completionBlock:^(NSDictionary *userInfo, NSError *error) {
                     if (!error) {
-                        // Clear the old user
-                        user = nil;
+                        // Allocate memory if user instance has not been created
+                        if (!user) {
+                            user = [WCUser new];
+                        }
                         
                         [user setUserID:[userInfo objectForKey:@"user_id"]
                                   email:username
