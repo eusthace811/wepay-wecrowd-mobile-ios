@@ -9,6 +9,7 @@
 #import "WCModelProcessor.h"
 #import <UIKit/UIKit.h>
 #import "WCCampaignHeaderModel.h"
+#import "WCCampaignDetailModel.h"
 
 @implementation WCModelProcessor
 
@@ -35,6 +36,21 @@
     }
     
     return array;
+}
+
++ (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
+{
+    CGFloat donationAmount, donationTarget;
+    
+    // Nasty cast + conversion to get the float value
+    donationAmount = [((NSNumber *) [dictionary objectForKey:@"campaign_goal"]) floatValue];
+    donationTarget = [((NSNumber *) [dictionary objectForKey:@"campaign_progress"]) floatValue];
+    
+    return [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:@"campaign_id"]
+                                                      title:[dictionary objectForKey:@"campaign_name"]
+                                                    endDate:nil
+                                             donationTarget:donationAmount
+                                             donationAmount:donationTarget];
 }
 
 @end

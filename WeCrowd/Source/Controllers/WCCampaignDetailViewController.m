@@ -7,10 +7,15 @@
 //
 
 #import "WCCampaignDetailViewController.h"
+#import "WCCampaignFeedViewController.h"
+#import "WCCampaignDetailModel.h"
+#import "WCClient.h"
 
-@interface WCCampaignDetailViewController ()
+@interface WCCampaignDetailViewController () <CampaignDetailDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *campaignTitle;
+
+@property (strong, nonatomic, readwrite) WCCampaignDetailModel *campaignDetail;
 
 @end
 
@@ -24,6 +29,23 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - CampaignDetailDelegate
+
+- (void) campaignFeedViewController:(UIViewController *) viewController
+            didSelectCampaignWithID:(NSString *) campaignID
+{
+    [WCClient fetchCampaignWithID:campaignID
+                  completionBlock:^(WCCampaignDetailModel *campaign, NSError *error) {
+                      if (error) {
+                          // TODO: Handle campaign fetching error
+                      } else {
+                          self.campaignDetail = campaign;
+                          
+                          self.campaignTitle.text = self.campaignDetail.title;
+                      }
+                  }];
 }
 
 @end
