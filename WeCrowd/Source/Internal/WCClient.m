@@ -23,7 +23,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 + (void) loginWithUsername:(NSString *) username
                   password:(NSString *) password
-           completionBlock:(void (^)(NSDictionary *, NSError *)) completionBlock
+           completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/login"]
                              values:@ { @"user_email" : username, @"password" : password }
@@ -46,7 +46,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
      ];
 }
 
-+ (void) fetchAllCampaigns:(void (^)(NSArray *, NSError *)) completionBlock
++ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
 {
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:@"/campaigns"]
                             values:nil
@@ -61,7 +61,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 + (void) fetchAllCampaignsForUser:(NSString *) userID
                         withToken:(NSString *) token
-                  completionBlock:(void (^)(NSArray *, NSError *)) completionBlock
+                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/users"]
                              values:@{ @"user_id" : userID, @"token" : token }

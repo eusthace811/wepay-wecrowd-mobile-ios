@@ -12,12 +12,12 @@
 
 + (void) loginWithUsername:(NSString *) username
                   password:(NSString *) password
-           completionBlock:(void (^)(NSDictionary *, NSError *error)) completionBlock;
+           completionBlock:(void (^)(NSDictionary *userInfo, NSError *error)) completionBlock;
 
-+ (void) fetchAllCampaigns:(void (^)(NSArray *, NSError *)) completionBlock;
++ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
 
 + (void) fetchAllCampaignsForUser:(NSString *) userID
                         withToken:(NSString *) token
-                  completionBlock:(void (^)(NSArray *, NSError *)) completionBlock;
+                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
 
 @end
