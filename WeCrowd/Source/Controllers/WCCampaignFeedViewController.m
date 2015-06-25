@@ -25,7 +25,8 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @interface WCCampaignFeedViewController ()
 
-@property (nonatomic, strong) NSArray *campaigns;
+@property (nonatomic, strong, readwrite) NSArray *campaigns;
+@property (nonatomic, weak, readwrite) NSString *selectedCampaignID;
 
 @end
 
@@ -73,14 +74,12 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     return kCampaignFeedSectionCount;
 }
 
-- (NSInteger) tableView:(UITableView *) tableView
-  numberOfRowsInSection:(NSInteger) section
+- (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section
 {
     return [self.campaigns count];
 }
 
-- (UITableViewCell *) tableView:(UITableView *) tableView
-          cellForRowAtIndexPath:(NSIndexPath *) indexPath
+- (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCampaignCellReuseIdentifier
                                                             forIndexPath:indexPath];
@@ -92,8 +91,12 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 #pragma mark - UITableViewDelegate
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
+    WCCampaignHeaderModel *selectedCampaign = (WCCampaignHeaderModel *) [self.campaigns objectAtIndex:indexPath.row];
+    
+    self.selectedCampaignID = selectedCampaign.campaignID;
+    
     [self performSegueWithIdentifier:@"campaignFeedToCampaignDetailSegue" sender:self];
 }
 
@@ -118,6 +121,15 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
+}
+
+#pragma mark - Storyboard
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"campaignFeedToCampaignDetailSegue"]) {
+        
+    }
 }
 
 @end
