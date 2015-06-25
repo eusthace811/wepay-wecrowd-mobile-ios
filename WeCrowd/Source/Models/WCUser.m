@@ -12,8 +12,7 @@
 
 @property (strong, nonatomic, readwrite) NSString* userID;
 @property (strong, nonatomic, readwrite) NSString* email;
-@property (strong, nonatomic, readwrite) NSString* usernameCanonical;
-@property (strong, nonatomic, readwrite) NSString* password;
+@property (strong, nonatomic, readwrite) NSString* token;
 
 @end
 
@@ -26,17 +25,26 @@
 
 - (id) initWithUserID:(NSString *) userID
                 email:(NSString *) email
-    usernameCanonical:(NSString *) usernameCanonical
+                token:(NSString *) token
 {
     if (self = [super init]) {
         self.userID = userID;
         self.email = email;
-        self.usernameCanonical = usernameCanonical;
+        self.token = token;
     } else {
-        // unable to initialize objects
+        // do nothing
     }
     
     return self;
+}
+
+- (void) setUserID:(NSString *)userID
+             email:(NSString *)email
+             token:(NSString *)token
+{
+    self.userID = userID;
+    self.email = email;
+    self.token = token;
 }
 
 @end
