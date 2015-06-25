@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class WCCampaignFeedViewController;
+
+@protocol CampaignDetailDelegate <NSObject>
+
+- (void) campaignFeedViewController: (UIViewController *) viewController
+            didSelectCampaignWithID:(NSString *) campaignID;
+
+@end
+
 @interface WCCampaignFeedViewController : UITableViewController
+
+@property (weak, nonatomic, readwrite) id<CampaignDetailDelegate> delegate;
 
 @end

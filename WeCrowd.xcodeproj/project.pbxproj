@@ -24,6 +24,7 @@
 		C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */; };
 		C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */; };
 		C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */; };
+		C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCLoginManager.m; path = Source/Managers/WCLoginManager.m; sourceTree = "<group>"; };
 		C3DC8ED81B3C93800053D405 /* WCModelProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCModelProcessor.h; path = Source/Internal/WCModelProcessor.h; sourceTree = "<group>"; };
 		C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCModelProcessor.m; path = Source/Internal/WCModelProcessor.m; sourceTree = "<group>"; };
+		C3DC8EDB1B3CA0650053D405 /* WCCampaignDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignDetailViewController.h; path = Source/Controllers/WCCampaignDetailViewController.h; sourceTree = "<group>"; };
+		C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignDetailViewController.m; path = Source/Controllers/WCCampaignDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				C3060E0C1B2652D500A9F596 /* WCLoginViewController.m */,
 				C37283E91B38C9C400EE627C /* WCCampaignFeedViewController.h */,
 				C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */,
+				C3DC8EDB1B3CA0650053D405 /* WCCampaignDetailViewController.h */,
+				C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 			files = (
 				C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */,
 				C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */,
+				C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */,
 				C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */,
 				C39676561B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m in Sources */,
 				C3060E0D1B2652D500A9F596 /* WCLoginViewController.m in Sources */,
@@ -484,6 +490,9 @@
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = WeCrowd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -497,6 +506,9 @@
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = WeCrowd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

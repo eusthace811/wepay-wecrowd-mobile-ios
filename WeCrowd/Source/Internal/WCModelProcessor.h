@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class WCCampaignDetailModel;
+
 @interface WCModelProcessor : NSObject
 
 + (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns;
++ (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary;
 
 @end

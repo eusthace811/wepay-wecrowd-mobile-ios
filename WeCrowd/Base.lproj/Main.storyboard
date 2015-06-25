@@ -175,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="54" y="1440"/>
         </scene>
-        <!--Campaign Feed-->
+        <!--Campaigns-->
         <scene sceneID="xxs-ja-3GE">
             <objects>
                 <tableViewController id="tkk-YJ-SKn" customClass="WCCampaignFeedViewController" sceneMemberID="viewController">
@@ -245,12 +245,79 @@
                             <outlet property="delegate" destination="tkk-YJ-SKn" id="DNm-ko-uF5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Campaign Feed" id="QCa-y8-8n7"/>
+                    <navigationItem key="navigationItem" title="Campaigns" id="QCa-y8-8n7"/>
+                    <connections>
+                        <segue destination="YAU-Pu-HJg" kind="show" identifier="campaignFeedToCampaignDetailSegue" id="GVO-2V-2dA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-yv-FnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857" y="649"/>
         </scene>
+        <!--Campaign Title-->
+        <scene sceneID="YBY-K7-UZU">
+            <objects>
+                <viewController id="YAU-Pu-HJg" customClass="WCCampaignDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RIa-K6-i8G"/>
+                        <viewControllerLayoutGuide type="bottom" id="jdk-S0-2oS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xU8-e1-N3Z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="p0b-nd-NlA">
+                                <rect key="frame" x="24" y="72" width="552" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="tt6-8H-GXh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-zN-Kqv">
+                                <rect key="frame" x="252" y="168" width="96" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DonationProgress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3o-q2-7XQ">
+                                <rect key="frame" x="229" y="199" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.32944389025926246" green="0.80239898989898983" blue="0.38134143433148898" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-dh-KhA">
+                                <rect key="frame" x="217" y="236" width="167" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Donate/Accept">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="top" secondItem="qzu-zN-Kqv" secondAttribute="bottom" constant="8" id="0wC-o7-r8V"/>
+                            <constraint firstItem="qzu-zN-Kqv" firstAttribute="top" secondItem="p0b-nd-NlA" secondAttribute="bottom" constant="16" id="CQR-8t-Qak"/>
+                            <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="Gs7-rM-X1X"/>
+                            <constraint firstAttribute="centerX" secondItem="L3o-q2-7XQ" secondAttribute="centerX" id="PdG-RH-qw9"/>
+                            <constraint firstAttribute="centerX" secondItem="NdA-dh-KhA" secondAttribute="centerX" id="Pxb-Tg-0Ga"/>
+                            <constraint firstAttribute="centerX" secondItem="qzu-zN-Kqv" secondAttribute="centerX" id="dgc-n0-CUw"/>
+                            <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" constant="8" id="gig-77-YOH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p0b-nd-NlA" secondAttribute="trailing" constant="8" id="wtb-6W-BXh"/>
+                            <constraint firstItem="NdA-dh-KhA" firstAttribute="top" secondItem="L3o-q2-7XQ" secondAttribute="bottom" constant="16" id="xrY-Vc-YRG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Campaign Title" id="M3Z-JP-Zxp"/>
+                    <connections>
+                        <outlet property="campaignDescription" destination="qzu-zN-Kqv" id="Ny5-wP-uFw"/>
+                        <outlet property="campaignDonationProgress" destination="L3o-q2-7XQ" id="4OY-9h-lN0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHU-tn-aNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1604" y="649"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="300" height="55"/>
+    </resources>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>

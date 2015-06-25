@@ -78,6 +78,20 @@ static NSString* const kHTTPRequestGet  = @"GET";
                        }];
 }
 
++ (void) fetchCampaignWithID:(NSString *) campaignID
+             completionBlock:(void (^)(WCCampaignDetailModel *campaign, NSError *error)) completionBlock
+{
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/campaigns"]
+                             values:@{ @"campaign_id" : campaignID }
+                        accessToken:nil
+                       successBlock:^(id returnData) {
+                           completionBlock([WCModelProcessor createCampaignDetailFromDictionary:returnData], nil);
+                       }
+                       errorHandler:^(NSError *error) {
+                           completionBlock(nil, error);
+                       }];
+}
+
 #pragma mark - Endpoint Requests
 
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint

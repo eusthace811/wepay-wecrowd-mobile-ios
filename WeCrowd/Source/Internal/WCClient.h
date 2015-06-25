@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class WCCampaignDetailModel;
+
 @interface WCClient : NSObject
 
 + (void) loginWithUsername:(NSString *) username
@@ -19,5 +21,8 @@
 + (void) fetchAllCampaignsForUser:(NSString *) userID
                         withToken:(NSString *) token
                   completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
+
++ (void) fetchCampaignWithID:(NSString *) campaignID
+             completionBlock:(void (^)(WCCampaignDetailModel *campaign, NSError *error)) completionBlock;
 
 @end
