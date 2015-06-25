@@ -45,9 +45,6 @@
                                 <state key="normal" title="Browse all campaigns">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="tkk-YJ-SKn" kind="show" id="1WF-Wa-cR5"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
                                 <rect key="frame" x="214" y="374" width="173" height="35"/>
@@ -171,13 +168,14 @@
                     <connections>
                         <outlet property="emailField" destination="EjD-OD-ML4" id="ITB-jp-ebh"/>
                         <outlet property="passwordField" destination="tyb-ZU-jrP" id="THy-XZ-J3c"/>
+                        <segue destination="tkk-YJ-SKn" kind="show" identifier="merchantLoginToFeedSegue" id="iuM-Qj-g2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npx-mk-GDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54" y="1440"/>
         </scene>
-        <!--All Campaigns-->
+        <!--Campaign Feed-->
         <scene sceneID="xxs-ja-3GE">
             <objects>
                 <tableViewController id="tkk-YJ-SKn" customClass="WCCampaignFeedViewController" sceneMemberID="viewController">
@@ -247,7 +245,7 @@
                             <outlet property="delegate" destination="tkk-YJ-SKn" id="DNm-ko-uF5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Campaigns" id="QCa-y8-8n7"/>
+                    <navigationItem key="navigationItem" title="Campaign Feed" id="QCa-y8-8n7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-yv-FnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

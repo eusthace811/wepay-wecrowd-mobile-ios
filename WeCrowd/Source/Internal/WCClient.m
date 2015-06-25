@@ -7,23 +7,83 @@
 //
 
 #import "WCClient.h"
-
+#import "WCModelProcessor.h"
 
 // Requests
 static NSInteger const kTimeoutInterval = 5;
 static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
 static NSString* const kHTTPRequestPost = @"POST";
+static NSString* const kHTTPRequestGet  = @"GET";
 
 #pragma mark - Implementation
 
 @implementation WCClient
 
-#pragma mark External Methods
+#pragma mark - External Methods
+
++ (void) loginWithUsername:(NSString *) username
+                  password:(NSString *) password
+           completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
+{
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/login"]
+                             values:@ { @"user_email" : username, @"password" : password }
+                        accessToken:nil
+                       successBlock:^(NSDictionary *returnData) {
+                           // check the status of the return data
+                           if ([returnData objectForKey:@"error_code"]) {
+                               // TODO: create an actual error to hand off
+                               completionBlock(nil, nil);
+                           } else {
+                               // No error code, so hand off the data
+                               completionBlock(returnData, nil);
+                           }
+                       }
+                       errorHandler:^(NSError *error) {
+                           // This means there was either a connection error or a parse error
+                           // TODO: create an actual error to hand off
+                           completionBlock(nil, nil);
+                       }
+     ];
+}
+
++ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
+{
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:@"/campaigns"]
+                            values:nil
+                       accessToken:nil
+                      successBlock:^(NSArray *returnData) {
+                          completionBlock(returnData, nil);
+                      }
+                      errorHandler:^(NSError *error) {
+                          completionBlock(nil, error);
+                      }];
+}
+
++ (void) fetchAllCampaignsForUser:(NSString *) userID
+                        withToken:(NSString *) token
+                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
+{
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/users"]
+                             values:@{ @"user_id" : userID, @"token" : token }
+                        accessToken:nil
+                       successBlock:^(NSArray *returnData) {
+                           
+                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
+                           
+                           NSLog(@"Success: fetched campaigns for user");
+                       }
+                       errorHandler:^(NSError *error) {
+                           NSLog(@"Error: failed to fetch user campaigns");
+                           completionBlock(nil, error);
+                       }];
+}
+
+#pragma mark - Endpoint Requests
 
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint
                             values:(NSDictionary *) params
                        accessToken:(NSString *) accessToken
-                      successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                      successBlock:(void (^)(id returnData)) successHandler
                       errorHandler:(void (^)(NSError * error)) errorHandler
 {
     [self makeRequestToEndPoint:endpoint
@@ -34,17 +94,25 @@ static NSString* const kHTTPRequestPost = @"POST";
                    errorHandler:errorHandler];
 }
 
-+ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
-    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
++ (void) makeGetRequestToEndpoint:(NSURL *) endpoint
+                           values:(NSDictionary *) values
+                      accessToken:(NSString *) accessToken
+                     successBlock:(void (^)(id returnData)) successHandler
+                     errorHandler:(void (^)(NSError *)) errorHandler
+{
+    [self makeRequestToEndPoint:endpoint
+                         method:kHTTPRequestGet
+                         values:values
+                    accessToken:accessToken
+                   successBlock:successHandler
+                   errorHandler:errorHandler];
 }
-
-#pragma mark - Internal Methods
 
 + (void) makeRequestToEndPoint:(NSURL *) endpoint
                         method:(NSString *) method
                         values:(NSDictionary *) params
                    accessToken:(NSString *) accessToken
-                  successBlock:(void (^)(NSDictionary * returnData)) successHandler
+                  successBlock:(void (^)(id returnData)) successHandler
                   errorHandler:(void (^)(NSError * error)) errorHandler
 {
     [self createDefaultRequestWithURL:endpoint
@@ -75,6 +143,8 @@ static NSString* const kHTTPRequestPost = @"POST";
      ];
 }
 
+#pragma mark - Helpers
+
 + (void) createDefaultRequestWithURL:(NSURL *) URL
                               method:(NSString *) method
                             bodyData:(id) bodyData
@@ -97,9 +167,12 @@ static NSString* const kHTTPRequestPost = @"POST";
        forHTTPHeaderField:@"Authorization"];
     }
     
-    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:bodyData
-                                                         options:kNilOptions
-                                                           error:&parseError]];
+    // Set the body data if there is any
+    if (bodyData) {
+        [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:bodyData
+                                                             options:kNilOptions
+                                                               error:&parseError]];
+    }
     
     if (parseError) {
         completion(nil, parseError);
@@ -108,14 +181,20 @@ static NSString* const kHTTPRequestPost = @"POST";
     }
 }
 
++ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint {
+    return [NSURL URLWithString:[kAPIURLString stringByAppendingString:endpoint]];
+}
+
+#pragma mark - Data Processing
+
 + (void) processResponse:(NSURLResponse *) response
                     data:(NSData *) data
                    error:(NSError *) error
-            successBlock:(void (^)(NSDictionary* returnData)) successHandler
+            successBlock:(void (^)(id returnData)) successHandler
             errorHandler:(void (^)(NSError* error)) errorHandler
 {
-    // Build a dictionary from the raw data
-    NSDictionary* extractedData = nil;
+    // Build a structure from the raw data
+    id extractedData = nil;
     
     if ([data length] >= 1) {
         extractedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];

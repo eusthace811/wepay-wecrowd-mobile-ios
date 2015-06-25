@@ -10,14 +10,18 @@
 #import <UIKit/UIKit.h>
 #import "WCCampaignBaseModel.h"
 
+
 #pragma mark - Interface
 
-@interface WCCampaignHeaderModel : NSObject
+@interface WCCampaignHeaderModel : WCCampaignBaseModel
 
-@property (strong, nonatomic, readonly) WCCampaignBaseModel* baseModel;
-@property (strong, nonatomic, readonly) UIImage* thumbnailImage;
+@property (strong, nonatomic, readonly) UIImage * thumbnailImage;
 
-- (id) initWithCampaignBaseModel:(WCCampaignBaseModel *) campaignBaseModel
-                  thumbnailImage:(UIImage *) thumbnailImage;
+- (id) initWithCampaign:(NSString *) campaign
+                  title:(NSString *) title
+                endDate:(NSDate *) endDate
+         donationTarget:(CGFloat) donationTarget
+         donationAmount:(CGFloat) donationAmount
+         thumbnailImage:(UIImage *) thumbnailImage;
 
 @end

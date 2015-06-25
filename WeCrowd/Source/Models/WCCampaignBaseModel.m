@@ -14,9 +14,9 @@
 @interface WCCampaignBaseModel ()
 
 // declare properties as read/write internally
-@property (strong, nonatomic, readwrite) NSString* campaignID;
-@property (strong, nonatomic, readwrite) NSString* title;
-@property (strong, nonatomic, readwrite) NSDate* dateEnd;
+@property (strong, nonatomic, readwrite) NSString * campaignID;
+@property (strong, nonatomic, readwrite) NSString * title;
+@property (strong, nonatomic, readwrite) NSDate * dateEnd;
 
 @property (nonatomic, readwrite) CGFloat donationTargetAmount;
 @property (nonatomic, readwrite) CGFloat donationAmount;

@@ -8,13 +8,11 @@
 
 #import "WCCampaignHeaderModel.h"
 
-
 #pragma mark - Interface
 
 @interface WCCampaignHeaderModel ()
 
-@property (strong, nonatomic, readwrite) WCCampaignBaseModel* baseModel;
-@property (strong, nonatomic, readwrite) UIImage* thumbnailImage;
+@property (strong, nonatomic, readwrite) UIImage * thumbnailImage;
 
 @end
 
@@ -25,14 +23,21 @@
 
 #pragma mark - Initialization
 
-- (id) initWithCampaignBaseModel:(WCCampaignBaseModel *)campaignBaseModel
-                  thumbnailImage:(UIImage *)thumbnailImage
+- (id) initWithCampaign:(NSString *) campaign
+                  title:(NSString *) title
+                endDate:(NSDate *) endDate
+         donationTarget:(CGFloat) donationTarget
+         donationAmount:(CGFloat) donationAmount
+         thumbnailImage:(UIImage *) thumbnailImage
 {
-    if (self = [super init]) {
-        self.baseModel = campaignBaseModel;
+    if (self = [super initWithCampaign:campaign
+                                 title:title endDate:endDate
+                        donationTarget:donationTarget
+                        donationAmount:donationAmount])
+    {
         self.thumbnailImage = thumbnailImage;
     } else {
-        // unable to initialize objects
+        // do nothing
     }
     
     return self;

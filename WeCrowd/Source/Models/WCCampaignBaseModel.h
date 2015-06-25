@@ -14,9 +14,9 @@
 
 @interface WCCampaignBaseModel : NSObject
 
-@property (strong, nonatomic, readonly) NSString* campaignID;
-@property (strong, nonatomic, readonly) NSString* title;
-@property (strong, nonatomic, readonly) NSDate* dateEnd;
+@property (strong, nonatomic, readonly) NSString * campaignID;
+@property (strong, nonatomic, readonly) NSString * title;
+@property (strong, nonatomic, readonly) NSDate * dateEnd;
 
 @property (nonatomic, readonly) CGFloat donationTargetAmount;
 @property (nonatomic, readonly) CGFloat donationAmount;

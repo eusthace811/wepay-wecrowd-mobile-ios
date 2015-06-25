@@ -8,6 +8,8 @@
 
 #import "WCCampaignFeedViewController.h"
 #import "WCCampaignHeaderModel.h"
+#import "WCLoginManager.h"
+#import "WCClient.h"
 
 // UITableViewDataSource
 static NSInteger const kCampaignFeedSectionCount = 1;
@@ -23,31 +25,41 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @interface WCCampaignFeedViewController ()
 
-@property (nonatomic, strong) NSMutableArray* campaigns;
+@property (nonatomic, strong) NSArray *campaigns;
 
 @end
 
 @implementation WCCampaignFeedViewController
 
+#pragma mark - UITableViewController
+
+- (id) initWithCoder:(NSCoder *) aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        WCUser *currentUser = [WCLoginManager currentUser];
+        
+        [WCClient fetchAllCampaignsForUser:currentUser.userID
+                                 withToken:currentUser.token
+                           completionBlock:^(NSArray *campaigns, NSError *error) {
+                               if (error) {
+                                   // TODO: alert the user that campaign fetching failed
+                               } else {
+                                   self.campaigns = campaigns;
+                                   
+                                   // Force a refresh of the table since we can't guarantee
+                                   // when the request will finish until this block
+                                   [self.tableView reloadData];
+                               }
+                           }];
+    }
+    
+    return self;
+}
+
 #pragma mark - UIViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-    WCCampaignBaseModel* testBaseModel;
-    WCCampaignHeaderModel* testheaderModel;
-    
-    // TODO: use donation target and amount from server
-    testBaseModel = [[WCCampaignBaseModel alloc] initWithCampaign:@"ID"
-                                                            title:@"Title Test"
-                                                          endDate:nil
-                                                   donationTarget:100
-                                                   donationAmount:10];
-    // TODO: use thumbnail image from server
-    testheaderModel = [[WCCampaignHeaderModel alloc] initWithCampaignBaseModel:testBaseModel
-                                                                thumbnailImage:[UIImage imageNamed:@"Logo"]];
-    self.campaigns = [NSMutableArray array];
-    [self.campaigns addObject:testheaderModel];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -57,12 +69,12 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
     return kCampaignFeedSectionCount;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView
-  numberOfRowsInSection:(NSInteger)section
+- (NSInteger) tableView:(UITableView *) tableView
+  numberOfRowsInSection:(NSInteger) section
 {
     return [self.campaigns count];
 }
@@ -79,37 +91,27 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark - Configuration Methods
+#pragma mark - Internal Helpers
 
 - (void) configureCell:(UITableViewCell *) cell
              withModel:(WCCampaignHeaderModel *) model
 {
     NSDateFormatter* standardDateFormat = [NSDateFormatter new];
     NSString* timeRemaining, *pledgeProgress;
+    CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
     
     // format the view information
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
     // TODO: use end date from server
     timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
-    pledgeProgress = [NSString stringWithFormat:@"%.f", model.baseModel.donationTargetAmount / model.baseModel.donationAmount];
+    pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
     pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
     
     // configure the display information within the view
-    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.baseModel.title;
+    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.title;
     ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
     ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
 }
-    
 
 @end

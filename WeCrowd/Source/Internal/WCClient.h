@@ -10,12 +10,14 @@
 
 @interface WCClient : NSObject
 
-+ (void) makePostRequestToEndPoint:(NSURL *) endpoint
-                            values:(NSDictionary *) params
-                       accessToken:(NSString *) accessToken
-                      successBlock:(void (^)(NSDictionary * returnData)) successHandler
-                      errorHandler:(void (^)(NSError * error)) errorHandler;
++ (void) loginWithUsername:(NSString *) username
+                  password:(NSString *) password
+           completionBlock:(void (^)(NSDictionary *userInfo, NSError *error)) completionBlock;
 
-+ (NSURL *) apiURLWithEndpoint:(NSString *) endpoint;
++ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
+
++ (void) fetchAllCampaignsForUser:(NSString *) userID
+                        withToken:(NSString *) token
+                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
 
 @end

@@ -14,11 +14,14 @@
 
 @property (strong, nonatomic, readonly) NSString* userID;
 @property (strong, nonatomic, readonly) NSString* email;
-@property (strong, nonatomic, readonly) NSString* usernameCanonical;
-@property (strong, nonatomic, readonly) NSString* password;
+@property (strong, nonatomic, readonly) NSString* token;
 
 - (id) initWithUserID:(NSString *) userID
                 email:(NSString *) email
-    usernameCanonical:(NSString *) usernameCanonical;
+                token:(NSString *) token;
+
+- (void) setUserID:(NSString *)userID
+             email:(NSString *)email
+             token:(NSString *)token;
 
 @end

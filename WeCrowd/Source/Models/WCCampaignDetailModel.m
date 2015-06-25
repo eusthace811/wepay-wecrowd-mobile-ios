@@ -13,7 +13,6 @@
 
 @interface WCCampaignDetailModel ()
 
-@property (strong, nonatomic, readwrite) WCCampaignBaseModel* baseModel;
 @property (strong, nonatomic, readwrite) UIImage* detailImage;
 @property (strong, nonatomic, readwrite) NSString* detailDescription;
 @property (strong, nonatomic, readwrite) NSString* location;
@@ -27,18 +26,26 @@
 
 #pragma mark - Initialization
 
-- (id) initWithCampaignBaseModel:(WCCampaignBaseModel *) baseModel
-                     detailImage:(UIImage *) detailImage
-               detailDescription:(NSString *) detailDescription
-                        location:(NSString *) location
+- (id) initWithCampaign:(NSString *) campaign
+                  title:(NSString *) title
+                endDate:(NSDate *) endDate
+         donationTarget:(CGFloat) donationTarget
+         donationAmount:(CGFloat) donationAmount
+            detailImage:(UIImage *) detailImage
+      detailDescription:(NSString *) detailDescription
+               location:(NSString *) location
 {
-    if (self = [super init]) {
-        self.baseModel = baseModel;
+    if (self = [super initWithCampaign:campaign
+                                 title:title
+                               endDate:endDate
+                        donationTarget:donationTarget
+                        donationAmount:donationAmount])
+    {
         self.detailImage = detailImage;
         self.detailDescription = detailDescription;
         self.location = location;
     } else {
-        // unable to initialize objects
+        // do nothing
     }
     
     return self;
