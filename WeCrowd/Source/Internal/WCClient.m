@@ -71,7 +71,6 @@ static NSString* const kHTTPRequestGet  = @"GET";
                            
                            // Process the list of dictionaries
                            for (int i = 0; i < [returnData count]; ++i) {
-                               WCCampaignHeaderModel *campaignModel;
                                NSDictionary *campaign;
                                NSString *campaignID, *campaignName;
                                CGFloat campaignGoal;
@@ -82,13 +81,10 @@ static NSString* const kHTTPRequestGet  = @"GET";
                                campaignName = [campaign objectForKey:@"campaign_name"];
                                campaignGoal = [((NSNumber *) [campaign objectForKey:@"campaign_goal"]) floatValue];
                                
-                               campaignModel = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
-                                                                                         title:campaignName endDate:nil
-                                                                                donationTarget:campaignGoal
-                                                                                donationAmount:0];
-                               
-                               campaigns[i] = campaignModel;
-                               
+                               campaigns[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
+                                                                                        title:campaignName endDate:nil
+                                                                               donationTarget:campaignGoal
+                                                                               donationAmount:0];
                            }
                            
                            completionBlock(campaigns, nil);
