@@ -273,8 +273,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-nM-DaV">
-                                <rect key="frame" x="275" y="184" width="51" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <rect key="frame" x="273" y="184" width="55" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-zN-Kqv">
+                                <rect key="frame" x="256" y="240" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -282,9 +288,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="Gs7-rM-X1X"/>
+                            <constraint firstAttribute="centerX" secondItem="qzu-zN-Kqv" secondAttribute="centerX" id="dgc-n0-CUw"/>
                             <constraint firstAttribute="centerX" secondItem="eyv-nM-DaV" secondAttribute="centerX" id="eem-24-ect"/>
                             <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" constant="8" id="gig-77-YOH"/>
                             <constraint firstItem="eyv-nM-DaV" firstAttribute="top" secondItem="p0b-nd-NlA" secondAttribute="bottom" constant="32" id="gpK-Jj-8aQ"/>
+                            <constraint firstItem="qzu-zN-Kqv" firstAttribute="top" secondItem="eyv-nM-DaV" secondAttribute="bottom" constant="22" id="m5r-0Y-lMi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p0b-nd-NlA" secondAttribute="trailing" constant="8" id="wtb-6W-BXh"/>
                         </constraints>
                     </view>
