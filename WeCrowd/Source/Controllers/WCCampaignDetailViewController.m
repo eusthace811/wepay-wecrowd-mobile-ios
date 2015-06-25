@@ -13,7 +13,7 @@
 
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *campaignTitle;
+@property (weak, nonatomic) IBOutlet UILabel *campaignDescription;
 
 @property (strong, nonatomic, readwrite) WCCampaignDetailModel *campaignDetail;
 
@@ -43,7 +43,9 @@
                       } else {
                           self.campaignDetail = campaign;
                           
-                          self.campaignTitle.text = self.campaignDetail.title;
+                          // Configure the UI
+                          self.navigationItem.title = self.campaignDetail.title;
+                          self.campaignDescription.text = self.campaignDetail.detailDescription;
                       }
                   }];
 }

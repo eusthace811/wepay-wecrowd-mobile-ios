@@ -50,7 +50,10 @@
                                                       title:[dictionary objectForKey:@"campaign_name"]
                                                     endDate:nil
                                              donationTarget:donationAmount
-                                             donationAmount:donationTarget];
+                                             donationAmount:donationTarget
+                                                detailImage:nil
+                                          detailDescription:[dictionary objectForKey:@"campaign_description"]
+                                                   location:nil];
 }
 
 @end
