@@ -7,7 +7,7 @@
 //
 
 #import "WCLoginViewController.h"
-#import "WCClient.h"
+#import "WCLoginManager.h"
 
 
 #pragma mark - Interface
@@ -36,25 +36,26 @@
     username = self.emailField.text;
     password = self.passwordField.text;
     #endif
-    
-    [WCClient loginWithUsername:username
-                       password:password
-                completionBlock:^(NSDictionary *userInfo, NSError *error) {
-                    if (error) {
-                        // Notify the user of the error
-                        [[[UIAlertView alloc] initWithTitle:@"Please try again"
-                                                   message:@"Unable to log you in. Please check your\
-                                                            information and try again."
-                                                  delegate:self
-                                         cancelButtonTitle:@"Close"
-                                         otherButtonTitles:nil] show];
-                    } else {
-                        // Disable the control and push the next view
-                        ((UIControl *) sender).userInteractionEnabled = false;
-                        
-                        [self performSegueWithIdentifier:@"merchantLoginToFeedSegue" sender:self];
-                    }
-                }];
+
+    [WCLoginManager loginUserWithUsername:username
+                                 password:password
+                          completionBlock:^(NSError *error)
+    {
+        if (error) {
+            // Notify the user of the error
+            [[[UIAlertView alloc] initWithTitle:@"Please try again"
+                                        message:@"Unable to log you in. Please check your\
+              information and try again."
+                                       delegate:self
+                              cancelButtonTitle:@"Close"
+                              otherButtonTitles:nil] show];
+        } else {
+            // Disable the control and push the next view
+            ((UIControl *) sender).userInteractionEnabled = false;
+            
+            [self performSegueWithIdentifier:@"merchantLoginToFeedSegue" sender:self];
+        }
+    }];
 }
 
 
