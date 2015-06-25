@@ -123,12 +123,13 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
 }
 
-#pragma mark - Storyboard
+#pragma mark - Navigation
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"campaignFeedToCampaignDetailSegue"]) {
-        
+        [self.delegate campaignFeedViewController:self
+                          didSelectCampaignWithID:self.selectedCampaignID];
     }
 }
 

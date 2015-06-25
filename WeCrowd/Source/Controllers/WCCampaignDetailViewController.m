@@ -10,6 +10,8 @@
 
 @interface WCCampaignDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *campaignTitle;
+
 @end
 
 @implementation WCCampaignDetailViewController
