@@ -1,22 +1,43 @@
 //
-//  WCLoginManager.h
+//  WCLoginManager.m
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/25/15.
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WCLoginManager.h"
+#import "WCClient.h"
+#import "WCUser.h"
 
-@class WCUser;
+@interface WCLoginManager ()
 
-@interface WCLoginManager : NSObject
+@end
 
-// Static declaration of the logged-in user
-+ (WCUser *) currentUser;
+@implementation WCLoginManager
+
+// Static logged-in user member
+static WCUser *user = nil;
++ (WCUser *) currentUser { return user; }
 
 + (void) loginUserWithUsername:(NSString *) username
                       password:(NSString *) password
-               completionBlock:(void (^)(NSError *error)) completionBlock;
+               completionBlock:(void (^)(NSError *)) completionBlock
+{
+    [WCClient loginWithUsername:username
+                       password:password
+                completionBlock:^(NSDictionary *userInfo, NSError *error) {
+                    if (!error) {
+                        // Clear the old user
+                        user = nil;
+                        
+                        [user setUserID:[userInfo objectForKey:@"user_id"]
+                                  email:username
+                                  token:[userInfo objectForKey:@"token"]];
+                    }
+                    
+                    completionBlock (error);
+                }];
+}
 
 @end
