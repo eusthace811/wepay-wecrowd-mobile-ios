@@ -23,6 +23,7 @@
 		C39676621B2A5B430071CEB5 /* WCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676611B2A5B430071CEB5 /* WCUser.m */; };
 		C39676651B2A5FA10071CEB5 /* WCMerchant.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676641B2A5FA10071CEB5 /* WCMerchant.m */; };
 		C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */; };
+		C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		C39676641B2A5FA10071CEB5 /* WCMerchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCMerchant.m; path = Source/Models/WCMerchant.m; sourceTree = "<group>"; };
 		C39C9B4D1B34B8E900C5E9A7 /* WCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCClient.h; path = Source/Internal/WCClient.h; sourceTree = "<group>"; };
 		C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCClient.m; path = Source/Internal/WCClient.m; sourceTree = "<group>"; };
+		C3DC8ED51B3C6B5C0053D405 /* WCLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCLoginManager.h; path = Source/Managers/WCLoginManager.h; sourceTree = "<group>"; };
+		C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCLoginManager.m; path = Source/Managers/WCLoginManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 		C3060E2A1B29FF0F00A9F596 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C3DC8ED41B3C6B280053D405 /* Managers */,
 				C39C9B4C1B34B86900C5E9A7 /* Internal */,
 				C3060E2E1B29FF8100A9F596 /* AppDelegate */,
 				C3060E2C1B29FF6500A9F596 /* Controllers */,
@@ -226,6 +230,15 @@
 				C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */,
 			);
 			name = Internal;
+			sourceTree = "<group>";
+		};
+		C3DC8ED41B3C6B280053D405 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C3DC8ED51B3C6B5C0053D405 /* WCLoginManager.h */,
+				C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +350,7 @@
 				C3060E0A1B2652D500A9F596 /* AppDelegate.m in Sources */,
 				C396765F1B2A5AD30071CEB5 /* WCCampaignDonation.m in Sources */,
 				C3060E341B2A017200A9F596 /* WCCampaignBaseModel.m in Sources */,
+				C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */,
 				C39676621B2A5B430071CEB5 /* WCUser.m in Sources */,
 				C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */,
 				C3060E071B2652D500A9F596 /* main.m in Sources */,
