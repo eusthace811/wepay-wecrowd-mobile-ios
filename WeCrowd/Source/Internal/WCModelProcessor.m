@@ -29,9 +29,9 @@
         campaignGoal = [((NSNumber *) [campaign objectForKey:@"campaign_goal"]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
-                                                                 title:campaignName endDate:nil
-                                                        donationTarget:campaignGoal
-                                                        donationAmount:0];
+                                                             title:campaignName endDate:nil
+                                                    donationTarget:campaignGoal
+                                                    donationAmount:0];
     }
     
     return array;
