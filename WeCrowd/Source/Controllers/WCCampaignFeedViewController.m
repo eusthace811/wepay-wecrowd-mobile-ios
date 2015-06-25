@@ -98,12 +98,13 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 {
     NSDateFormatter* standardDateFormat = [NSDateFormatter new];
     NSString* timeRemaining, *pledgeProgress;
+    CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
     
     // format the view information
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
     // TODO: use end date from server
     timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
-    pledgeProgress = [NSString stringWithFormat:@"%.f", model.donationTargetAmount / model.donationAmount];
+    pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
     pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
     
     // configure the display information within the view

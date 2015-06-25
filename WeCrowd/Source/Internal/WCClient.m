@@ -80,7 +80,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
                                
                                campaignID = [campaign objectForKey:@"campaign_id"];
                                campaignName = [campaign objectForKey:@"campaign_name"];
-                               // campaignGoal = [campaign objectForKey:@"campaign_goal"];
+                               campaignGoal = [((NSNumber *) [campaign objectForKey:@"campaign_goal"]) floatValue];
                                
                                campaignModel = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
                                                                                          title:campaignName endDate:nil
