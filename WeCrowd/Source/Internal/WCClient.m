@@ -7,7 +7,7 @@
 //
 
 #import "WCClient.h"
-#import "WCCampaignHeaderModel.h"
+#import "WCModelProcessor.h"
 
 // Requests
 static NSInteger const kTimeoutInterval = 5;
@@ -66,28 +66,9 @@ static NSString* const kHTTPRequestGet  = @"GET";
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/users"]
                              values:@{ @"user_id" : userID, @"token" : token }
                         accessToken:nil
-                       successBlock:^(NSArray * returnData) {
-                           NSMutableArray *campaigns = [NSMutableArray arrayWithCapacity:[returnData count]];
+                       successBlock:^(NSArray *returnData) {
                            
-                           // Process the list of dictionaries
-                           for (int i = 0; i < [returnData count]; ++i) {
-                               NSDictionary *campaign;
-                               NSString *campaignID, *campaignName;
-                               CGFloat campaignGoal;
-                               
-                               campaign = returnData[i];
-                               
-                               campaignID = [campaign objectForKey:@"campaign_id"];
-                               campaignName = [campaign objectForKey:@"campaign_name"];
-                               campaignGoal = [((NSNumber *) [campaign objectForKey:@"campaign_goal"]) floatValue];
-                               
-                               campaigns[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
-                                                                                        title:campaignName endDate:nil
-                                                                               donationTarget:campaignGoal
-                                                                               donationAmount:0];
-                           }
-                           
-                           completionBlock(campaigns, nil);
+                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
                            
                            NSLog(@"Success: fetched campaigns for user");
                        }
