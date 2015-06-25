@@ -14,6 +14,7 @@
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *campaignDescription;
+@property (weak, nonatomic) IBOutlet UILabel *campaignDonationProgress;
 
 @property (strong, nonatomic, readwrite) WCCampaignDetailModel *campaignDetail;
 
@@ -41,11 +42,18 @@
                       if (error) {
                           // TODO: Handle campaign fetching error
                       } else {
+                          CGFloat donationProgress;
+                          
                           self.campaignDetail = campaign;
+                          
+                          donationProgress = self.campaignDetail.donationTargetAmount == 0 ? 0 : self.campaignDetail.donationAmount / self.campaignDetail.donationTargetAmount;
+                          donationProgress *= 100;
                           
                           // Configure the UI
                           self.navigationItem.title = self.campaignDetail.title;
                           self.campaignDescription.text = self.campaignDetail.detailDescription;
+                          self.campaignDonationProgress.text = [NSString stringWithFormat:@"%.f", donationProgress];
+                          self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"%"];
                       }
                   }];
 }
