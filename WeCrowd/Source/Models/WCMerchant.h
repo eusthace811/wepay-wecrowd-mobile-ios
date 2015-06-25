@@ -18,7 +18,7 @@
 
 - (id) initWithUserID:(NSString *) userID
                 email:(NSString *) email
-    usernameCanonical:(NSString *) usernameCanonical
+                token:(NSString *) token
             campaigns:(NSArray *) campaigns;
 
 @end

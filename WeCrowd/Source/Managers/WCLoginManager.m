@@ -1,13 +1,22 @@
 //
-//  WCLoginManager.m
+//  WCLoginManager.h
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/25/15.
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import "WCLoginManager.h"
+#import <Foundation/Foundation.h>
 
-@implementation WCLoginManager
+@class WCUser;
+
+@interface WCLoginManager : NSObject
+
+// Static declaration of the logged-in user
++ (WCUser *) currentUser;
+
++ (void) loginUserWithUsername:(NSString *) username
+                      password:(NSString *) password
+               completionBlock:(void (^)(NSError *error)) completionBlock;
 
 @end

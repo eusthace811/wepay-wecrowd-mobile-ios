@@ -25,12 +25,12 @@
 
 - (id) initWithUserID:(NSString *) userID
                 email:(NSString *) email
-    usernameCanonical:(NSString *) usernameCanonical
+                token:(NSString *) token
             campaigns:(NSArray *) campaigns
 {
     if (self = [super initWithUserID:userID
                                email:email
-                   usernameCanonical:usernameCanonical])
+                               token:token])
     {
         self.campaigns = campaigns;
     } else {
