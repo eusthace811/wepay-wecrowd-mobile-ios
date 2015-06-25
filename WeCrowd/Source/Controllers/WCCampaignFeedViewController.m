@@ -87,8 +87,14 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     
     [self configureCell:cell withModel:[self.campaigns objectAtIndex:indexPath.row]];
     
-    
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"campaignFeedToCampaignDetailSegue" sender:self];
 }
 
 #pragma mark - Internal Helpers

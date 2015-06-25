@@ -247,7 +247,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Campaign Feed" id="QCa-y8-8n7"/>
                     <connections>
-                        <segue destination="YAU-Pu-HJg" kind="show" id="GVO-2V-2dA"/>
+                        <segue destination="YAU-Pu-HJg" kind="show" identifier="campaignFeedToCampaignDetailSegue" id="GVO-2V-2dA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-yv-FnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
