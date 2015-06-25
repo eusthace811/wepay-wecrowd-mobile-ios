@@ -191,7 +191,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
             successBlock:(void (^)(id returnData)) successHandler
             errorHandler:(void (^)(NSError* error)) errorHandler
 {
-    // Build a dictionary from the raw data
+    // Build a structure from the raw data
     id extractedData = nil;
     
     if ([data length] >= 1) {
