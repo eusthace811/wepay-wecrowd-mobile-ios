@@ -8,7 +8,6 @@
 
 #import "WCLoginManager.h"
 #import "WCClient.h"
-#import "WCUser.h"
 
 @interface WCLoginManager ()
 

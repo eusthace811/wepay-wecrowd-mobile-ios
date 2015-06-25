@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class WCUser;
+#import "WCUser.h"
 
 @interface WCLoginManager : NSObject
 

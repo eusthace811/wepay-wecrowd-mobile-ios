@@ -8,6 +8,7 @@
 
 #import "WCCampaignFeedViewController.h"
 #import "WCCampaignHeaderModel.h"
+#import "WCLoginManager.h"
 #import "WCClient.h"
 
 // UITableViewDataSource
@@ -24,7 +25,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @interface WCCampaignFeedViewController ()
 
-@property (nonatomic, strong) NSMutableArray *campaigns;
+@property (nonatomic, strong) NSArray *campaigns;
 
 @end
 
@@ -35,7 +36,19 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 - (id) initWithCoder:(NSCoder *) aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
+        WCUser *currentUser = [WCLoginManager currentUser];
+        
         self.campaigns = [NSMutableArray array];
+        
+        [WCClient fetchAllCampaignsForUser:currentUser.userID
+                                 withToken:currentUser.token
+                           completionBlock:^(NSArray *campaigns, NSError *error) {
+                               if (error) {
+                                   // TODO: alert the user that campaign fetching failed
+                               } else {
+                                   self.campaigns = campaigns;
+                               }
+                           }];
     }
     
     return self;
@@ -75,16 +88,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     
     return cell;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Internal Helpers
 
