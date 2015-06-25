@@ -290,6 +290,9 @@
                                 <state key="normal" title="Donate/Accept">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hid-Zc-qKc" kind="show" id="ss1-Jx-AgN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,6 +317,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHU-tn-aNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1604" y="649"/>
+        </scene>
+        <!--Payment Option-->
+        <scene sceneID="pT9-28-5sj">
+            <objects>
+                <viewController id="hid-Zc-qKc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mlk-o1-9wk"/>
+                        <viewControllerLayoutGuide type="bottom" id="v2a-zG-kEe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MQn-FP-y4z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYn-bT-0pI">
+                                <rect key="frame" x="260" y="251" width="80" height="30"/>
+                                <state key="normal" title="Swipe Card">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfL-6I-S3c">
+                                <rect key="frame" x="260" y="285" width="90" height="30"/>
+                                <state key="normal" title="Manual Entry">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="xYn-bT-0pI" secondAttribute="centerX" id="2Cd-Wo-pXQ"/>
+                            <constraint firstItem="AfL-6I-S3c" firstAttribute="top" secondItem="xYn-bT-0pI" secondAttribute="bottom" constant="4" id="FkE-9b-DqB"/>
+                            <constraint firstAttribute="centerX" secondItem="AfL-6I-S3c" secondAttribute="centerX" constant="-5" id="iwa-ji-mIH"/>
+                            <constraint firstAttribute="centerY" secondItem="xYn-bT-0pI" secondAttribute="centerY" constant="34" id="vgc-b7-ijA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Payment Option" id="syt-RY-n0o"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ne6-3C-MSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2325" y="649"/>
         </scene>
     </scenes>
     <resources>
