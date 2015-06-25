@@ -275,7 +275,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-zN-Kqv">
                                 <rect key="frame" x="252" y="168" width="96" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DonationProgress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3o-q2-7XQ">
@@ -330,14 +330,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a payment option" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAd-Zh-BC5">
+                                <rect key="frame" x="180" y="96" width="241" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYn-bT-0pI">
-                                <rect key="frame" x="260" y="251" width="80" height="30"/>
+                                <rect key="frame" x="246" y="134" width="108" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Swipe Card">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfL-6I-S3c">
-                                <rect key="frame" x="260" y="285" width="90" height="30"/>
+                                <rect key="frame" x="240" y="180" width="121" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Manual Entry">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -346,10 +354,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="xYn-bT-0pI" secondAttribute="centerX" id="2Cd-Wo-pXQ"/>
-                            <constraint firstItem="AfL-6I-S3c" firstAttribute="top" secondItem="xYn-bT-0pI" secondAttribute="bottom" constant="4" id="FkE-9b-DqB"/>
-                            <constraint firstAttribute="centerX" secondItem="AfL-6I-S3c" secondAttribute="centerX" constant="-5" id="iwa-ji-mIH"/>
-                            <constraint firstAttribute="centerY" secondItem="xYn-bT-0pI" secondAttribute="centerY" constant="34" id="vgc-b7-ijA"/>
+                            <constraint firstItem="vAd-Zh-BC5" firstAttribute="top" secondItem="Mlk-o1-9wk" secondAttribute="bottom" constant="32" id="BdT-O2-tJi"/>
+                            <constraint firstItem="AfL-6I-S3c" firstAttribute="top" secondItem="xYn-bT-0pI" secondAttribute="bottom" constant="8" id="FkE-9b-DqB"/>
+                            <constraint firstItem="xYn-bT-0pI" firstAttribute="top" secondItem="vAd-Zh-BC5" secondAttribute="bottom" constant="17" id="fv5-If-UZM"/>
+                            <constraint firstAttribute="centerX" secondItem="AfL-6I-S3c" secondAttribute="centerX" id="iwa-ji-mIH"/>
+                            <constraint firstAttribute="centerX" secondItem="vAd-Zh-BC5" secondAttribute="centerX" id="udU-A6-ew3"/>
+                            <constraint firstAttribute="centerY" secondItem="xYn-bT-0pI" secondAttribute="centerY" constant="47" id="vgc-b7-ijA"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vgc-b7-ijA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Payment Option" id="syt-RY-n0o"/>
                 </viewController>
