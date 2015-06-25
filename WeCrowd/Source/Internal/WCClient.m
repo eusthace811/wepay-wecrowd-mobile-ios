@@ -25,7 +25,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
                   password:(NSString *) password
            completionBlock:(void (^)(NSError *)) completionBlock
 {
-    [self makePostRequestToEndPoint:[WCClient apiURLWithEndpoint:@"/login"]
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/login"]
                              values:@ { @"user_email" : username, @"password" : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
@@ -43,6 +43,19 @@ static NSString* const kHTTPRequestGet  = @"GET";
                            completionBlock(nil);
                        }
      ];
+}
+
++ (void) fetchAllCampaigns:(void (^)(NSArray *, NSError *)) completionBlock
+{
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:@"/campaigns"]
+                            values:nil
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                          completionBlock((NSArray *) returnData, nil);
+                      }
+                      errorHandler:^(NSError *error) {
+                          completionBlock(nil, error);
+                      }];
 }
 
 #pragma mark - Endpoint Requests

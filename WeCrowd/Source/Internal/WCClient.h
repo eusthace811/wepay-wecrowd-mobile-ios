@@ -12,6 +12,8 @@
 
 + (void) loginWithUsername:(NSString *) username
                   password:(NSString *) password
-           completionBlock:(void (^)(NSError *)) completionBlock;
+           completionBlock:(void (^)(NSError *error)) completionBlock;
+
++ (void) fetchAllCampaigns:(void (^)(NSArray *, NSError *)) completionBlock;
 
 @end
