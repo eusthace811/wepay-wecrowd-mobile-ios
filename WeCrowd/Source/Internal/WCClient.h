@@ -16,4 +16,8 @@
 
 + (void) fetchAllCampaigns:(void (^)(NSArray *, NSError *)) completionBlock;
 
++ (void) fetchAllCampaignsForUser:(NSString *) userID
+                            withToken:(NSString *) token
+                  completionBlock:(void (^)(NSArray *, NSError *)) completionBlock;
+
 @end

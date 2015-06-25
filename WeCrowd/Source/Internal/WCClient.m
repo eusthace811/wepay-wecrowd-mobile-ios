@@ -58,6 +58,23 @@ static NSString* const kHTTPRequestGet  = @"GET";
                       }];
 }
 
++ (void) fetchAllCampaignsForUser:(NSString *) userID
+                        withToken:(NSString *) token
+                  completionBlock:(void (^)(NSArray *, NSError *)) completionBlock
+{
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/users"]
+                             values:@{ @"user_id" : userID, @"token" : token }
+                        accessToken:nil
+                       successBlock:^(id returnData) {
+                           NSLog(@"Success: fetched campaigns for user");
+                           completionBlock((NSArray *) returnData, nil);
+                       }
+                       errorHandler:^(NSError *error) {
+                           NSLog(@"Error: failed to fetch user campaigns");
+                           completionBlock(nil, error);
+                       }];
+}
+
 #pragma mark - Endpoint Requests
 
 + (void) makePostRequestToEndPoint:(NSURL *) endpoint
