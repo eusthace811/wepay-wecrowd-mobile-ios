@@ -10,7 +10,7 @@
 		C3060E071B2652D500A9F596 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E061B2652D500A9F596 /* main.m */; };
 		C3060E0A1B2652D500A9F596 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E091B2652D500A9F596 /* AppDelegate.m */; };
 		C3060E0D1B2652D500A9F596 /* WCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E0C1B2652D500A9F596 /* WCLoginViewController.m */; };
-		C3060E101B2652D500A9F596 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3060E0E1B2652D500A9F596 /* Main.storyboard */; };
+		C3060E101B2652D500A9F596 /* CampaignFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3060E0E1B2652D500A9F596 /* CampaignFlow.storyboard */; };
 		C3060E121B2652D500A9F596 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3060E111B2652D500A9F596 /* Images.xcassets */; };
 		C3060E151B2652D600A9F596 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3060E131B2652D600A9F596 /* LaunchScreen.xib */; };
 		C3060E211B2652D600A9F596 /* WeCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E201B2652D600A9F596 /* WeCrowdTests.m */; };
@@ -45,7 +45,7 @@
 		C3060E091B2652D500A9F596 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/AppDelegate/AppDelegate.m; sourceTree = "<group>"; };
 		C3060E0B1B2652D500A9F596 /* WCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCLoginViewController.h; path = Source/Controllers/WCLoginViewController.h; sourceTree = "<group>"; };
 		C3060E0C1B2652D500A9F596 /* WCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WCLoginViewController.m; path = Source/Controllers/WCLoginViewController.m; sourceTree = "<group>"; };
-		C3060E0F1B2652D500A9F596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3060E0F1B2652D500A9F596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CampaignFlow.storyboard; sourceTree = "<group>"; };
 		C3060E111B2652D500A9F596 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3060E141B2652D600A9F596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C3060E1A1B2652D600A9F596 /* WeCrowdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeCrowdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,7 +164,7 @@
 		C3060E2B1B29FF2500A9F596 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C3060E0E1B2652D500A9F596 /* Main.storyboard */,
+				C3060E0E1B2652D500A9F596 /* CampaignFlow.storyboard */,
 				C3060E2D1B29FF7200A9F596 /* Nibs */,
 			);
 			name = UI;
@@ -326,7 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3060E101B2652D500A9F596 /* Main.storyboard in Resources */,
+				C3060E101B2652D500A9F596 /* CampaignFlow.storyboard in Resources */,
 				C3060E151B2652D600A9F596 /* LaunchScreen.xib in Resources */,
 				C3060E121B2652D500A9F596 /* Images.xcassets in Resources */,
 			);
@@ -382,12 +382,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C3060E0E1B2652D500A9F596 /* Main.storyboard */ = {
+		C3060E0E1B2652D500A9F596 /* CampaignFlow.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C3060E0F1B2652D500A9F596 /* Base */,
 			);
-			name = Main.storyboard;
+			name = CampaignFlow.storyboard;
 			sourceTree = "<group>";
 		};
 		C3060E131B2652D600A9F596 /* LaunchScreen.xib */ = {
