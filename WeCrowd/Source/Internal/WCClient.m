@@ -23,7 +23,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 + (void) loginWithUsername:(NSString *) username
                   password:(NSString *) password
-           completionBlock:(void (^)(NSError *)) completionBlock
+           completionBlock:(void (^)(NSDictionary *, NSError *)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/login"]
                              values:@ { @"user_email" : username, @"password" : password }
@@ -32,15 +32,16 @@ static NSString* const kHTTPRequestGet  = @"GET";
                            // check the status of the return data
                            if ([returnData objectForKey:@"error_code"]) {
                                // TODO: create an actual error to hand off
-                               completionBlock(nil);
+                               completionBlock(nil, nil);
                            } else {
-                               completionBlock(nil);
+                               // No error code, so hand off the data
+                               completionBlock(returnData, nil);
                            }
                        }
                        errorHandler:^(NSError *error) {
                            // This means there was either a connection error or a parse error
                            // TODO: create an actual error to hand off
-                           completionBlock(nil);
+                           completionBlock(nil, nil);
                        }
      ];
 }
@@ -50,8 +51,8 @@ static NSString* const kHTTPRequestGet  = @"GET";
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:@"/campaigns"]
                             values:nil
                        accessToken:nil
-                      successBlock:^(id returnData) {
-                          completionBlock((NSArray *) returnData, nil);
+                      successBlock:^(NSArray *returnData) {
+                          completionBlock(returnData, nil);
                       }
                       errorHandler:^(NSError *error) {
                           completionBlock(nil, error);
@@ -65,9 +66,9 @@ static NSString* const kHTTPRequestGet  = @"GET";
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/users"]
                              values:@{ @"user_id" : userID, @"token" : token }
                         accessToken:nil
-                       successBlock:^(id returnData) {
+                       successBlock:^(NSArray * returnData) {
                            NSLog(@"Success: fetched campaigns for user");
-                           completionBlock((NSArray *) returnData, nil);
+                           completionBlock(returnData, nil);
                        }
                        errorHandler:^(NSError *error) {
                            NSLog(@"Error: failed to fetch user campaigns");

@@ -30,16 +30,16 @@
     NSString *username, *password;
     
     #ifdef DEBUG
-    username = self.emailField.text;
-    password = self.passwordField.text;
-    #else
     username = @"zachv+3@wepay.com";
     password = @"password";
+    #else
+    username = self.emailField.text;
+    password = self.passwordField.text;
     #endif
     
     [WCClient loginWithUsername:username
                        password:password
-                completionBlock:^(NSError *error) {
+                completionBlock:^(NSDictionary *userInfo, NSError *error) {
                     if (error) {
                         // Notify the user of the error
                         [[[UIAlertView alloc] initWithTitle:@"Please try again"
