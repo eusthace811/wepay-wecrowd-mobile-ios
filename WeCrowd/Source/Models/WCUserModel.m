@@ -1,14 +1,14 @@
 //
-//  WCUser.m
+//  WCUserModel.m
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/11/15.
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import "WCUser.h"
+#import "WCUserModel.h"
 
-@interface WCUser ()
+@interface WCUserModel ()
 
 @property (strong, nonatomic, readwrite) NSString* userID;
 @property (strong, nonatomic, readwrite) NSString* email;
@@ -19,7 +19,7 @@
 
 #pragma mark - Implementation
 
-@implementation WCUser
+@implementation WCUserModel
 
 #pragma mark - Initialization
 

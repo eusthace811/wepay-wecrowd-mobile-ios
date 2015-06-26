@@ -17,8 +17,8 @@
 @implementation WCLoginManager
 
 // Static logged-in user member
-static WCUser *user = nil;
-+ (WCUser *) currentUser { return user; }
+static WCUserModel *user = nil;
++ (WCUserModel *) currentUser { return user; }
 
 + (void) loginUserWithUsername:(NSString *) username
                       password:(NSString *) password
@@ -30,7 +30,7 @@ static WCUser *user = nil;
                     if (!error) {
                         // Allocate memory if user instance has not been created
                         if (!user) {
-                            user = [WCUser new];
+                            user = [WCUserModel new];
                         }
                         
                         [user setUserID:[userInfo objectForKey:kAPIParameterUserID]

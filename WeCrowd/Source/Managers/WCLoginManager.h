@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WCUser.h"
+#import "WCUserModel.h"
 
 @interface WCLoginManager : NSObject
 
 /**
  * Static logged-in user member
  */
-+ (WCUser *) currentUser;
++ (WCUserModel *) currentUser;
 
 + (void) loginUserWithUsername:(NSString *) username
                       password:(NSString *) password

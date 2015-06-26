@@ -1,5 +1,5 @@
 //
-//  WCUser.h
+//  WCUserModel.h
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/11/15.
@@ -10,7 +10,7 @@
 
 #pragma mark - Interface
 
-@interface WCUser : NSObject
+@interface WCUserModel : NSObject
 
 @property (strong, nonatomic, readonly) NSString* userID;
 @property (strong, nonatomic, readonly) NSString* email;
