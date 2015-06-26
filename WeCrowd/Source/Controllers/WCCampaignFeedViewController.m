@@ -11,8 +11,6 @@
 #import "WCLoginManager.h"
 #import "WCClient.h"
 
-// UITableViewDataSource
-static NSInteger const kCampaignFeedSectionCount = 1;
 
 // UITableViewCell tags
 static NSInteger const kCampaignCellTitleTag          = 100;
@@ -69,10 +67,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 }
 
 #pragma mark - UITableViewDataSource
-
-- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
-    return kCampaignFeedSectionCount;
-}
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section
 {
