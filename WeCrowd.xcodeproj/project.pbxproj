@@ -25,6 +25,7 @@
 		C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */; };
 		C3D610A01B3E0314005D188F /* WCWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6109F1B3E0314005D188F /* WCWelcomeViewController.m */; };
 		C3D610A31B3E0C1A005D188F /* WCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D610A21B3E0C1A005D188F /* WCConstants.m */; };
+		C3D610A71B3E1D7C005D188F /* WCCampaignTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D610A61B3E1D7C005D188F /* WCCampaignTableViewCell.m */; };
 		C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */; };
 		C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */; };
 		C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */; };
@@ -75,6 +76,8 @@
 		C3D6109F1B3E0314005D188F /* WCWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCWelcomeViewController.m; path = Source/Controllers/WCWelcomeViewController.m; sourceTree = "<group>"; };
 		C3D610A11B3E0C1A005D188F /* WCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCConstants.h; path = Source/Internal/WCConstants.h; sourceTree = "<group>"; };
 		C3D610A21B3E0C1A005D188F /* WCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCConstants.m; path = Source/Internal/WCConstants.m; sourceTree = "<group>"; };
+		C3D610A51B3E1D7C005D188F /* WCCampaignTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignTableViewCell.h; path = Source/Views/WCCampaignTableViewCell.h; sourceTree = "<group>"; };
+		C3D610A61B3E1D7C005D188F /* WCCampaignTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignTableViewCell.m; path = Source/Views/WCCampaignTableViewCell.m; sourceTree = "<group>"; };
 		C3DC8ED51B3C6B5C0053D405 /* WCLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCLoginManager.h; path = Source/Managers/WCLoginManager.h; sourceTree = "<group>"; };
 		C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCLoginManager.m; path = Source/Managers/WCLoginManager.m; sourceTree = "<group>"; };
 		C3DC8ED81B3C93800053D405 /* WCModelProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCModelProcessor.h; path = Source/Internal/WCModelProcessor.h; sourceTree = "<group>"; };
@@ -160,6 +163,7 @@
 		C3060E2A1B29FF0F00A9F596 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C3D610A41B3E1D51005D188F /* Views */,
 				C3DC8ED41B3C6B280053D405 /* Managers */,
 				C39C9B4C1B34B86900C5E9A7 /* Internal */,
 				C3060E2E1B29FF8100A9F596 /* AppDelegate */,
@@ -248,6 +252,15 @@
 				C3D610A21B3E0C1A005D188F /* WCConstants.m */,
 			);
 			name = Internal;
+			sourceTree = "<group>";
+		};
+		C3D610A41B3E1D51005D188F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3D610A51B3E1D7C005D188F /* WCCampaignTableViewCell.h */,
+				C3D610A61B3E1D7C005D188F /* WCCampaignTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		C3DC8ED41B3C6B280053D405 /* Managers */ = {
@@ -360,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D610A71B3E1D7C005D188F /* WCCampaignTableViewCell.m in Sources */,
 				C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */,
 				C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */,
 				C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */,
