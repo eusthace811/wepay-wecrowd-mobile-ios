@@ -20,5 +20,11 @@ FOUNDATION_EXPORT NSString* const kAPIParameterUserID;
 FOUNDATION_EXPORT NSString* const kAPIParameterUserToken;
 FOUNDATION_EXPORT NSString* const kAPIParameterEmail;
 FOUNDATION_EXPORT NSString* const kAPIParameterPassword;
-FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
+
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignID;
+FOUNDATION_EXPORT NSString* const kAPIParameterCampaignName;
+FOUNDATION_EXPORT NSString* const kAPIParameterCampaignGoal;
+FOUNDATION_EXPORT NSString* const kAPIParameterCampaignProgress;
+FOUNDATION_EXPORT NSString* const kAPIParameterCampaignDescription;
+
+FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
