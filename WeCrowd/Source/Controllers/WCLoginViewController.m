@@ -53,7 +53,7 @@
             // Disable the control and push the next view
             ((UIControl *) sender).userInteractionEnabled = false;
             
-            [self performSegueWithIdentifier:@"merchantLoginToFeedSegue" sender:self];
+            [self performSegueWithIdentifier:@"entryViewToFeedViewSegue" sender:self];
         }
     }];
 }
