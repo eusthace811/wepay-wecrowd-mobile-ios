@@ -8,6 +8,7 @@
 
 #import "WCLoginViewController.h"
 #import "WCLoginManager.h"
+#import "WCCampaignFeedViewController.h"
 
 
 #pragma mark - Interface
@@ -44,8 +45,7 @@
         if (error) {
             // Notify the user of the error
             [[[UIAlertView alloc] initWithTitle:@"Please try again"
-                                        message:@"Unable to log you in. Please check your\
-              information and try again."
+                                        message:@"Unable to log you in. Please check your information and try again."
                                        delegate:self
                               cancelButtonTitle:@"Close"
                               otherButtonTitles:nil] show];
@@ -53,10 +53,9 @@
             // Disable the control and push the next view
             ((UIControl *) sender).userInteractionEnabled = false;
             
-            [self performSegueWithIdentifier:@"merchantLoginToFeedSegue" sender:self];
+            [self performSegueWithIdentifier:@"entryViewToFeedViewSegue" sender:self];
         }
     }];
 }
-
 
 @end

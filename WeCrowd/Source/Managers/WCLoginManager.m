@@ -41,4 +41,12 @@ static WCUser *user = nil;
                 }];
 }
 
++ (void) logoutWithCompletionBlock:(void (^)(NSError *)) completionBlock
+{
+    // No API call for logging out, so just set the current user to nil
+    user = nil;
+    
+    completionBlock(nil);
+}
+
 @end

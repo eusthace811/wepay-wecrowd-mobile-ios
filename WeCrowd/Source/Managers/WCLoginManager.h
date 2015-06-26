@@ -21,4 +21,6 @@
                completionBlock:(void (^)(NSError *error)) completionBlock;
 
 
++ (void) logoutWithCompletionBlock:(void (^)(NSError *error)) completionBlock;
+
 @end

@@ -30,7 +30,7 @@
         <!--WeCrowd-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WCWelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,6 +45,9 @@
                                 <state key="normal" title="Browse all campaigns">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="viewCampaigns:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hFa-fB-j1C"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
                                 <rect key="frame" x="214" y="374" width="173" height="35"/>
@@ -80,6 +83,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="WeCrowd" id="hV6-I7-wNt"/>
+                    <connections>
+                        <segue destination="tkk-YJ-SKn" kind="show" identifier="entryViewToFeedViewSegue" id="NMc-9M-Twa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +174,7 @@
                     <connections>
                         <outlet property="emailField" destination="EjD-OD-ML4" id="ITB-jp-ebh"/>
                         <outlet property="passwordField" destination="tyb-ZU-jrP" id="THy-XZ-J3c"/>
-                        <segue destination="tkk-YJ-SKn" kind="show" identifier="merchantLoginToFeedSegue" id="iuM-Qj-g2P"/>
+                        <segue destination="tkk-YJ-SKn" kind="show" identifier="entryViewToFeedViewSegue" id="iuM-Qj-g2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npx-mk-GDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,5 +328,8 @@
     <resources>
         <image name="Logo" width="300" height="55"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NMc-9M-Twa"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>

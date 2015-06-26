@@ -11,8 +11,6 @@
 #import "WCLoginManager.h"
 #import "WCClient.h"
 
-// UITableViewDataSource
-static NSInteger const kCampaignFeedSectionCount = 1;
 
 // UITableViewCell tags
 static NSInteger const kCampaignCellTitleTag          = 100;
@@ -32,13 +30,16 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @implementation WCCampaignFeedViewController
 
-#pragma mark - UITableViewController
+#pragma mark - UIViewController
 
-- (id) initWithCoder:(NSCoder *) aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        WCUser *currentUser = [WCLoginManager currentUser];
-        
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    WCUser *currentUser = [WCLoginManager currentUser];
+    
+    // Fetch the campaigns for the logged in user if it exists,
+    // otherwise fetch all the campaigns for the anonymous user
+    if (currentUser) {
         [WCClient fetchAllCampaignsForUser:currentUser.userID
                                  withToken:currentUser.token
                            completionBlock:^(NSArray *campaigns, NSError *error) {
@@ -52,15 +53,19 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                    [self.tableView reloadData];
                                }
                            }];
+    } else {
+        [WCClient fetchAllCampaigns:^(NSArray *campaigns, NSError *error) {
+            if (error) {
+                // TODO: alert the user that campaign fetching failed
+            } else {
+                self.campaigns = campaigns;
+                
+                // Force a refresh of the table since we can't guarantee
+                // when the request will finish until this block
+                [self.tableView reloadData];
+            }
+        }];
     }
-    
-    return self;
-}
-
-#pragma mark - UIViewController
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -69,10 +74,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 }
 
 #pragma mark - UITableViewDataSource
-
-- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
-    return kCampaignFeedSectionCount;
-}
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section
 {

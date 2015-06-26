@@ -52,7 +52,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
                             values:nil
                        accessToken:nil
                       successBlock:^(NSArray *returnData) {
-                          completionBlock(returnData, nil);
+                          completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
                       }
                       errorHandler:^(NSError *error) {
                           completionBlock(nil, error);
