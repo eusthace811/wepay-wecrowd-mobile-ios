@@ -23,6 +23,7 @@
 		C396765F1B2A5AD30071CEB5 /* WCCampaignDonation.m in Sources */ = {isa = PBXBuildFile; fileRef = C396765E1B2A5AD30071CEB5 /* WCCampaignDonation.m */; };
 		C39676621B2A5B430071CEB5 /* WCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676611B2A5B430071CEB5 /* WCUser.m */; };
 		C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */; };
+		C3D610971B3DECA7005D188F /* WCArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D610961B3DECA7005D188F /* WCArrayDataSource.m */; };
 		C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */; };
 		C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */; };
 		C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */; };
@@ -69,6 +70,8 @@
 		C39676611B2A5B430071CEB5 /* WCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCUser.m; path = Source/Models/WCUser.m; sourceTree = "<group>"; };
 		C39C9B4D1B34B8E900C5E9A7 /* WCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCClient.h; path = Source/Internal/WCClient.h; sourceTree = "<group>"; };
 		C39C9B4E1B34B8E900C5E9A7 /* WCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCClient.m; path = Source/Internal/WCClient.m; sourceTree = "<group>"; };
+		C3D610951B3DECA7005D188F /* WCArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCArrayDataSource.h; path = Source/Models/WCArrayDataSource.h; sourceTree = "<group>"; };
+		C3D610961B3DECA7005D188F /* WCArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCArrayDataSource.m; path = Source/Models/WCArrayDataSource.m; sourceTree = "<group>"; };
 		C3DC8ED51B3C6B5C0053D405 /* WCLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCLoginManager.h; path = Source/Managers/WCLoginManager.h; sourceTree = "<group>"; };
 		C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCLoginManager.m; path = Source/Managers/WCLoginManager.m; sourceTree = "<group>"; };
 		C3DC8ED81B3C93800053D405 /* WCModelProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCModelProcessor.h; path = Source/Internal/WCModelProcessor.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				C396765E1B2A5AD30071CEB5 /* WCCampaignDonation.m */,
 				C39676601B2A5B430071CEB5 /* WCUser.h */,
 				C39676611B2A5B430071CEB5 /* WCUser.m */,
+				C3D610951B3DECA7005D188F /* WCArrayDataSource.h */,
+				C3D610961B3DECA7005D188F /* WCArrayDataSource.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */,
+				C3D610971B3DECA7005D188F /* WCArrayDataSource.m in Sources */,
 				C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */,
 				C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */,
 				C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */,
