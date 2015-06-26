@@ -10,7 +10,7 @@
 #import "WCCampaignHeaderModel.h"
 #import "WCLoginManager.h"
 #import "WCClient.h"
-
+#import "WCConstants.h"
 
 // UITableViewCell tags
 static NSInteger const kCampaignCellTitleTag          = 100;
@@ -98,7 +98,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     
     self.selectedCampaignID = selectedCampaign.campaignID;
     
-    [self performSegueWithIdentifier:@"campaignFeedToCampaignDetailSegue" sender:self];
+    [self performSegueWithIdentifier:kIBSegueCampaignFeedToCampaignDetail sender:self];
 }
 
 #pragma mark - Internal Helpers
@@ -128,7 +128,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"campaignFeedToCampaignDetailSegue"]) {
+    if ([segue.identifier isEqualToString:]) {
         self.delegate = [segue destinationViewController];
         
         [self.delegate campaignFeedViewController:self

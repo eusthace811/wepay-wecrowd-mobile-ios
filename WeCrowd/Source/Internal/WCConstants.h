@@ -31,3 +31,4 @@ FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
 
 #pragma mark - Interface Builder
 FOUNDATION_EXPORT NSString* const kIBSegueEntryToCampaignFeed;
+FOUNDATION_EXPORT NSString* const kIBSegueCampaignFeedToCampaignDetail;

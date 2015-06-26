@@ -31,4 +31,5 @@ NSString* const kAPIParameterErrorCode = @"error_code";
 
 
 #pragma mark - Interface Builder
-NSString* const kIBSegueEntryToCampaignFeed = @"entryViewToFeedViewSegue";
+NSString* const kIBSegueEntryToCampaignFeed          = @"entryViewToFeedViewSegue";
+NSString* const kIBSegueCampaignFeedToCampaignDetail = @"campaignFeedToCampaignDetailSegue";
