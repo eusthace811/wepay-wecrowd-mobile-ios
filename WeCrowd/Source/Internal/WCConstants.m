@@ -37,4 +37,5 @@ NSString* const kIBSegueEntryToCampaignFeed          = @"entryViewToFeedViewSegu
 NSString* const kIBSegueCampaignFeedToCampaignDetail = @"campaignFeedToCampaignDetailSegue";
 
 // Storyboards
-NSString* const kIBStoryboardPaymentFlow = @"PaymentFlow";
+NSString* const kIBStoryboardPaymentFlow  = @"PaymentFlow";
+NSString* const kIBStoryboardCampaignFlow =  @"CampaignFlow";

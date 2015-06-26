@@ -38,3 +38,4 @@ FOUNDATION_EXPORT NSString* const kIBSegueCampaignFeedToCampaignDetail;
 
 // Storyboards
 FOUNDATION_EXPORT NSString* const kIBStoryboardPaymentFlow;
+FOUNDATION_EXPORT NSString* const kIBStoryboardCampaignFlow;
