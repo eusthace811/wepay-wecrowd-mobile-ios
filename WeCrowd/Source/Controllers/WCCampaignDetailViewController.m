@@ -58,4 +58,13 @@
                   }];
 }
 
+- (IBAction) didPressPaymentButton:(id) sender
+{
+    UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:@"PaymentFlow" bundle:nil];
+    
+    UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
+    
+    [self.navigationController pushViewController:initialViewController animated:YES];
+}
+
 @end
