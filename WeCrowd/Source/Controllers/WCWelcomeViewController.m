@@ -24,6 +24,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)viewCampaigns:(id) sender {
+    [self performSegueWithIdentifier:@"entryViewToFeedViewSegue" sender:self];
+}
+
 /*
 #pragma mark - Navigation
 
