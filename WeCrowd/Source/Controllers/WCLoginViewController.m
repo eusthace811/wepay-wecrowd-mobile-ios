@@ -45,8 +45,7 @@
         if (error) {
             // Notify the user of the error
             [[[UIAlertView alloc] initWithTitle:@"Please try again"
-                                        message:@"Unable to log you in. Please check your\
-              information and try again."
+                                        message:@"Unable to log you in. Please check your information and try again."
                                        delegate:self
                               cancelButtonTitle:@"Close"
                               otherButtonTitles:nil] show];
