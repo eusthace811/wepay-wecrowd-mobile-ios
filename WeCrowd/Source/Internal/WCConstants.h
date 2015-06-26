@@ -28,3 +28,6 @@ FOUNDATION_EXPORT NSString* const kAPIParameterCampaignProgress;
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignDescription;
 
 FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
+
+#pragma mark - Interface Builder
+FOUNDATION_EXPORT NSString* const kIBSegueEntryToCampaignFeed;

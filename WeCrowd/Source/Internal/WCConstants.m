@@ -28,3 +28,7 @@ NSString* const kAPIParameterCampaignProgress    = @"campaign_progress";
 NSString* const kAPIParameterCampaignDescription = @"campaign_description";
 
 NSString* const kAPIParameterErrorCode = @"error_code";
+
+
+#pragma mark - Interface Builder
+NSString* const kIBSegueEntryToCampaignFeed = @"entryViewToFeedViewSegue";
