@@ -30,11 +30,12 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 @implementation WCCampaignFeedViewController
 
-#pragma mark - UITableViewController
+#pragma mark - UIViewController
 
-- (id) initWithCoder:(NSCoder *) aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    if (self.merchantID) {
         WCUser *currentUser = [WCLoginManager currentUser];
         
         [WCClient fetchAllCampaignsForUser:currentUser.userID
@@ -50,15 +51,19 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                    [self.tableView reloadData];
                                }
                            }];
+    } else {
+        [WCClient fetchAllCampaigns:^(NSArray *campaigns, NSError *error) {
+            if (error) {
+                // TODO: alert the user that campaign fetching failed
+            } else {
+                self.campaigns = campaigns;
+                
+                // Force a refresh of the table since we can't guarantee
+                // when the request will finish until this block
+                [self.tableView reloadData];
+            }
+        }];
     }
-    
-    return self;
-}
-
-#pragma mark - UIViewController
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
 }
 
 - (void) didReceiveMemoryWarning {

@@ -12,13 +12,14 @@
 
 @protocol CampaignDetailDelegate <NSObject>
 
-- (void) campaignFeedViewController: (UIViewController *) viewController
+- (void) campaignFeedViewController:(UIViewController *) viewController
             didSelectCampaignWithID:(NSString *) campaignID;
 
 @end
 
 @interface WCCampaignFeedViewController : UITableViewController
 
-@property (weak, nonatomic, readwrite) id<CampaignDetailDelegate> delegate;
+@property (nonatomic, weak, readwrite) id<CampaignDetailDelegate> delegate;
+@property (nonatomic, strong, readwrite) NSString *merchantID;
 
 @end
