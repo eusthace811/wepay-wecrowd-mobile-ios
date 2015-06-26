@@ -8,6 +8,7 @@
 
 #import "WCWelcomeViewController.h"
 #import "WCLoginManager.h"
+#import "WCConstants.h"
 
 @interface WCWelcomeViewController ()
 
@@ -33,7 +34,7 @@
 }
 
 - (IBAction) viewCampaigns:(id) sender {
-    [self performSegueWithIdentifier:@"entryViewToFeedViewSegue" sender:self];
+    [self performSegueWithIdentifier:kIBSegueEntryToCampaignFeed sender:self];
 }
 
 /*
