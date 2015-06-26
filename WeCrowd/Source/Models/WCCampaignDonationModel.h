@@ -1,5 +1,5 @@
 //
-//  WCCampaignDonation.h
+//  WCCampaignDonationModel.h
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 6/11/15.
@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class WCUser;
+@class WCUserModel;
 
 
 #pragma mark - Interface
 
-@interface WCCampaignDonation : NSObject
+@interface WCCampaignDonationModel : NSObject
 
-@property (strong, nonatomic, readonly) WCUser* donator;
+@property (strong, nonatomic, readonly) WCUserModel* donator;
 @property (strong, nonatomic, readonly) NSString* campaignID;
 @property (strong, nonatomic, readonly) NSString* creditCardID;
 @property (strong, nonatomic, readonly) NSString* donationAmount;
 
-- (id) initWithDonator:(WCUser *) donator
+- (id) initWithDonator:(WCUserModel *) donator
             campaignID:(NSString *) campaignID
           creditCardID:(NSString *) creditCardID
         donationAmount:(NSString *) donationAmount;

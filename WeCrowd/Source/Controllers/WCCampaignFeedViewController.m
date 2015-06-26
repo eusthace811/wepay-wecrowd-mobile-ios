@@ -35,7 +35,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    WCUser *currentUser = [WCLoginManager currentUser];
+    WCUserModel *currentUser = [WCLoginManager currentUser];
     
     // Fetch the campaigns for the logged in user if it exists,
     // otherwise fetch all the campaigns for the anonymous user
