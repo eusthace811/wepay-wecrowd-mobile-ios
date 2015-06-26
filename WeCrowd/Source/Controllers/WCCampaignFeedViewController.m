@@ -35,9 +35,11 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    if (self.merchantID) {
-        WCUser *currentUser = [WCLoginManager currentUser];
-        
+    WCUser *currentUser = [WCLoginManager currentUser];
+    
+    // Fetch the campaigns for the logged in user if it exists,
+    // otherwise fetch all the campaigns for the anonymous user
+    if (currentUser) {
         [WCClient fetchAllCampaignsForUser:currentUser.userID
                                  withToken:currentUser.token
                            completionBlock:^(NSArray *campaigns, NSError *error) {

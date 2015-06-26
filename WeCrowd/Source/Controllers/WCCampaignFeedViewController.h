@@ -20,6 +20,5 @@
 @interface WCCampaignFeedViewController : UITableViewController
 
 @property (nonatomic, weak, readwrite) id<CampaignDetailDelegate> delegate;
-@property (nonatomic, strong, readwrite) NSString *merchantID;
 
 @end

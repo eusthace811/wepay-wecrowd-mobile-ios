@@ -8,6 +8,7 @@
 
 #import "WCLoginViewController.h"
 #import "WCLoginManager.h"
+#import "WCCampaignFeedViewController.h"
 
 
 #pragma mark - Interface
@@ -57,6 +58,5 @@
         }
     }];
 }
-
 
 @end
