@@ -9,7 +9,7 @@
 #import "WCLoginViewController.h"
 #import "WCLoginManager.h"
 #import "WCCampaignFeedViewController.h"
-
+#import "WCConstants.h"
 
 #pragma mark - Interface
 
@@ -53,7 +53,7 @@
             // Disable the control and push the next view
             ((UIControl *) sender).userInteractionEnabled = false;
             
-            [self performSegueWithIdentifier:@"entryViewToFeedViewSegue" sender:self];
+            [self performSegueWithIdentifier:kIBSegueEntryToCampaignFeed sender:self];
         }
     }];
 }

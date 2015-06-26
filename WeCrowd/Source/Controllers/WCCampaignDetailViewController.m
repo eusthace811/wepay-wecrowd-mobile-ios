@@ -10,6 +10,7 @@
 #import "WCCampaignFeedViewController.h"
 #import "WCCampaignDetailModel.h"
 #import "WCClient.h"
+#import "WCConstants.h"
 
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate>
 
@@ -60,7 +61,7 @@
 
 - (IBAction) didPressPaymentButton:(id) sender
 {
-    UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:@"PaymentFlow" bundle:nil];
+    UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
     
     UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
     

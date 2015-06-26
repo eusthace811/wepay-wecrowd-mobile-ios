@@ -8,6 +8,7 @@
 
 #import "WCLoginManager.h"
 #import "WCClient.h"
+#import "WCConstants.h"
 
 @interface WCLoginManager ()
 
@@ -32,9 +33,9 @@ static WCUser *user = nil;
                             user = [WCUser new];
                         }
                         
-                        [user setUserID:[userInfo objectForKey:@"user_id"]
+                        [user setUserID:[userInfo objectForKey:kAPIParameterUserID]
                                   email:username
-                                  token:[userInfo objectForKey:@"token"]];
+                                  token:[userInfo objectForKey:kAPIParameterUserToken]];
                     }
                     
                     completionBlock (error);

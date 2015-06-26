@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "WCCampaignHeaderModel.h"
 #import "WCCampaignDetailModel.h"
+#import "WCConstants.h"
 
 @implementation WCModelProcessor
 
@@ -25,9 +26,9 @@
         
         campaign = campaigns[i];
         
-        campaignID = [campaign objectForKey:@"campaign_id"];
-        campaignName = [campaign objectForKey:@"campaign_name"];
-        campaignGoal = [((NSNumber *) [campaign objectForKey:@"campaign_goal"]) floatValue];
+        campaignID = [campaign objectForKey:kAPIParameterCampaignID];
+        campaignName = [campaign objectForKey:kAPIParameterCampaignName];
+        campaignGoal = [((NSNumber *) [campaign objectForKey:kAPIParameterCampaignGoal]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
                                                              title:campaignName endDate:nil
@@ -43,16 +44,16 @@
     CGFloat donationAmount, donationTarget;
     
     // Nasty cast + conversion to get the float value
-    donationAmount = [((NSNumber *) [dictionary objectForKey:@"campaign_goal"]) floatValue];
-    donationTarget = [((NSNumber *) [dictionary objectForKey:@"campaign_progress"]) floatValue];
+    donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
+    donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
     
-    return [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:@"campaign_id"]
-                                                      title:[dictionary objectForKey:@"campaign_name"]
+    return [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
+                                                      title:[dictionary objectForKey:kAPIParameterCampaignName]
                                                     endDate:nil
                                              donationTarget:donationAmount
                                              donationAmount:donationTarget
                                                 detailImage:nil
-                                          detailDescription:[dictionary objectForKey:@"campaign_description"]
+                                          detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
                                                    location:nil];
 }
 
