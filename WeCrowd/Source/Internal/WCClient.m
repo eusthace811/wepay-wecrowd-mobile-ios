@@ -8,12 +8,17 @@
 
 #import "WCClient.h"
 #import "WCModelProcessor.h"
+#import "WCConstants.h"
+
+#pragma mark - Constants
 
 // Requests
 static NSInteger const kTimeoutInterval = 5;
-static NSString* const kAPIURLString    = @"http://0.0.0.0:3000/api";
 static NSString* const kHTTPRequestPost = @"POST";
 static NSString* const kHTTPRequestGet  = @"GET";
+
+// API
+static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
 
 #pragma mark - Implementation
 
@@ -25,12 +30,12 @@ static NSString* const kHTTPRequestGet  = @"GET";
                   password:(NSString *) password
            completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
 {
-    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/login"]
-                             values:@ { @"user_email" : username, @"password" : password }
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointLogin]
+                             values:@ { kAPIParameterEmail : username, kAPIParameterPassword : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
                            // check the status of the return data
-                           if ([returnData objectForKey:@"error_code"]) {
+                           if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                // TODO: create an actual error to hand off
                                completionBlock(nil, nil);
                            } else {
@@ -48,7 +53,7 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 + (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
 {
-    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:@"/campaigns"]
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
                             values:nil
                        accessToken:nil
                       successBlock:^(NSArray *returnData) {
@@ -63,8 +68,8 @@ static NSString* const kHTTPRequestGet  = @"GET";
                         withToken:(NSString *) token
                   completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
 {
-    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/users"]
-                             values:@{ @"user_id" : userID, @"token" : token }
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointUsers]
+                             values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
                            
@@ -81,8 +86,8 @@ static NSString* const kHTTPRequestGet  = @"GET";
 + (void) fetchCampaignWithID:(NSString *) campaignID
              completionBlock:(void (^)(WCCampaignDetailModel *campaign, NSError *error)) completionBlock
 {
-    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:@"/campaigns"]
-                             values:@{ @"campaign_id" : campaignID }
+    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
+                             values:@{ kAPIParameterCampaignID : campaignID }
                         accessToken:nil
                        successBlock:^(id returnData) {
                            completionBlock([WCModelProcessor createCampaignDetailFromDictionary:returnData], nil);

@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WCConstants : NSObject
+#pragma mark - API
 
-@end
+#pragma mark Endpoints
+FOUNDATION_EXPORT NSString* const kAPIEndpointLogin;
+FOUNDATION_EXPORT NSString* const kAPIEndpointCampaigns;
+FOUNDATION_EXPORT NSString* const kAPIEndpointUsers;
+
+#pragma mark Parameters
+FOUNDATION_EXPORT NSString* const kAPIParameterUserID;
+FOUNDATION_EXPORT NSString* const kAPIParameterUserToken;
+FOUNDATION_EXPORT NSString* const kAPIParameterEmail;
+FOUNDATION_EXPORT NSString* const kAPIParameterPassword;
+FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
+FOUNDATION_EXPORT NSString* const kAPIParameterCampaignID;
