@@ -11,12 +11,7 @@
 #import "WCLoginManager.h"
 #import "WCClient.h"
 #import "WCConstants.h"
-
-// UITableViewCell tags
-static NSInteger const kCampaignCellTitleTag          = 100;
-static NSInteger const kCampaignCellTimeRemainingTag  = 101;
-static NSInteger const kCampaignCellPledgeGoalTag     = 102;
-static NSInteger const kCampaignCellThumbnailImageTag = 103;
+#import "WCCampaignTableViewCell.h"
 
 // UITableViewCell identifiers
 static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
@@ -68,11 +63,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     }
 }
 
-- (void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section
@@ -82,10 +72,14 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCampaignCellReuseIdentifier
-                                                            forIndexPath:indexPath];
+    WCCampaignTableViewCell *cell;
+    WCCampaignHeaderModel *model;
     
-    [self configureCell:cell withModel:[self.campaigns objectAtIndex:indexPath.row]];
+    cell = (WCCampaignTableViewCell *) [tableView dequeueReusableCellWithIdentifier:kCampaignCellReuseIdentifier
+                                                                       forIndexPath:indexPath];
+    model = [self.campaigns objectAtIndex:indexPath.row];
+    
+    [cell configureForCampaignHeader:model];
     
     return cell;
 }
@@ -99,29 +93,6 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     self.selectedCampaignID = selectedCampaign.campaignID;
     
     [self performSegueWithIdentifier:kIBSegueCampaignFeedToCampaignDetail sender:self];
-}
-
-#pragma mark - Internal Helpers
-
-- (void) configureCell:(UITableViewCell *) cell
-             withModel:(WCCampaignHeaderModel *) model
-{
-    NSDateFormatter* standardDateFormat = [NSDateFormatter new];
-    NSString* timeRemaining, *pledgeProgress;
-    CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
-    
-    // format the view information
-    [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
-    // TODO: use end date from server
-    timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
-    pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
-    pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
-    
-    // configure the display information within the view
-    ((UILabel *) [cell viewWithTag:kCampaignCellTitleTag]).text = model.title;
-    ((UILabel *) [cell viewWithTag:kCampaignCellTimeRemainingTag]).text = timeRemaining;
-    ((UILabel *) [cell viewWithTag:kCampaignCellPledgeGoalTag]).text = pledgeProgress;
-    ((UIImageView *) [cell viewWithTag:kCampaignCellThumbnailImageTag]).image = model.thumbnailImage;
 }
 
 #pragma mark - Navigation

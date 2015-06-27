@@ -245,8 +245,8 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="donationProgress" destination="QvT-W9-jCc" id="0e6-4u-030"/>
-                                    <outlet property="endDate" destination="QvT-W9-jCc" id="ypA-NR-uKz"/>
+                                    <outlet property="donationProgress" destination="OQo-be-iPb" id="B2t-6c-4Kw"/>
+                                    <outlet property="endDate" destination="VgR-Jp-vGB" id="cc5-kw-kXf"/>
                                     <outlet property="thumbnailImageView" destination="mlu-an-yCV" id="xdI-iA-oHS"/>
                                     <outlet property="title" destination="gLd-Vo-gKT" id="jkU-PQ-pkt"/>
                                 </connections>

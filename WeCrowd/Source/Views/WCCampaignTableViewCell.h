@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class WCCampaignHeaderModel;
+
 @interface WCCampaignTableViewCell : UITableViewCell
+
+- (void) configureForCampaignHeader:(WCCampaignHeaderModel *) model;
 
 @end
