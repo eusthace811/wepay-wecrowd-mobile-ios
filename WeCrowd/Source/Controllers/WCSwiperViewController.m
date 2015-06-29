@@ -7,11 +7,11 @@
 //
 
 #import "WCSwiperViewController.h"
+#import "MBProgressHUD.h"
 
 @interface WCSwiperViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *swiperStatusLabel;
-
 
 @end
 

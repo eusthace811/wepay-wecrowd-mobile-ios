@@ -23,12 +23,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJR-gg-aIo">
+                                <rect key="frame" x="24" y="243" width="552" height="341"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="mJR-gg-aIo" secondAttribute="trailing" constant="8" id="3HS-6h-uis"/>
+                            <constraint firstItem="mJR-gg-aIo" firstAttribute="top" secondItem="5cN-fJ-skt" secondAttribute="bottom" constant="24" id="IDo-Yh-XVP"/>
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="top" secondItem="T0T-zz-vQr" secondAttribute="bottom" id="Who-hJ-SvS"/>
                             <constraint firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" id="br5-US-dmi"/>
                             <constraint firstAttribute="centerY" secondItem="5cN-fJ-skt" secondAttribute="centerY" constant="96" id="oPs-i4-6qe"/>
+                            <constraint firstAttribute="centerX" secondItem="mJR-gg-aIo" secondAttribute="centerX" id="pUL-Na-4KK"/>
+                            <constraint firstItem="mJR-gg-aIo" firstAttribute="leading" secondItem="Q7f-0A-JRq" secondAttribute="leadingMargin" constant="8" id="qwV-4k-cKx"/>
+                            <constraint firstItem="VeX-R7-ROr" firstAttribute="top" secondItem="mJR-gg-aIo" secondAttribute="bottom" constant="16" id="qwv-F3-1h2"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
