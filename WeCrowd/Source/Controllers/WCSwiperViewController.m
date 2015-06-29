@@ -10,6 +10,9 @@
 
 @interface WCSwiperViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *swiperStatusLabel;
+
+
 @end
 
 @implementation WCSwiperViewController

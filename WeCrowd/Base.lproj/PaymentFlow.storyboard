@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Swipe Card-->
         <scene sceneID="Ghu-WS-6em">
             <objects>
-                <viewController id="Nsw-6d-KCV" sceneMemberID="viewController">
+                <viewController title="Swipe Card" id="Nsw-6d-KCV" customClass="WCSwiperViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T0T-zz-vQr"/>
                         <viewControllerLayoutGuide type="bottom" id="VeX-R7-ROr"/>
@@ -36,6 +36,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WM1-9J-Eoq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
