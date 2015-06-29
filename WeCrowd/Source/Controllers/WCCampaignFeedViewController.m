@@ -99,7 +99,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:kIBSegueEntryToCampaignFeed]) {
+    if ([segue.identifier isEqualToString:kIBSegueCampaignFeedToCampaignDetail]) {
         self.delegate = [segue destinationViewController];
         
         [self.delegate campaignFeedViewController:self
