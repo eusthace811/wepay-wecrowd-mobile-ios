@@ -5,6 +5,45 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Swipe Card-->
+        <scene sceneID="Ghu-WS-6em">
+            <objects>
+                <viewController title="Swipe Card" id="Nsw-6d-KCV" customClass="WCSwiperViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T0T-zz-vQr"/>
+                        <viewControllerLayoutGuide type="bottom" id="VeX-R7-ROr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q7f-0A-JRq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiper Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cN-fJ-skt">
+                                <rect key="frame" x="223" y="190" width="154" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5cN-fJ-skt" firstAttribute="top" secondItem="T0T-zz-vQr" secondAttribute="bottom" id="Who-hJ-SvS"/>
+                            <constraint firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" id="br5-US-dmi"/>
+                            <constraint firstAttribute="centerY" secondItem="5cN-fJ-skt" secondAttribute="centerY" constant="96" id="oPs-i4-6qe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Who-hJ-SvS"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WM1-9J-Eoq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072" y="293"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="m8P-0v-Qg0">
             <objects>
@@ -120,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npm-ru-lP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="653"/>
+            <point key="canvasLocation" x="1072" y="1036"/>
         </scene>
         <!--Payment Option-->
         <scene sceneID="DJd-T9-3Au">
@@ -146,6 +185,9 @@
                                 <state key="normal" title="Swipe Card">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Nsw-6d-KCV" kind="show" id="gu0-Xd-VxP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-Xq-rMm">
                                 <rect key="frame" x="240" y="180" width="121" height="38"/>
