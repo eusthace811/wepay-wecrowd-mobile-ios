@@ -7,7 +7,31 @@
 //
 
 #import "WCWePayManager.h"
+#import <WePay/WePay.h>
+
+@interface WCWePayManager ()
+
+@property (nonatomic, strong, readwrite) WePay *wepay;
+
+@end
 
 @implementation WCWePayManager
+
++ (instancetype) sharedInstance
+{
+    static WCWePayManager *instance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        WPConfig *config = [[WPConfig alloc] initWithClientId:@"58670"
+                                                  environment:kWPEnvironmentStage];
+        
+        instance = [WCWePayManager new];
+        instance.wepay = [[WePay alloc] initWithConfig:config];
+        
+    });
+    
+    return instance;
+}
 
 @end
