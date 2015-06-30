@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import "WCCreditCardInfoEntryView.h"
+#import "WCCreditCardInfoEntryController.h"
 
-@interface WCCreditCardInfoEntryView ()
+@interface WCCreditCardInfoEntryController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *donationAmountField;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation WCCreditCardInfoEntryView
+@implementation WCCreditCardInfoEntryController
 
 
 @end

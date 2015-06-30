@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WCCreditCardInfoEntryView : UIView
+@interface WCCreditCardInfoEntryController : NSObject
 
 @end
