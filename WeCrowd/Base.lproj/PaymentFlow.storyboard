@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="1072" y="293"/>
         </scene>
-        <!--View Controller-->
+        <!--Manual Payment View Controller-->
         <scene sceneID="m8P-0v-Qg0">
             <objects>
-                <viewController id="Zdb-yW-H1R" sceneMemberID="viewController">
+                <viewController id="Zdb-yW-H1R" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="866-a5-Hwr"/>
                         <viewControllerLayoutGuide type="bottom" id="dHL-c7-qbY"/>
@@ -126,6 +126,12 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
+                                <rect key="frame" x="148" y="61" width="305" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -142,6 +148,7 @@
                             <constraint firstItem="L7j-jc-VZs" firstAttribute="leading" secondItem="naI-wO-ZFL" secondAttribute="trailing" constant="8" id="RXf-U2-Fgh"/>
                             <constraint firstItem="51W-xJ-teu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hSv-sr-fUc" secondAttribute="trailing" constant="4" id="Wvl-iY-7vz"/>
                             <constraint firstItem="naI-wO-ZFL" firstAttribute="top" secondItem="W4S-8m-m1R" secondAttribute="bottom" constant="8" id="Zyy-R3-JEa"/>
+                            <constraint firstAttribute="centerX" secondItem="ug2-1b-XOY" secondAttribute="centerX" id="a9b-Qn-pSX"/>
                             <constraint firstItem="9dR-7U-4Zn" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" id="b60-a7-xy7"/>
                             <constraint firstAttribute="centerX" secondItem="hSv-sr-fUc" secondAttribute="centerX" id="dgO-uM-oNo"/>
                             <constraint firstItem="L7j-jc-VZs" firstAttribute="top" secondItem="W4S-8m-m1R" secondAttribute="bottom" constant="8" id="fi8-zL-Gy5"/>
@@ -149,6 +156,7 @@
                             <constraint firstItem="hSv-sr-fUc" firstAttribute="top" secondItem="866-a5-Hwr" secondAttribute="bottom" constant="11" id="pR4-rh-dZe"/>
                             <constraint firstItem="Y3P-J0-N5d" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" id="qVS-cT-IYJ"/>
                             <constraint firstItem="hSv-sr-fUc" firstAttribute="centerY" secondItem="51W-xJ-teu" secondAttribute="centerY" id="qtq-MO-k8C"/>
+                            <constraint firstItem="51W-xJ-teu" firstAttribute="top" secondItem="ug2-1b-XOY" secondAttribute="bottom" constant="18" id="r61-b2-1pX"/>
                             <constraint firstItem="Kgi-JX-FDw" firstAttribute="top" secondItem="51W-xJ-teu" secondAttribute="bottom" constant="8" id="v4p-YN-gYu"/>
                             <constraint firstItem="W4S-8m-m1R" firstAttribute="top" secondItem="9dR-7U-4Zn" secondAttribute="bottom" constant="8" id="wZO-U3-B6U"/>
                             <constraint firstAttribute="centerX" secondItem="9dR-7U-4Zn" secondAttribute="centerX" id="whU-Y0-qO9"/>
