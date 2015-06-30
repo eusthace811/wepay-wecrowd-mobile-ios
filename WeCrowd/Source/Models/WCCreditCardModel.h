@@ -13,13 +13,13 @@
 
 @interface WCCreditCardModel : NSObject
 
-@property (strong, nonatomic, readonly) NSString* name;
-@property (strong, nonatomic, readonly) NSString* cardNumber;
-@property (strong, nonatomic, readonly) NSString* cvvNumber;
-@property (strong, nonatomic, readonly) NSString* zipCode;
-@property (strong, nonatomic, readonly) NSDate* expirationDate;
+@property (strong, nonatomic, readonly) NSString *name;
+@property (strong, nonatomic, readonly) NSString *cardNumber;
+@property (strong, nonatomic, readonly) NSString *cvvNumber;
+@property (strong, nonatomic, readonly) NSString *zipCode;
+@property (strong, nonatomic, readonly) NSDate *expirationDate;
 
-- (id) initWithName:(NSString *)name
+- (id) initWithName:(NSString *) name
          cardNumber:(NSString *) cardNumber
           cvvNumber:(NSString *) cvvNumber
             zipCode:(NSString *) zipCode

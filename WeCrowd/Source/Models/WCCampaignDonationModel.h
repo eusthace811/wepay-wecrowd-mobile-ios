@@ -15,10 +15,10 @@
 
 @interface WCCampaignDonationModel : NSObject
 
-@property (strong, nonatomic, readonly) WCUserModel* donator;
-@property (strong, nonatomic, readonly) NSString* campaignID;
-@property (strong, nonatomic, readonly) NSString* creditCardID;
-@property (strong, nonatomic, readonly) NSString* donationAmount;
+@property (strong, nonatomic, readonly) WCUserModel *donator;
+@property (strong, nonatomic, readonly) NSString *campaignID;
+@property (strong, nonatomic, readonly) NSString *creditCardID;
+@property (strong, nonatomic, readonly) NSString *donationAmount;
 
 - (id) initWithDonator:(WCUserModel *) donator
             campaignID:(NSString *) campaignID
