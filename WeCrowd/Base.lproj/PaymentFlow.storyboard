@@ -57,8 +57,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-yi-2d9">
-                                <rect key="frame" x="200" y="180" width="200" height="240"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-yi-2d9" customClass="WCCreditCardInfoEntryView">
+                                <rect key="frame" x="200" y="198" width="200" height="205"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Donation Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="51W-xJ-teu">
                                         <rect key="frame" x="28" y="5" width="164" height="30"/>
@@ -102,17 +102,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
-                                        <rect key="frame" x="71" y="209" width="58" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Submit">
-                                            <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="submitInformationAction:" destination="Zdb-yW-H1R" eventType="touchUpInside" id="i1j-xA-JMD"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEp-Fa-YS7">
                                         <rect key="frame" x="0.0" y="157" width="200" height="48"/>
                                         <subviews>
@@ -171,7 +160,7 @@
                                     <constraint firstItem="51W-xJ-teu" firstAttribute="leading" secondItem="hSv-sr-fUc" secondAttribute="trailing" constant="8" id="0qW-4q-dHD"/>
                                     <constraint firstItem="tEp-Fa-YS7" firstAttribute="top" secondItem="W4S-8m-m1R" secondAttribute="bottom" constant="8" id="1kM-Ru-lHA"/>
                                     <constraint firstItem="W4S-8m-m1R" firstAttribute="trailing" secondItem="9dR-7U-4Zn" secondAttribute="trailing" id="1n9-uC-ph8"/>
-                                    <constraint firstAttribute="height" constant="240" id="7F2-uc-r1h"/>
+                                    <constraint firstAttribute="height" constant="205" id="7F2-uc-r1h"/>
                                     <constraint firstItem="Kgi-JX-FDw" firstAttribute="trailing" secondItem="51W-xJ-teu" secondAttribute="trailing" id="BRM-1s-EMB"/>
                                     <constraint firstItem="hSv-sr-fUc" firstAttribute="centerY" secondItem="51W-xJ-teu" secondAttribute="centerY" id="D6w-BN-eGJ"/>
                                     <constraint firstItem="Kgi-JX-FDw" firstAttribute="top" secondItem="51W-xJ-teu" secondAttribute="bottom" constant="8" id="Ffb-dn-orW"/>
@@ -183,14 +172,12 @@
                                     <constraint firstAttribute="width" constant="200" id="Qzv-gq-Y5o"/>
                                     <constraint firstItem="Kgi-JX-FDw" firstAttribute="leading" secondItem="kKb-yi-2d9" secondAttribute="leading" constant="8" id="Zea-qb-pWF"/>
                                     <constraint firstAttribute="centerX" secondItem="Kgi-JX-FDw" secondAttribute="centerX" id="ZjC-u5-i3l"/>
-                                    <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="tEp-Fa-YS7" secondAttribute="bottom" constant="4" id="Zq2-jp-FqY"/>
                                     <constraint firstItem="tEp-Fa-YS7" firstAttribute="leading" secondItem="kKb-yi-2d9" secondAttribute="leading" id="a7T-y4-avp"/>
                                     <constraint firstAttribute="trailing" secondItem="Kgi-JX-FDw" secondAttribute="trailing" id="ccj-C2-MfW"/>
                                     <constraint firstAttribute="trailing" secondItem="9dR-7U-4Zn" secondAttribute="trailing" constant="8" id="hEN-2n-jTD"/>
                                     <constraint firstItem="9dR-7U-4Zn" firstAttribute="leading" secondItem="kKb-yi-2d9" secondAttribute="leading" constant="8" id="hNx-br-k3t"/>
                                     <constraint firstItem="W4S-8m-m1R" firstAttribute="top" secondItem="9dR-7U-4Zn" secondAttribute="bottom" constant="8" id="kjP-RO-wSw"/>
                                     <constraint firstAttribute="trailing" secondItem="51W-xJ-teu" secondAttribute="trailing" constant="8" id="nfG-er-bAe"/>
-                                    <constraint firstItem="W4S-8m-m1R" firstAttribute="centerX" secondItem="RsI-0b-Es2" secondAttribute="centerX" id="oar-df-rRZ"/>
                                     <constraint firstItem="Kgi-JX-FDw" firstAttribute="leading" secondItem="kKb-yi-2d9" secondAttribute="leading" id="qBa-fs-c4m"/>
                                     <constraint firstItem="hSv-sr-fUc" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="top" constant="8" id="rS6-IX-kkC"/>
                                     <constraint firstItem="9dR-7U-4Zn" firstAttribute="top" secondItem="Kgi-JX-FDw" secondAttribute="bottom" constant="8" id="s9n-yr-2ED"/>
@@ -207,8 +194,19 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
+                                <rect key="frame" x="271" y="411" width="58" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitInformationAction:" destination="Zdb-yW-H1R" eventType="touchUpInside" id="i1j-xA-JMD"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
-                                <rect key="frame" x="148" y="151" width="305" height="21"/>
+                                <rect key="frame" x="148" y="165" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -216,14 +214,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ug2-1b-XOY" firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" constant="0.5" id="1Dc-wi-zuw"/>
-                            <constraint firstItem="kKb-yi-2d9" firstAttribute="top" secondItem="ug2-1b-XOY" secondAttribute="bottom" constant="8" id="GLs-NE-bfb"/>
+                            <constraint firstItem="ug2-1b-XOY" firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" id="1Dc-wi-zuw"/>
+                            <constraint firstItem="kKb-yi-2d9" firstAttribute="centerX" secondItem="RsI-0b-Es2" secondAttribute="centerX" id="4jC-qz-XTy"/>
+                            <constraint firstItem="kKb-yi-2d9" firstAttribute="top" secondItem="ug2-1b-XOY" secondAttribute="bottom" constant="12" id="GLs-NE-bfb"/>
                             <constraint firstAttribute="centerY" secondItem="kKb-yi-2d9" secondAttribute="centerY" id="Qmu-Zf-rG1"/>
                             <constraint firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" id="SkV-YY-dic"/>
+                            <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="bottom" constant="8" id="mLF-S3-caI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yjb-Dv-nWz"/>
                     <connections>
+                        <outlet property="cardNumberField" destination="W4S-8m-m1R" id="2db-8T-1JU"/>
+                        <outlet property="donationAmountField" destination="51W-xJ-teu" id="Jda-h7-XaR"/>
+                        <outlet property="emailField" destination="9dR-7U-4Zn" id="WPm-6D-cHO"/>
+                        <outlet property="expiryMonthField" destination="Y3P-J0-N5d" id="35W-5v-IDf"/>
+                        <outlet property="expiryYearField" destination="naI-wO-ZFL" id="uGM-4T-2hS"/>
+                        <outlet property="expiryZipField" destination="L7j-jc-VZs" id="UAQ-H9-mt4"/>
+                        <outlet property="nameField" destination="Kgi-JX-FDw" id="YiL-S8-coo"/>
                         <segue destination="alg-Zd-1vr" kind="presentation" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>
                 </viewController>
