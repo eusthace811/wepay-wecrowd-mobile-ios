@@ -178,15 +178,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Bp-xvw">
-                                <rect key="frame" x="217" y="286" width="167" height="29"/>
+                                <rect key="frame" x="217" y="255" width="167" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U01-rY-fin">
+                                <rect key="frame" x="214" y="315" width="172" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Return to Campaigns">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="7qo-Bp-xvw" secondAttribute="centerY" id="JEO-M2-Fwx"/>
+                            <constraint firstAttribute="centerY" secondItem="7qo-Bp-xvw" secondAttribute="centerY" constant="30.5" id="JEO-M2-Fwx"/>
+                            <constraint firstAttribute="centerX" secondItem="U01-rY-fin" secondAttribute="centerX" id="XEe-yK-a7a"/>
+                            <constraint firstItem="U01-rY-fin" firstAttribute="top" secondItem="7qo-Bp-xvw" secondAttribute="bottom" constant="31" id="m7M-nY-e4n"/>
                             <constraint firstAttribute="centerX" secondItem="7qo-Bp-xvw" secondAttribute="centerX" id="ssF-SO-KNP"/>
                         </constraints>
                     </view>
