@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class WCCreditCardModel;
+
 @interface WCCreditCardInfoEntryController : NSObject
+
+// TODO: Do these properties belong here?
+@property (nonatomic, weak, readonly) NSString *donationAmount;
+@property (nonatomic, weak, readonly) NSString *email;
+// end
+
+@property (nonatomic, strong, readonly) WCCreditCardModel *creditCardModel;
 
 @end
