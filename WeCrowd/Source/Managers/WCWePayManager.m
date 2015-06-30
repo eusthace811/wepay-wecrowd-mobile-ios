@@ -7,7 +7,6 @@
 //
 
 #import "WCWePayManager.h"
-#import <WePay/WePay.h>
 
 @interface WCWePayManager ()
 
@@ -23,12 +22,13 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        WPConfig *config = [[WPConfig alloc] initWithClientId:@"58670"
-                                                  environment:kWPEnvironmentStage];
+        WPConfig *config;
         
+        // Use the example app client ID suitable for testing
+        config = [[WPConfig alloc] initWithClientId:@"171482"
+                                        environment:kWPEnvironmentStage];
         instance = [WCWePayManager new];
         instance.wepay = [[WePay alloc] initWithConfig:config];
-        
     });
     
     return instance;

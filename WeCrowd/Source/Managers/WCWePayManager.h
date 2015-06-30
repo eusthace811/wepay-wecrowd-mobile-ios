@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class WePay;
+#import <WePay/WePay.h>
 
 @interface WCWePayManager : NSObject
 
-/**
- * Singleton
- */
 + (instancetype) sharedInstance;
 
 @property (nonatomic, strong, readonly) WePay *wepay;
