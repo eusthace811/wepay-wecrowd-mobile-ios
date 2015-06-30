@@ -193,6 +193,15 @@
                                         <exclude reference="hNx-br-k3t"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="cardNumberField" destination="W4S-8m-m1R" id="dRf-wB-l1X"/>
+                                    <outlet property="donationAmountField" destination="51W-xJ-teu" id="icJ-PU-P12"/>
+                                    <outlet property="emailField" destination="9dR-7U-4Zn" id="u7F-cp-MVJ"/>
+                                    <outlet property="expiryMonthField" destination="Y3P-J0-N5d" id="eO1-oK-XXb"/>
+                                    <outlet property="expiryYearField" destination="naI-wO-ZFL" id="VY3-U2-487"/>
+                                    <outlet property="expiryZipField" destination="L7j-jc-VZs" id="mWo-Hs-LJm"/>
+                                    <outlet property="nameField" destination="Kgi-JX-FDw" id="cS8-mJ-Q4R"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
                                 <rect key="frame" x="271" y="411" width="58" height="34"/>
@@ -224,13 +233,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="yjb-Dv-nWz"/>
                     <connections>
-                        <outlet property="cardNumberField" destination="W4S-8m-m1R" id="2db-8T-1JU"/>
-                        <outlet property="donationAmountField" destination="51W-xJ-teu" id="Jda-h7-XaR"/>
-                        <outlet property="emailField" destination="9dR-7U-4Zn" id="WPm-6D-cHO"/>
-                        <outlet property="expiryMonthField" destination="Y3P-J0-N5d" id="35W-5v-IDf"/>
-                        <outlet property="expiryYearField" destination="naI-wO-ZFL" id="uGM-4T-2hS"/>
-                        <outlet property="expiryZipField" destination="L7j-jc-VZs" id="UAQ-H9-mt4"/>
-                        <outlet property="nameField" destination="Kgi-JX-FDw" id="YiL-S8-coo"/>
                         <segue destination="alg-Zd-1vr" kind="presentation" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>
                 </viewController>
@@ -343,6 +345,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3Se-mT-u07"/>
+        <segue reference="dGc-Ic-WNA"/>
     </inferredMetricsTieBreakers>
 </document>
