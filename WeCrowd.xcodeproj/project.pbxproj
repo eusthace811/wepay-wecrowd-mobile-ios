@@ -43,6 +43,7 @@
 		C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */; };
 		C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */; };
 		C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */; };
+		C3EC4BB11B4306560005B1B9 /* WCWePayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC4BB01B4306560005B1B9 /* WCWePayManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCModelProcessor.m; path = Source/Internal/WCModelProcessor.m; sourceTree = "<group>"; };
 		C3DC8EDB1B3CA0650053D405 /* WCCampaignDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignDetailViewController.h; path = Source/Controllers/WCCampaignDetailViewController.h; sourceTree = "<group>"; };
 		C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignDetailViewController.m; path = Source/Controllers/WCCampaignDetailViewController.m; sourceTree = "<group>"; };
+		C3EC4BAF1B4306560005B1B9 /* WCWePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCWePayManager.h; path = Source/Managers/WCWePayManager.h; sourceTree = "<group>"; };
+		C3EC4BB01B4306560005B1B9 /* WCWePayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCWePayManager.m; path = Source/Managers/WCWePayManager.m; sourceTree = "<group>"; };
 		EEC2C7AE6ED4139216127ABE /* Pods-WeCrowd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeCrowd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeCrowd/Pods-WeCrowd.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,6 +347,8 @@
 			children = (
 				C3DC8ED51B3C6B5C0053D405 /* WCLoginManager.h */,
 				C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */,
+				C3EC4BAF1B4306560005B1B9 /* WCWePayManager.h */,
+				C3EC4BB01B4306560005B1B9 /* WCWePayManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */,
 				C39676561B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m in Sources */,
 				C3060E0D1B2652D500A9F596 /* WCLoginViewController.m in Sources */,
+				C3EC4BB11B4306560005B1B9 /* WCWePayManager.m in Sources */,
 				C39676591B2A53AE0071CEB5 /* WCCampaignDetailModel.m in Sources */,
 				C3060E0A1B2652D500A9F596 /* AppDelegate.m in Sources */,
 				C3D610A01B3E0314005D188F /* WCWelcomeViewController.m in Sources */,
