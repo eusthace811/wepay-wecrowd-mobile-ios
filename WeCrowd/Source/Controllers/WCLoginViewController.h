@@ -11,4 +11,3 @@
 @interface WCLoginViewController : UIViewController
 
 @end
-
