@@ -118,10 +118,20 @@
                                 <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
+                                <rect key="frame" x="280" y="290" width="58" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Y3P-J0-N5d" firstAttribute="leading" secondItem="W4S-8m-m1R" secondAttribute="leading" id="2lX-CK-3ab"/>
+                            <constraint firstAttribute="centerX" secondItem="RsI-0b-Es2" secondAttribute="centerX" constant="-8.5" id="40k-3m-bDI"/>
+                            <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="naI-wO-ZFL" secondAttribute="bottom" constant="8" id="5H3-M9-BLe"/>
                             <constraint firstItem="Kgi-JX-FDw" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" id="5oN-8o-jTi"/>
                             <constraint firstItem="9dR-7U-4Zn" firstAttribute="top" secondItem="Kgi-JX-FDw" secondAttribute="bottom" constant="8" id="7V0-13-aG3"/>
                             <constraint firstAttribute="centerX" secondItem="Kgi-JX-FDw" secondAttribute="centerX" id="83d-3C-56s"/>
@@ -187,6 +197,7 @@
                                 <rect key="frame" x="214" y="315" width="172" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Return to Campaigns">
+                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -226,6 +237,7 @@
                                 <rect key="frame" x="246" y="134" width="108" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Swipe Card">
+                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -236,6 +248,7 @@
                                 <rect key="frame" x="240" y="180" width="121" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Manual Entry">
+                                    <color key="titleColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
