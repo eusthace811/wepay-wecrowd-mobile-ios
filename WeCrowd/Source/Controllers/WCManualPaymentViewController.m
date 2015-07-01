@@ -10,6 +10,7 @@
 #import "WCWePayManager.h"
 #import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
+#import "WCModelProcessor.h"
 
 @interface WCManualPaymentViewController ()
 
@@ -32,7 +33,7 @@
     NSDateFormatter *formatter = [NSDateFormatter new];
     NSString *month, *year;
     
-    // Fill in the data
+    // Fill in data members
     [self setupCreditCardModel];
     [self setupDonation];
     
@@ -62,22 +63,13 @@
 
 - (void) setupCreditCardModel
 {
-    // Extract the date from the given fields
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComponents = [NSDateComponents new];
-    NSDate *expiration;
-    
-    dateComponents.year = [self.cardInfoEntryView.expiryYearField.text integerValue];
-    dateComponents.month = [self.cardInfoEntryView.expiryMonthField.text integerValue];
-    
-    expiration = [calendar dateFromComponents:dateComponents];
-    
-    self.creditCardModel = [[WCCreditCardModel alloc] initWithFirstName:self.cardInfoEntryView.firstNameField.text
-                                                               lastName:self.cardInfoEntryView.lastNameField.text
-                                                             cardNumber:self.cardInfoEntryView.cardNumberField.text
-                                                              cvvNumber:self.cardInfoEntryView.cardCVVField.text
-                                                                zipCode:self.cardInfoEntryView.expiryZipField.text
-                                                         expirationDate:expiration];
+    self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:self.cardInfoEntryView.firstNameField.text
+                                                                       lastName:self.cardInfoEntryView.lastNameField.text
+                                                                     cardNumber:self.cardInfoEntryView.cardNumberField.text
+                                                                            cvv:self.cardInfoEntryView.cardCVVField.text
+                                                                        zipCode:self.cardInfoEntryView.expiryZipField.text
+                                                                expirationMonth:self.cardInfoEntryView.expiryMonthField.text
+                                                                 expirationYear:self.cardInfoEntryView.expiryYearField.text];
     
 }
 

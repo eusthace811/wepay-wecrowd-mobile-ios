@@ -8,9 +8,11 @@
 
 #import "WCModelProcessor.h"
 #import <UIKit/UIKit.h>
+#import "WCConstants.h"
+
 #import "WCCampaignHeaderModel.h"
 #import "WCCampaignDetailModel.h"
-#import "WCConstants.h"
+#import "WCCreditCardModel.h"
 
 @implementation WCModelProcessor
 
@@ -55,6 +57,32 @@
                                                 detailImage:nil
                                           detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
                                                    location:nil];
+}
+
++ (WCCreditCardModel *) createCreditCardModelFromFirstName:(NSString *) firstName
+                                                  lastName:(NSString *) lastName
+                                                cardNumber:(NSString *) cardNumber
+                                                       cvv:(NSString *) cvv
+                                                   zipCode:(NSString *) zipCode
+                                           expirationMonth:(NSString *) expirationMonth
+                                            expirationYear:(NSString *) expirationYear
+{
+    // Objects to extract the date from the given fields
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    NSDate *expiration;
+    
+    dateComponents.month = [expirationMonth integerValue];
+    dateComponents.year = [expirationYear integerValue];
+    
+    expiration = [calendar dateFromComponents:dateComponents];
+    
+    return [[WCCreditCardModel alloc] initWithFirstName:firstName
+                                                               lastName:lastName
+                                                             cardNumber:cardNumber
+                                                              cvvNumber:cvv
+                                                                zipCode:zipCode
+                                                         expirationDate:expiration];
 }
 
 @end
