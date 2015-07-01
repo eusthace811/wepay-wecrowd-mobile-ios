@@ -51,6 +51,11 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
      ];
 }
 
++ (void) donateWithDonation:(WCCampaignDonationModel *) donation
+{
+
+}
+
 + (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
 {
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]

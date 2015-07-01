@@ -86,6 +86,8 @@
 {
     [self.activityIndicator stopAnimating];
     
+    // Make the API donate call
+    
     [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
 }
 

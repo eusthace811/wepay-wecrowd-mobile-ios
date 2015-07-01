@@ -14,6 +14,7 @@
 NSString* const kAPIEndpointLogin     = @"/login";
 NSString* const kAPIEndpointCampaigns = @"/campaigns";
 NSString* const kAPIEndpointUsers     = @"/users";
+NSString* const kAPIEndpointDonate    = @"/donate";
 
 // Parameters - User
 NSString* const kAPIParameterUserID    = @"user_id";
@@ -27,6 +28,13 @@ NSString* const kAPIParameterCampaignName        = @"campaign_name";
 NSString* const kAPIParameterCampaignGoal        = @"campaign_goal";
 NSString* const kAPIParameterCampaignProgress    = @"campaign_progress";
 NSString* const kAPIParameterCampaignDescription = @"campaign_description";
+
+// Parameters - Donation
+NSString* const kAPIParameterDonationID              = @"campaign_id";
+NSString* const kAPIParameterDonationAmount          = @"amount";
+NSString* const kAPIParameterDonationName            = @"name";
+NSString* const kAPIParameterDonationEmail           = @"email";
+NSString* const kAPIParameterDonationCreditCardToken = @"cc_token";
 
 NSString* const kAPIParameterErrorCode = @"error_code";
 

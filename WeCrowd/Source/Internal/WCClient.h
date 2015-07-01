@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class WCCampaignDetailModel;
+@class WCCampaignDetailModel, WCCampaignDonationModel;
 
 @interface WCClient : NSObject
 
 + (void) loginWithUsername:(NSString *) username
                   password:(NSString *) password
            completionBlock:(void (^)(NSDictionary *userInfo, NSError *error)) completionBlock;
+
++ (void) donateWithDonation:(WCCampaignDonationModel *) donation;
 
 + (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
 
