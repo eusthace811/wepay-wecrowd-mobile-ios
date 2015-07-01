@@ -13,10 +13,13 @@
 @interface WCUserModel : NSObject
 
 @property (strong, nonatomic, readonly) NSString* userID;
+@property (strong, nonatomic, readonly) NSString* displayName;
+@property (strong, nonatomic, readonly) NSString* canonicalName;
 @property (strong, nonatomic, readonly) NSString* email;
 @property (strong, nonatomic, readonly) NSString* token;
 
 - (id) initWithUserID:(NSString *) userID
+          displayName:(NSString *) displayName
                 email:(NSString *) email
                 token:(NSString *) token;
 

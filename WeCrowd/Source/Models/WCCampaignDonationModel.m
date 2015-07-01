@@ -16,7 +16,7 @@
 @property (strong, nonatomic, readwrite) WCUserModel* donator;
 @property (strong, nonatomic, readwrite) NSString* campaignID;
 @property (strong, nonatomic, readwrite) NSString* creditCardID;
-@property (strong, nonatomic, readwrite) NSString* donationAmount;
+@property (strong, nonatomic, readwrite) NSString* amount;
 
 @end
 
@@ -27,18 +27,18 @@
 
 #pragma mark - Initialization
 
-- (id) initWithDonator:(WCUserModel *) donator
-            campaignID:(NSString *) campaignID
-          creditCardID:(NSString *) creditCardID
-        donationAmount:(NSString *) donationAmount
+- (instancetype) initWithDonator:(WCUserModel *) donator
+                      campaignID:(NSString *) campaignID
+                    creditCardID:(NSString *) creditCardID
+                  donationAmount:(NSString *) amount
 {
     if (self = [super init]) {
         self.donator = donator;
         self.campaignID = campaignID;
         self.creditCardID = creditCardID;
-        self.donationAmount = donationAmount;
+        self.amount = amount;
     } else {
-        // unable to initialize objects
+        // Do nothing
     }
     
     return self;
