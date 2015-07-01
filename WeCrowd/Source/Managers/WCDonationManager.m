@@ -10,4 +10,16 @@
 
 @implementation WCDonationManager
 
++ (instancetype) sharedInstance
+{
+    static WCDonationManager *instance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        instance = [WCDonationManager new];
+    });
+    
+    return instance;
+}
+
 @end
