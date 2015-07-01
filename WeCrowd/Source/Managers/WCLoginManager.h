@@ -16,11 +16,16 @@
  */
 + (WCUserModel *) currentUser;
 
-+ (void) loginUserWithUsername:(NSString *) username
-                      password:(NSString *) password
-               completionBlock:(void (^)(NSError *error)) completionBlock;
++ (void) loginMerchantWithUsername:(NSString *) username
+                          password:(NSString *) password
+                   completionBlock:(void (^)(NSError *error)) completionBlock;
 
 
 + (void) logoutWithCompletionBlock:(void (^)(NSError *error)) completionBlock;
+
+typedef NS_ENUM(NSUInteger, WCLoginUserType) {
+    WCLoginUserPayer    = 0,
+    WCLoginUserMerchant = 1
+};
 
 @end

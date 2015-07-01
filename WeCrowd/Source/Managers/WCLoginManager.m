@@ -16,9 +16,31 @@
 
 @implementation WCLoginManager
 
-// Static logged-in user member
+#pragma mark - Static Members
+
 static WCUserModel *user = nil;
+static WCLoginUserType userType = WCLoginUserPayer;
+
+#pragma mark - Interface Methods
+
 + (WCUserModel *) currentUser { return user; }
+
++ (void) loginMerchantWithUsername:(NSString *) username
+                          password:(NSString *) password
+                   completionBlock:(void (^)(NSError *)) completionBlock
+{
+    [self loginUserWithUsername:username
+                       password:password
+                completionBlock:^(NSError *error) {
+                    if (!error) {
+                        userType = WCLoginUserMerchant;
+                    }
+                    
+                    completionBlock(error);
+                }];
+}
+
+#pragma mark - Helper Methods
 
 + (void) loginUserWithUsername:(NSString *) username
                       password:(NSString *) password
@@ -27,6 +49,7 @@ static WCUserModel *user = nil;
     [WCClient loginWithUsername:username
                        password:password
                 completionBlock:^(NSDictionary *userInfo, NSError *error) {
+                    // TODO: Perform proper error checking
                     if (!error) {
                         // Allocate memory if user instance has not been created
                         if (!user) {
