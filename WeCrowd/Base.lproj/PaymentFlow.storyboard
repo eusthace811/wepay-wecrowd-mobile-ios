@@ -38,7 +38,7 @@
                     </view>
                     <connections>
                         <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
-                        <segue destination="alg-Zd-1vr" kind="presentation" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>
+                        <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WM1-9J-Eoq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,17 +293,17 @@
                     <connections>
                         <outlet property="activityIndicator" destination="o8z-or-zq5" id="Mcg-Wd-Liz"/>
                         <outlet property="cardInfoEntryView" destination="kKb-yi-2d9" id="5jc-M9-I16"/>
-                        <segue destination="alg-Zd-1vr" kind="presentation" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
+                        <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npm-ru-lP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072" y="1036"/>
         </scene>
-        <!--Payment Status-->
+        <!--Payment Succeeded!-->
         <scene sceneID="hKZ-kG-Nq8">
             <objects>
-                <viewController title="Payment Status" id="alg-Zd-1vr" sceneMemberID="viewController">
+                <viewController title="Payment Succeeded!" id="alg-Zd-1vr" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FoF-Dt-LVK"/>
                         <viewControllerLayoutGuide type="bottom" id="lk5-Vx-rLp"/>
@@ -312,15 +312,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Bp-xvw">
-                                <rect key="frame" x="217" y="255" width="167" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Succeeded!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Bp-xvw">
+                                <rect key="frame" x="188" y="255" width="225" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U01-rY-fin">
-                                <rect key="frame" x="214" y="315" width="172" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="211" y="315" width="178" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="Return to Campaigns">
                                     <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -405,6 +405,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3Se-mT-u07"/>
+        <segue reference="dGc-Ic-WNA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
 #import "WCLoginManager.h"
+#import "WCConstants.h"
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
@@ -81,12 +82,14 @@
 
 #pragma mark - WPTokenizationDelegate
 
-- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didTokenize:(WPPaymentToken *) paymentToken
+- (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
     [self.activityIndicator stopAnimating];
+    
+    [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
 }
 
-- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didFailTokenization:(NSError *) error
+- (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
     UIAlertView *alert;
     NSString *message;
