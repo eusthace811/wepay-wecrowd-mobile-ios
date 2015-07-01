@@ -81,14 +81,25 @@
 
 #pragma mark - WPTokenizationDelegate
 
-- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didTokenize:(WPPaymentToken *)paymentToken
+- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
     [self.activityIndicator stopAnimating];
 }
 
-- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didFailTokenization:(NSError *)error
+- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didFailTokenization:(NSError *) error
 {
+    UIAlertView *alert;
+    NSString *message;
+    
     [self.activityIndicator stopAnimating];
+    
+    // Notify the user of the failure
+    message = [NSString stringWithFormat:@"Information invalid, received error: %@. Please Try again", [error localizedDescription]];
+    alert = [[UIAlertView alloc] initWithTitle:@"Unable to process information"
+                                       message:message
+                                      delegate:self
+                             cancelButtonTitle:@"Close" otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - Helper Methods
