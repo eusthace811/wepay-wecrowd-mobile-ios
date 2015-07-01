@@ -10,13 +10,15 @@
 
 @class WCCreditCardModel;
 
-@interface WCCreditCardInfoEntryController : NSObject
-
-// TODO: Do these properties belong here?
-@property (nonatomic, weak, readonly) NSString *donationAmount;
-@property (nonatomic, weak, readonly) NSString *email;
-// end
+@interface WCCreditCardInfoEntryController : UIView
 
 @property (nonatomic, strong, readonly) WCCreditCardModel *creditCardModel;
+
+// TODO: Do these properties belong here?
+@property (nonatomic, strong, readonly) NSString *donationAmount;
+@property (nonatomic, strong, readonly) NSString *email;
+// end
+
+- (void) fillInModels;
 
 @end
