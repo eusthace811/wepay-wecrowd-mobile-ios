@@ -35,7 +35,7 @@
     
     // Tokenize the card using the entered information
     // TODO: perform check with login manager to see if merchant/payer is logged in
-    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.name
+    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.firstName
                                                   lastName:nil
                                                      email:self.email
                                             billingAddress:nil
@@ -62,11 +62,12 @@
     expiration = [calendar dateFromComponents:dateComponents];
     
     
-    self.creditCardModel = [[WCCreditCardModel alloc] initWithName:self.cardInfoEntryView.nameField.text
-                                                        cardNumber:self.cardInfoEntryView.cardNumberField.text
-                                                         cvvNumber:self.cardInfoEntryView.cardCVVField.text
-                                                           zipCode:self.cardInfoEntryView.expiryZipField.text
-                                                    expirationDate:expiration];
+    self.creditCardModel = [[WCCreditCardModel alloc] initWithFirstName:self.cardInfoEntryView.nameField.text
+                                                               lastName:nil
+                                                             cardNumber:self.cardInfoEntryView.cardNumberField.text
+                                                              cvvNumber:self.cardInfoEntryView.cardCVVField.text
+                                                                zipCode:self.cardInfoEntryView.expiryZipField.text
+                                                         expirationDate:expiration];
     
 }
 
