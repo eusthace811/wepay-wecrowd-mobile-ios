@@ -266,6 +266,10 @@
                                     <action selector="submitInformationAction:" destination="Zdb-yW-H1R" eventType="touchUpInside" id="i1j-xA-JMD"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
+                                <rect key="frame" x="282" y="141" width="37" height="37"/>
+                                <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -274,8 +278,10 @@
                             <constraint firstItem="kKb-yi-2d9" firstAttribute="top" secondItem="ug2-1b-XOY" secondAttribute="bottom" constant="8" id="EmH-Nq-4Ky"/>
                             <constraint firstAttribute="centerY" secondItem="kKb-yi-2d9" secondAttribute="centerY" id="Qmu-Zf-rG1"/>
                             <constraint firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" id="SkV-YY-dic"/>
+                            <constraint firstItem="kKb-yi-2d9" firstAttribute="centerX" secondItem="o8z-or-zq5" secondAttribute="centerX" id="eB7-H7-Oup"/>
                             <constraint firstItem="ug2-1b-XOY" firstAttribute="top" secondItem="866-a5-Hwr" secondAttribute="bottom" constant="8" id="kue-u5-4sk"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="bottom" constant="8" id="mLF-S3-caI"/>
+                            <constraint firstItem="kKb-yi-2d9" firstAttribute="centerY" secondItem="o8z-or-zq5" secondAttribute="centerY" id="wbB-Bq-QuE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -285,6 +291,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yjb-Dv-nWz"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="o8z-or-zq5" id="Mcg-Wd-Liz"/>
                         <outlet property="cardInfoEntryView" destination="kKb-yi-2d9" id="5jc-M9-I16"/>
                         <segue destination="alg-Zd-1vr" kind="presentation" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>

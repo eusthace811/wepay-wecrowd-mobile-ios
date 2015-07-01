@@ -38,9 +38,9 @@
     password = self.passwordField.text;
     #endif
 
-    [WCLoginManager loginUserWithUsername:username
-                                 password:password
-                          completionBlock:^(NSError *error)
+    [WCLoginManager loginMerchantWithUsername:username
+                                     password:password
+                              completionBlock:^(NSError *error)
     {
         if (error) {
             // Notify the user of the error

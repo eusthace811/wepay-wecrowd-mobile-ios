@@ -16,6 +16,7 @@
 @interface WCManualPaymentViewController ()
 
 @property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryView *cardInfoEntryView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong, readwrite) WCCreditCardModel *creditCardModel;
 @property (nonatomic, strong, readwrite) NSString *donationAmount;
@@ -58,6 +59,9 @@
                                                   expMonth:month
                                                    expYear:year
                                            virtualTerminal:[WCLoginManager userType]];
+    
+    // Feedback for completing the request
+    [self.activityIndicator startAnimating];
 }
 
 #pragma mark - Helper Methods
