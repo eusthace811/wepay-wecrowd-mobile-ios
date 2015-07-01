@@ -13,7 +13,7 @@
 #import "WCModelProcessor.h"
 #import "WCLoginManager.h"
 
-@interface WCManualPaymentViewController ()
+@interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
 @property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryView *cardInfoEntryView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -48,7 +48,18 @@
     year = [formatter stringFromDate:self.creditCardModel.expirationDate];
     
     // Tokenize the card using the entered information
-    // TODO: perform check with login manager to see if merchant/payer is logged in
+    #ifdef DEBUG
+    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:@"WeCrowd-iOS"
+                                                  lastName:@"Example"
+                                                     email:@"wp.ios.example@wepay.com"
+                                            billingAddress:[[WPAddress alloc] initWithZip:@"94306"]
+                                           shippingAddress:nil
+                                                cardNumber:@"5496198584584769"
+                                                       cvv:@"123"
+                                                  expMonth:@"04"
+                                                   expYear:@"2020"
+                                           virtualTerminal:[WCLoginManager userType]];
+    #else
     paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.firstName
                                                   lastName:self.creditCardModel.lastName
                                                      email:self.email
@@ -59,9 +70,25 @@
                                                   expMonth:month
                                                    expYear:year
                                            virtualTerminal:[WCLoginManager userType]];
+    #endif
+
+    [[WCWePayManager sharedInstance].wepay tokenizePaymentInfo:paymentInfo
+                                          tokenizationDelegate:self];
     
     // Feedback for completing the request
     [self.activityIndicator startAnimating];
+}
+
+#pragma mark - WPTokenizationDelegate
+
+- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didTokenize:(WPPaymentToken *)paymentToken
+{
+    [self.activityIndicator stopAnimating];
+}
+
+- (void) paymentInfo:(WPPaymentInfo *)paymentInfo didFailTokenization:(NSError *)error
+{
+    [self.activityIndicator stopAnimating];
 }
 
 #pragma mark - Helper Methods
@@ -75,7 +102,6 @@
                                                                         zipCode:self.cardInfoEntryView.expiryZipField.text
                                                                 expirationMonth:self.cardInfoEntryView.expiryMonthField.text
                                                                  expirationYear:self.cardInfoEntryView.expiryYearField.text];
-    
 }
 
 - (void) setupDonation
