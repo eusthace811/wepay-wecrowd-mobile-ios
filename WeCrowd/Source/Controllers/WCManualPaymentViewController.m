@@ -10,9 +10,11 @@
 #import "WCWePayManager.h"
 #import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
+#import "WCCampaignDonationModel.h"
 #import "WCModelProcessor.h"
 #import "WCLoginManager.h"
 #import "WCConstants.h"
+#import "WCClient.h"
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
@@ -84,10 +86,23 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-    [self.activityIndicator stopAnimating];
+    WCCampaignDonationModel *donation;
+    NSString *username;
+
+    username = [self.creditCardModel.firstName stringByAppendingString:[NSString stringWithFormat:@" %@", self.creditCardModel.lastName]];
+    donation = [[WCCampaignDonationModel alloc] initWithCampaignID:nil
+                                                       donatorName:username
+                                                      donatorEmail:self.email
+                                                      creditCardID:paymentToken.tokenId
+                                                            amount:self.donationAmount];
     
     // Make the API donate call
-    
+    [WCClient donateWithDonation:donation
+                 completionBlock:^(NSString *checkoutID, NSError *error) {
+                     //
+                 }];
+ 
+    [self.activityIndicator stopAnimating];
     [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
 }
 

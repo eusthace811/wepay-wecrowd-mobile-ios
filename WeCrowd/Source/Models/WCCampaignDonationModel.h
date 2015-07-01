@@ -8,21 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@class WCUserModel;
-
-
 #pragma mark - Interface
 
 @interface WCCampaignDonationModel : NSObject
 
-@property (strong, nonatomic, readonly) WCUserModel *donator;
 @property (strong, nonatomic, readonly) NSString *campaignID;
+@property (strong, nonatomic, readonly) NSString *donatorName;
+@property (strong, nonatomic, readonly) NSString *donatorEmail;
 @property (strong, nonatomic, readonly) NSString *creditCardID;
 @property (strong, nonatomic, readonly) NSString *amount;
 
-- (id) initWithDonator:(WCUserModel *) donator
-            campaignID:(NSString *) campaignID
-          creditCardID:(NSString *) creditCardID
-        donationAmount:(NSString *) amount;
+- (instancetype) initWithCampaignID:(NSString *) campaignID
+                        donatorName:(NSString *) donatorName
+                       donatorEmail:(NSString *) donatorEmail
+                       creditCardID:(NSString *) creditCardID
+                             amount:(NSString *) amount;
 
 @end

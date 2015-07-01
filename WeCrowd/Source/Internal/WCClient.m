@@ -54,7 +54,7 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
 }
 
 + (void) donateWithDonation:(WCCampaignDonationModel *) donation
-            completionBlock:(void (^)(NSString *checkoutID, NSError *))completionBlock
+            completionBlock:(void (^)(NSString *checkoutID, NSError *)) completionBlock
 {
     NSDictionary *values = @{ kAPIParameterDonationID              : donation.campaignID,
                               kAPIParameterDonationName            : donation.donator.canonicalName,
