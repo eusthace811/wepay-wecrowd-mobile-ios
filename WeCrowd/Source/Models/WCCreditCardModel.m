@@ -13,7 +13,8 @@
 
 @interface WCCreditCardModel ()
 
-@property (strong, nonatomic, readwrite) NSString* name;
+@property (strong, nonatomic, readwrite) NSString *firstName;
+@property (strong, nonatomic, readwrite) NSString *lastName;
 @property (strong, nonatomic, readwrite) NSString* cardNumber;
 @property (strong, nonatomic, readwrite) NSString* cvvNumber;
 @property (strong, nonatomic, readwrite) NSString* zipCode;
@@ -28,20 +29,22 @@
 
 #pragma mark - Initialization
 
-- (id) initWithName:(NSString *) name
-         cardNumber:(NSString *) cardNumber
-          cvvNumber:(NSString *) cvvNumber
-            zipCode:(NSString *) zipCode
-     expirationDate:(NSDate *) expirationDate
+- (instancetype) initWithFirstName:(NSString *) firstName
+                          lastName:(NSString *) lastName
+                        cardNumber:(NSString *) cardNumber
+                         cvvNumber:(NSString *) cvvNumber
+                           zipCode:(NSString *) zipCode
+                    expirationDate:(NSDate *) expirationDate
 {
     if (self = [super init]) {
-        self.name = name;
+        self.firstName = firstName;
+        self.lastName = lastName;
         self.cardNumber = cardNumber;
         self.cvvNumber = cvvNumber;
         self.zipCode = zipCode;
         self.expirationDate = expirationDate;
     } else {
-        // unable to initialize objects
+        // Do nothing
     }
     
     return self;

@@ -34,6 +34,7 @@
     [self setupDonation];
     
     // Tokenize the card using the entered information
+    // TODO: perform check with login manager to see if merchant/payer is logged in
     paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.name
                                                   lastName:nil
                                                      email:self.email
