@@ -23,17 +23,15 @@
 
 @implementation WCManualPaymentViewController
 
-- (void) viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+#pragma mark Interface Builder
 
 - (IBAction) submitInformationAction:(id) sender
 {
     [self fillInCreditCardModel];
     [self fillInDonation];
 }
+
+#pragma mark - Helper Methods
 
 - (void) fillInCreditCardModel
 {
