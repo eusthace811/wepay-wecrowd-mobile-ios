@@ -21,6 +21,8 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 @property (nonatomic, strong, readwrite) NSArray *campaigns;
 @property (nonatomic, weak, readwrite) NSString *selectedCampaignID;
 
+@property (nonatomic, weak, readwrite) id<CampaignDetailDelegate> delegate;
+
 @end
 
 @implementation WCCampaignFeedViewController

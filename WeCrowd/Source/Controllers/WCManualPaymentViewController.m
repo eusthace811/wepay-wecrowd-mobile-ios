@@ -11,6 +11,8 @@
 
 @interface WCManualPaymentViewController ()
 
+@property (nonatomic, weak, readwrite) id<ManualPaymentDelegate> delegate;
+
 @end
 
 @implementation WCManualPaymentViewController

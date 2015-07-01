@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class WCManualPaymentViewController;
+
+@protocol ManualPaymentDelegate <NSObject>
+
+- (void) manualPaymentViewController:(WCManualPaymentViewController *) manualPaymentViewController
+                didSubmitPaymentInfo:(id) sender;
+
+@end
+
 @interface WCManualPaymentViewController : UIViewController
 
 @end

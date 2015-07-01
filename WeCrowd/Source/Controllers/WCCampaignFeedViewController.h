@@ -19,6 +19,4 @@
 
 @interface WCCampaignFeedViewController : UITableViewController
 
-@property (nonatomic, weak, readwrite) id<CampaignDetailDelegate> delegate;
-
 @end
