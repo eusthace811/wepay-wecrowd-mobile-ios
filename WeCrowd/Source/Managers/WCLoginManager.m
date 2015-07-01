@@ -10,10 +10,6 @@
 #import "WCClient.h"
 #import "WCConstants.h"
 
-@interface WCLoginManager ()
-
-@end
-
 @implementation WCLoginManager
 
 #pragma mark - Static Members
@@ -53,9 +49,7 @@ static WCLoginUserType userType = WCLoginUserPayer;
                     // TODO: Perform proper error checking
                     if (!error) {
                         // Allocate memory if user instance has not been created
-                        if (!user) {
-                            user = [WCUserModel new];
-                        }
+                        if (!user) { user = [WCUserModel new]; }
                         
                         [user setUserID:[userInfo objectForKey:kAPIParameterUserID]
                                   email:username
