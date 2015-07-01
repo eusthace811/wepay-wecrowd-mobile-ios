@@ -7,19 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WCManualPaymentViewController.h"
-
-@class WCCreditCardModel;
 
 @interface WCCreditCardInfoEntryController : UIView
 
-@property (nonatomic, strong, readonly) WCCreditCardModel *creditCardModel;
-
-// TODO: Do these properties belong here?
-@property (nonatomic, strong, readonly) NSString *donationAmount;
-@property (nonatomic, strong, readonly) NSString *email;
-// end
-
-- (void) fillInModels;
+@property (weak, nonatomic) IBOutlet UITextField *donationAmountField;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextField *cardNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *cardCVVField;
+@property (weak, nonatomic) IBOutlet UITextField *expiryMonthField;
+@property (weak, nonatomic) IBOutlet UITextField *expiryYearField;
+@property (weak, nonatomic) IBOutlet UITextField *expiryZipField;
 
 @end
