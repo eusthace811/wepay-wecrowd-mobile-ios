@@ -27,13 +27,28 @@
 
 - (IBAction) submitInformationAction:(id) sender
 {
-    [self fillInCreditCardModel];
-    [self fillInDonation];
+    WPPaymentInfo *paymentInfo;
+    
+    // Fill in the data
+    [self setupCreditCardModel];
+    [self setupDonation];
+    
+    // Tokenize the card using the entered information
+    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.name
+                                                  lastName:nil
+                                                     email:self.email
+                                            billingAddress:nil
+                                           shippingAddress:nil
+                                                cardNumber:self.creditCardModel.cardNumber
+                                                       cvv:self.creditCardModel.cvvNumber
+                                                  expMonth:nil
+                                                   expYear:nil
+                                           virtualTerminal:YES];
 }
 
 #pragma mark - Helper Methods
 
-- (void) fillInCreditCardModel
+- (void) setupCreditCardModel
 {
     // Extract the date from the given fields
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -54,7 +69,7 @@
     
 }
 
-- (void) fillInDonation
+- (void) setupDonation
 {
     self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
     self.email = self.cardInfoEntryView.emailField.text;
