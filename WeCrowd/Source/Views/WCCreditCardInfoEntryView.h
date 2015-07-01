@@ -11,7 +11,8 @@
 @interface WCCreditCardInfoEntryView : UIView
 
 @property (weak, nonatomic) IBOutlet UITextField *donationAmountField;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *cardCVVField;

@@ -28,23 +28,34 @@
 - (IBAction) submitInformationAction:(id) sender
 {
     WPPaymentInfo *paymentInfo;
+    WPAddress *address;
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    NSString *month, *year;
     
     // Fill in the data
     [self setupCreditCardModel];
     [self setupDonation];
     
+    // Extract the needed parameters from the credit card model
+    address = [[WPAddress alloc] initWithZip:self.creditCardModel.zipCode];
+    
+    formatter.dateFormat = @"MM";
+    month = [formatter stringFromDate:self.creditCardModel.expirationDate];
+    formatter.dateFormat = @"yyyy";
+    year = [formatter stringFromDate:self.creditCardModel.expirationDate];
+    
     // Tokenize the card using the entered information
     // TODO: perform check with login manager to see if merchant/payer is logged in
     paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.firstName
-                                                  lastName:nil
+                                                  lastName:self.creditCardModel.lastName
                                                      email:self.email
-                                            billingAddress:nil
+                                            billingAddress:address
                                            shippingAddress:nil
                                                 cardNumber:self.creditCardModel.cardNumber
                                                        cvv:self.creditCardModel.cvvNumber
-                                                  expMonth:nil
-                                                   expYear:nil
-                                           virtualTerminal:YES];
+                                                  expMonth:month
+                                                   expYear:year
+                                           virtualTerminal:NO];
 }
 
 #pragma mark - Helper Methods
@@ -61,9 +72,8 @@
     
     expiration = [calendar dateFromComponents:dateComponents];
     
-    
-    self.creditCardModel = [[WCCreditCardModel alloc] initWithFirstName:self.cardInfoEntryView.nameField.text
-                                                               lastName:nil
+    self.creditCardModel = [[WCCreditCardModel alloc] initWithFirstName:self.cardInfoEntryView.firstNameField.text
+                                                               lastName:self.cardInfoEntryView.lastNameField.text
                                                              cardNumber:self.cardInfoEntryView.cardNumberField.text
                                                               cvvNumber:self.cardInfoEntryView.cardCVVField.text
                                                                 zipCode:self.cardInfoEntryView.expiryZipField.text

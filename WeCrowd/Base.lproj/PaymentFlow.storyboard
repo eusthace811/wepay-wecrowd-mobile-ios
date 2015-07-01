@@ -245,7 +245,8 @@
                                     <outlet property="expiryMonthField" destination="Y3P-J0-N5d" id="eO1-oK-XXb"/>
                                     <outlet property="expiryYearField" destination="naI-wO-ZFL" id="VY3-U2-487"/>
                                     <outlet property="expiryZipField" destination="L7j-jc-VZs" id="mWo-Hs-LJm"/>
-                                    <outlet property="nameField" destination="Kgi-JX-FDw" id="cS8-mJ-Q4R"/>
+                                    <outlet property="firstNameField" destination="Kgi-JX-FDw" id="RfT-75-Wr3"/>
+                                    <outlet property="lastNameField" destination="4Xg-d5-OUx" id="bdq-T0-rMW"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
