@@ -23,8 +23,6 @@ static WCLoginUserType userType = WCLoginUserPayer;
 
 #pragma mark - Interface Methods
 
-+ (WCUserModel *) currentUser { return user; }
-
 + (void) loginMerchantWithUsername:(NSString *) username
                           password:(NSString *) password
                    completionBlock:(void (^)(NSError *)) completionBlock
@@ -39,6 +37,9 @@ static WCLoginUserType userType = WCLoginUserPayer;
                     completionBlock(error);
                 }];
 }
+
++ (WCUserModel *) currentUser { return user; }
++ (WCLoginUserType) userType { return userType; }
 
 #pragma mark - Helper Methods
 
@@ -69,6 +70,7 @@ static WCLoginUserType userType = WCLoginUserPayer;
 {
     // No API call for logging out, so just set the current user to nil
     user = nil;
+    userType = WCLoginUserPayer;
     
     completionBlock(nil);
 }

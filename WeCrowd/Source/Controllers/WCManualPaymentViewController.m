@@ -11,6 +11,7 @@
 #import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
+#import "WCLoginManager.h"
 
 @interface WCManualPaymentViewController ()
 
@@ -56,7 +57,7 @@
                                                        cvv:self.creditCardModel.cvvNumber
                                                   expMonth:month
                                                    expYear:year
-                                           virtualTerminal:NO];
+                                           virtualTerminal:[WCLoginManager userType]];
 }
 
 #pragma mark - Helper Methods

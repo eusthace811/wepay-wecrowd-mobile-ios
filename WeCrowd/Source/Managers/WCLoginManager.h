@@ -12,9 +12,12 @@
 @interface WCLoginManager : NSObject
 
 /**
- * Static logged-in user member
+ * Define the user types
  */
-+ (WCUserModel *) currentUser;
+typedef NS_ENUM(NSUInteger, WCLoginUserType) {
+    WCLoginUserPayer    = 0,
+    WCLoginUserMerchant = 1
+};
 
 + (void) loginMerchantWithUsername:(NSString *) username
                           password:(NSString *) password
@@ -23,9 +26,7 @@
 
 + (void) logoutWithCompletionBlock:(void (^)(NSError *error)) completionBlock;
 
-typedef NS_ENUM(NSUInteger, WCLoginUserType) {
-    WCLoginUserPayer    = 0,
-    WCLoginUserMerchant = 1
-};
++ (WCUserModel *) currentUser;
++ (WCLoginUserType) userType;
 
 @end
