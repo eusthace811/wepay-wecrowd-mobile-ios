@@ -8,10 +8,11 @@
 
 #import "WCManualPaymentViewController.h"
 #import "WCWePayManager.h"
+#import "WCCreditCardInfoEntryController.h"
 
 @interface WCManualPaymentViewController ()
 
-@property (nonatomic, weak, readwrite) id<ManualPaymentDelegate> delegate;
+@property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryController *creditCardInfoEntryController;
 
 @end
 
@@ -30,7 +31,7 @@
 
 - (IBAction)submitInformationAction:(id) sender
 {
-    
+    [self.creditCardInfoEntryController fillInModels];
 }
 
 @end

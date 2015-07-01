@@ -258,6 +258,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yjb-Dv-nWz"/>
                     <connections>
+                        <outlet property="creditCardInfoEntryController" destination="kKb-yi-2d9" id="ojZ-QD-c13"/>
                         <segue destination="alg-Zd-1vr" kind="presentation" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>
                 </viewController>
