@@ -8,12 +8,12 @@
 
 #import "WCManualPaymentViewController.h"
 #import "WCWePayManager.h"
-#import "WCCreditCardInfoEntryController.h"
+#import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
 
 @interface WCManualPaymentViewController ()
 
-@property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryController *cardInfoEntryView;
+@property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryView *cardInfoEntryView;
 
 @property (nonatomic, strong, readwrite) WCCreditCardModel *creditCardModel;
 @property (nonatomic, strong, readwrite) NSString *donationAmount;

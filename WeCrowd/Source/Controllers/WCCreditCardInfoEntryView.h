@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WCCreditCardInfoEntryController : UIView
+@interface WCCreditCardInfoEntryView : UIView
 
 @property (weak, nonatomic) IBOutlet UITextField *donationAmountField;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;

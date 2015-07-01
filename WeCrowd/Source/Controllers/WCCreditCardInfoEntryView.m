@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import "WCCreditCardInfoEntryController.h"
+#import "WCCreditCardInfoEntryView.h"
 
-@implementation WCCreditCardInfoEntryController
+@implementation WCCreditCardInfoEntryView
 
 @end
