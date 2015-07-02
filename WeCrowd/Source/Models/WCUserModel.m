@@ -11,6 +11,8 @@
 @interface WCUserModel ()
 
 @property (strong, nonatomic, readwrite) NSString* userID;
+@property (strong, nonatomic, readwrite) NSString* displayName;
+@property (strong, nonatomic, readwrite) NSString* canonicalName;
 @property (strong, nonatomic, readwrite) NSString* email;
 @property (strong, nonatomic, readwrite) NSString* token;
 
@@ -24,11 +26,14 @@
 #pragma mark - Initialization
 
 - (id) initWithUserID:(NSString *) userID
+          displayName:(NSString *) displayName
                 email:(NSString *) email
                 token:(NSString *) token
 {
     if (self = [super init]) {
         self.userID = userID;
+        self.displayName = displayName;
+        self.canonicalName = [displayName lowercaseString];
         self.email = email;
         self.token = token;
     } else {

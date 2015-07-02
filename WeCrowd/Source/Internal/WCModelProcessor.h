@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class WCCampaignDetailModel;
+@class WCCampaignDetailModel, WCCreditCardModel;
 
 @interface WCModelProcessor : NSObject
 
 + (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns;
+
 + (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary;
++ (WCCreditCardModel *) createCreditCardModelFromFirstName:(NSString *) firstName
+                                                  lastName:(NSString *) lastName
+                                                cardNumber:(NSString *) cardNumber
+                                                       cvv:(NSString *) cvv
+                                                   zipCode:(NSString *) zipCode
+                                           expirationMonth:(NSString *) expirationMonth
+                                            expirationYear:(NSString *) expirationYear;
 
 @end

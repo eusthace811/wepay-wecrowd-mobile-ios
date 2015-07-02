@@ -14,6 +14,7 @@
 NSString* const kAPIEndpointLogin     = @"/login";
 NSString* const kAPIEndpointCampaigns = @"/campaigns";
 NSString* const kAPIEndpointUsers     = @"/users";
+NSString* const kAPIEndpointDonate    = @"/donate";
 
 // Parameters - User
 NSString* const kAPIParameterUserID    = @"user_id";
@@ -28,13 +29,23 @@ NSString* const kAPIParameterCampaignGoal        = @"campaign_goal";
 NSString* const kAPIParameterCampaignProgress    = @"campaign_progress";
 NSString* const kAPIParameterCampaignDescription = @"campaign_description";
 
-NSString* const kAPIParameterErrorCode = @"error_code";
+// Parameters - Donation
+NSString* const kAPIParameterDonationID              = @"campaign_id";
+NSString* const kAPIParameterDonationAmount          = @"amount";
+NSString* const kAPIParameterDonationName            = @"user_name";
+NSString* const kAPIParameterDonationEmail           = @"user_email";
+NSString* const kAPIParameterDonationCreditCardToken = @"credit_card_id";
+
+// Parameters - General
+NSString* const kAPIParameterErrorCode    = @"error_code";
+NSString* const kAPIParameterErrorMessage = @"error_message";
 
 #pragma mark - Interface Builder
 
 // Segues
 NSString* const kIBSegueEntryToCampaignFeed          = @"entryViewToFeedViewSegue";
 NSString* const kIBSegueCampaignFeedToCampaignDetail = @"campaignFeedToCampaignDetailSegue";
+NSString* const kIBSeguePaymentMethodToPaymentStatusSegue = @"paymentMethodToPaymentStatusSegue";
 
 // Storyboards
 NSString* const kIBStoryboardPaymentFlow  = @"PaymentFlow";

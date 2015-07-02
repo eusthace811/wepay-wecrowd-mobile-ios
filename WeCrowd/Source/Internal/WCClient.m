@@ -9,6 +9,8 @@
 #import "WCClient.h"
 #import "WCModelProcessor.h"
 #import "WCConstants.h"
+#import "WCCampaignDonationModel.h"
+#import "WCUserModel.h"
 
 #pragma mark - Constants
 
@@ -38,6 +40,7 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                // TODO: create an actual error to hand off
                                completionBlock(nil, nil);
+                               NSLog(@"API Error: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
                            } else {
                                // No error code, so hand off the data
                                completionBlock(returnData, nil);
@@ -49,6 +52,41 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
                            completionBlock(nil, nil);
                        }
      ];
+}
+
++ (void) donateWithDonation:(WCCampaignDonationModel *) donation
+            completionBlock:(void (^)(NSString *checkoutID, NSError *)) completionBlock
+{
+    NSNumber *amount, *campaignID;
+    
+    amount = [NSNumber numberWithInteger:[donation.amount integerValue]];
+    campaignID = [NSNumber numberWithInteger:[donation.campaignID integerValue]];
+    
+    NSDictionary *values = @{ kAPIParameterDonationID              : campaignID,
+                              kAPIParameterDonationName            : donation.donatorName,
+                              kAPIParameterDonationEmail           : donation.donatorEmail,
+                              kAPIParameterDonationCreditCardToken : donation.creditCardID,
+                              kAPIParameterDonationAmount          : amount };
+    
+     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointDonate]
+                              values:values
+                         accessToken:nil
+                        successBlock:^(id returnData) {
+                            // Check for an API error
+                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
+                                // TODO: create an actual error to hand off
+                                completionBlock(nil, nil);
+                                NSLog(@"API Error: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
+                            } else {
+                                // No error code, so hand off the data
+                                completionBlock(returnData, nil);
+                            }
+                        }
+                        errorHandler:^(NSError *error) {
+                            // This means there was either a connection error or a parse error
+                            // TODO: create an actual error to hand off
+                            completionBlock(nil, nil);
+                        }];
 }
 
 + (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock

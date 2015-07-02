@@ -14,6 +14,7 @@
 FOUNDATION_EXPORT NSString* const kAPIEndpointLogin;
 FOUNDATION_EXPORT NSString* const kAPIEndpointCampaigns;
 FOUNDATION_EXPORT NSString* const kAPIEndpointUsers;
+FOUNDATION_EXPORT NSString* const kAPIEndpointDonate;
 
 // Parameters - User
 FOUNDATION_EXPORT NSString* const kAPIParameterUserID;
@@ -28,13 +29,23 @@ FOUNDATION_EXPORT NSString* const kAPIParameterCampaignGoal;
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignProgress;
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignDescription;
 
+// Parameters - Donation
+FOUNDATION_EXPORT NSString* const kAPIParameterDonationID;
+FOUNDATION_EXPORT NSString* const kAPIParameterDonationAmount;
+FOUNDATION_EXPORT NSString* const kAPIParameterDonationName;
+FOUNDATION_EXPORT NSString* const kAPIParameterDonationEmail;
+FOUNDATION_EXPORT NSString* const kAPIParameterDonationCreditCardToken;
+
+// Parameters - General
 FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
+FOUNDATION_EXPORT NSString* const kAPIParameterErrorMessage;
 
 #pragma mark - Interface Builder
 
 // Segues
 FOUNDATION_EXPORT NSString* const kIBSegueEntryToCampaignFeed;
 FOUNDATION_EXPORT NSString* const kIBSegueCampaignFeedToCampaignDetail;
+FOUNDATION_EXPORT NSString* const kIBSeguePaymentMethodToPaymentStatusSegue;
 
 // Storyboards
 FOUNDATION_EXPORT NSString* const kIBStoryboardPaymentFlow;
