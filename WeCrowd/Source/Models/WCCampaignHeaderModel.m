@@ -12,7 +12,7 @@
 
 @interface WCCampaignHeaderModel ()
 
-@property (strong, nonatomic, readwrite) UIImage * thumbnailImage;
+@property (nonatomic, strong, readwrite) UIImage * thumbnailImage;
 
 @end
 
@@ -21,14 +21,12 @@
 
 @implementation WCCampaignHeaderModel
 
-#pragma mark - Initialization
-
-- (id) initWithCampaign:(NSString *) campaign
-                  title:(NSString *) title
-                endDate:(NSDate *) endDate
-         donationTarget:(CGFloat) donationTarget
-         donationAmount:(CGFloat) donationAmount
-         thumbnailImage:(UIImage *) thumbnailImage
+- (instancetype) initWithCampaign:(NSString *) campaign
+                            title:(NSString *) title
+                          endDate:(NSDate *) endDate
+                   donationTarget:(CGFloat) donationTarget
+                   donationAmount:(CGFloat) donationAmount
+                   thumbnailImage:(UIImage *) thumbnailImage
 {
     if (self = [super initWithCampaign:campaign
                                  title:title endDate:endDate
