@@ -40,6 +40,7 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                // TODO: create an actual error to hand off
                                completionBlock(nil, nil);
+                               NSLog(@"API Error: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
                            } else {
                                // No error code, so hand off the data
                                completionBlock(returnData, nil);
@@ -56,11 +57,16 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
 + (void) donateWithDonation:(WCCampaignDonationModel *) donation
             completionBlock:(void (^)(NSString *checkoutID, NSError *)) completionBlock
 {
-    NSDictionary *values = @{ kAPIParameterDonationID              : donation.campaignID,
-                              kAPIParameterDonationName            : donation.donator.canonicalName,
-                              kAPIParameterDonationEmail           : donation.donator.email,
+    NSNumber *amount, *campaignID;
+    
+    amount = [NSNumber numberWithInteger:[donation.amount integerValue]];
+    campaignID = [NSNumber numberWithInteger:[donation.campaignID integerValue]];
+    
+    NSDictionary *values = @{ kAPIParameterDonationID              : campaignID,
+                              kAPIParameterDonationName            : donation.donatorName,
+                              kAPIParameterDonationEmail           : donation.donatorEmail,
                               kAPIParameterDonationCreditCardToken : donation.creditCardID,
-                              kAPIParameterDonationAmount          : donation.amount };
+                              kAPIParameterDonationAmount          : amount };
     
      [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointDonate]
                               values:values
@@ -70,6 +76,7 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
                             if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                 // TODO: create an actual error to hand off
                                 completionBlock(nil, nil);
+                                NSLog(@"API Error: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
                             } else {
                                 // No error code, so hand off the data
                                 completionBlock(returnData, nil);

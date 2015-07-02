@@ -32,11 +32,13 @@ NSString* const kAPIParameterCampaignDescription = @"campaign_description";
 // Parameters - Donation
 NSString* const kAPIParameterDonationID              = @"campaign_id";
 NSString* const kAPIParameterDonationAmount          = @"amount";
-NSString* const kAPIParameterDonationName            = @"name";
-NSString* const kAPIParameterDonationEmail           = @"email";
-NSString* const kAPIParameterDonationCreditCardToken = @"cc_token";
+NSString* const kAPIParameterDonationName            = @"user_name";
+NSString* const kAPIParameterDonationEmail           = @"user_email";
+NSString* const kAPIParameterDonationCreditCardToken = @"credit_card_id";
 
-NSString* const kAPIParameterErrorCode = @"error_code";
+// Parameters - General
+NSString* const kAPIParameterErrorCode    = @"error_code";
+NSString* const kAPIParameterErrorMessage = @"error_message";
 
 #pragma mark - Interface Builder
 

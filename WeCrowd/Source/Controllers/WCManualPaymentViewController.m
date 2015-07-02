@@ -13,6 +13,7 @@
 #import "WCCampaignDonationModel.h"
 #import "WCModelProcessor.h"
 #import "WCLoginManager.h"
+#import "WCDonationManager.h"
 #import "WCConstants.h"
 #import "WCClient.h"
 
@@ -52,9 +53,13 @@
     
     // Tokenize the card using the entered information
     #ifdef DEBUG
+    NSString *email = @"a+1@boss.com";
+    
+    self.donationAmount = @"10";
+    self.email = email;
     paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:@"WeCrowd-iOS"
                                                   lastName:@"Example"
-                                                     email:@"wp.ios.example@wepay.com"
+                                                     email:email
                                             billingAddress:[[WPAddress alloc] initWithZip:@"94306"]
                                            shippingAddress:nil
                                                 cardNumber:@"5496198584584769"
@@ -90,20 +95,22 @@
     NSString *username;
 
     username = [self.creditCardModel.firstName stringByAppendingString:[NSString stringWithFormat:@" %@", self.creditCardModel.lastName]];
-    donation = [[WCCampaignDonationModel alloc] initWithCampaignID:nil
-                                                       donatorName:username
-                                                      donatorEmail:self.email
-                                                      creditCardID:paymentToken.tokenId
-                                                            amount:self.donationAmount];
+    
+    donation = [WCDonationManager sharedInstance].donation;
+    donation.donatorName = @"Test McTest";
+    donation.donatorEmail = self.email;
+    donation.creditCardID = paymentToken.tokenId;
+    donation.amount = self.donationAmount;
     
     // Make the API donate call
     [WCClient donateWithDonation:donation
                  completionBlock:^(NSString *checkoutID, NSError *error) {
-                     //
+                     if (!error) {
+                         NSLog(@"Donation successful");
+                         [self.activityIndicator stopAnimating];
+                         [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
+                     }
                  }];
- 
-    [self.activityIndicator stopAnimating];
-    [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error

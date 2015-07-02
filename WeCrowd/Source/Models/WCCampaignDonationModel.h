@@ -12,11 +12,14 @@
 
 @interface WCCampaignDonationModel : NSObject
 
-@property (strong, nonatomic, readonly) NSString *campaignID;
-@property (strong, nonatomic, readonly) NSString *donatorName;
-@property (strong, nonatomic, readonly) NSString *donatorEmail;
-@property (strong, nonatomic, readonly) NSString *creditCardID;
-@property (strong, nonatomic, readonly) NSString *amount;
+/**
+ * Since the donation model is stitched together, make properties mutable.
+ */
+@property (strong, nonatomic, readwrite) NSString *campaignID;
+@property (strong, nonatomic, readwrite) NSString *donatorName;
+@property (strong, nonatomic, readwrite) NSString *donatorEmail;
+@property (strong, nonatomic, readwrite) NSString *creditCardID;
+@property (strong, nonatomic, readwrite) NSString *amount;
 
 - (instancetype) initWithCampaignID:(NSString *) campaignID
                         donatorName:(NSString *) donatorName

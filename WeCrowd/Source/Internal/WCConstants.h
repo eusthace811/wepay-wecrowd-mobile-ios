@@ -36,7 +36,9 @@ FOUNDATION_EXPORT NSString* const kAPIParameterDonationName;
 FOUNDATION_EXPORT NSString* const kAPIParameterDonationEmail;
 FOUNDATION_EXPORT NSString* const kAPIParameterDonationCreditCardToken;
 
+// Parameters - General
 FOUNDATION_EXPORT NSString* const kAPIParameterErrorCode;
+FOUNDATION_EXPORT NSString* const kAPIParameterErrorMessage;
 
 #pragma mark - Interface Builder
 

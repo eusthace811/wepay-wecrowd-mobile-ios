@@ -11,6 +11,7 @@
 #import "WCCampaignDetailModel.h"
 #import "WCClient.h"
 #import "WCConstants.h"
+#import "WCDonationManager.h"
 
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate>
 
@@ -62,8 +63,9 @@
 - (IBAction) didPressPaymentButton:(id) sender
 {
     UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
-    
     UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
+    
+    [WCDonationManager sharedInstance].donation.campaignID = self.campaignDetail.campaignID;
     
     [self.navigationController pushViewController:initialViewController animated:YES];
 }

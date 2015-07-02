@@ -8,18 +8,6 @@
 
 #import "WCCampaignDonationModel.h"
 
-#pragma mark - Interface
-
-@interface WCCampaignDonationModel ()
-
-@property (strong, nonatomic, readwrite) NSString *campaignID;
-@property (strong, nonatomic, readwrite) NSString *donatorName;
-@property (strong, nonatomic, readwrite) NSString *donatorEmail;
-@property (strong, nonatomic, readwrite) NSString *creditCardID;
-@property (strong, nonatomic, readwrite) NSString *amount;
-
-@end
-
 #pragma mark - Implementation
 
 @implementation WCCampaignDonationModel

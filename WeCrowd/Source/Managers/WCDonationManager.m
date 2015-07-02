@@ -17,6 +17,7 @@
     
     dispatch_once(&onceToken, ^{
         instance = [WCDonationManager new];
+        instance.donation = [WCCampaignDonationModel new];
     });
     
     return instance;
