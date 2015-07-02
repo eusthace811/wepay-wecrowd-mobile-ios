@@ -12,11 +12,13 @@
 #import "WCClient.h"
 #import "WCConstants.h"
 #import "WCDonationManager.h"
+#import "WCLoginManager.h"
 
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *campaignDescription;
 @property (weak, nonatomic) IBOutlet UILabel *campaignDonationProgress;
+@property (weak, nonatomic) IBOutlet UIButton *giveMoneyButton;
 
 @property (strong, nonatomic, readwrite) WCCampaignDetailModel *campaignDetail;
 
@@ -24,12 +26,17 @@
 
 @implementation WCCampaignDetailViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if ([WCLoginManager userType] == WCLoginUserMerchant) {
+        [self.giveMoneyButton setTitle:@"Accept Donation" forState:UIControlStateNormal];
+    } else if ([WCLoginManager userType] == WCLoginUserPayer) {
+        [self.giveMoneyButton setTitle:@"Donate" forState:UIControlStateNormal];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
