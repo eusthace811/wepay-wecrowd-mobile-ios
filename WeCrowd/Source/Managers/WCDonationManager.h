@@ -12,13 +12,14 @@
 
 @interface WCDonationManager : NSObject
 
-//+ (instancetype) sharedInstance;
++ (instancetype) sharedManager;
 
-+ (void) makeDonationForCampaignWithID:(NSString *) ID
-                                amount:(NSString *) amount
-                                  name:(NSString *) name
-                                 email:(NSString *) email
-                          creditCardID:(NSString *) creditCardID
-                       completionBlock:(void (^)(NSError *error))completionBlock;
++ (void) setDonationCampaignID:(NSString *) campaignID;
+
++ (void) makeDonationForCampaignWithAmount:(NSString *) amount
+                                      name:(NSString *) name
+                                     email:(NSString *) email
+                              creditCardID:(NSString *) creditCardID
+                           completionBlock:(void (^)(NSError *error)) completionBlock;
 
 @end

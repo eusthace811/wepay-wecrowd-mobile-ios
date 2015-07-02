@@ -93,17 +93,16 @@
 
     username = [self.creditCardModel.firstName stringByAppendingString:[NSString stringWithFormat:@" %@", self.creditCardModel.lastName]];
     
-    [WCDonationManager makeDonationForCampaignWithID:nil
-                                              amount:self.donationAmount
-                                                name:username
-                                               email:self.email
-                                        creditCardID:paymentToken.tokenId
-                                     completionBlock:^(NSError *error) {
-                                         if (!error) {
-                                             [self.activityIndicator stopAnimating];
-                                             [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
-                                         }
-                                     }];
+    [WCDonationManager makeDonationForCampaignWithAmount:self.donationAmount
+                                                    name:username
+                                                   email:self.email
+                                            creditCardID:paymentToken.tokenId
+                                         completionBlock:^(NSError *error) {
+                                             if (!error) {
+                                                 [self.activityIndicator stopAnimating];
+                                                 [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
+                                             }
+                                         }];
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
