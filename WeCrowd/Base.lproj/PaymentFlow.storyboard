@@ -17,26 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiper Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cN-fJ-skt">
-                                <rect key="frame" x="223" y="190" width="154" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiper Status" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cN-fJ-skt">
+                                <rect key="frame" x="16" y="190" width="568" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aff-pR-Ufo">
+                                <rect key="frame" x="282" y="227" width="37" height="37"/>
+                                <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5cN-fJ-skt" firstAttribute="trailing" secondItem="Q7f-0A-JRq" secondAttribute="trailingMargin" id="6nD-2Q-3Ev"/>
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="top" secondItem="T0T-zz-vQr" secondAttribute="bottom" id="Who-hJ-SvS"/>
+                            <constraint firstItem="5cN-fJ-skt" firstAttribute="leading" secondItem="Q7f-0A-JRq" secondAttribute="leadingMargin" id="Xca-8e-xbZ"/>
+                            <constraint firstItem="aff-pR-Ufo" firstAttribute="top" secondItem="5cN-fJ-skt" secondAttribute="bottom" constant="8" id="aRK-XL-VnR"/>
                             <constraint firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" id="br5-US-dmi"/>
+                            <constraint firstItem="aff-pR-Ufo" firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" constant="0.5" id="lmw-WI-zbP"/>
                             <constraint firstAttribute="centerY" secondItem="5cN-fJ-skt" secondAttribute="centerY" constant="96" id="oPs-i4-6qe"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Who-hJ-SvS"/>
+                                <exclude reference="br5-US-dmi"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="aff-pR-Ufo" id="DNd-5u-zRl"/>
                         <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
                         <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>
                     </connections>

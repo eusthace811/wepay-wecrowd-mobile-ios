@@ -14,9 +14,9 @@
 
 @interface WCCampaignBaseModel : NSObject
 
-@property (strong, nonatomic, readonly) NSString * campaignID;
-@property (strong, nonatomic, readonly) NSString * title;
-@property (strong, nonatomic, readonly) NSDate * dateEnd;
+@property (nonatomic, strong, readonly) NSString * campaignID;
+@property (nonatomic, strong, readonly) NSString * title;
+@property (nonatomic, strong, readonly) NSDate * dateEnd;
 
 @property (nonatomic, readonly) CGFloat donationTargetAmount;
 @property (nonatomic, readonly) CGFloat donationAmount;
@@ -24,10 +24,10 @@
 
 #pragma mark - Initialization
 
-- (id) initWithCampaign:(NSString *) campaign
-                  title:(NSString *) title
-                endDate:(NSDate *) endDate
-         donationTarget:(CGFloat) donationTarget
-         donationAmount:(CGFloat) donationAmount;
+- (instancetype) initWithCampaign:(NSString *) campaign
+                            title:(NSString *) title
+                          endDate:(NSDate *) endDate
+                   donationTarget:(CGFloat) donationTarget
+                   donationAmount:(CGFloat) donationAmount;
 
 @end

@@ -15,11 +15,11 @@
 /**
  * Since the donation model is stitched together, make properties mutable.
  */
-@property (strong, nonatomic, readwrite) NSString *campaignID;
-@property (strong, nonatomic, readwrite) NSString *donatorName;
-@property (strong, nonatomic, readwrite) NSString *donatorEmail;
-@property (strong, nonatomic, readwrite) NSString *creditCardID;
-@property (strong, nonatomic, readwrite) NSString *amount;
+@property (nonatomic, strong, readwrite) NSString *campaignID;
+@property (nonatomic, strong, readwrite) NSString *donatorName;
+@property (nonatomic, strong, readwrite) NSString *donatorEmail;
+@property (nonatomic, strong, readwrite) NSString *creditCardID;
+@property (nonatomic, strong, readwrite) NSString *amount;
 
 - (instancetype) initWithCampaignID:(NSString *) campaignID
                         donatorName:(NSString *) donatorName
