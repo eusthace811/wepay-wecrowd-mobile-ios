@@ -65,7 +65,7 @@
     UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
     UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
     
-    [WCDonationManager sharedInstance].donation.campaignID = self.campaignDetail.campaignID;
+    [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
     
     [self.navigationController pushViewController:initialViewController animated:YES];
 }

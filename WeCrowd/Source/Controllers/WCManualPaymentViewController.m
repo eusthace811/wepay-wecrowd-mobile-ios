@@ -8,10 +8,11 @@
 
 #import "WCManualPaymentViewController.h"
 #import "WCWePayManager.h"
+#import "WCDonationManager.h"
+#import "WCLoginManager.h"
 #import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
-#import "WCDonationManager.h"
 #import "WCConstants.h"
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
@@ -88,16 +89,16 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-    [WCDonationManager makeDonationForCampaignWithAmount:self.donationAmount
-                                                    name:self.creditCardModel.fullName
-                                                   email:self.email
-                                            creditCardID:paymentToken.tokenId
-                                         completionBlock:^(NSError *error) {
-                                             if (!error) {
-                                                 [self.activityIndicator stopAnimating];
-                                                 [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
-                                             }
-                                         }];
+    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:self.donationAmount
+                                                                    name:self.creditCardModel.fullName
+                                                                   email:self.email
+                                                            creditCardID:paymentToken.tokenId
+                                                         completionBlock:^(NSError *error) {
+                                                             if (!error) {
+                                                                 [self.activityIndicator stopAnimating];
+                                                                 [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
+                                                             }
+                                                         }];
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error

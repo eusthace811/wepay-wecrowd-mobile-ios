@@ -14,9 +14,9 @@
 
 + (instancetype) sharedManager;
 
-+ (void) setDonationCampaignID:(NSString *) campaignID;
+- (void) setDonationCampaignID:(NSString *) campaignID;
 
-+ (void) makeDonationForCampaignWithAmount:(NSString *) amount
+- (void) makeDonationForCampaignWithAmount:(NSString *) amount
                                       name:(NSString *) name
                                      email:(NSString *) email
                               creditCardID:(NSString *) creditCardID

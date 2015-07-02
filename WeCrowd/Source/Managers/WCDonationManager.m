@@ -18,10 +18,9 @@
 
 @implementation WCDonationManager
 
-static WCDonationManager *instance = nil;
-
 + (instancetype) sharedManager
 {
+    static WCDonationManager *instance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
@@ -31,13 +30,13 @@ static WCDonationManager *instance = nil;
     return instance;
 }
 
-+ (void) setDonationCampaignID:(NSString *) campaignID
+- (void) setDonationCampaignID:(NSString *) campaignID
 {
-    instance.campaignID = campaignID;
+    self.campaignID = campaignID;
 }
 
 
-+ (void) makeDonationForCampaignWithAmount:(NSString *) amount
+- (void) makeDonationForCampaignWithAmount:(NSString *) amount
                                       name:(NSString *) name
                                      email:(NSString *) email
                               creditCardID:(NSString *) creditCardID
@@ -45,7 +44,7 @@ static WCDonationManager *instance = nil;
 {
     WCCampaignDonationModel *donation;
     
-    donation = [[WCCampaignDonationModel alloc] initWithCampaignID:instance.campaignID
+    donation = [[WCCampaignDonationModel alloc] initWithCampaignID:self.campaignID
                                                        donatorName:name
                                                       donatorEmail:email
                                                       creditCardID:creditCardID
