@@ -63,8 +63,6 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
     campaignID = [NSNumber numberWithInteger:[donation.campaignID integerValue]];
     
     NSDictionary *values = @{ kAPIParameterDonationID              : campaignID,
-                              kAPIParameterDonationName            : donation.donatorName,
-                              kAPIParameterDonationEmail           : donation.donatorEmail,
                               kAPIParameterDonationCreditCardToken : donation.creditCardID,
                               kAPIParameterDonationAmount          : amount };
     
@@ -110,10 +108,8 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
                              values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
-                           
-                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
-                           
                            NSLog(@"Success: fetched campaigns for user");
+                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
                        }
                        errorHandler:^(NSError *error) {
                            NSLog(@"Error: failed to fetch user campaigns");
@@ -128,9 +124,11 @@ static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api";
                              values:@{ kAPIParameterCampaignID : campaignID }
                         accessToken:nil
                        successBlock:^(id returnData) {
+                           NSLog(@"Success: fetched campaign.");
                            completionBlock([WCModelProcessor createCampaignDetailFromDictionary:returnData], nil);
                        }
                        errorHandler:^(NSError *error) {
+                           NSLog(@"API error: Unable to fetch campaign.");
                            completionBlock(nil, error);
                        }];
 }
