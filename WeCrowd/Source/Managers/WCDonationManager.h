@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WCCampaignDonationModel.h"
+
+@class  WCCampaignDonationModel;
 
 @interface WCDonationManager : NSObject
 
-@property (nonatomic, strong, readwrite) WCCampaignDonationModel *donation;
+//+ (instancetype) sharedInstance;
 
-+ (instancetype) sharedInstance;
++ (void) makeDonationForCampaignWithID:(NSString *) ID
+                                amount:(NSString *) amount
+                                  name:(NSString *) name
+                                 email:(NSString *) email
+                          creditCardID:(NSString *) creditCardID
+                       completionBlock:(void (^)(NSError *error))completionBlock;
 
 @end

@@ -7,20 +7,44 @@
 //
 
 #import "WCDonationManager.h"
+#import "WCCampaignDonationModel.h"
+#import "WCClient.h"
 
 @implementation WCDonationManager
 
-+ (instancetype) sharedInstance
+//+ (instancetype) sharedInstance
+//{
+//    static WCDonationManager *instance = nil;
+//    static dispatch_once_t onceToken;
+//    
+//    dispatch_once(&onceToken, ^{
+//        instance = [WCDonationManager new];
+//    });
+//    
+//    return instance;
+//}
+
++ (void) makeDonationForCampaignWithID:(NSString *) ID
+                                amount:(NSString *) amount
+                                  name:(NSString *) name
+                                 email:(NSString *) email
+                          creditCardID:(NSString *) creditCardID
+                       completionBlock:(void (^)(NSError *error))completionBlock
 {
-    static WCDonationManager *instance = nil;
-    static dispatch_once_t onceToken;
+    WCCampaignDonationModel *donation;
     
-    dispatch_once(&onceToken, ^{
-        instance = [WCDonationManager new];
-        instance.donation = [WCCampaignDonationModel new];
-    });
-    
-    return instance;
+    // Make the API donate call
+    [WCClient donateWithDonation:donation
+                 completionBlock:^(NSString *checkoutID, NSError *error) {
+                     // TODO: Handle error
+                     if (!error) {
+                         NSLog(@"Donation successful");
+                     } else {
+                         NSLog(@"Error: Unable to make donation.");
+                     }
+                     
+                     completionBlock(error);
+                 }];
 }
 
 @end
