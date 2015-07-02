@@ -24,10 +24,10 @@
 
 #pragma mark - Initialization
 
-- (id) initWithUserID:(NSString *) userID
-          displayName:(NSString *) displayName
-                email:(NSString *) email
-                token:(NSString *) token
+- (instancetype) initWithUserID:(NSString *) userID
+                    displayName:(NSString *) displayName
+                          email:(NSString *) email
+                          token:(NSString *) token
 {
     if (self = [super init]) {
         self.userID = userID;

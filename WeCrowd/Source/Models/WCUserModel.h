@@ -18,10 +18,10 @@
 @property (nonatomic, strong, readonly) NSString* email;
 @property (nonatomic, strong, readonly) NSString* token;
 
-- (id) initWithUserID:(NSString *) userID
-          displayName:(NSString *) displayName
-                email:(NSString *) email
-                token:(NSString *) token;
+- (instancetype) initWithUserID:(NSString *) userID
+                    displayName:(NSString *) displayName
+                          email:(NSString *) email
+                          token:(NSString *) token;
 
 - (void) setUserID:(NSString *)userID
              email:(NSString *)email
