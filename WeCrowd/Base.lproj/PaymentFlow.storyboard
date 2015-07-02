@@ -23,11 +23,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aff-pR-Ufo">
+                                <rect key="frame" x="282" y="227" width="37" height="37"/>
+                                <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="top" secondItem="T0T-zz-vQr" secondAttribute="bottom" id="Who-hJ-SvS"/>
+                            <constraint firstItem="aff-pR-Ufo" firstAttribute="top" secondItem="5cN-fJ-skt" secondAttribute="bottom" constant="8" id="aRK-XL-VnR"/>
                             <constraint firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" id="br5-US-dmi"/>
+                            <constraint firstItem="aff-pR-Ufo" firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" constant="0.5" id="lmw-WI-zbP"/>
                             <constraint firstAttribute="centerY" secondItem="5cN-fJ-skt" secondAttribute="centerY" constant="96" id="oPs-i4-6qe"/>
                         </constraints>
                         <variation key="default">
