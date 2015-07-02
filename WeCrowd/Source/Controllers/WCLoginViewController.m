@@ -30,7 +30,7 @@
 - (IBAction) login:(id) sender {
     NSString *username, *password;
     
-    #ifdef DEBUG
+    #ifndef DEBUG
     username = @"zachv+3@wepay.com";
     password = @"password";
     #else
