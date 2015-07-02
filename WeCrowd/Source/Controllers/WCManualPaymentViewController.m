@@ -11,7 +11,6 @@
 #import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
-#import "WCLoginManager.h"
 #import "WCDonationManager.h"
 #import "WCConstants.h"
 
@@ -89,12 +88,8 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-    NSString *username;
-
-    username = [self.creditCardModel.firstName stringByAppendingString:[NSString stringWithFormat:@" %@", self.creditCardModel.lastName]];
-    
     [WCDonationManager makeDonationForCampaignWithAmount:self.donationAmount
-                                                    name:username
+                                                    name:self.creditCardModel.fullName
                                                    email:self.email
                                             creditCardID:paymentToken.tokenId
                                          completionBlock:^(NSError *error) {

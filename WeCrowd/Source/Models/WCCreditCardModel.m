@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic, readwrite) NSString *firstName;
 @property (strong, nonatomic, readwrite) NSString *lastName;
+@property (strong, nonatomic, readwrite) NSString *fullName;
 @property (strong, nonatomic, readwrite) NSString* cardNumber;
 @property (strong, nonatomic, readwrite) NSString* cvvNumber;
 @property (strong, nonatomic, readwrite) NSString* zipCode;
@@ -39,6 +40,7 @@
     if (self = [super init]) {
         self.firstName = firstName;
         self.lastName = lastName;
+        self.fullName = [firstName stringByAppendingString:[NSString stringWithFormat:@" %@", lastName]];
         self.cardNumber = cardNumber;
         self.cvvNumber = cvvNumber;
         self.zipCode = zipCode;

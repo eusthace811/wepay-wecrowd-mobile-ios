@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic, readonly) NSString *firstName;
 @property (strong, nonatomic, readonly) NSString *lastName;
+@property (strong, nonatomic, readonly) NSString *fullName;
 @property (strong, nonatomic, readonly) NSString *cardNumber;
 @property (strong, nonatomic, readonly) NSString *cvvNumber;
 @property (strong, nonatomic, readonly) NSString *zipCode;
