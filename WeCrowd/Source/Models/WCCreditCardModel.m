@@ -8,18 +8,17 @@
 
 #import "WCCreditCardModel.h"
 
-
 #pragma mark - Interface
 
 @interface WCCreditCardModel ()
 
-@property (strong, nonatomic, readwrite) NSString *firstName;
-@property (strong, nonatomic, readwrite) NSString *lastName;
-@property (strong, nonatomic, readwrite) NSString *fullName;
-@property (strong, nonatomic, readwrite) NSString* cardNumber;
-@property (strong, nonatomic, readwrite) NSString* cvvNumber;
-@property (strong, nonatomic, readwrite) NSString* zipCode;
-@property (strong, nonatomic, readwrite) NSDate* expirationDate;
+@property (nonatomic, strong, readwrite) NSString *firstName;
+@property (nonatomic, strong, readwrite) NSString *lastName;
+@property (nonatomic, strong, readwrite) NSString *fullName;
+@property (nonatomic, strong, readwrite) NSString* cardNumber;
+@property (nonatomic, strong, readwrite) NSString* cvvNumber;
+@property (nonatomic, strong, readwrite) NSString* zipCode;
+@property (nonatomic, strong, readwrite) NSDate* expirationDate;
 
 @end
 
