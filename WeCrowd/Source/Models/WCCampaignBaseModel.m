@@ -14,9 +14,9 @@
 @interface WCCampaignBaseModel ()
 
 // declare properties as read/write internally
-@property (strong, nonatomic, readwrite) NSString * campaignID;
-@property (strong, nonatomic, readwrite) NSString * title;
-@property (strong, nonatomic, readwrite) NSDate * dateEnd;
+@property (nonatomic, strong, readwrite) NSString * campaignID;
+@property (nonatomic, strong, readwrite) NSString * title;
+@property (nonatomic, strong, readwrite) NSDate * dateEnd;
 
 @property (nonatomic, readwrite) CGFloat donationTargetAmount;
 @property (nonatomic, readwrite) CGFloat donationAmount;
@@ -30,11 +30,11 @@
 
 #pragma mark - Initialization
 
-- (id) initWithCampaign:(NSString *) campaign
-                  title:(NSString *) title
-                endDate:(NSDate *) endDate
-         donationTarget:(CGFloat) donationTarget
-         donationAmount:(CGFloat) donationAmount
+- (instancetype) initWithCampaign:(NSString *) campaign
+                            title:(NSString *) title
+                          endDate:(NSDate *) endDate
+                   donationTarget:(CGFloat) donationTarget
+                   donationAmount:(CGFloat) donationAmount
 {
     if (self = [super init]) {
         self.campaignID = campaign;
