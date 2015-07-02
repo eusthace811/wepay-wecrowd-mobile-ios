@@ -7,11 +7,12 @@
 //
 
 #import "WCSwiperViewController.h"
-#import "MBProgressHUD.h"
+#import "WCWePayManager.h"
 
 @interface WCSwiperViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *swiperStatusLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -25,6 +26,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) cardReaderDidChangeStatus:(id) status
+{
+    if (status == kWPCardReaderStatusNotConnected) {
+        self.swiperStatusLabel.text = @"Please connect the card reader to your device.";
+    }
 }
 
 @end

@@ -43,6 +43,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="aff-pR-Ufo" id="DNd-5u-zRl"/>
                         <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
                         <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>
                     </connections>
