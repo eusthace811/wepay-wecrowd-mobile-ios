@@ -178,7 +178,6 @@
                                                 </variation>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="naI-wO-ZFL" secondAttribute="centerX" id="0rz-de-mYQ"/>
                                             <constraint firstItem="naI-wO-ZFL" firstAttribute="top" secondItem="tEp-Fa-YS7" secondAttribute="top" id="JRK-7E-nle"/>
@@ -196,7 +195,6 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="51W-xJ-teu" firstAttribute="leading" secondItem="hSv-sr-fUc" secondAttribute="trailing" constant="8" id="0qW-4q-dHD"/>
                                     <constraint firstItem="Kgi-JX-FDw" firstAttribute="baseline" secondItem="4Xg-d5-OUx" secondAttribute="baseline" id="2Gt-ZL-BSO"/>
