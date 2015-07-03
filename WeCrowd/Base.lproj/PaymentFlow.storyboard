@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vgV-xx-AtR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="1072" y="293"/>
         </scene>
-        <!--Manual Payment View Controller-->
+        <!--Manual Entry-->
         <scene sceneID="m8P-0v-Qg0">
             <objects>
                 <viewController storyboardIdentifier="WCManualPaymentViewController" id="Zdb-yW-H1R" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
@@ -284,7 +284,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="yjb-Dv-nWz"/>
+                    <navigationItem key="navigationItem" title="Manual Entry" id="yjb-Dv-nWz"/>
                     <connections>
                         <outlet property="activityIndicator" destination="o8z-or-zq5" id="Mcg-Wd-Liz"/>
                         <outlet property="cardInfoEntryView" destination="kKb-yi-2d9" id="5jc-M9-I16"/>
@@ -334,69 +334,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5YV-gF-05p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1789" y="653"/>
-        </scene>
-        <!--Payment Option-->
-        <scene sceneID="DJd-T9-3Au">
-            <objects>
-                <viewController id="vgV-xx-AtR" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X0v-0U-Q9C"/>
-                        <viewControllerLayoutGuide type="bottom" id="rpl-2G-M2q"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pQT-Qh-0DJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a payment option" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAw-4h-05u">
-                                <rect key="frame" x="180" y="96" width="241" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew4-DU-mgo">
-                                <rect key="frame" x="246" y="134" width="108" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Swipe Card">
-                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Nsw-6d-KCV" kind="show" id="gu0-Xd-VxP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-Xq-rMm">
-                                <rect key="frame" x="240" y="180" width="121" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Manual Entry">
-                                    <color key="titleColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Zdb-yW-H1R" kind="show" id="AiI-Bb-Bpg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ew4-DU-mgo" firstAttribute="top" secondItem="PAw-4h-05u" secondAttribute="bottom" constant="17" id="AvR-4c-2TN"/>
-                            <constraint firstAttribute="centerX" secondItem="XZR-Xq-rMm" secondAttribute="centerX" id="Lr1-1V-oAk"/>
-                            <constraint firstItem="XZR-Xq-rMm" firstAttribute="top" secondItem="ew4-DU-mgo" secondAttribute="bottom" constant="8" id="SfL-KG-rVv"/>
-                            <constraint firstAttribute="centerX" secondItem="PAw-4h-05u" secondAttribute="centerX" id="ZjN-sf-5U2"/>
-                            <constraint firstAttribute="centerX" secondItem="ew4-DU-mgo" secondAttribute="centerX" id="fqr-KQ-97f"/>
-                            <constraint firstItem="PAw-4h-05u" firstAttribute="top" secondItem="X0v-0U-Q9C" secondAttribute="bottom" constant="76" id="tR1-Uu-y5d"/>
-                            <constraint firstAttribute="centerY" secondItem="ew4-DU-mgo" secondAttribute="centerY" constant="47" id="tg5-wO-Jc6"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="tg5-wO-Jc6"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Payment Option" id="034-aQ-uZY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RnP-O8-pHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="355" y="653"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

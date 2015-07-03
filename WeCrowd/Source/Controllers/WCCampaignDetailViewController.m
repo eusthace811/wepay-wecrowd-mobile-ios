@@ -71,8 +71,17 @@
 {
     UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
     
-    [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
+    if ([WCLoginManager userType] == WCLoginUserMerchant) {
+        [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard];
+    } else if ([WCLoginManager userType] == WCLoginUserPayer) {
+        [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController" forStoryboard:paymentStoryboard];
+    }
     
+    [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
+}
+
+- (void) displayPaymentOptionActionSheetWithStoryboard:(UIStoryboard *) storyboard
+{
     UIAlertController *alertController;
     UIAlertAction *swipeAction, *manualAction, *cancelAction;
     
@@ -83,13 +92,13 @@
                                            style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action) {
                                              [self pushViewControllerWithIdentifier:@"WCSwiperViewController"
-                                                                      forStoryboard:paymentStoryboard];
+                                                                      forStoryboard:storyboard];
                                          }];
     manualAction = [UIAlertAction actionWithTitle:@"Manual Entry"
                                             style:UIAlertActionStyleDefault
                                           handler:^(UIAlertAction *action) {
                                               [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController"
-                                                                       forStoryboard:paymentStoryboard];
+                                                                       forStoryboard:storyboard];
                                           }];
     cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                             style:UIAlertActionStyleCancel
