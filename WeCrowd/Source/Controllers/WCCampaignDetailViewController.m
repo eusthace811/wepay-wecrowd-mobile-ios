@@ -70,11 +70,56 @@
 - (IBAction) didPressPaymentButton:(id) sender
 {
     UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
-    UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
+    
+    if ([WCLoginManager userType] == WCLoginUserMerchant) {
+        [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard];
+    } else if ([WCLoginManager userType] == WCLoginUserPayer) {
+        [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController" forStoryboard:paymentStoryboard];
+    }
     
     [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
+}
+
+- (void) displayPaymentOptionActionSheetWithStoryboard:(UIStoryboard *) storyboard
+{
+    UIAlertController *alertController;
+    UIAlertAction *swipeAction, *manualAction, *cancelAction;
     
-    [self.navigationController pushViewController:initialViewController animated:YES];
+    alertController  = [UIAlertController alertControllerWithTitle:@"Choose payment method."
+                                                           message:nil
+                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+    swipeAction = [UIAlertAction actionWithTitle:@"Swipe Card"
+                                           style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction *action) {
+                                             [self pushViewControllerWithIdentifier:@"WCSwiperViewController"
+                                                                      forStoryboard:storyboard];
+                                         }];
+    manualAction = [UIAlertAction actionWithTitle:@"Manual Entry"
+                                            style:UIAlertActionStyleDefault
+                                          handler:^(UIAlertAction *action) {
+                                              [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController"
+                                                                       forStoryboard:storyboard];
+                                          }];
+    cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                            style:UIAlertActionStyleCancel
+                                          handler:nil];
+    
+    [alertController addAction:swipeAction];
+    [alertController addAction:manualAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void) pushViewControllerWithIdentifier:(NSString *) identifier
+                            forStoryboard:(UIStoryboard *) storyboard
+{
+    UIViewController *viewController;
+    
+    viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
+    
+    [self.navigationController pushViewController:viewController
+                                         animated:YES];
 }
 
 @end
