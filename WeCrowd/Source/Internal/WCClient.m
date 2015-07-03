@@ -84,6 +84,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api"; // @"htt
                             // This means there was either a connection error or a parse error
                             // TODO: create an actual error to hand off
                             completionBlock(nil, nil);
+                            NSLog(@"Error: Unable to complete donation");
                         }];
 }
 
