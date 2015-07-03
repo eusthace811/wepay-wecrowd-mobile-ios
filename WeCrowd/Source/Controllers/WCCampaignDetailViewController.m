@@ -69,12 +69,38 @@
 
 - (IBAction) didPressPaymentButton:(id) sender
 {
-    UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
+    /*UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
     UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
     
     [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
     
-    [self.navigationController pushViewController:initialViewController animated:YES];
+    [self.navigationController pushViewController:initialViewController animated:YES];*/
+    
+    UIAlertController *alertController;
+    UIAlertAction *swipeAction, *manualAction, *cancelAction;
+    
+    alertController  = [UIAlertController alertControllerWithTitle:@"Choose payment method."
+                                                           message:nil
+                                                    preferredStyle:UIAlertControllerStyleActionSheet];
+    swipeAction = [UIAlertAction actionWithTitle:@"Swipe Card"
+                                           style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction *action) {
+                                             NSLog(@"Chose swipe card!");
+                                         }];
+    manualAction = [UIAlertAction actionWithTitle:@"Manual Entry"
+                                            style:UIAlertActionStyleDefault
+                                          handler:^(UIAlertAction *action) {
+                                              NSLog(@"Chose manual entry!");
+                                          }];
+    cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                            style:UIAlertActionStyleCancel
+                                          handler:nil];
+    
+    [alertController addAction:swipeAction];
+    [alertController addAction:manualAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end
