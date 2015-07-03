@@ -296,20 +296,21 @@
                                     <constraint firstAttribute="height" constant="80" id="tt6-8H-GXh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-zN-Kqv">
-                                <rect key="frame" x="24" y="168" width="552" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-zN-Kqv">
+                                <rect key="frame" x="24" y="168" width="552" height="91"/>
+                                <string key="text">Description: Bacon ipsum dolor amet hamburger salami kevin tenderloin short loin shank. Porchetta pastrami meatball frankfurter cow turkey, short loin pork ball tip rump filet mignon shank ground round capicola. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DonationProgress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3o-q2-7XQ">
-                                <rect key="frame" x="229" y="199" width="142" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <rect key="frame" x="184" y="275" width="232" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" red="0.32944389025926246" green="0.80239898989898983" blue="0.38134143433148898" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-dh-KhA">
-                                <rect key="frame" x="217" y="236" width="167" height="41"/>
+                                <rect key="frame" x="217" y="539" width="167" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Donate/Accept">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -321,17 +322,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="top" secondItem="qzu-zN-Kqv" secondAttribute="bottom" constant="8" id="0wC-o7-r8V"/>
+                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="top" secondItem="qzu-zN-Kqv" secondAttribute="bottom" constant="16" id="0wC-o7-r8V"/>
                             <constraint firstItem="qzu-zN-Kqv" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="6dB-rA-cLq"/>
                             <constraint firstItem="qzu-zN-Kqv" firstAttribute="top" secondItem="p0b-nd-NlA" secondAttribute="bottom" constant="16" id="CQR-8t-Qak"/>
                             <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="Gs7-rM-X1X"/>
-                            <constraint firstAttribute="centerX" secondItem="L3o-q2-7XQ" secondAttribute="centerX" id="PdG-RH-qw9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qzu-zN-Kqv" secondAttribute="trailing" constant="8" id="Qpo-Bx-0I4"/>
+                            <constraint firstItem="jdk-S0-2oS" firstAttribute="top" secondItem="NdA-dh-KhA" secondAttribute="bottom" constant="20" id="V9a-3y-Gdf"/>
+                            <constraint firstItem="qzu-zN-Kqv" firstAttribute="centerX" secondItem="L3o-q2-7XQ" secondAttribute="centerX" id="bLa-Qe-wrr"/>
+                            <constraint firstAttribute="centerX" secondItem="NdA-dh-KhA" secondAttribute="centerX" id="d8r-Rg-Bp1"/>
                             <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" constant="8" id="gig-77-YOH"/>
                             <constraint firstItem="L3o-q2-7XQ" firstAttribute="centerX" secondItem="NdA-dh-KhA" secondAttribute="centerX" id="hhu-qD-qzW"/>
+                            <constraint firstItem="NdA-dh-KhA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="L3o-q2-7XQ" secondAttribute="bottom" constant="16" id="smr-QE-wQG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p0b-nd-NlA" secondAttribute="trailing" constant="8" id="wtb-6W-BXh"/>
-                            <constraint firstItem="NdA-dh-KhA" firstAttribute="top" secondItem="L3o-q2-7XQ" secondAttribute="bottom" constant="16" id="xrY-Vc-YRG"/>
+                            <constraint firstItem="NdA-dh-KhA" firstAttribute="top" secondItem="L3o-q2-7XQ" secondAttribute="bottom" constant="8" id="xrY-Vc-YRG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hhu-qD-qzW"/>
+                                <exclude reference="xrY-Vc-YRG"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Campaign Title" id="M3Z-JP-Zxp"/>
                     <connections>
