@@ -8,7 +8,7 @@
         <!--Swipe Card-->
         <scene sceneID="Ghu-WS-6em">
             <objects>
-                <viewController title="Swipe Card" id="Nsw-6d-KCV" customClass="WCSwiperViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WCSwiperViewController" title="Swipe Card" id="Nsw-6d-KCV" customClass="WCSwiperViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T0T-zz-vQr"/>
                         <viewControllerLayoutGuide type="bottom" id="VeX-R7-ROr"/>
@@ -58,7 +58,7 @@
         <!--Manual Payment View Controller-->
         <scene sceneID="m8P-0v-Qg0">
             <objects>
-                <viewController id="Zdb-yW-H1R" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WCManualPaymentViewController" id="Zdb-yW-H1R" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="866-a5-Hwr"/>
                         <viewControllerLayoutGuide type="bottom" id="dHL-c7-qbY"/>

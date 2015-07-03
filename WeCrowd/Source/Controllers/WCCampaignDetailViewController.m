@@ -69,12 +69,9 @@
 
 - (IBAction) didPressPaymentButton:(id) sender
 {
-    /*UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
-    UIViewController *initialViewController = [paymentStoryboard instantiateInitialViewController];
+    UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
     
     [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
-    
-    [self.navigationController pushViewController:initialViewController animated:YES];*/
     
     UIAlertController *alertController;
     UIAlertAction *swipeAction, *manualAction, *cancelAction;
@@ -85,12 +82,14 @@
     swipeAction = [UIAlertAction actionWithTitle:@"Swipe Card"
                                            style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action) {
-                                             NSLog(@"Chose swipe card!");
+                                             [self pushViewControllerWithIdentifier:@"WCSwiperViewController"
+                                                                      forStoryboard:paymentStoryboard];
                                          }];
     manualAction = [UIAlertAction actionWithTitle:@"Manual Entry"
                                             style:UIAlertActionStyleDefault
                                           handler:^(UIAlertAction *action) {
-                                              NSLog(@"Chose manual entry!");
+                                              [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController"
+                                                                       forStoryboard:paymentStoryboard];
                                           }];
     cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                             style:UIAlertActionStyleCancel
@@ -101,6 +100,17 @@
     [alertController addAction:cancelAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void) pushViewControllerWithIdentifier:(NSString *) identifier
+                            forStoryboard:(UIStoryboard *) storyboard
+{
+    UIViewController *viewController;
+    
+    viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
+    
+    [self.navigationController pushViewController:viewController
+                                         animated:YES];
 }
 
 @end
