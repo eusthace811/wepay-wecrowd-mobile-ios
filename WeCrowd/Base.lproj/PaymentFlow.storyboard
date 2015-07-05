@@ -238,10 +238,6 @@
                                     <outlet property="lastNameField" destination="4Xg-d5-OUx" id="bdq-T0-rMW"/>
                                 </connections>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
-                                <rect key="frame" x="282" y="294" width="37" height="37"/>
-                                <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
                                 <rect key="frame" x="148" y="82" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -249,7 +245,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
-                                <rect key="frame" x="271" y="297" width="58" height="34"/>
+                                <rect key="frame" x="271" y="302" width="58" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
@@ -270,6 +266,9 @@
                                         <nil key="title"/>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="l8b-dI-qOz">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="submitInformationAction:" destination="Zdb-yW-H1R" id="RAa-8B-huE"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -284,6 +283,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
                                 <color key="backgroundColor" red="1" green="0.38583996539999998" blue="0.2364585343" alpha="0.87" colorSpace="calibratedRGB"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
+                                <rect key="frame" x="282" y="302" width="37" height="37"/>
+                                <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -299,8 +302,8 @@
                             <constraint firstItem="c86-o9-uvR" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" constant="-16" id="Z1f-2d-ckc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c86-o9-uvR" secondAttribute="trailing" constant="-16" id="biS-uk-kfI"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="centerX" secondItem="o8z-or-zq5" secondAttribute="centerX" constant="-0.5" id="dCe-A7-TnN"/>
-                            <constraint firstItem="RsI-0b-Es2" firstAttribute="centerY" secondItem="o8z-or-zq5" secondAttribute="centerY" constant="1.5" id="f72-G2-X5F"/>
-                            <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="bottom" constant="-19" id="mLF-S3-caI"/>
+                            <constraint firstItem="RsI-0b-Es2" firstAttribute="centerY" secondItem="o8z-or-zq5" secondAttribute="centerY" constant="-1.5" id="f72-G2-X5F"/>
+                            <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="bottom" constant="-14" id="mLF-S3-caI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kKb-yi-2d9" secondAttribute="trailing" constant="16" id="qdA-Kx-WPN"/>
                         </constraints>
                     </view>
@@ -309,6 +312,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="o8z-or-zq5" id="Mcg-Wd-Liz"/>
                         <outlet property="cardInfoEntryView" destination="kKb-yi-2d9" id="5jc-M9-I16"/>
+                        <outlet property="submitFormButton" destination="RsI-0b-Es2" id="TXk-qE-v07"/>
+                        <outlet property="submitFormButtonItem" destination="l8b-dI-qOz" id="aoP-AE-yzp"/>
                         <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>
                 </viewController>

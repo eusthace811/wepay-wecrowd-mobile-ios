@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryView *cardInfoEntryView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitFormButtonItem;
+@property (weak, nonatomic) IBOutlet UIButton *submitFormButton;
 
 @property (nonatomic, strong, readwrite) WCCreditCardModel *creditCardModel;
 @property (nonatomic, strong, readwrite) NSString *donationAmount;
@@ -83,6 +85,9 @@
     
     // Feedback for completing the request
     [self.activityIndicator startAnimating];
+    [self.submitFormButton setHidden:YES];
+    
+    NSLog(@"Prcoessing information.");
 }
 
 #pragma mark - WPTokenizationDelegate
