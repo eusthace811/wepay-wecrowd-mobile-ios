@@ -35,6 +35,8 @@
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
         [self.giveMoneyButton setTitle:@"Donate" forState:UIControlStateNormal];
     }
+    
+    
 }
 
 - (void) didReceiveMemoryWarning {
@@ -116,11 +118,12 @@
                             forStoryboard:(UIStoryboard *) storyboard
 {
     UIViewController *viewController;
-    
+
     viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
     
-    [self.navigationController pushViewController:viewController
-                                         animated:YES];
+    [self presentViewController:viewController animated:YES completion:^{
+        NSLog(@"Completed presenting!");
+    }];
 }
 
 @end
