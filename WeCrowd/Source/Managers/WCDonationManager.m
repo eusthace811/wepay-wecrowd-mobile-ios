@@ -57,7 +57,7 @@
                      if (!error) {
                          NSLog(@"Donation successful");
                      } else {
-                         NSLog(@"Error: Unable to make donation.");
+                         NSLog(@"Error: DonationManager: Unable to make donation.");
                      }
                      
                      completionBlock(error);

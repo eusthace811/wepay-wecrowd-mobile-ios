@@ -8,6 +8,7 @@
 
 #import "WCSwiperViewController.h"
 #import "WCWePayManager.h"
+#import "WCDonationManager.h"
 
 @interface WCSwiperViewController () <WPCardReaderDelegate, WPTokenizationDelegate>
 
@@ -20,15 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
+    // Kick off the swiping payment sequence
     [[WCWePayManager sharedInstance].wepay startCardReaderForTokenizingWithCardReaderDelegate:self
                                                                          tokenizationDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of any resources that can be recreated
 }
 
 - (void) cardReaderDidChangeStatus:(id) status
@@ -50,9 +51,8 @@
 
 - (void) didReadPaymentInfo:(WPPaymentInfo *) paymentInfo
 {
-    // Tokenize the payment info
-    [[WCWePayManager sharedInstance].wepay tokenizePaymentInfo:paymentInfo
-                                          tokenizationDelegate:self];
+    // Don't need to do anything with the payment info
+    self.swiperStatusLabel.text = @"Payment info has been read";
 }
 
 - (void) didFailToReadPaymentInfoWithError:(NSError *) error
@@ -69,17 +69,40 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    NSLog(@"Error: %@", [error localizedDescription]);
+    NSLog(@"Error: Card reader: %@", [error localizedDescription]);
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-
+    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:nil
+                                                                    name:nil
+                                                                   email:nil
+                                                            creditCardID:paymentToken.tokenId
+                                                         completionBlock:^(NSError *error) {
+                                                             if (!error) {
+                                                                 NSLog(@"Success: Made donation.");
+                                                                 [self.delegate didFinishPaymentWithSender:self];
+                                                             }
+                                                         }];
+    
+    NSLog(@"Success: Did tokenize!");
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
+    UIAlertController *alertController;
+    UIAlertAction *closeAction;
     
+    alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete transaction"
+                                                          message:@"There was a payment service error. Please try again."
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+    closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:closeAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    NSLog(@"Error: Tokenization: %@", [error localizedDescription]);
 }
 
 @end
