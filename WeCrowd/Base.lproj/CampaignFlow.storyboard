@@ -298,7 +298,7 @@
         <!--Campaign Title-->
         <scene sceneID="YBY-K7-UZU">
             <objects>
-                <viewController id="YAU-Pu-HJg" customClass="WCCampaignDetailViewController" sceneMemberID="viewController">
+                <viewController providesPresentationContextTransitionStyle="YES" id="YAU-Pu-HJg" customClass="WCCampaignDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RIa-K6-i8G"/>
                         <viewControllerLayoutGuide type="bottom" id="jdk-S0-2oS"/>

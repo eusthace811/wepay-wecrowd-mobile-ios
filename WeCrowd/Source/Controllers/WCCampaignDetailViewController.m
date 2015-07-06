@@ -124,9 +124,6 @@
     [self presentViewController:viewController animated:YES completion:^{
         NSLog(@"Completed presenting!");
     }];
-    
-//    [self.navigationController pushViewController:viewController
-//                                         animated:NO];
 }
 
 @end
