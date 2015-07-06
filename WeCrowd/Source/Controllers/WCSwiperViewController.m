@@ -74,7 +74,7 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:nil
+    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:@"100"
                                                                     name:nil
                                                                    email:nil
                                                             creditCardID:paymentToken.tokenId
