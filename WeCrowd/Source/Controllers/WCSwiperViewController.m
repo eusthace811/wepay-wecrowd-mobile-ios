@@ -50,12 +50,26 @@
 
 - (void) didReadPaymentInfo:(WPPaymentInfo *) paymentInfo
 {
-    
+    // Tokenize the payment info
+    [[WCWePayManager sharedInstance].wepay tokenizePaymentInfo:paymentInfo
+                                          tokenizationDelegate:self];
 }
 
 - (void) didFailToReadPaymentInfoWithError:(NSError *) error
 {
+    UIAlertController *alertController;
+    UIAlertAction *closeAction;
     
+    alertController = [UIAlertController alertControllerWithTitle:@"Unable to read card"
+                                                          message:@"There was an error processing the card. Please try again."
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+    closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:closeAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    NSLog(@"Error: %@", [error localizedDescription]);
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
