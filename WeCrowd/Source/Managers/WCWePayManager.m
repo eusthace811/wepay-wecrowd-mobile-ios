@@ -25,8 +25,8 @@
         WPConfig *config;
         
         // Use the example app client ID suitable for testing
-        config = [[WPConfig alloc] initWithClientId:@"58670"
-                                        environment:kWPEnvironmentStage];
+        config = [[WPConfig alloc] initWithClientId:@"119400"
+                                        environment:kWPEnvironmentProduction];
         instance = [WCWePayManager new];
         instance.wepay = [[WePay alloc] initWithConfig:config];
     });

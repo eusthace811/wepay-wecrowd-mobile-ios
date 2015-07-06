@@ -251,7 +251,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api"; //@"http
     // Build a structure from the raw data
     id extractedData = nil;
     
-    if ([data length] >= 1) {
+    if ([data length] > 0) {
         extractedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     }
     
@@ -270,7 +270,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api"; //@"http
         // TODO: There was a connection error with the request
         NSLog(@"Error: Client: %@", [error localizedDescription]);
         errorHandler(error);
-    } else if (!extractedData) {
+    } else if ([data length] > 0 && !extractedData) {
         // TODO: There was an error in the data extracted from the request
         NSLog(@"Error: Client: Unable to extract the response data.");
     }
