@@ -31,7 +31,7 @@
     NSString *username, *password;
     
     #ifdef DEBUG
-    username = @"zachv+3@wepay.com";
+    username = @"zachv+demo@wepay.com";
     password = @"password";
     #else
     username = self.emailField.text;
