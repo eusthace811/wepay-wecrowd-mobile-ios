@@ -19,7 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryView *cardInfoEntryView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitFormButtonItem;
 @property (weak, nonatomic) IBOutlet UIButton *submitFormButton;
 
 @property (nonatomic, strong, readwrite) WCCreditCardModel *creditCardModel;
@@ -83,11 +82,10 @@
     [[WCWePayManager sharedInstance].wepay tokenizePaymentInfo:paymentInfo
                                           tokenizationDelegate:self];
     
-    // Feedback for completing the request
-    [self.activityIndicator startAnimating];
-    [self.submitFormButton setHidden:YES];
+
     
-    NSLog(@"Prcoessing information.");
+    NSLog(@"Processing information.");
+    [self shouldDisplayPaymentFeedback:YES];
 }
 
 #pragma mark - WPTokenizationDelegate
@@ -101,8 +99,13 @@
                                                          completionBlock:^(NSError *error) {
                                                              if (!error) {
                                                                  [self.activityIndicator stopAnimating];
-                                                                 [self performSegueWithIdentifier:kIBSeguePaymentMethodToPaymentStatusSegue sender:self];
+                                                                 // TODO: Status bar notification that the payment succeeded
+                                                                 [self.delegate didFinishPaymentWithSender:self];
+                                                             } else {
+                                                                 NSLog(@"Error: unable to process the payment token.");
                                                              }
+                                                             
+                                                             [self shouldDisplayPaymentFeedback:NO];
                                                          }];
 }
 
@@ -120,6 +123,7 @@
                                       delegate:self
                              cancelButtonTitle:@"Close" otherButtonTitles:nil];
     [alert show];
+    [self shouldDisplayPaymentFeedback:NO];
 }
 
 #pragma mark - Helper Methods
@@ -139,6 +143,17 @@
 {
     self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
     self.email = self.cardInfoEntryView.emailField.text;
+}
+
+- (void) shouldDisplayPaymentFeedback:(BOOL) display
+{
+    if (display) {
+        [self.activityIndicator startAnimating];
+        [self.submitFormButton setHidden:YES];
+    } else {
+        [self.activityIndicator stopAnimating];
+        [self.submitFormButton setHidden:NO];
+    }
 }
 
 @end

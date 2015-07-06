@@ -16,6 +16,7 @@
 		C3060E151B2652D600A9F596 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3060E131B2652D600A9F596 /* LaunchScreen.xib */; };
 		C3060E211B2652D600A9F596 /* WeCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E201B2652D600A9F596 /* WeCrowdTests.m */; };
 		C3060E341B2A017200A9F596 /* WCCampaignBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E331B2A017200A9F596 /* WCCampaignBaseModel.m */; };
+		C32293AD1B4AF94900876227 /* WCPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32293AC1B4AF94900876227 /* WCPaymentViewController.m */; };
 		C3249D901B420C5800C6CED7 /* WCSwiperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */; };
 		C32FABEC1B445CAC005C34AB /* WCCreditCardInfoEntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */; };
 		C32FABF21B44A614005C34AB /* WCDonationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABF11B44A614005C34AB /* WCDonationManager.m */; };
@@ -77,6 +78,8 @@
 		C3060E201B2652D600A9F596 /* WeCrowdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeCrowdTests.m; sourceTree = "<group>"; };
 		C3060E321B2A017200A9F596 /* WCCampaignBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignBaseModel.h; path = Source/Models/WCCampaignBaseModel.h; sourceTree = "<group>"; };
 		C3060E331B2A017200A9F596 /* WCCampaignBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignBaseModel.m; path = Source/Models/WCCampaignBaseModel.m; sourceTree = "<group>"; };
+		C32293AB1B4AF94800876227 /* WCPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCPaymentViewController.h; path = Source/Controllers/WCPaymentViewController.h; sourceTree = "<group>"; };
+		C32293AC1B4AF94900876227 /* WCPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCPaymentViewController.m; path = Source/Controllers/WCPaymentViewController.m; sourceTree = "<group>"; };
 		C3249D8E1B420C5800C6CED7 /* WCSwiperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCSwiperViewController.h; path = Source/Controllers/WCSwiperViewController.h; sourceTree = "<group>"; };
 		C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCSwiperViewController.m; path = Source/Controllers/WCSwiperViewController.m; sourceTree = "<group>"; };
 		C32FABEA1B445CA4005C34AB /* WCCreditCardInfoEntryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCCreditCardInfoEntryView.h; path = Source/Views/WCCreditCardInfoEntryView.h; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				C3D6109F1B3E0314005D188F /* WCWelcomeViewController.m */,
 				C3249D8E1B420C5800C6CED7 /* WCSwiperViewController.h */,
 				C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */,
+				C32293AB1B4AF94800876227 /* WCPaymentViewController.h */,
+				C32293AC1B4AF94900876227 /* WCPaymentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 				C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */,
 				C39676621B2A5B430071CEB5 /* WCUserModel.m in Sources */,
 				C3EC4BB41B4340830005B1B9 /* WCManualPaymentViewController.m in Sources */,
+				C32293AD1B4AF94900876227 /* WCPaymentViewController.m in Sources */,
 				C3249D901B420C5800C6CED7 /* WCSwiperViewController.m in Sources */,
 				C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */,
 				C3060E071B2652D500A9F596 /* main.m in Sources */,

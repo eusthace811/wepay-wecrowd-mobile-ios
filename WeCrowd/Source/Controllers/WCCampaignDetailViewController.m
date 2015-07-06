@@ -13,8 +13,9 @@
 #import "WCConstants.h"
 #import "WCDonationManager.h"
 #import "WCLoginManager.h"
+#import "WCPaymentViewController.h"
 
-@interface WCCampaignDetailViewController () <CampaignDetailDelegate>
+@interface WCCampaignDetailViewController () <CampaignDetailDelegate, PaymentViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *campaignDescription;
 @property (weak, nonatomic) IBOutlet UILabel *campaignDonationProgress;
@@ -70,6 +71,15 @@
                   }];
 }
 
+#pragma mark - PaymentViewDelagate
+
+- (void) didFinishPaymentWithSender:(WCPaymentViewController *) sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Interface Builder
+
 - (IBAction) didPressPaymentButton:(id) sender
 {
     UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
@@ -82,6 +92,8 @@
     
     [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
 }
+
+#pragma mark - Helper Methods
 
 - (void) displayPaymentOptionActionSheetWithStoryboard:(UIStoryboard *) storyboard
 {
@@ -117,9 +129,10 @@
 - (void) pushViewControllerWithIdentifier:(NSString *) identifier
                             forStoryboard:(UIStoryboard *) storyboard
 {
-    UIViewController *viewController;
+    WCPaymentViewController *viewController;
 
     viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
+    viewController.delegate = self;
     
     [self presentViewController:viewController animated:YES completion:^{
         NSLog(@"Completed presenting!");
