@@ -13,6 +13,4 @@
 
 + (instancetype) sharedInstance;
 
-@property (nonatomic, strong, readonly) WePay *wepay;
-
 @end
