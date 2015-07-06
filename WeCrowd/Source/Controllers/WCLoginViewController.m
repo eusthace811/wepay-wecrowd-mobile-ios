@@ -30,7 +30,7 @@
 - (IBAction) login:(id) sender {
     NSString *username, *password;
     
-    #ifndef DEBUG
+    #ifdef DEBUG
     username = @"zachv+3@wepay.com";
     password = @"password";
     #else
@@ -44,6 +44,7 @@
     {
         if (error) {
             // Notify the user of the error
+            // TODO: replace with UIAlertController
             [[[UIAlertView alloc] initWithTitle:@"Please try again"
                                         message:@"Unable to log you in. Please check your information and try again."
                                        delegate:self

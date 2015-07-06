@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WCPaymentViewController.h"
 
-@interface WCSwiperViewController : UIViewController
+@interface WCSwiperViewController : WCPaymentViewController
 
 @end
