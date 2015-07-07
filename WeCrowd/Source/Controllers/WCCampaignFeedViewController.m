@@ -43,7 +43,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                if (error) {
                                    // TODO: alert the user that campaign fetching failed
                                } else {
-                                   self.campaigns = campaigns;
+                                   self.campaigns = [self reversedArrayFromArray:campaigns];
                                    
                                    // Force a refresh of the table since we can't guarantee
                                    // when the request will finish until this block
@@ -55,7 +55,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
             if (error) {
                 // TODO: alert the user that campaign fetching failed
             } else {
-                self.campaigns = campaigns;
+                self.campaigns = [self reversedArrayFromArray:campaigns];
                 
                 // Force a refresh of the table since we can't guarantee
                 // when the request will finish until this block
@@ -107,6 +107,18 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
         [self.delegate campaignFeedViewController:self
                           didSelectCampaignWithID:self.selectedCampaignID];
     }
+}
+
+- (NSArray *) reversedArrayFromArray:(NSArray *) array
+{
+    NSMutableArray *reversed = [NSMutableArray arrayWithCapacity:[array count]];
+    NSEnumerator *enumerator = [array reverseObjectEnumerator];
+    
+    for (id element in enumerator) {
+        [reversed addObject:element];
+    }
+    
+    return reversed;
 }
 
 @end
