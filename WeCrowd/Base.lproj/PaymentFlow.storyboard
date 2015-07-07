@@ -27,6 +27,12 @@
                                 <rect key="frame" x="282" y="291" width="37" height="37"/>
                                 <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOE-Kh-Wj0">
+                                <rect key="frame" x="36" y="216" width="12" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Donation Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0T-Ke-GEe">
                                 <rect key="frame" x="56" y="216" width="508" height="30"/>
                                 <constraints>
@@ -41,7 +47,7 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-eQ-G72">
-                                <rect key="frame" x="142" y="254" width="49" height="30"/>
+                                <rect key="frame" x="276" y="178" width="49" height="30"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -49,12 +55,6 @@
                                     <action selector="submitAction:" destination="Nsw-6d-KCV" eventType="touchUpInside" id="gDp-tc-hnJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOE-Kh-Wj0">
-                                <rect key="frame" x="36" y="216" width="12" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -62,26 +62,31 @@
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="trailing" secondItem="Q7f-0A-JRq" secondAttribute="trailingMargin" id="6nD-2Q-3Ev"/>
                             <constraint firstItem="w0T-Ke-GEe" firstAttribute="centerY" secondItem="QOE-Kh-Wj0" secondAttribute="centerY" constant="3" id="Baq-NN-ZvW"/>
                             <constraint firstItem="QOE-Kh-Wj0" firstAttribute="leading" secondItem="Q7f-0A-JRq" secondAttribute="leadingMargin" constant="20" id="Ltg-Um-No1"/>
-                            <constraint firstItem="5cN-fJ-skt" firstAttribute="leading" secondItem="GIa-eQ-G72" secondAttribute="trailing" constant="-175" id="Pcj-sv-J4H"/>
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="top" secondItem="T0T-zz-vQr" secondAttribute="bottom" id="Who-hJ-SvS"/>
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="leading" secondItem="Q7f-0A-JRq" secondAttribute="leadingMargin" id="Xca-8e-xbZ"/>
                             <constraint firstItem="aff-pR-Ufo" firstAttribute="top" secondItem="5cN-fJ-skt" secondAttribute="bottom" constant="8" id="aRK-XL-VnR"/>
                             <constraint firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" id="br5-US-dmi"/>
                             <constraint firstItem="w0T-Ke-GEe" firstAttribute="leading" secondItem="QOE-Kh-Wj0" secondAttribute="trailing" constant="8" id="cHh-GB-1jq"/>
+                            <constraint firstItem="GIa-eQ-G72" firstAttribute="top" secondItem="aff-pR-Ufo" secondAttribute="bottom" constant="8" id="gNg-oi-J3P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w0T-Ke-GEe" secondAttribute="trailing" constant="20" id="gUd-W1-Z8I"/>
                             <constraint firstItem="aff-pR-Ufo" firstAttribute="centerX" secondItem="5cN-fJ-skt" secondAttribute="centerX" constant="0.5" id="lmw-WI-zbP"/>
                             <constraint firstAttribute="centerY" secondItem="5cN-fJ-skt" secondAttribute="centerY" constant="32" id="oPs-i4-6qe"/>
+                            <constraint firstItem="w0T-Ke-GEe" firstAttribute="top" secondItem="GIa-eQ-G72" secondAttribute="bottom" constant="8" id="rCq-AD-eOy"/>
+                            <constraint firstItem="aff-pR-Ufo" firstAttribute="centerX" secondItem="GIa-eQ-G72" secondAttribute="centerX" id="vJx-M0-zfo"/>
                             <constraint firstItem="GIa-eQ-G72" firstAttribute="top" secondItem="w0T-Ke-GEe" secondAttribute="bottom" constant="8" id="ySM-Ft-oa7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Who-hJ-SvS"/>
                                 <exclude reference="br5-US-dmi"/>
+                                <exclude reference="gNg-oi-J3P"/>
+                                <exclude reference="ySM-Ft-oa7"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="aff-pR-Ufo" id="DNd-5u-zRl"/>
+                        <outlet property="donationField" destination="w0T-Ke-GEe" id="Y44-FK-dmu"/>
                         <outlet property="submitButton" destination="GIa-eQ-G72" id="3jy-IB-25o"/>
                         <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
                         <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>

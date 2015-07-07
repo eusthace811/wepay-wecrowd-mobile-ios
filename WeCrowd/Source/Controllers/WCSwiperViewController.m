@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *swiperStatusLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UITextField *donationField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
@@ -26,7 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Perform any additional setup
+    // Set up the UI controls
+    [self.submitButton setHidden:YES];
+    [self.donationField addTarget:self
+                           action:@selector(donationFieldDidChange)
+                 forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +62,14 @@
     } else if (status == kWPCardReaderStatusStopped) {
         self.swiperStatusLabel.text = @"Card reader has stopped.";
     }
+}
+
+- (void) donationFieldDidChange
+{
+    NSScanner *scanner = [NSScanner scannerWithString:self.donationField.text];
+    BOOL isNotNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+    
+    [self.submitButton setHidden:!isNotNumeric];
 }
 
 #pragma mark - WPCardReaderDelegate
