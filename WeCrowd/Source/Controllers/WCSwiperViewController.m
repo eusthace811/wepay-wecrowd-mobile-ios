@@ -64,7 +64,7 @@
         self.swiperStatusLabel.text = @"Detected swipe!";
         [self.activityIndicator startAnimating];
     } else if (status == kWPCardReaderStatusTokenizing) {
-        self.swiperStatusLabel.text = @"Tokenizing card...";
+        self.swiperStatusLabel.text = @"Tokenizing card";
     } else if (status == kWPCardReaderStatusStopped) {
         self.swiperStatusLabel.text = @"Card reader has stopped.";
     }
@@ -122,6 +122,7 @@
                                                              [self.activityIndicator stopAnimating];
                                                          }];
     
+    self.swiperStatusLabel.text = @"Processing donation...";
     NSLog(@"Success: Did tokenize!");
 }
 
