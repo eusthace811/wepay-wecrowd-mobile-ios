@@ -15,22 +15,31 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *swiperStatusLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
 
 @implementation WCSwiperViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Kick off the swiping payment sequence
-    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
-                                                            tokenizationDelegate:self];
+    // Perform any additional setup
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
+}
+
+#pragma mark - Interface Builder
+
+- (IBAction) submitAction:(id) sender {
+    // Kick off the swiping payment sequence
+    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
+                                                            tokenizationDelegate:self];
 }
 
 - (void) cardReaderDidChangeStatus:(id) status
@@ -49,6 +58,8 @@
         self.swiperStatusLabel.text = @"Card reader has stopped.";
     }
 }
+
+#pragma mark - WPCardReaderDelegate
 
 - (void) didReadPaymentInfo:(WPPaymentInfo *) paymentInfo
 {
@@ -72,6 +83,9 @@
     
     NSLog(@"Error: Card reader: %@", [error localizedDescription]);
 }
+
+
+#pragma mark - WPTokenizationDelegate
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
