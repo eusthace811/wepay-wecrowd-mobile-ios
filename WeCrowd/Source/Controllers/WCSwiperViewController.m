@@ -9,6 +9,7 @@
 #import "WCSwiperViewController.h"
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
+#import <WePay/WePay.h>
 
 @interface WCSwiperViewController () <WPCardReaderDelegate, WPTokenizationDelegate>
 
@@ -23,8 +24,8 @@
     [super viewDidLoad];
 
     // Kick off the swiping payment sequence
-    [[WCWePayManager sharedInstance].wepay startCardReaderForTokenizingWithCardReaderDelegate:self
-                                                                         tokenizationDelegate:self];
+    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
+                                                            tokenizationDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
