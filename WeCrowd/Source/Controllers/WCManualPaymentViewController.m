@@ -48,6 +48,12 @@
     [self shouldDisplayPaymentFeedback:YES];
 }
 
+- (IBAction) swipeDownAction:(id) sender
+{
+    NSLog(@"Swipe down");
+    [self.delegate didFinishWithSender:self];
+}
+
 #pragma mark - WPTokenizationDelegate
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
