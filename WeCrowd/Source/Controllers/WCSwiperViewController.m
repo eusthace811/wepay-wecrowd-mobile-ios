@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *donationField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
-
-
 @end
 
 @implementation WCSwiperViewController
@@ -33,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    [self setUpUIControls];
+    [self setUpFeedbackUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,20 +154,6 @@
 
 #pragma mark - Internal Methods
 
-- (void) setUpUIControls
-{
-    // Status label
-    self.swiperStatusLabel.text = @"";
-    
-    // Submit button
-    [self.submitButton setHidden:YES];
-    
-    // Donation field
-    [self.donationField addTarget:self
-                           action:@selector(donationFieldDidChange)
-                 forControlEvents:UIControlEventEditingChanged];
-}
-
 - (void) executeCardRead
 {
     // Configure UI
@@ -217,6 +201,20 @@
 }
 
 #pragma UI
+
+- (void) setUpFeedbackUI
+{
+    // Status label
+    self.swiperStatusLabel.text = @"";
+    
+    // Submit button
+    [self.submitButton setHidden:YES];
+    
+    // Donation field
+    [self.donationField addTarget:self
+                           action:@selector(donationFieldDidChange)
+                 forControlEvents:UIControlEventEditingChanged];
+}
 
 - (void) resetFeedbackUI
 {

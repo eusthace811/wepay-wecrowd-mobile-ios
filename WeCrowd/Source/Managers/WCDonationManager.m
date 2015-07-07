@@ -13,10 +13,12 @@
 @interface WCDonationManager ()
 
 @property (nonatomic, strong, readwrite) NSString *campaignID;
+@property (nonatomic, readwrite) WCDonationStatus donationStatus;
 
 @end
 
 @implementation WCDonationManager
+
 
 + (instancetype) sharedManager
 {
@@ -29,12 +31,6 @@
     
     return instance;
 }
-
-- (void) setDonationCampaignID:(NSString *) campaignID
-{
-    self.campaignID = campaignID;
-}
-
 
 - (void) makeDonationForCampaignWithAmount:(NSString *) amount
                                       name:(NSString *) name
@@ -63,5 +59,8 @@
                      completionBlock(error);
                  }];
 }
+
+- (void) setDonationCampaignID:(NSString *) campaignID { self.campaignID = campaignID; }
+- (WCDonationStatus) donationStatus { return self.donationStatus; }
 
 @end
