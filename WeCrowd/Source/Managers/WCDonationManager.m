@@ -56,8 +56,12 @@
                          NSLog(@"Error: DonationManager: Unable to make donation.");
                      }
                      
+                     self.donationStatus = WCDonationStatusNone;
                      completionBlock(error);
                  }];
+    
+    // Set the status
+    self.donationStatus = WCDonationStatusPending;
 }
 
 - (void) setDonationCampaignID:(NSString *) campaignID { self.campaignID = campaignID; }
