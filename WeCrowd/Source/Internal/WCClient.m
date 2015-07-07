@@ -264,7 +264,7 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
             successHandler(extractedData);
         } else {
             // TODO: There was a connection error
-            NSLog(@"Error: Client: HTTP error %i", statusCode);
+            NSLog(@"Error: Client: HTTP error %li", (long)statusCode);
         }
     } else if (error) {
         // TODO: There was a connection error with the request
