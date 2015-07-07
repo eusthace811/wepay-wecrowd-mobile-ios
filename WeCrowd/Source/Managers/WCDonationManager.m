@@ -12,7 +12,6 @@
 
 @interface WCDonationManager ()
 
-@property (nonatomic, strong, readwrite) NSString *campaignID;
 @property (nonatomic, readwrite) WCDonationStatus donationStatus;
 
 @end
@@ -63,8 +62,5 @@
     // Set the status
     self.donationStatus = WCDonationStatusPending;
 }
-
-- (void) setDonationCampaignID:(NSString *) campaignID { self.campaignID = campaignID; }
-- (WCDonationStatus) donationStatus { return self.donationStatus; }
 
 @end

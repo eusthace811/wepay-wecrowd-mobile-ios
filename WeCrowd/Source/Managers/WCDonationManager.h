@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, WCDonationStatus) {
     WCDonationStatusPending = 1
 };
 
+@property (nonatomic, strong, readwrite) NSString *campaignID;
 @property (nonatomic, readonly) WCDonationStatus donationStatus;
 
 + (instancetype) sharedManager;
@@ -26,8 +27,5 @@ typedef NS_ENUM(NSInteger, WCDonationStatus) {
                                      email:(NSString *) email
                               creditCardID:(NSString *) creditCardID
                            completionBlock:(void (^)(NSError *error)) completionBlock;
-
-- (void) setDonationCampaignID:(NSString *) campaignID;
-- (WCDonationStatus) donationStatus;
 
 @end

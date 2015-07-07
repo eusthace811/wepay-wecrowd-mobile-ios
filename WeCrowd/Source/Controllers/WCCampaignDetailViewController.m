@@ -90,7 +90,7 @@
         [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController" forStoryboard:paymentStoryboard];
     }
     
-    [[WCDonationManager sharedManager] setDonationCampaignID:self.campaignDetail.campaignID];
+    [[WCDonationManager sharedManager] setCampaignID:self.campaignDetail.campaignID];
 }
 
 #pragma mark - Helper Methods

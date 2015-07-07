@@ -49,8 +49,10 @@
 
 - (IBAction) viewSwipeDownAction:(id) sender
 {
-    NSLog(@"Swipe down");
-    [self.delegate didFinishWithSender:self];
+    if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
+        NSLog(@"Swipe down");
+        [self.delegate didFinishWithSender:self];
+    }
 }
 
 - (void) cardReaderDidChangeStatus:(id) status
