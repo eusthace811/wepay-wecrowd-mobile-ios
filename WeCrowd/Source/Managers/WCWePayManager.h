@@ -19,4 +19,7 @@
                               email:(NSString *) email
                            delegate:(id) delegate;
 
+- (void) startCardReadTokenizationWithReaderDelegate:(id) readerDelegate
+                                tokenizationDelegate:(id) tokenizationDelegate;
+
 @end

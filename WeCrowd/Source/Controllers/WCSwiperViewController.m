@@ -24,9 +24,8 @@
     [super viewDidLoad];
 
     // Kick off the swiping payment sequence
-    // TODO: Use manager class method
-//    [[WCWePayManager sharedInstance].wepay startCardReaderForTokenizingWithCardReaderDelegate:self
-//                                                                         tokenizationDelegate:self];
+    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
+                                                            tokenizationDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {

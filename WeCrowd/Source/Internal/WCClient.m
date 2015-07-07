@@ -20,7 +20,7 @@ static NSString* const kHTTPRequestPost = @"POST";
 static NSString* const kHTTPRequestGet  = @"GET";
 
 // API
-static NSString* const kAPIURLString = @"http://0.0.0.0:3000/api"; //@"http://wecrowd.wepay.com/api";
+static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://wecrowd.wepay.com/api";
 
 #pragma mark - Implementation
 

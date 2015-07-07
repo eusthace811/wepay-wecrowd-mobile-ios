@@ -19,7 +19,7 @@
 
 @implementation WCWePayManager
 
-#pragma mark - Interface Methods
+#pragma mark - Class Methods
 
 + (instancetype) sharedInstance
 {
@@ -38,6 +38,8 @@
     
     return instance;
 }
+
+#pragma mark - Instance Methods
 
 - (void) tokenizeCreditCardWithInfo:(WCCreditCardModel *) info
                      isMerchantUser:(BOOL) isMerchantUser
@@ -69,6 +71,13 @@
                                            virtualTerminal:isMerchantUser];
     
     [self.wepay tokenizePaymentInfo:paymentInfo tokenizationDelegate:delegate];
+}
+
+- (void) startCardReadTokenizationWithReaderDelegate:(id) readerDelegate
+                                tokenizationDelegate:(id) tokenizationDelegate
+{
+    [self.wepay startCardReaderForTokenizingWithCardReaderDelegate:readerDelegate
+                                              tokenizationDelegate:tokenizationDelegate];
 }
 
 @end
