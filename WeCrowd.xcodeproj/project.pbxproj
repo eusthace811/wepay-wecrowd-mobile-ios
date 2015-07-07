@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3767928A83D0B4DCD1AC8C56 /* libPods-WeCrowd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DE7DD73219C683F879F941 /* libPods-WeCrowd.a */; };
+		79E77D27270F79FD0FB10D28 /* libPods-WeCrowd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DE7DD73219C683F879F941 /* libPods-WeCrowd.a */; };
 		C3060E071B2652D500A9F596 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E061B2652D500A9F596 /* main.m */; };
 		C3060E0A1B2652D500A9F596 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E091B2652D500A9F596 /* AppDelegate.m */; };
 		C3060E0D1B2652D500A9F596 /* WCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E0C1B2652D500A9F596 /* WCLoginViewController.m */; };
@@ -149,7 +149,7 @@
 				C3D610AD1B41B11C005D188F /* CoreBluetooth.framework in Frameworks */,
 				C3D610AB1B41B113005D188F /* AVFoundation.framework in Frameworks */,
 				C3D610A91B41B109005D188F /* AudioToolbox.framework in Frameworks */,
-				3767928A83D0B4DCD1AC8C56 /* libPods-WeCrowd.a in Frameworks */,
+				79E77D27270F79FD0FB10D28 /* libPods-WeCrowd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

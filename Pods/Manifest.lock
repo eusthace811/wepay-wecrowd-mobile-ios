@@ -1,10 +1,10 @@
 PODS:
-  - MBProgressHUD (0.9.1)
+  - CWStatusBarNotification (2.2.6)
 
 DEPENDENCIES:
-  - MBProgressHUD (~> 0.9.1)
+  - CWStatusBarNotification (~> 2.2.6)
 
 SPEC CHECKSUMS:
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  CWStatusBarNotification: b7d08c63bbfcceee08b63cab041560a6f5cdefb6
 
 COCOAPODS: 0.37.2

@@ -2,7 +2,7 @@
 # platform :ios, '6.0'
 
 target 'WeCrowd' do
-	pod 'MBProgressHUD', '~> 0.9.1'
+    pod 'CWStatusBarNotification', '~> 2.2.6'
 end
 
 target 'WeCrowdTests' do
