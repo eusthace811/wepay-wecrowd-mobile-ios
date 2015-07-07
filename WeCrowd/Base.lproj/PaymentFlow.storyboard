@@ -293,8 +293,8 @@
                                     <outlet property="lastNameField" destination="4Xg-d5-OUx" id="bdq-T0-rMW"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
-                                <rect key="frame" x="139" y="36" width="322" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
+                                <rect key="frame" x="16" y="36" width="568" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -319,6 +319,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ug2-1b-XOY" firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" id="1Dc-wi-zuw"/>
+                            <constraint firstItem="ug2-1b-XOY" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" id="2Mi-MU-lN5"/>
                             <constraint firstItem="kKb-yi-2d9" firstAttribute="centerX" secondItem="RsI-0b-Es2" secondAttribute="centerX" id="4jC-qz-XTy"/>
                             <constraint firstItem="kKb-yi-2d9" firstAttribute="top" secondItem="ug2-1b-XOY" secondAttribute="bottom" constant="8" id="EmH-Nq-4Ky"/>
                             <constraint firstItem="ug2-1b-XOY" firstAttribute="top" secondItem="866-a5-Hwr" secondAttribute="bottom" constant="16" id="MoQ-2M-o7n"/>
@@ -326,9 +327,15 @@
                             <constraint firstItem="kKb-yi-2d9" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" constant="16" id="VHE-0R-Ebd"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="centerX" secondItem="o8z-or-zq5" secondAttribute="centerX" constant="-0.5" id="dCe-A7-TnN"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="centerY" secondItem="o8z-or-zq5" secondAttribute="centerY" constant="-1.5" id="f72-G2-X5F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ug2-1b-XOY" secondAttribute="trailing" id="iJ5-fm-6zm"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="bottom" constant="-14" id="mLF-S3-caI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kKb-yi-2d9" secondAttribute="trailing" constant="16" id="qdA-Kx-WPN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1Dc-wi-zuw"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Jav-7M-t8z" appends="YES" id="nWa-Dq-W86"/>
                         </connections>
