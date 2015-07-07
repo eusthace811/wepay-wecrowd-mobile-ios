@@ -26,8 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Set up the UI controls
+    self.swiperStatusLabel.text = @"";
     [self.submitButton setHidden:YES];
     [self.donationField addTarget:self
                            action:@selector(donationFieldDidChange)
@@ -43,6 +44,10 @@
 
 - (IBAction) submitAction:(id) sender {
     // Kick off the swiping payment sequence
+    [self.donationField setEnabled:NO];
+    [self.submitButton setHidden:YES];
+    [self.swiperStatusLabel setHidden:NO];
+    
     [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
                                                             tokenizationDelegate:self];
 }
@@ -57,6 +62,7 @@
         self.swiperStatusLabel.text = @"Waiting for swipe...";
     } else if (status == kWPCardReaderStatusSwipeDetected) {
         self.swiperStatusLabel.text = @"Detected swipe!";
+        [self.activityIndicator startAnimating];
     } else if (status == kWPCardReaderStatusTokenizing) {
         self.swiperStatusLabel.text = @"Tokenizing card...";
     } else if (status == kWPCardReaderStatusStopped) {
@@ -70,6 +76,7 @@
     BOOL isNotNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
     
     [self.submitButton setHidden:!isNotNumeric];
+    [self.swiperStatusLabel setHidden:isNotNumeric];
 }
 
 #pragma mark - WPCardReaderDelegate
@@ -102,7 +109,7 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:@"100"
+    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:self.donationField.text
                                                                     name:nil
                                                                    email:nil
                                                             creditCardID:paymentToken.tokenId
@@ -111,6 +118,8 @@
                                                                  NSLog(@"Success: Made donation.");
                                                                  [self.delegate didFinishPaymentWithSender:self];
                                                              }
+                                                             
+                                                             [self.activityIndicator stopAnimating];
                                                          }];
     
     NSLog(@"Success: Did tokenize!");
