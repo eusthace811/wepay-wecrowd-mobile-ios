@@ -11,12 +11,17 @@
 #import "WCDonationManager.h"
 #import <WePay/WePay.h>
 
-@interface WCSwiperViewController () <WPCardReaderDelegate, WPTokenizationDelegate>
+@interface WCSwiperViewController () <WPCardReaderDelegate,
+                                      WPTokenizationDelegate,
+                                      UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *swiperStatusLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITextField *donationField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+
+
 
 @end
 
@@ -28,12 +33,7 @@
 {
     [super viewDidLoad];
     
-    // Set up the UI controls
-    self.swiperStatusLabel.text = @"";
-    [self.submitButton setHidden:YES];
-    [self.donationField addTarget:self
-                           action:@selector(donationFieldDidChange)
-                 forControlEvents:UIControlEventEditingChanged];
+    [self setUpUIControls];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,13 +46,7 @@
 
 - (IBAction) submitAction:(id) sender
 {
-    // Kick off the swiping payment sequence
-    [self.donationField setEnabled:NO];
-    [self.submitButton setHidden:YES];
-    [self.swiperStatusLabel setHidden:NO];
-    
-    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
-                                                            tokenizationDelegate:self];
+    [self executeCardRead];
 }
 
 - (IBAction) viewSwipeDownAction:(id) sender
@@ -81,11 +75,11 @@
 
 - (void) donationFieldDidChange
 {
-    NSScanner *scanner = [NSScanner scannerWithString:self.donationField.text];
-    BOOL isNotNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+    BOOL isValid = [self isDonationFieldValid];
     
-    [self.submitButton setHidden:!isNotNumeric];
-    [self.swiperStatusLabel setHidden:isNotNumeric];
+    [self.submitButton setHidden:!isValid];
+    [self.swiperStatusLabel setHidden:isValid];
+    [self.instructionLabel setHidden:isValid];
 }
 
 #pragma mark - WPCardReaderDelegate
@@ -110,6 +104,7 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
+    [self resetFeedbackUI];
     NSLog(@"Error: Card reader: %@", [error localizedDescription]);
 }
 
@@ -118,21 +113,11 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
-    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:self.donationField.text
-                                                                    name:nil
-                                                                   email:nil
-                                                            creditCardID:paymentToken.tokenId
-                                                         completionBlock:^(NSError *error) {
-                                                             if (!error) {
-                                                                 NSLog(@"Success: Made donation.");
-                                                                 [self.delegate didFinishWithSender:self];
-                                                             }
-                                                             
-                                                             [self.activityIndicator stopAnimating];
-                                                         }];
+    [self executeDonationWithPaymentToken:paymentToken];
     
     self.swiperStatusLabel.text = @"Processing donation...";
-    NSLog(@"Success: Did tokenize!");
+    
+    NSLog(@"Success: Tokenization: Did tokenize!");
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
@@ -140,7 +125,7 @@
     UIAlertController *alertController;
     UIAlertAction *closeAction;
     
-    alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete transaction"
+    alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete tokenization"
                                                           message:@"There was a payment service error. Please try again."
                                                    preferredStyle:UIAlertControllerStyleAlert];
     closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
@@ -149,7 +134,105 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
+    
+    [self resetFeedbackUI];
     NSLog(@"Error: Tokenization: %@", [error localizedDescription]);
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL) textFieldShouldReturn:(UITextField *) textField
+{
+    if (textField == self.donationField) {
+        if ([self isDonationFieldValid]) {
+            [textField resignFirstResponder];
+            
+            [self executeCardRead];
+        }
+    }
+    
+    return YES;
+}
+
+#pragma mark - Internal Methods
+
+- (void) setUpUIControls
+{
+    // Status label
+    self.swiperStatusLabel.text = @"";
+    
+    // Submit button
+    [self.submitButton setHidden:YES];
+    
+    // Donation field
+    [self.donationField addTarget:self
+                           action:@selector(donationFieldDidChange)
+                 forControlEvents:UIControlEventEditingChanged];
+}
+
+- (void) executeCardRead
+{
+    // Configure UI
+    [self.donationField setEnabled:NO];
+    [self.submitButton setHidden:YES];
+    [self.swiperStatusLabel setHidden:NO];
+    
+    // Kick off the swiping payment sequence
+    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
+                                                            tokenizationDelegate:self];
+}
+
+- (void) executeDonationWithPaymentToken:(WPPaymentToken *) paymentToken
+{
+    [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:self.donationField.text
+                                                                    name:nil
+                                                                   email:nil
+                                                            creditCardID:paymentToken.tokenId
+                                                         completionBlock:^(NSError *error) {
+                                                             if (error) {
+                                                                 UIAlertController *alertController;
+                                                                 UIAlertAction *retryAction, *closeAction;
+                                                                 
+                                                                 alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete donation"
+                                                                                                                       message:@"There was a server error. Please try again."
+                                                                                                                preferredStyle:UIAlertControllerStyleAlert];
+                                                                 retryAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                                                                            [self executeCardRead];
+                                                                                                        }];
+                                                                 closeAction = [UIAlertAction actionWithTitle:@"Close"
+                                                                                                        style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+                                                                                                            [self resetFeedbackUI];
+                                                                                                        }];
+                                                                 
+                                                                 [alertController addAction:retryAction];
+                                                                 [alertController addAction:closeAction];
+                                                                 
+                                                                 [self presentViewController:alertController animated:YES completion:nil];
+                                                             } else {
+                                                                 NSLog(@"Success: Made donation.");
+                                                                 [self.delegate didFinishWithSender:self];
+                                                             }
+                                                         }];
+}
+
+#pragma UI
+
+- (void) resetFeedbackUI
+{
+    [self.donationField setEnabled:YES];
+    [self.activityIndicator stopAnimating];
+    [self.submitButton setHidden:NO];
+    self.swiperStatusLabel.text = @"";
+}
+
+#pragma mark Checks
+
+- (BOOL) isDonationFieldValid
+{
+    NSScanner *scanner = [NSScanner scannerWithString:self.donationField.text];
+    
+    return [scanner scanInteger:NULL] && [scanner isAtEnd];
 }
 
 @end

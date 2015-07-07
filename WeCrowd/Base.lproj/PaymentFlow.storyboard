@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Swipe Card-->
+        <!--Swipe Card ViewController-->
         <scene sceneID="Ghu-WS-6em">
             <objects>
-                <viewController storyboardIdentifier="WCSwiperViewController" title="Swipe Card" id="Nsw-6d-KCV" customClass="WCSwiperViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WCSwiperViewController" title="Swipe Card ViewController" id="Nsw-6d-KCV" customClass="WCSwiperViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T0T-zz-vQr"/>
                         <viewControllerLayoutGuide type="bottom" id="VeX-R7-ROr"/>
@@ -51,6 +51,9 @@
                                         <exclude reference="Um0-Q5-JoP"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="Nsw-6d-KCV" id="dKn-aa-jXo"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-eQ-G72">
                                 <rect key="frame" x="271" y="157" width="58" height="34"/>
@@ -100,6 +103,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="aff-pR-Ufo" id="DNd-5u-zRl"/>
                         <outlet property="donationField" destination="w0T-Ke-GEe" id="Y44-FK-dmu"/>
+                        <outlet property="instructionLabel" destination="SvR-6H-qBO" id="2Yu-dP-B88"/>
                         <outlet property="submitButton" destination="GIa-eQ-G72" id="3jy-IB-25o"/>
                         <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
                         <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>
