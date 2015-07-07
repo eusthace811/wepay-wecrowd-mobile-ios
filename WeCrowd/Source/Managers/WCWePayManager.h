@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <WePay/WePay.h>
+
+@class WCCreditCardModel;
 
 @interface WCWePayManager : NSObject
 
 + (instancetype) sharedInstance;
+
+- (void) tokenizeCreditCardWithInfo:(WCCreditCardModel *) info
+                     isMerchantUser:(BOOL) isMerchantUser
+                              email:(NSString *) email
+                           delegate:(id) delegate;
 
 @end

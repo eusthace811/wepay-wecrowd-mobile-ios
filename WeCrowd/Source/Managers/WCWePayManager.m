@@ -7,6 +7,9 @@
 //
 
 #import "WCWePayManager.h"
+#import "WCCreditCardModel.h"
+
+#import <WePay/WePay.h>
 
 @interface WCWePayManager ()
 
@@ -15,6 +18,8 @@
 @end
 
 @implementation WCWePayManager
+
+#pragma mark - Interface Methods
 
 + (instancetype) sharedInstance
 {
@@ -32,6 +37,38 @@
     });
     
     return instance;
+}
+
+- (void) tokenizeCreditCardWithInfo:(WCCreditCardModel *) info
+                     isMerchantUser:(BOOL) isMerchantUser
+                              email:(NSString *) email
+                           delegate:(id) delegate
+{
+    WPPaymentInfo *paymentInfo;
+    WPAddress *address;
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    NSString *month, *year;
+
+    // Extract the needed parameters from the credit card model
+    address = [[WPAddress alloc] initWithZip:info.zipCode];
+
+    formatter.dateFormat = @"MM";
+    month = [formatter stringFromDate:info.expirationDate];
+    formatter.dateFormat = @"yyyy";
+    year = [formatter stringFromDate:info.expirationDate];
+
+    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:info.firstName
+                                                  lastName:info.lastName
+                                                     email:email
+                                            billingAddress:address
+                                           shippingAddress:nil
+                                                cardNumber:info.cardNumber
+                                                       cvv:info.cvvNumber
+                                                  expMonth:month
+                                                   expYear:year
+                                           virtualTerminal:isMerchantUser];
+    
+    [self.wepay tokenizePaymentInfo:paymentInfo tokenizationDelegate:delegate];
 }
 
 @end

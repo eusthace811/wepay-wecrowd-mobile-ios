@@ -14,6 +14,7 @@
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
 #import "WCConstants.h"
+#import <WePay/WePay.h>
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
@@ -33,55 +34,14 @@
 
 - (IBAction) submitInformationAction:(id) sender
 {
-    WPPaymentInfo *paymentInfo;
-    WPAddress *address;
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    NSString *month, *year;
-    
     // Fill in data members
     [self setupCreditCardModel];
     [self setupDonation];
     
-    // Extract the needed parameters from the credit card model
-    address = [[WPAddress alloc] initWithZip:self.creditCardModel.zipCode];
-    
-    formatter.dateFormat = @"MM";
-    month = [formatter stringFromDate:self.creditCardModel.expirationDate];
-    formatter.dateFormat = @"yyyy";
-    year = [formatter stringFromDate:self.creditCardModel.expirationDate];
-    
-    // Tokenize the card using the entered information
-    #ifdef DEBUG
-    NSString *email = @"a+1@boss.com";
-    
-    self.donationAmount = @"10";
-    self.email = email;
-    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:@"WeCrowd-iOS"
-                                                  lastName:@"Example"
-                                                     email:email
-                                            billingAddress:[[WPAddress alloc] initWithZip:@"94306"]
-                                           shippingAddress:nil
-                                                cardNumber:@"5496198584584769"
-                                                       cvv:@"123"
-                                                  expMonth:@"04"
-                                                   expYear:@"2020"
-                                           virtualTerminal:[WCLoginManager userType]];
-    #else
-    paymentInfo = [[WPPaymentInfo alloc] initWithFirstName:self.creditCardModel.firstName
-                                                  lastName:self.creditCardModel.lastName
-                                                     email:self.email
-                                            billingAddress:address
-                                           shippingAddress:nil
-                                                cardNumber:self.creditCardModel.cardNumber
-                                                       cvv:self.creditCardModel.cvvNumber
-                                                  expMonth:month
-                                                   expYear:year
-                                           virtualTerminal:[WCLoginManager userType]];
-    #endif
-
-    [[WCWePayManager sharedInstance].wepay tokenizePaymentInfo:paymentInfo
-                                          tokenizationDelegate:self];
-    
+    [[WCWePayManager sharedInstance] tokenizeCreditCardWithInfo:self.creditCardModel
+                                                 isMerchantUser:[WCLoginManager userType]
+                                                          email:self.email
+                                                       delegate:self];
 
     
     NSLog(@"Processing information.");
@@ -130,6 +90,15 @@
 
 - (void) setupCreditCardModel
 {
+    #ifdef DEBUG
+    self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:@"WeCrowd-iOS"
+                                                                       lastName:@"Demo"
+                                                                     cardNumber:@"5496198584584769"
+                                                                            cvv:@"123"
+                                                                        zipCode:@"94306"
+                                                                expirationMonth:@"04"
+                                                                 expirationYear:@"2020"];
+    #else
     self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:self.cardInfoEntryView.firstNameField.text
                                                                        lastName:self.cardInfoEntryView.lastNameField.text
                                                                      cardNumber:self.cardInfoEntryView.cardNumberField.text
@@ -137,12 +106,19 @@
                                                                         zipCode:self.cardInfoEntryView.expiryZipField.text
                                                                 expirationMonth:self.cardInfoEntryView.expiryMonthField.text
                                                                  expirationYear:self.cardInfoEntryView.expiryYearField.text];
+    #endif
 }
 
 - (void) setupDonation
 {
+    #ifdef DEBUG
+    self.donationAmount = @"50";
+    self.email = @"wp.ios.example@wepay.com";
+    
+    #else
     self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
     self.email = self.cardInfoEntryView.emailField.text;
+    #endif
 }
 
 - (void) shouldDisplayPaymentFeedback:(BOOL) display
