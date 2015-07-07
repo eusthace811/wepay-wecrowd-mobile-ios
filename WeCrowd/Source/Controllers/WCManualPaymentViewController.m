@@ -60,7 +60,7 @@
                                                              if (!error) {
                                                                  [self.activityIndicator stopAnimating];
                                                                  // TODO: Status bar notification that the payment succeeded
-                                                                 [self.delegate didFinishPaymentWithSender:self];
+                                                                 [self.delegate didFinishWithSender:self];
                                                              } else {
                                                                  NSLog(@"Error: unable to process the payment token.");
                                                              }

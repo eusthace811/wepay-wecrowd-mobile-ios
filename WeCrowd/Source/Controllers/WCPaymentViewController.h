@@ -12,7 +12,7 @@
 
 @protocol PaymentViewDelegate <NSObject>
 
-- (void) didFinishPaymentWithSender:(WCPaymentViewController *) sender;
+- (void) didFinishWithSender:(WCPaymentViewController *) sender;
 
 @end
 

@@ -12,9 +12,15 @@
 
 @interface WCDonationManager : NSObject
 
-+ (instancetype) sharedManager;
+typedef NS_ENUM(NSInteger, WCDonationStatus) {
+    WCDonationStatusNone = 0,
+    WCDonationStatusPending = 1
+};
 
-- (void) setDonationCampaignID:(NSString *) campaignID;
+@property (nonatomic, strong, readwrite) NSString *campaignID;
+@property (nonatomic, readonly) WCDonationStatus donationStatus;
+
++ (instancetype) sharedManager;
 
 - (void) makeDonationForCampaignWithAmount:(NSString *) amount
                                       name:(NSString *) name
