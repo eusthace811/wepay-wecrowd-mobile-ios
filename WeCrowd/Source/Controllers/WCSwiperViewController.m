@@ -40,6 +40,29 @@
     // Dispose of any resources that can be recreated
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL) textFieldShouldReturn:(UITextField *) textField
+{
+    if (textField == self.donationField) {
+        if ([self isDonationFieldValid]) {
+            [textField resignFirstResponder];
+            
+            [self executeCardRead];
+        }
+    }
+    
+    return YES;
+}
+
+#pragma mark - UIResponder
+
+- (void) touchesBegan:(NSSet *) touches withEvent:(UIEvent *) event
+{
+    // Dismiss the keyboard when user touches outside the text field
+    [self.donationField resignFirstResponder];
+}
+
 #pragma mark - Interface Builder
 
 - (IBAction) submitAction:(id) sender
@@ -137,21 +160,6 @@
     
     [self resetFeedbackUI];
     NSLog(@"Error: Tokenization: %@", [error localizedDescription]);
-}
-
-#pragma mark - UITextFieldDelegate
-
-- (BOOL) textFieldShouldReturn:(UITextField *) textField
-{
-    if (textField == self.donationField) {
-        if ([self isDonationFieldValid]) {
-            [textField resignFirstResponder];
-            
-            [self executeCardRead];
-        }
-    }
-    
-    return YES;
 }
 
 #pragma mark - Internal Methods
