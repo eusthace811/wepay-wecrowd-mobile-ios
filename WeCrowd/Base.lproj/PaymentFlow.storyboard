@@ -91,8 +91,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="OpY-BP-3AY"/>
                                 <exclude reference="qKq-Gv-LqX"/>
+                                <exclude reference="OpY-BP-3AY"/>
                                 <exclude reference="zpH-Vb-vPO"/>
                             </mask>
                         </variation>
@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-yi-2d9" customClass="WCCreditCardInfoEntryView">
-                                <rect key="frame" x="32" y="65" width="536" height="205"/>
+                                <rect key="frame" x="32" y="66" width="536" height="205"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Donation Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="51W-xJ-teu">
                                         <rect key="frame" x="28" y="5" width="500" height="30"/>
@@ -294,16 +294,16 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
-                                <rect key="frame" x="148" y="36" width="305" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="139" y="36" width="322" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
-                                <rect key="frame" x="271" y="256" width="58" height="34"/>
+                                <rect key="frame" x="271" y="257" width="58" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Submit">
-                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -311,7 +311,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
-                                <rect key="frame" x="282" y="256" width="37" height="37"/>
+                                <rect key="frame" x="282" y="257" width="37" height="37"/>
                                 <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -383,6 +383,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dGc-Ic-WNA"/>
+        <segue reference="3Se-mT-u07"/>
     </inferredMetricsTieBreakers>
 </document>
