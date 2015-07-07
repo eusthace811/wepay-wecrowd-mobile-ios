@@ -24,7 +24,8 @@
 
 #pragma mark - UIViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     // Set up the UI controls
@@ -35,14 +36,16 @@
                  forControlEvents:UIControlEventEditingChanged];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
 }
 
 #pragma mark - Interface Builder
 
-- (IBAction) submitAction:(id) sender {
+- (IBAction) submitAction:(id) sender
+{
     // Kick off the swiping payment sequence
     [self.donationField setEnabled:NO];
     [self.submitButton setHidden:YES];
@@ -50,6 +53,12 @@
     
     [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
                                                             tokenizationDelegate:self];
+}
+
+- (IBAction) viewSwipeDownAction:(id) sender
+{
+    NSLog(@"Swipe down");
+    [self.delegate didFinishPaymentWithSender:self];
 }
 
 - (void) cardReaderDidChangeStatus:(id) status
