@@ -73,7 +73,7 @@
 
 #pragma mark - PaymentViewDelagate
 
-- (void) didFinishPaymentWithSender:(WCPaymentViewController *) sender
+- (void) didFinishWithSender:(WCPaymentViewController *) sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

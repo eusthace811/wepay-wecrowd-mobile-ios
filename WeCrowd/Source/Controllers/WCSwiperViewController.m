@@ -58,7 +58,7 @@
 - (IBAction) viewSwipeDownAction:(id) sender
 {
     NSLog(@"Swipe down");
-    [self.delegate didFinishPaymentWithSender:self];
+    [self.delegate didFinishWithSender:self];
 }
 
 - (void) cardReaderDidChangeStatus:(id) status
@@ -125,7 +125,7 @@
                                                          completionBlock:^(NSError *error) {
                                                              if (!error) {
                                                                  NSLog(@"Success: Made donation.");
-                                                                 [self.delegate didFinishPaymentWithSender:self];
+                                                                 [self.delegate didFinishWithSender:self];
                                                              }
                                                              
                                                              [self.activityIndicator stopAnimating];
