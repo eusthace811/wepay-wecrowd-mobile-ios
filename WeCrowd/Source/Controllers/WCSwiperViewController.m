@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
+#import <WePay/WePay.h>
+
 #import "WCSwiperViewController.h"
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
-#import <WePay/WePay.h>
+#import "WCAlerts.h"
 
 @interface WCSwiperViewController () <WPCardReaderDelegate,
                                       WPTokenizationDelegate,
@@ -123,17 +125,10 @@
 
 - (void) didFailToReadPaymentInfoWithError:(NSError *) error
 {
-    UIAlertController *alertController;
-    UIAlertAction *closeAction;
-    
-    alertController = [UIAlertController alertControllerWithTitle:@"Unable to read card"
-                                                          message:@"There was an error processing the card. Please try again."
-                                                   preferredStyle:UIAlertControllerStyleAlert];
-    closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
-    
-    [alertController addAction:closeAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [WCAlerts showSimpleAlertFromViewController:self
+                                      withTitle:@"Unable to read card"
+                                        message:@"There was an error processing the card. Please try again."
+                                     completion:nil];
     
     [self resetFeedbackUI];
     NSLog(@"Error: Card reader: %@", [error localizedDescription]);
@@ -153,17 +148,10 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
-    UIAlertController *alertController;
-    UIAlertAction *closeAction;
-    
-    alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete tokenization"
-                                                          message:@"There was a payment service error. Please try again."
-                                                   preferredStyle:UIAlertControllerStyleAlert];
-    closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
-    
-    [alertController addAction:closeAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [WCAlerts showSimpleAlertFromViewController:self
+                                      withTitle:@"Unable to complete tokenization"
+                                        message:@"There was a payment service error. Please try again."
+                                     completion:nil];
     
     
     [self resetFeedbackUI];
