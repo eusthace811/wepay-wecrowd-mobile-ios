@@ -97,7 +97,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                         }];
 }
 
-+ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
++ (void) fetchAllCampaigns:(WCArrayReturnBlock) completionBlock
 {
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
                             values:nil
@@ -112,7 +112,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 
 + (void) fetchAllCampaignsForUser:(NSString *) userID
                         withToken:(NSString *) token
-                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
+                  completionBlock:(WCArrayReturnBlock) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointUsers]
                              values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
@@ -127,8 +127,13 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        }];
 }
 
++ (void) fetchFeaturedCampaigns:(void (^)(NSArray *, NSError *))completionBlock
+{
+    
+}
+
 + (void) fetchCampaignWithID:(NSString *) campaignID
-             completionBlock:(void (^)(WCCampaignDetailModel *campaign, NSError *error)) completionBlock
+             completionBlock:(WCCampaignDetailReturnBlock) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
                              values:@{ kAPIParameterCampaignID : campaignID }

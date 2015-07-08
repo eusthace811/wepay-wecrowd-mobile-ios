@@ -10,6 +10,9 @@
 
 @class WCCampaignDetailModel, WCCampaignDonationModel;
 
+typedef void(^WCArrayReturnBlock) (NSArray *array, NSError *error);
+typedef void(^WCCampaignDetailReturnBlock) (WCCampaignDetailModel *campaign, NSError *error);
+
 @interface WCClient : NSObject
 
 + (void) loginWithUsername:(NSString *) username
@@ -19,13 +22,15 @@
 + (void) donateWithDonation:(WCCampaignDonationModel *) donation
             completionBlock:(void (^)(NSString *checkoutID, NSError *error)) completionBlock;
 
-+ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
++ (void) fetchAllCampaigns:(WCArrayReturnBlock) completionBlock;
 
 + (void) fetchAllCampaignsForUser:(NSString *) userID
                         withToken:(NSString *) token
-                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
+                  completionBlock:(WCArrayReturnBlock) completionBlock;
+
++ (void) fetchFeaturedCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
 
 + (void) fetchCampaignWithID:(NSString *) campaignID
-             completionBlock:(void (^)(WCCampaignDetailModel *campaign, NSError *error)) completionBlock;
+             completionBlock:(WCCampaignDetailReturnBlock) completionBlock;
 
 @end
