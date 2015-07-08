@@ -43,7 +43,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                if (error) {
                                    // TODO: alert the user that campaign fetching failed
                                } else {
-                                   self.campaigns = [self reversedArrayFromArray:campaigns];
+                                   self.campaigns = campaigns;
                                    
                                    // Force a refresh of the table since we can't guarantee
                                    // when the request will finish until this block
@@ -55,7 +55,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
             if (error) {
                 // TODO: alert the user that campaign fetching failed
             } else {
-                self.campaigns = [self reversedArrayFromArray:campaigns];
+                self.campaigns = campaigns;
                 
                 // Force a refresh of the table since we can't guarantee
                 // when the request will finish until this block
