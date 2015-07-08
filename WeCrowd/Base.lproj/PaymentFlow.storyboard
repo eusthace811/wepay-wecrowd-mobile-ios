@@ -104,6 +104,9 @@
                     <navigationItem key="navigationItem" title="Swipe Card" id="5lC-rV-Phd">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="df9-1N-dVB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="Nsw-6d-KCV" id="vkX-b6-5LI"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Donate" id="5zg-Gx-PwT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
