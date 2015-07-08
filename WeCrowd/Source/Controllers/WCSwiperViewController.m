@@ -180,25 +180,16 @@
                                                             creditCardID:paymentToken.tokenId
                                                          completionBlock:^(NSError *error) {
                                                              if (error) {
-                                                                 UIAlertController *alertController;
-                                                                 UIAlertAction *retryAction, *closeAction;
-                                                                 
-                                                                 alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete donation"
-                                                                                                                       message:@"There was a server error. Please try again."
-                                                                                                                preferredStyle:UIAlertControllerStyleAlert];
-                                                                 retryAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                                                                            [self executeCardRead];
-                                                                                                        }];
-                                                                 closeAction = [UIAlertAction actionWithTitle:@"Close"
-                                                                                                        style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-                                                                                                            [self resetFeedbackUI];
-                                                                                                        }];
-                                                                 
-                                                                 [alertController addAction:retryAction];
-                                                                 [alertController addAction:closeAction];
-                                                                 
-                                                                 [self presentViewController:alertController animated:YES completion:nil];
+                                                                 [WCAlerts showAlertWithOptionsFromViewController:self
+                                                                                                        withTitle:@"Unable to complete donation"
+                                                                                                          message:@"There was a server error. Please try again."
+                                                                                             alternateOptionTitle:@"Try Again"
+                                                                                              alternateCompletion:^{
+                                                                                                  [self executeCardRead];
+                                                                                              }
+                                                                                                  closeCompletion:^{
+                                                                                                      [self resetFeedbackUI];
+                                                                                                  }];
                                                              } else {
                                                                  NSLog(@"Success: Made donation.");
                                                                  [self.delegate didFinishWithSender:self];
