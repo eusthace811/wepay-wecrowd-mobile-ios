@@ -21,6 +21,7 @@
 		C32FABEC1B445CAC005C34AB /* WCCreditCardInfoEntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */; };
 		C32FABF21B44A614005C34AB /* WCDonationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABF11B44A614005C34AB /* WCDonationManager.m */; };
 		C36B3A881B4D997700EB8C9D /* WCAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A871B4D997700EB8C9D /* WCAlerts.m */; };
+		C36B3A8B1B4DC33200EB8C9D /* WCError.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A8A1B4DC33200EB8C9D /* WCError.m */; };
 		C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */; };
 		C391DF511B3CC34F008FB2FD /* PaymentFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C391DF4F1B3CC34F008FB2FD /* PaymentFlow.storyboard */; };
 		C39676561B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C39676551B2A4D5A0071CEB5 /* WCCampaignHeaderModel.m */; };
@@ -89,6 +90,8 @@
 		C32FABF11B44A614005C34AB /* WCDonationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCDonationManager.m; path = Source/Managers/WCDonationManager.m; sourceTree = "<group>"; };
 		C36B3A861B4D997700EB8C9D /* WCAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCAlerts.h; path = Source/Internal/WCAlerts.h; sourceTree = "<group>"; };
 		C36B3A871B4D997700EB8C9D /* WCAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCAlerts.m; path = Source/Internal/WCAlerts.m; sourceTree = "<group>"; };
+		C36B3A891B4DC33200EB8C9D /* WCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCError.h; path = Source/Internal/WCError.h; sourceTree = "<group>"; };
+		C36B3A8A1B4DC33200EB8C9D /* WCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCError.m; path = Source/Internal/WCError.m; sourceTree = "<group>"; };
 		C37283E91B38C9C400EE627C /* WCCampaignFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignFeedViewController.h; path = Source/Controllers/WCCampaignFeedViewController.h; sourceTree = "<group>"; };
 		C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignFeedViewController.m; path = Source/Controllers/WCCampaignFeedViewController.m; sourceTree = "<group>"; };
 		C391DF501B3CC34F008FB2FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PaymentFlow.storyboard; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				C3D610A21B3E0C1A005D188F /* WCConstants.m */,
 				C36B3A861B4D997700EB8C9D /* WCAlerts.h */,
 				C36B3A871B4D997700EB8C9D /* WCAlerts.m */,
+				C36B3A891B4DC33200EB8C9D /* WCError.h */,
+				C36B3A8A1B4DC33200EB8C9D /* WCError.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				C39676621B2A5B430071CEB5 /* WCUserModel.m in Sources */,
 				C3EC4BB41B4340830005B1B9 /* WCManualPaymentViewController.m in Sources */,
 				C32293AD1B4AF94900876227 /* WCPaymentViewController.m in Sources */,
+				C36B3A8B1B4DC33200EB8C9D /* WCError.m in Sources */,
 				C3249D901B420C5800C6CED7 /* WCSwiperViewController.m in Sources */,
 				C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */,
 				C3060E071B2652D500A9F596 /* main.m in Sources */,

@@ -11,6 +11,7 @@
 #import "WCConstants.h"
 #import "WCCampaignDonationModel.h"
 #import "WCUserModel.h"
+#import "WCError.h"
 
 #pragma mark - Constants
 
@@ -21,9 +22,6 @@ static NSString* const kHTTPRequestGet  = @"GET";
 
 // API
 static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
-
-// Errors
-static NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
 
 #pragma mark - Implementation
 
@@ -39,7 +37,7 @@ static NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
                              values:@{ kAPIParameterEmail : username, kAPIParameterPassword : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
-                           // check the status of the return data
+                           // Check the status of the return data
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                NSDictionary *userInfo;
                                NSString *description, *suggestion;
