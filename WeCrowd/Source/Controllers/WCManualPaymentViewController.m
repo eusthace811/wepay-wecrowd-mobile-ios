@@ -7,6 +7,8 @@
 //
 
 #import "WCManualPaymentViewController.h"
+
+#import <WePay/WePay.h>
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
 #import "WCLoginManager.h"
@@ -14,7 +16,7 @@
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
 #import "WCConstants.h"
-#import <WePay/WePay.h>
+#import "WCAlerts.h"
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
@@ -38,19 +40,11 @@
     [self setupCreditCardModel];
     [self setupDonation];
     
-    [[WCWePayManager sharedInstance] tokenizeCreditCardWithInfo:self.creditCardModel
-                                                 isMerchantUser:[WCLoginManager userType]
-                                                          email:self.email
-                                                       delegate:self];
-
-    
-    NSLog(@"Processing information.");
-    [self shouldDisplayPaymentFeedback:YES];
+    [self executeDonation];
 }
 
 - (IBAction) swipeDownAction:(id) sender
 {
-    NSLog(@"Swipe down");
     [self.delegate didFinishWithSender:self];
 }
 
@@ -75,7 +69,12 @@
                                                                                                                 forDuration:2.5f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              } else {
-                                                                 NSLog(@"Error: unable to process the payment token.");
+                                                                 [WCAlerts showAlertWithOptionFromViewController:self
+                                                                                                       withTitle:@"Unable to complete donation"
+                                                                                                         message:@"There was a server error. Please try again."
+                                                                                                     optionTitle:@"Try Again"
+                                                                                                optionCompletion:^{ [self executeDonation]; }
+                                                                                                 closeCompletion:nil];
                                                              }
                                                              
                                                              [self shouldDisplayPaymentFeedback:NO];
@@ -84,18 +83,13 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
-    UIAlertView *alert;
     NSString *message;
     
-    [self.activityIndicator stopAnimating];
+    [WCAlerts showSimpleAlertFromViewController:self
+                                      withTitle:@"Unable to process information"
+                                        message:message
+                                     completion:nil];
     
-    // Notify the user of the failure
-    message = [NSString stringWithFormat:@"Information invalid, received error: %@. Please Try again", [error localizedDescription]];
-    alert = [[UIAlertView alloc] initWithTitle:@"Unable to process information"
-                                       message:message
-                                      delegate:self
-                             cancelButtonTitle:@"Close" otherButtonTitles:nil];
-    [alert show];
     [self shouldDisplayPaymentFeedback:NO];
 }
 
@@ -132,6 +126,17 @@
     self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
     self.email = self.cardInfoEntryView.emailField.text;
     #endif
+}
+
+- (void) executeDonation
+{
+    [[WCWePayManager sharedInstance] tokenizeCreditCardWithInfo:self.creditCardModel
+                                                 isMerchantUser:[WCLoginManager userType]
+                                                          email:self.email
+                                                       delegate:self];
+    
+    
+    [self shouldDisplayPaymentFeedback:YES];
 }
 
 - (void) shouldDisplayPaymentFeedback:(BOOL) display

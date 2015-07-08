@@ -11,6 +11,7 @@
 #import "WCConstants.h"
 #import "WCCampaignDonationModel.h"
 #import "WCUserModel.h"
+#import "WCError.h"
 
 #pragma mark - Constants
 
@@ -20,7 +21,7 @@ static NSString* const kHTTPRequestPost = @"POST";
 static NSString* const kHTTPRequestGet  = @"GET";
 
 // API
-static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://wecrowd.wepay.com/api";
+static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 
 #pragma mark - Implementation
 
@@ -33,14 +34,19 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
            completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointLogin]
-                             values:@ { kAPIParameterEmail : username, kAPIParameterPassword : password }
+                             values:@{ kAPIParameterEmail : username, kAPIParameterPassword : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
-                           // check the status of the return data
+                           // Check the status of the return data
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
-                               // TODO: create an actual error to hand off
-                               completionBlock(nil, [NSError new]);
-                               NSLog(@"Error: API: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
+                               NSError *APIError;
+                               
+                               APIError = [WCError APIErrorWithDescription:@"API error for login."
+                                                             serverMessage:[returnData objectForKey:kAPIParameterErrorMessage]
+                                                                  codeData:returnData];
+                               
+                               completionBlock(nil, APIError);
+                               NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                            } else {
                                // No error code, so hand off the data
                                completionBlock(returnData, nil);
@@ -48,7 +54,6 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                        }
                        errorHandler:^(NSError *error) {
                            // This means there was either a connection error or a parse error
-                           // TODO: create an actual error to hand off
                            completionBlock(nil, error);
                        }
      ];
@@ -72,9 +77,14 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                         successBlock:^(id returnData) {
                             // Check for an API error
                             if ([returnData objectForKey:kAPIParameterErrorCode]) {
-                                // TODO: create an actual error to hand off
-                                completionBlock(nil, [NSError new]);
-                                NSLog(@"Error: API: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
+                                NSError *APIError;
+                                
+                                APIError = [WCError APIErrorWithDescription:@"API error for donation."
+                                                              serverMessage:[returnData objectForKey:kAPIParameterErrorMessage]
+                                                                   codeData:returnData];
+                                
+                                completionBlock(nil, APIError);
+                                NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                             } else {
                                 // No error code, so hand off the data
                                 completionBlock(returnData, nil);
@@ -83,7 +93,7 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                         errorHandler:^(NSError *error) {
                             // This means there was either a connection error or a parse error
                             completionBlock(nil, error);
-                            NSLog(@"Error: Client: Unable to complete donation");
+                            NSLog(@"Error: Client: Unable to complete donation.");
                         }];
 }
 
@@ -108,11 +118,11 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                              values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
-                           NSLog(@"Success: Client: Fetched campaigns for user");
+                           NSLog(@"Success: Client: Fetched campaigns for user.");
                            completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
                        }
                        errorHandler:^(NSError *error) {
-                           NSLog(@"Error: Client: failed to fetch user campaigns");
+                           NSLog(@"Error: Client: failed to fetch user campaigns.");
                            completionBlock(nil, error);
                        }];
 }
@@ -206,8 +216,8 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                          accessToken:(NSString *) accessToken
                      completionBlock:(void (^)(NSMutableURLRequest *returnRequest, NSError * error)) completion
 {
-    NSError* parseError = nil;
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL
+    NSError *parseError = nil;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:kTimeoutInterval];
     // Configure the  request
@@ -216,7 +226,6 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
     [request setValue:@"utf-8" forHTTPHeaderField:@"charset"];
     
     // Set the access token if it exists
-    // (Not super sure what this does since the cases I've seen have all been nil)
     if (accessToken) {
         [request setValue:[NSString stringWithFormat:@"bearer %@", accessToken]
        forHTTPHeaderField:@"Authorization"];
@@ -248,11 +257,15 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
             successBlock:(void (^)(id returnData)) successHandler
             errorHandler:(void (^)(NSError* error)) errorHandler
 {
+    NSError *extractionError;
+    
     // Build a structure from the raw data
     id extractedData = nil;
     
     if ([data length] > 0) {
-        extractedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        extractedData = [NSJSONSerialization JSONObjectWithData:data
+                                                        options:kNilOptions
+                                                          error:&extractionError];
     }
     
     if (extractedData && !error) {
@@ -263,16 +276,22 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
         if (statusCode == 200) {
             successHandler(extractedData);
         } else {
-            // TODO: There was a connection error
-            NSLog(@"Error: Client: HTTP error %li", (long)statusCode);
+            NSDictionary *userInfo;
+            NSString *description;
+            
+            description = [NSString stringWithFormat:@"Error processing request %@.", response.URL.path];
+            userInfo =  @{ NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
+            
+            errorHandler([NSError errorWithDomain:NSURLErrorDomain
+                                             code:statusCode
+                                         userInfo:userInfo]);
         }
     } else if (error) {
-        // TODO: There was a connection error with the request
-        NSLog(@"Error: Client: %@", [error localizedDescription]);
         errorHandler(error);
-    } else if ([data length] > 0 && !extractedData) {
-        // TODO: There was an error in the data extracted from the request
-        NSLog(@"Error: Client: Unable to extract the response data.");
+        NSLog(@"Error: Client: %@.", [error localizedDescription]);
+    } else if (extractionError) {
+        errorHandler(extractionError);
+        NSLog(@"Error: Client: %@.", [extractionError localizedDescription]);
     }
 }
 

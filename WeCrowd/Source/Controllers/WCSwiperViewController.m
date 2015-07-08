@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
+#import <WePay/WePay.h>
+
 #import "WCSwiperViewController.h"
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
-#import <WePay/WePay.h>
+#import "WCAlerts.h"
 
 @interface WCSwiperViewController () <WPCardReaderDelegate,
                                       WPTokenizationDelegate,
@@ -73,7 +75,6 @@
 - (IBAction) viewSwipeDownAction:(id) sender
 {
     if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
-        NSLog(@"Swipe down");
         [self.delegate didFinishWithSender:self];
     }
 }
@@ -123,17 +124,10 @@
 
 - (void) didFailToReadPaymentInfoWithError:(NSError *) error
 {
-    UIAlertController *alertController;
-    UIAlertAction *closeAction;
-    
-    alertController = [UIAlertController alertControllerWithTitle:@"Unable to read card"
-                                                          message:@"There was an error processing the card. Please try again."
-                                                   preferredStyle:UIAlertControllerStyleAlert];
-    closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
-    
-    [alertController addAction:closeAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [WCAlerts showSimpleAlertFromViewController:self
+                                      withTitle:@"Unable to read card"
+                                        message:@"There was an error processing the card. Please try again."
+                                     completion:nil];
     
     [self resetFeedbackUI];
     NSLog(@"Error: Card reader: %@", [error localizedDescription]);
@@ -153,17 +147,10 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
-    UIAlertController *alertController;
-    UIAlertAction *closeAction;
-    
-    alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete tokenization"
-                                                          message:@"There was a payment service error. Please try again."
-                                                   preferredStyle:UIAlertControllerStyleAlert];
-    closeAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
-    
-    [alertController addAction:closeAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [WCAlerts showSimpleAlertFromViewController:self
+                                      withTitle:@"Unable to complete tokenization"
+                                        message:@"There was a payment service error. Please try again."
+                                     completion:nil];
     
     
     [self resetFeedbackUI];
@@ -192,27 +179,15 @@
                                                             creditCardID:paymentToken.tokenId
                                                          completionBlock:^(NSError *error) {
                                                              if (error) {
-                                                                 UIAlertController *alertController;
-                                                                 UIAlertAction *retryAction, *closeAction;
-                                                                 
-                                                                 alertController = [UIAlertController alertControllerWithTitle:@"Unable to complete donation"
-                                                                                                                       message:@"There was a server error. Please try again."
-                                                                                                                preferredStyle:UIAlertControllerStyleAlert];
-                                                                 retryAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                                                                            [self executeCardRead];
-                                                                                                        }];
-                                                                 closeAction = [UIAlertAction actionWithTitle:@"Close"
-                                                                                                        style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-                                                                                                            [self resetFeedbackUI];
-                                                                                                        }];
-                                                                 
-                                                                 [alertController addAction:retryAction];
-                                                                 [alertController addAction:closeAction];
-                                                                 
-                                                                 [self presentViewController:alertController animated:YES completion:nil];
+                                                                 [WCAlerts showAlertWithOptionFromViewController:self
+                                                                                                       withTitle:@"Unable to complete donation"
+                                                                                                         message:@"There was a server error. Please try again."
+                                                                                                     optionTitle:@"Try Again"
+                                                                                                optionCompletion:^{ [self executeCardRead]; }
+                                                                                                 closeCompletion:^{ [self resetFeedbackUI]; }];
                                                              } else {
-                                                                 NSLog(@"Success: Made donation.");
+                                                                 [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
+                                                                                                                forDuration:2.5f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              }
                                                          }];
