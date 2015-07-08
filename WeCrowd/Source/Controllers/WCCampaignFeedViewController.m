@@ -115,7 +115,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
                                }
                            }];
     } else {
-        [WCClient fetchAllCampaigns:^(NSArray *campaigns, NSError *error) {
+        [WCClient fetchFeaturedCampaigns:^(NSArray *campaigns, NSError *error) {
             if (error) {
                 [self showCampaignFeedError];
             } else {

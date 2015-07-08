@@ -131,7 +131,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointFeaturedCampaigns]
                        accessToken:nil
                       successBlock:^(id returnData) {
-                           NSLog(@"Success: Client: Fetched campaigns for user.");
+                           NSLog(@"Success: Client: Fetched featured campaigns.");
                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
                       }
                       errorHandler:^(NSError *error) {
