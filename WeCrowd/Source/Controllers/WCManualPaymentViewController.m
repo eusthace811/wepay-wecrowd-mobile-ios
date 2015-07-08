@@ -7,6 +7,8 @@
 //
 
 #import "WCManualPaymentViewController.h"
+
+#import <WePay/WePay.h>
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
 #import "WCLoginManager.h"
@@ -14,7 +16,7 @@
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
 #import "WCConstants.h"
-#import <WePay/WePay.h>
+#import "WCAlerts.h"
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
@@ -38,14 +40,7 @@
     [self setupCreditCardModel];
     [self setupDonation];
     
-    [[WCWePayManager sharedInstance] tokenizeCreditCardWithInfo:self.creditCardModel
-                                                 isMerchantUser:[WCLoginManager userType]
-                                                          email:self.email
-                                                       delegate:self];
-
-    
-    NSLog(@"Processing information.");
-    [self shouldDisplayPaymentFeedback:YES];
+    [self executeDonation];
 }
 
 - (IBAction) swipeDownAction:(id) sender
@@ -75,7 +70,12 @@
                                                                                                                 forDuration:2.5f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              } else {
-                                                                 NSLog(@"Error: unable to process the payment token.");
+                                                                 [WCAlerts showAlertWithOptionFromViewController:self
+                                                                                                       withTitle:@"Unable to complete donation"
+                                                                                                         message:@"There was a server error. Please try again."
+                                                                                                     optionTitle:@"Try Again"
+                                                                                                optionCompletion:^{ [self executeDonation]; }
+                                                                                                 closeCompletion:^{ [self.activityIndicator stopAnimating]; }];
                                                              }
                                                              
                                                              [self shouldDisplayPaymentFeedback:NO];
@@ -132,6 +132,18 @@
     self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
     self.email = self.cardInfoEntryView.emailField.text;
     #endif
+}
+
+- (void) executeDonation
+{
+    [[WCWePayManager sharedInstance] tokenizeCreditCardWithInfo:self.creditCardModel
+                                                 isMerchantUser:[WCLoginManager userType]
+                                                          email:self.email
+                                                       delegate:self];
+    
+    
+    NSLog(@"Processing information.");
+    [self shouldDisplayPaymentFeedback:YES];
 }
 
 - (void) shouldDisplayPaymentFeedback:(BOOL) display
