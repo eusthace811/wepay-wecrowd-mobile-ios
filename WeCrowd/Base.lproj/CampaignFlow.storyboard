@@ -216,9 +216,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cm-Ju-3W6" id="QvT-W9-jCc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-Vo-gKT">
-                                            <rect key="frame" x="8" y="8" width="146" height="26"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000013" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-Vo-gKT">
+                                            <rect key="frame" x="8" y="8" width="133" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -230,15 +230,15 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgR-Jp-vGB">
-                                            <rect key="frame" x="8" y="48" width="71" height="21"/>
+                                            <rect key="frame" x="8" y="45" width="71" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donation Progress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQo-be-iPb">
-                                            <rect key="frame" x="103" y="48" width="142" height="21"/>
+                                            <rect key="frame" x="103" y="45" width="142" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -251,6 +251,7 @@
                                         <constraint firstAttribute="centerY" secondItem="VgR-Jp-vGB" secondAttribute="centerY" id="IEH-ew-BW0"/>
                                         <constraint firstItem="OQo-be-iPb" firstAttribute="top" secondItem="gLd-Vo-gKT" secondAttribute="bottom" constant="14" id="Ise-hw-4EA"/>
                                         <constraint firstItem="mlu-an-yCV" firstAttribute="top" secondItem="QvT-W9-jCc" secondAttribute="topMargin" id="K9K-sZ-96t"/>
+                                        <constraint firstItem="mlu-an-yCV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gLd-Vo-gKT" secondAttribute="trailing" constant="8" id="LY2-M0-soq"/>
                                         <constraint firstItem="VgR-Jp-vGB" firstAttribute="leading" secondItem="QvT-W9-jCc" secondAttribute="leadingMargin" id="PSD-DE-ydk"/>
                                         <constraint firstItem="gLd-Vo-gKT" firstAttribute="leading" secondItem="QvT-W9-jCc" secondAttribute="leadingMargin" id="PZh-UM-XhL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="mlu-an-yCV" secondAttribute="trailing" constant="8" id="UcP-fL-0av"/>
