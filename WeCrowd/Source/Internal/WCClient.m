@@ -20,7 +20,10 @@ static NSString* const kHTTPRequestPost = @"POST";
 static NSString* const kHTTPRequestGet  = @"GET";
 
 // API
-static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://wecrowd.wepay.com/api";
+static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
+
+// Errors
+static NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
 
 #pragma mark - Implementation
 
@@ -33,14 +36,26 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
            completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointLogin]
-                             values:@ { kAPIParameterEmail : username, kAPIParameterPassword : password }
+                             values:@{ kAPIParameterEmail : username, kAPIParameterPassword : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
                            // check the status of the return data
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                // TODO: create an actual error to hand off
-                               completionBlock(nil, [NSError new]);
-                               NSLog(@"Error: API: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
+                               NSDictionary *userInfo;
+                               NSString *description, *suggestion;
+                               NSInteger errorCode;
+                               
+                               description = [NSString stringWithFormat:@"API error '%@' returned for login.", [returnData objectForKey:kAPIParameterErrorMessage]];
+                               suggestion = @"Consult the API documentation.";
+                               errorCode = [(NSString *) [returnData objectForKey:kAPIParameterErrorCode] integerValue];
+                               userInfo = @{ NSLocalizedDescriptionKey             : NSLocalizedString(description, nil),
+                                             NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(suggestion, nil)};
+                               
+                               completionBlock(nil, [[NSError alloc] initWithDomain:WCAPIErrorDomain
+                                               code:errorCode
+                                               userInfo:userInfo]);
+                               NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                            } else {
                                // No error code, so hand off the data
                                completionBlock(returnData, nil);
@@ -74,7 +89,7 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                             if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                 // TODO: create an actual error to hand off
                                 completionBlock(nil, [NSError new]);
-                                NSLog(@"Error: API: %@", [returnData objectForKey:kAPIParameterErrorMessage]);
+                                NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                             } else {
                                 // No error code, so hand off the data
                                 completionBlock(returnData, nil);
@@ -83,7 +98,7 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                         errorHandler:^(NSError *error) {
                             // This means there was either a connection error or a parse error
                             completionBlock(nil, error);
-                            NSLog(@"Error: Client: Unable to complete donation");
+                            NSLog(@"Error: Client: Unable to complete donation.");
                         }];
 }
 
@@ -108,11 +123,11 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                              values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
-                           NSLog(@"Success: Client: Fetched campaigns for user");
+                           NSLog(@"Success: Client: Fetched campaigns for user.");
                            completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
                        }
                        errorHandler:^(NSError *error) {
-                           NSLog(@"Error: Client: failed to fetch user campaigns");
+                           NSLog(@"Error: Client: failed to fetch user campaigns.");
                            completionBlock(nil, error);
                        }];
 }
@@ -216,7 +231,6 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
     [request setValue:@"utf-8" forHTTPHeaderField:@"charset"];
     
     // Set the access token if it exists
-    // (Not super sure what this does since the cases I've seen have all been nil)
     if (accessToken) {
         [request setValue:[NSString stringWithFormat:@"bearer %@", accessToken]
        forHTTPHeaderField:@"Authorization"];
@@ -270,8 +284,8 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
             NSDictionary *userInfo;
             NSString *description;
             
-            description = [NSString stringWithFormat:@"Error processing request %@", response.URL.path];
-            userInfo =  @ { NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
+            description = [NSString stringWithFormat:@"Error processing request %@.", response.URL.path];
+            userInfo =  @{ NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
             
             errorHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
                                                     code:statusCode
@@ -279,10 +293,10 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
         }
     } else if (error) {
         errorHandler(error);
-        NSLog(@"Error: Client: %@", [error localizedDescription]);
+        NSLog(@"Error: Client: %@.", [error localizedDescription]);
     } else if (extractionError) {
         errorHandler(extractionError);
-        NSLog(@"Error: Client: %@", [extractionError localizedDescription]);
+        NSLog(@"Error: Client: %@.", [extractionError localizedDescription]);
     }
 }
 
