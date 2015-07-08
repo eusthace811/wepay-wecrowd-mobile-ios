@@ -41,7 +41,6 @@ static NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
                        successBlock:^(NSDictionary *returnData) {
                            // check the status of the return data
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
-                               // TODO: create an actual error to hand off
                                NSDictionary *userInfo;
                                NSString *description, *suggestion;
                                NSInteger errorCode;
@@ -63,7 +62,6 @@ static NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
                        }
                        errorHandler:^(NSError *error) {
                            // This means there was either a connection error or a parse error
-                           // TODO: create an actual error to hand off
                            completionBlock(nil, error);
                        }
      ];
@@ -221,8 +219,8 @@ static NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
                          accessToken:(NSString *) accessToken
                      completionBlock:(void (^)(NSMutableURLRequest *returnRequest, NSError * error)) completion
 {
-    NSError* parseError = nil;
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL
+    NSError *parseError = nil;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:kTimeoutInterval];
     // Configure the  request
