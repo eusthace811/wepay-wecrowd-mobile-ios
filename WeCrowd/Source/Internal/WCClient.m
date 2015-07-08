@@ -40,13 +40,10 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                            // Check the status of the return data
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
                                NSError *APIError;
-                               NSInteger errorCode;
-                               
-                               errorCode = [(NSString *) [returnData objectForKey:kAPIParameterErrorCode] integerValue];
                                
                                APIError = [WCError APIErrorWithDescription:@"API error for login."
                                                              serverMessage:[returnData objectForKey:kAPIParameterErrorMessage]
-                                                                      code:errorCode];
+                                                                  codeData:returnData];
                                
                                completionBlock(nil, APIError);
                                NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
@@ -80,8 +77,13 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                         successBlock:^(id returnData) {
                             // Check for an API error
                             if ([returnData objectForKey:kAPIParameterErrorCode]) {
-                                // TODO: create an actual error to hand off
-                                completionBlock(nil, [NSError new]);
+                                NSError *APIError;
+                                
+                                APIError = [WCError APIErrorWithDescription:@"API error for donation."
+                                                              serverMessage:[returnData objectForKey:kAPIParameterErrorMessage]
+                                                                   codeData:returnData];
+                                
+                                completionBlock(nil, APIError);
                                 NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                             } else {
                                 // No error code, so hand off the data

@@ -15,6 +15,6 @@ FOUNDATION_EXPORT NSString* const WCAPIErrorDomain;
 
 + (NSError *) APIErrorWithDescription:(NSString *) description
                         serverMessage:(NSString *) serverMessage
-                                 code:(NSInteger) code;
+                             codeData:(NSDictionary *) codeData;
 
 @end

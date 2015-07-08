@@ -7,6 +7,7 @@
 //
 
 #import "WCError.h"
+#import "WCConstants.h"
 
 // Constants
 NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
@@ -15,18 +16,20 @@ NSString* const WCAPIErrorDomain = @"WeCrowd API Domain";
 
 + (NSError *) APIErrorWithDescription:(NSString *) description
                         serverMessage:(NSString *) serverMessage
-                                 code:(NSInteger) code
+                             codeData:(NSDictionary *) codeData
 {
     NSDictionary *userInfo;
     NSString *fullDescription, *suggestion;
+    NSInteger errorCode;
     
     fullDescription = [description stringByAppendingString:[NSString stringWithFormat:@" %@", serverMessage]];
     suggestion = @"Consult the API documentation.";
+    errorCode = [(NSString *) [codeData objectForKey:kAPIParameterErrorCode] integerValue];
     
     userInfo = @{ NSLocalizedDescriptionKey             : NSLocalizedString(fullDescription, nil),
                   NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(suggestion, nil) };
     
-    return [NSError errorWithDomain:WCAPIErrorDomain code:code userInfo:userInfo];
+    return [NSError errorWithDomain:WCAPIErrorDomain code:errorCode userInfo:userInfo];
 }
 
 @end
