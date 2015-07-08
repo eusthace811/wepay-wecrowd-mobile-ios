@@ -45,7 +45,6 @@
 
 - (IBAction) swipeDownAction:(id) sender
 {
-    NSLog(@"Swipe down");
     [self.delegate didFinishWithSender:self];
 }
 
@@ -75,7 +74,7 @@
                                                                                                          message:@"There was a server error. Please try again."
                                                                                                      optionTitle:@"Try Again"
                                                                                                 optionCompletion:^{ [self executeDonation]; }
-                                                                                                 closeCompletion:^{ [self.activityIndicator stopAnimating]; }];
+                                                                                                 closeCompletion:nil];
                                                              }
                                                              
                                                              [self shouldDisplayPaymentFeedback:NO];
@@ -87,15 +86,11 @@
     UIAlertView *alert;
     NSString *message;
     
-    [self.activityIndicator stopAnimating];
+    [WCAlerts showSimpleAlertFromViewController:self
+                                      withTitle:@"Unable to process information"
+                                        message:message
+                                     completion:nil];
     
-    // Notify the user of the failure
-    message = [NSString stringWithFormat:@"Information invalid, received error: %@. Please Try again", [error localizedDescription]];
-    alert = [[UIAlertView alloc] initWithTitle:@"Unable to process information"
-                                       message:message
-                                      delegate:self
-                             cancelButtonTitle:@"Close" otherButtonTitles:nil];
-    [alert show];
     [self shouldDisplayPaymentFeedback:NO];
 }
 
@@ -142,7 +137,6 @@
                                                        delegate:self];
     
     
-    NSLog(@"Processing information.");
     [self shouldDisplayPaymentFeedback:YES];
 }
 
