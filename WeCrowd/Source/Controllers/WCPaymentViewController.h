@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CWStatusBarNotification.h"
 
 @class WCPaymentViewController;
 
@@ -19,5 +20,6 @@
 @interface WCPaymentViewController : UIViewController
 
 @property (nonatomic, weak, readwrite) id<PaymentViewDelegate> delegate;
+@property (nonatomic, strong, readonly) CWStatusBarNotification *statusBarNotification;
 
 @end
