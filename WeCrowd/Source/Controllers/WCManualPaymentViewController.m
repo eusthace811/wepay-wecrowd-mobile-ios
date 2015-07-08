@@ -71,7 +71,8 @@
                                                          completionBlock:^(NSError *error) {
                                                              if (!error) {
                                                                  [self.activityIndicator stopAnimating];
-                                                                 // TODO: Status bar notification that the payment succeeded
+                                                                 [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
+                                                                                                                forDuration:2.5f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              } else {
                                                                  NSLog(@"Error: unable to process the payment token.");
