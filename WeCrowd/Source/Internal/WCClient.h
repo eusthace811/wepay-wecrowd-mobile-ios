@@ -28,7 +28,7 @@ typedef void(^WCCampaignDetailReturnBlock) (WCCampaignDetailModel *campaign, NSE
                         withToken:(NSString *) token
                   completionBlock:(WCArrayReturnBlock) completionBlock;
 
-+ (void) fetchFeaturedCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock;
++ (void) fetchFeaturedCampaigns:(WCArrayReturnBlock) completionBlock;
 
 + (void) fetchCampaignWithID:(NSString *) campaignID
              completionBlock:(WCCampaignDetailReturnBlock) completionBlock;

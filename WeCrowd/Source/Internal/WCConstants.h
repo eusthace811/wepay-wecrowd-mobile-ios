@@ -15,6 +15,7 @@ FOUNDATION_EXPORT NSString* const kAPIEndpointLogin;
 FOUNDATION_EXPORT NSString* const kAPIEndpointCampaigns;
 FOUNDATION_EXPORT NSString* const kAPIEndpointUsers;
 FOUNDATION_EXPORT NSString* const kAPIEndpointDonate;
+FOUNDATION_EXPORT NSString* const kAPIEndpointFeaturedCampaigns;
 
 // Parameters - User
 FOUNDATION_EXPORT NSString* const kAPIParameterUserID;

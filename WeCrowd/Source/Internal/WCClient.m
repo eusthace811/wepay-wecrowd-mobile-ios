@@ -100,7 +100,6 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 + (void) fetchAllCampaigns:(WCArrayReturnBlock) completionBlock
 {
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
-                            values:nil
                        accessToken:nil
                       successBlock:^(NSArray *returnData) {
                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
@@ -127,9 +126,17 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        }];
 }
 
-+ (void) fetchFeaturedCampaigns:(void (^)(NSArray *, NSError *))completionBlock
++ (void) fetchFeaturedCampaigns:(WCArrayReturnBlock) completionBlock
 {
-    
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointFeaturedCampaigns]
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                           NSLog(@"Success: Client: Fetched campaigns for user.");
+                          completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
+                      }
+                      errorHandler:^(NSError *error) {
+                          completionBlock(nil, error);
+                      }];
 }
 
 + (void) fetchCampaignWithID:(NSString *) campaignID
@@ -165,14 +172,13 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 }
 
 + (void) makeGetRequestToEndpoint:(NSURL *) endpoint
-                           values:(NSDictionary *) values
                       accessToken:(NSString *) accessToken
                      successBlock:(void (^)(id returnData)) successHandler
                      errorHandler:(void (^)(NSError *)) errorHandler
 {
     [self makeRequestToEndPoint:endpoint
                          method:kHTTPRequestGet
-                         values:values
+                         values:nil
                     accessToken:accessToken
                    successBlock:successHandler
                    errorHandler:errorHandler];
