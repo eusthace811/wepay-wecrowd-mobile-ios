@@ -10,6 +10,7 @@
 #import "WCLoginManager.h"
 #import "WCCampaignFeedViewController.h"
 #import "WCConstants.h"
+#import "WCAlerts.h"
 
 #pragma mark - Interface
 
@@ -45,11 +46,10 @@
         if (error) {
             // Notify the user of the error
             // TODO: replace with UIAlertController
-            [[[UIAlertView alloc] initWithTitle:@"Please try again"
-                                        message:@"Unable to log you in. Please check your information and try again."
-                                       delegate:self
-                              cancelButtonTitle:@"Close"
-                              otherButtonTitles:nil] show];
+            [WCAlerts showSimpleAlertFromViewController:self
+                                              withTitle:@"Please try again"
+                                                message:@"Unable to log you in. Please check your information and try again."
+                                             completion:nil];
         } else {
             // Disable the control and push the next view
             ((UIControl *) sender).userInteractionEnabled = false;
