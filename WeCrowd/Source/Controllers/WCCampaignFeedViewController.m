@@ -12,6 +12,7 @@
 #import "WCClient.h"
 #import "WCConstants.h"
 #import "WCCampaignTableViewCell.h"
+#import "WCAlerts.h"
 
 // UITableViewCell identifiers
 static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
@@ -32,37 +33,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    WCUserModel *currentUser = [WCLoginManager currentUser];
-    
-    // Fetch the campaigns for the logged in user if it exists,
-    // otherwise fetch all the campaigns for the anonymous user
-    if (currentUser) {
-        [WCClient fetchAllCampaignsForUser:currentUser.userID
-                                 withToken:currentUser.token
-                           completionBlock:^(NSArray *campaigns, NSError *error) {
-                               if (error) {
-                                   // TODO: alert the user that campaign fetching failed
-                               } else {
-                                   self.campaigns = campaigns;
-                                   
-                                   // Force a refresh of the table since we can't guarantee
-                                   // when the request will finish until this block
-                                   [self.tableView reloadData];
-                               }
-                           }];
-    } else {
-        [WCClient fetchAllCampaigns:^(NSArray *campaigns, NSError *error) {
-            if (error) {
-                // TODO: alert the user that campaign fetching failed
-            } else {
-                self.campaigns = campaigns;
-                
-                // Force a refresh of the table since we can't guarantee
-                // when the request will finish until this block
-                [self.tableView reloadData];
-            }
-        }];
-    }
+    [self executeCampaignFetch];
 }
 
 #pragma mark - UITableViewDataSource
@@ -119,6 +90,53 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     }
     
     return reversed;
+}
+
+#pragma mark - Helper Methods
+
+- (void) executeCampaignFetch
+{
+    WCUserModel *currentUser = [WCLoginManager currentUser];
+    
+    // Fetch the campaigns for the logged in user if it exists,
+    // otherwise fetch all the campaigns for the anonymous user
+    if (currentUser) {
+        [WCClient fetchAllCampaignsForUser:currentUser.userID
+                                 withToken:currentUser.token
+                           completionBlock:^(NSArray *campaigns, NSError *error) {
+                               if (error) {
+                                   [self showCampaignFeedError];
+                               } else {
+                                   self.campaigns = campaigns;
+                                   
+                                   // Force a refresh of the table since we can't guarantee
+                                   // when the request will finish until this block
+                                   [self.tableView reloadData];
+                               }
+                           }];
+    } else {
+        [WCClient fetchAllCampaigns:^(NSArray *campaigns, NSError *error) {
+            if (error) {
+                [self showCampaignFeedError];
+            } else {
+                self.campaigns = campaigns;
+                
+                // Force a refresh of the table since we can't guarantee
+                // when the request will finish until this block
+                [self.tableView reloadData];
+            }
+        }];
+    }
+}
+
+- (void) showCampaignFeedError
+{
+    [WCAlerts showAlertWithOptionFromViewController:self
+                                          withTitle:@"Unable to fetch campaigns."
+                                            message:@"Could not retrieve the campaigns from the server"
+                                        optionTitle:@"Try Again"
+                                   optionCompletion:^{ [self executeCampaignFetch]; }
+                                    closeCompletion:nil];
 }
 
 @end
