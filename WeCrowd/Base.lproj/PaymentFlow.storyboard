@@ -361,6 +361,9 @@
                     <navigationItem key="navigationItem" title="Manual Entry" id="lim-MI-Ixe">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DTI-3Z-Vxh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="Zdb-yW-H1R" id="78R-qn-DXh"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Donate" id="DFB-Sr-BLT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

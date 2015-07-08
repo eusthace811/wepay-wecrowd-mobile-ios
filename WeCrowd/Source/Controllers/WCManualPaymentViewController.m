@@ -54,6 +54,12 @@
     [self.delegate didFinishWithSender:self];
 }
 
+
+- (IBAction) cancelAction:(id) sender
+{
+    [self.delegate didFinishWithSender:self];
+}
+
 #pragma mark - WPTokenizationDelegate
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
