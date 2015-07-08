@@ -19,7 +19,7 @@
 - (instancetype) initWithCoder:(NSCoder *) aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        self.statusBarNotification = [CWStatusBarNotification new];
+        [self setUpStatusBarNotification];
     } else {
         // Do nothing
     }
@@ -27,14 +27,16 @@
     return self;
 }
 
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) setUpStatusBarNotification
+{
+    UIColor *backgroundColor;
+    
+    backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.337 0.8 0.38"]];
+    
+    self.statusBarNotification = [CWStatusBarNotification new];
+    
+    self.statusBarNotification.notificationLabelTextColor = [UIColor whiteColor];
+    self.statusBarNotification.notificationLabelBackgroundColor = backgroundColor;
 }
 
 @end
