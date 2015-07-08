@@ -39,19 +39,16 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        successBlock:^(NSDictionary *returnData) {
                            // Check the status of the return data
                            if ([returnData objectForKey:kAPIParameterErrorCode]) {
-                               NSDictionary *userInfo;
-                               NSString *description, *suggestion;
+                               NSError *APIError;
                                NSInteger errorCode;
                                
-                               description = [NSString stringWithFormat:@"API error '%@' returned for login.", [returnData objectForKey:kAPIParameterErrorMessage]];
-                               suggestion = @"Consult the API documentation.";
                                errorCode = [(NSString *) [returnData objectForKey:kAPIParameterErrorCode] integerValue];
-                               userInfo = @{ NSLocalizedDescriptionKey             : NSLocalizedString(description, nil),
-                                             NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(suggestion, nil)};
                                
-                               completionBlock(nil, [[NSError alloc] initWithDomain:WCAPIErrorDomain
-                                               code:errorCode
-                                               userInfo:userInfo]);
+                               APIError = [WCError APIErrorWithDescription:@"API error for login."
+                                                             serverMessage:[returnData objectForKey:kAPIParameterErrorMessage]
+                                                                      code:errorCode];
+                               
+                               completionBlock(nil, APIError);
                                NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                            } else {
                                // No error code, so hand off the data
@@ -283,9 +280,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
             description = [NSString stringWithFormat:@"Error processing request %@.", response.URL.path];
             userInfo =  @{ NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
             
-            errorHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
-                                                    code:statusCode
-                                                userInfo:userInfo]);
+            errorHandler([NSError errorWithDomain:NSURLErrorDomain
+                                             code:statusCode
+                                         userInfo:userInfo]);
         }
     } else if (error) {
         errorHandler(error);

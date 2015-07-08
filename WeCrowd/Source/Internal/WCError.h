@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+// Constants
+FOUNDATION_EXPORT NSString* const WCAPIErrorDomain;
+
 @interface WCError : NSObject
 
-FOUNDATION_EXPORT NSString* const WCAPIErrorDomain;
++ (NSError *) APIErrorWithDescription:(NSString *) description
+                        serverMessage:(NSString *) serverMessage
+                                 code:(NSInteger) code;
 
 @end
