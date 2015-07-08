@@ -248,11 +248,15 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
             successBlock:(void (^)(id returnData)) successHandler
             errorHandler:(void (^)(NSError* error)) errorHandler
 {
+    NSError *extractionError;
+    
     // Build a structure from the raw data
     id extractedData = nil;
     
     if ([data length] > 0) {
-        extractedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        extractedData = [NSJSONSerialization JSONObjectWithData:data
+                                                        options:kNilOptions
+                                                          error:&extractionError];
     }
     
     if (extractedData && !error) {
@@ -274,11 +278,11 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
                                                 userInfo:userInfo]);
         }
     } else if (error) {
-        NSLog(@"Error: Client: %@", [error localizedDescription]);
         errorHandler(error);
-    } else if ([data length] > 0 && !extractedData) {
-        // TODO: There was an error in the data extracted from the request
-        NSLog(@"Error: Client: Unable to extract the response data.");
+        NSLog(@"Error: Client: %@", [error localizedDescription]);
+    } else if (extractionError) {
+        errorHandler(extractionError);
+        NSLog(@"Error: Client: %@", [extractionError localizedDescription]);
     }
 }
 
