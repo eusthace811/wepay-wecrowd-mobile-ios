@@ -130,13 +130,15 @@
                             forStoryboard:(UIStoryboard *) storyboard
 {
     WCPaymentViewController *viewController;
+    UINavigationController *navigationController;
 
     viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
     viewController.delegate = self;
     
-    [self presentViewController:viewController animated:YES completion:^{
-        NSLog(@"Completed presenting!");
-    }];
+    navigationController = [storyboard instantiateViewControllerWithIdentifier:@"PaymentNavigationController"];
+    [navigationController setViewControllers:@[viewController] animated:NO];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

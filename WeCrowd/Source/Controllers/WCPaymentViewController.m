@@ -10,18 +10,33 @@
 
 @interface WCPaymentViewController ()
 
+@property (nonatomic, strong, readwrite) CWStatusBarNotification *statusBarNotification;
+
 @end
 
 @implementation WCPaymentViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (instancetype) initWithCoder:(NSCoder *) aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setUpStatusBarNotification];
+    } else {
+        // Do nothing
+    }
+    
+    return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) setUpStatusBarNotification
+{
+    UIColor *backgroundColor;
+    
+    backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.337 0.8 0.38"]];
+    
+    self.statusBarNotification = [CWStatusBarNotification new];
+    
+    self.statusBarNotification.notificationLabelTextColor = [UIColor whiteColor];
+    self.statusBarNotification.notificationLabelBackgroundColor = backgroundColor;
 }
 
 @end

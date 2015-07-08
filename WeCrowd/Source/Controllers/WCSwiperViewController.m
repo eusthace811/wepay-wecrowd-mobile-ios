@@ -78,6 +78,14 @@
     }
 }
 
+- (IBAction) cancelAction:(id) sender
+{
+    if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
+        [self.delegate didFinishWithSender:self];
+    }
+}
+
+
 - (void) cardReaderDidChangeStatus:(id) status
 {
     if (status == kWPCardReaderStatusNotConnected) {
