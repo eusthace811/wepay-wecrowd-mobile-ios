@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zdb-yW-H1R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WJV-6g-urE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -118,7 +118,24 @@
             </objects>
             <point key="canvasLocation" x="1072" y="293"/>
         </scene>
-        <!--Manual Payment View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="vWR-0G-iiI">
+            <objects>
+                <navigationController storyboardIdentifier="PaymentNavigationController" id="WJV-6g-urE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I4v-xw-HUy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="izj-g9-wdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="1015"/>
+        </scene>
+        <!--Manual Entry-->
         <scene sceneID="m8P-0v-Qg0">
             <objects>
                 <viewController storyboardIdentifier="WCManualPaymentViewController" modalPresentationStyle="currentContext" id="Zdb-yW-H1R" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
@@ -131,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-yi-2d9" customClass="WCCreditCardInfoEntryView">
-                                <rect key="frame" x="32" y="66" width="536" height="205"/>
+                                <rect key="frame" x="32" y="80" width="536" height="205"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Donation Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="51W-xJ-teu">
                                         <rect key="frame" x="28" y="5" width="500" height="30"/>
@@ -261,6 +278,7 @@
                                     <constraint firstItem="9dR-7U-4Zn" firstAttribute="top" secondItem="Kgi-JX-FDw" secondAttribute="bottom" constant="8" symbolic="YES" id="GyJ-Bi-2vv"/>
                                     <constraint firstItem="i6R-PU-mcg" firstAttribute="top" secondItem="9dR-7U-4Zn" secondAttribute="bottom" constant="8" symbolic="YES" id="IBc-wA-03I"/>
                                     <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="tEp-Fa-YS7" secondAttribute="bottom" constant="8" id="LDU-ov-1UD"/>
+                                    <constraint firstItem="51W-xJ-teu" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="top" constant="5" id="LnR-UR-Ztc"/>
                                     <constraint firstItem="4Xg-d5-OUx" firstAttribute="top" secondItem="51W-xJ-teu" secondAttribute="bottom" constant="8" id="NGe-rO-8VL"/>
                                     <constraint firstAttribute="trailing" secondItem="tEp-Fa-YS7" secondAttribute="trailing" constant="32" id="OLm-ir-aP0"/>
                                     <constraint firstItem="hSv-sr-fUc" firstAttribute="leading" secondItem="kKb-yi-2d9" secondAttribute="leading" constant="8" id="OoB-sT-VGM"/>
@@ -278,6 +296,7 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="LnR-UR-Ztc"/>
                                         <exclude reference="fA8-Oh-SB7"/>
                                     </mask>
                                 </variation>
@@ -293,14 +312,8 @@
                                     <outlet property="lastNameField" destination="4Xg-d5-OUx" id="bdq-T0-rMW"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your payment information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-1b-XOY">
-                                <rect key="frame" x="16" y="36" width="568" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="textColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
-                                <rect key="frame" x="271" y="257" width="58" height="34"/>
+                                <rect key="frame" x="271" y="271" width="58" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
@@ -311,36 +324,35 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
-                                <rect key="frame" x="282" y="257" width="37" height="37"/>
+                                <rect key="frame" x="282" y="271" width="37" height="37"/>
                                 <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="ug2-1b-XOY" firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" id="1Dc-wi-zuw"/>
-                            <constraint firstItem="ug2-1b-XOY" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" id="2Mi-MU-lN5"/>
                             <constraint firstItem="kKb-yi-2d9" firstAttribute="centerX" secondItem="RsI-0b-Es2" secondAttribute="centerX" id="4jC-qz-XTy"/>
-                            <constraint firstItem="kKb-yi-2d9" firstAttribute="top" secondItem="ug2-1b-XOY" secondAttribute="bottom" constant="8" id="EmH-Nq-4Ky"/>
-                            <constraint firstItem="ug2-1b-XOY" firstAttribute="top" secondItem="866-a5-Hwr" secondAttribute="bottom" constant="16" id="MoQ-2M-o7n"/>
                             <constraint firstAttribute="centerX" secondItem="kKb-yi-2d9" secondAttribute="centerX" id="SkV-YY-dic"/>
                             <constraint firstItem="kKb-yi-2d9" firstAttribute="leading" secondItem="AYz-cJ-DUj" secondAttribute="leadingMargin" constant="16" id="VHE-0R-Ebd"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="centerX" secondItem="o8z-or-zq5" secondAttribute="centerX" constant="-0.5" id="dCe-A7-TnN"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="centerY" secondItem="o8z-or-zq5" secondAttribute="centerY" constant="-1.5" id="f72-G2-X5F"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ug2-1b-XOY" secondAttribute="trailing" id="iJ5-fm-6zm"/>
+                            <constraint firstItem="kKb-yi-2d9" firstAttribute="top" secondItem="866-a5-Hwr" secondAttribute="bottom" constant="16" id="hNY-ON-FjJ"/>
                             <constraint firstItem="RsI-0b-Es2" firstAttribute="top" secondItem="kKb-yi-2d9" secondAttribute="bottom" constant="-14" id="mLF-S3-caI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kKb-yi-2d9" secondAttribute="trailing" constant="16" id="qdA-Kx-WPN"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="1Dc-wi-zuw"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Jav-7M-t8z" appends="YES" id="nWa-Dq-W86"/>
                         </connections>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Manual Entry" id="lim-MI-Ixe">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="DFB-Sr-BLT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="submitInformationAction:" destination="Zdb-yW-H1R" id="Hzn-H5-tWm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="o8z-or-zq5" id="Mcg-Wd-Liz"/>
                         <outlet property="cardInfoEntryView" destination="kKb-yi-2d9" id="5jc-M9-I16"/>
