@@ -83,7 +83,6 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
-    UIAlertView *alert;
     NSString *message;
     
     [WCAlerts showSimpleAlertFromViewController:self

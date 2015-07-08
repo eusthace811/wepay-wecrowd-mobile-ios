@@ -263,11 +263,17 @@ static NSString* const kAPIURLString = /*@"http://0.0.0.0:3000/api";*/ @"http://
         if (statusCode == 200) {
             successHandler(extractedData);
         } else {
-            // TODO: There was a connection error
-            NSLog(@"Error: Client: HTTP error %li", (long)statusCode);
+            NSDictionary *userInfo;
+            NSString *description;
+            
+            description = [NSString stringWithFormat:@"Error processing request %@", response.URL.path];
+            userInfo =  @ { NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
+            
+            errorHandler([[NSError alloc] initWithDomain:NSURLErrorDomain
+                                                    code:statusCode
+                                                userInfo:userInfo]);
         }
     } else if (error) {
-        // TODO: There was a connection error with the request
         NSLog(@"Error: Client: %@", [error localizedDescription]);
         errorHandler(error);
     } else if ([data length] > 0 && !extractedData) {
