@@ -75,7 +75,6 @@
 - (IBAction) viewSwipeDownAction:(id) sender
 {
     if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
-        NSLog(@"Swipe down");
         [self.delegate didFinishWithSender:self];
     }
 }
