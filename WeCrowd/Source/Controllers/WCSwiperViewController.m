@@ -187,7 +187,8 @@
                                                                                                 optionCompletion:^{ [self executeCardRead]; }
                                                                                                  closeCompletion:^{ [self resetFeedbackUI]; }];
                                                              } else {
-                                                                 NSLog(@"Success: Made donation.");
+                                                                 [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
+                                                                                                                forDuration:2.5f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              }
                                                          }];
