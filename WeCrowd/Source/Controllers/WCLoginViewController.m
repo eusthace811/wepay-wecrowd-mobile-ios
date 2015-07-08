@@ -45,7 +45,6 @@
     {
         if (error) {
             // Notify the user of the error
-            // TODO: replace with UIAlertController
             [WCAlerts showSimpleAlertFromViewController:self
                                               withTitle:@"Please try again"
                                                 message:@"Unable to log you in. Please check your information and try again."
