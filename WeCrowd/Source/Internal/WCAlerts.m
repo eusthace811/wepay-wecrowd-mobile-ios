@@ -30,12 +30,12 @@
     [viewController presentViewController:alertController animated:YES completion:completion];
 }
 
-+ (void) showAlertWithOptionsFromViewController:(UIViewController *) viewController
-                                      withTitle:(NSString *) title
-                                        message:(NSString *) message
-                           alternateOptionTitle:(NSString *) alternateTitle
-                            alternateCompletion:(void (^) ()) alternateCompletion
-                                closeCompletion:(void (^) ()) closeCompletion
++ (void) showAlertWithOptionFromViewController:(UIViewController *) viewController
+                                     withTitle:(NSString *) title
+                                       message:(NSString *) message
+                                   optionTitle:(NSString *) optionTitle
+                              optionCompletion:(void (^) ()) optionCompletion
+                               closeCompletion:(void (^) ()) closeCompletion
 {
     UIAlertController * alertController;
     UIAlertAction *alternateAction, *closeAction;
@@ -44,9 +44,9 @@
                                                           message:message
                                                    preferredStyle:UIAlertControllerStyleAlert];
     
-    alternateAction = [UIAlertAction actionWithTitle:alternateTitle
+    alternateAction = [UIAlertAction actionWithTitle:optionTitle
                                                style:UIAlertActionStyleDefault
-                                             handler:alternateCompletion];
+                                             handler:optionCompletion];
     closeAction = [UIAlertAction actionWithTitle:@"Close"
                                            style:UIAlertActionStyleCancel
                                          handler:closeCompletion];

@@ -15,10 +15,10 @@
                                    message:(NSString *) message
                                 completion:(void (^) ()) completion;
 
-+ (void) showAlertWithOptionsFromViewController:(UIViewController *) viewController
-                                      withTitle:(NSString *) title
-                                        message:(NSString *) message
-                           alternateOptionTitle:(NSString *) alternateTitle
-                            alternateCompletion:(void (^) ()) alternateCompletion
-                                closeCompletion:(void (^) ()) closeCompletion;
++ (void) showAlertWithOptionFromViewController:(UIViewController *) viewController
+                                     withTitle:(NSString *) title
+                                       message:(NSString *) message
+                                   optionTitle:(NSString *) optionTitle
+                              optionCompletion:(void (^) ()) optionCompletion
+                               closeCompletion:(void (^) ()) closeCompletion;
 @end

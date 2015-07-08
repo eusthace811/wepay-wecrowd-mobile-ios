@@ -180,16 +180,12 @@
                                                             creditCardID:paymentToken.tokenId
                                                          completionBlock:^(NSError *error) {
                                                              if (error) {
-                                                                 [WCAlerts showAlertWithOptionsFromViewController:self
-                                                                                                        withTitle:@"Unable to complete donation"
-                                                                                                          message:@"There was a server error. Please try again."
-                                                                                             alternateOptionTitle:@"Try Again"
-                                                                                              alternateCompletion:^{
-                                                                                                  [self executeCardRead];
-                                                                                              }
-                                                                                                  closeCompletion:^{
-                                                                                                      [self resetFeedbackUI];
-                                                                                                  }];
+                                                                 [WCAlerts showAlertWithOptionFromViewController:self
+                                                                                                       withTitle:@"Unable to complete donation"
+                                                                                                         message:@"There was a server error. Please try again."
+                                                                                                     optionTitle:@"Try Again"
+                                                                                                optionCompletion:^{ [self executeCardRead]; }
+                                                                                                 closeCompletion:^{ [self resetFeedbackUI]; }];
                                                              } else {
                                                                  NSLog(@"Success: Made donation.");
                                                                  [self.delegate didFinishWithSender:self];
