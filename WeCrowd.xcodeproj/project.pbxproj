@@ -169,7 +169,6 @@
 				C3060E2B1B29FF2500A9F596 /* UI */,
 				C39676671B2A66300071CEB5 /* Resources */,
 				C3060E041B2652D500A9F596 /* Supporting Files */,
-				C3060E111B2652D500A9F596 /* Images.xcassets */,
 			);
 			path = WeCrowd;
 			sourceTree = "<group>";
@@ -283,6 +282,7 @@
 		C39676671B2A66300071CEB5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3060E111B2652D500A9F596 /* Images.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
