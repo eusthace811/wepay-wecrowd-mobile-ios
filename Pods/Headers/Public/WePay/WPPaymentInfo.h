@@ -1,0 +1,1 @@
+../../../WePay/WePay.framework/Versions/A/Headers/WPPaymentInfo.h
