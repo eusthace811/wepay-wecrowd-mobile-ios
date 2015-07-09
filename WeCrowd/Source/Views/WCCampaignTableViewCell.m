@@ -8,7 +8,6 @@
 
 #import "WCCampaignTableViewCell.h"
 #import "WCCampaignHeaderModel.h"
-#import "WCClient.h"
 
 @interface WCCampaignTableViewCell ()
 
@@ -17,8 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *donationProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIView *contentInsetView;
-
-@property (nonatomic, readwrite) BOOL hasImageLoaded;
 
 @end
 
@@ -33,25 +30,21 @@
     CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
     UIColor *backgroundColor;
     
-    // format the view information
+    // Format the view information
+    // Hard code random end date from now since there's no real end day
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
-    // TODO: use end date from server
-    timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
+    timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * (rand() % 10 + 1)]]];
     pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
-    pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
+    pledgeProgress = [pledgeProgress stringByAppendingString:@"% funded"];
     
-    // configure the display information within the view
+    // Configure the display information within the view
     self.title.text = model.title;
     self.endDate.text = timeRemaining;
     self.donationProgress.text = pledgeProgress;
     // TODO: use thumbnail image from server
-    if (!self.hasImageLoaded) {
-        [WCClient fetchImageWithURLString:model.thumbnailImageURLString
-                          completionBlock:^(UIImage *image, NSError *error) {
-                                  self.thumbnailImageView.image = image;
-                                  self.hasImageLoaded = YES;
-                          }];
-    }
+    [model fetchImageIfNeededWithCompletion:^(UIImage *image, NSError *error) {
+        self.thumbnailImageView.image = image;
+    }];
     
     // Cell appearance customization
     backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.925 0.925 0.925"]];

@@ -15,6 +15,7 @@
 @interface WCCampaignHeaderModel : WCCampaignBaseModel
 
 @property (nonatomic, strong, readonly) NSString *thumbnailImageURLString;
+@property (nonatomic, strong, readonly) UIImage *thumbnailImage;
 
 - (instancetype) initWithCampaign:(NSString *) campaign
                             title:(NSString *) title
@@ -22,5 +23,7 @@
                    donationTarget:(CGFloat) donationTarget
                    donationAmount:(CGFloat) donationAmount
                    imageURLString:(NSString *) imageURLString;
+
+- (void) fetchImageIfNeededWithCompletion:(void(^)(UIImage *image, NSError *error)) completion;
 
 @end
