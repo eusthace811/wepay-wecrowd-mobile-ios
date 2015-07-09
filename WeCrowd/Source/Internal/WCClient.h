@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class WCCampaignDetailModel, WCCampaignDonationModel;
 
@@ -32,5 +33,8 @@ typedef void(^WCCampaignDetailReturnBlock) (WCCampaignDetailModel *campaign, NSE
 
 + (void) fetchCampaignWithID:(NSString *) campaignID
              completionBlock:(WCCampaignDetailReturnBlock) completionBlock;
+
++ (void) fetchImageWithURLString:(NSString *) URLString
+                 completionBlock:(void (^)(UIImage *image, NSError *error)) completionBlock;
 
 @end

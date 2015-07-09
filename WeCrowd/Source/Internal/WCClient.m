@@ -13,6 +13,8 @@
 #import "WCUserModel.h"
 #import "WCError.h"
 
+@class WCCampaignBaseModel;
+
 #pragma mark - Constants
 
 // Requests
@@ -142,17 +144,22 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 + (void) fetchCampaignWithID:(NSString *) campaignID
              completionBlock:(WCCampaignDetailReturnBlock) completionBlock
 {
-    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
-                             values:@{ kAPIParameterCampaignID : campaignID }
-                        accessToken:nil
-                       successBlock:^(id returnData) {
-                           NSLog(@"Success: Client: Fetched campaign.");
-                           completionBlock([WCModelProcessor createCampaignDetailFromDictionary:returnData], nil);
-                       }
-                       errorHandler:^(NSError *error) {
-                           NSLog(@"API error: Unable to fetch campaign.");
-                           completionBlock(nil, error);
-                       }];
+    NSMutableString *URLString = [kAPIEndpointCampaigns mutableCopy];
+    NSNumber *APIID = (NSNumber *) campaignID;
+    [URLString appendString:[NSString stringWithFormat:@"/%@", [APIID stringValue]]];
+    
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:URLString]
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                          NSLog(@"Success: Client: Fetched campaign.");
+                          [WCModelProcessor createCampaignDetailFromDictionary:returnData completionBlock:^(WCCampaignDetailModel *model, NSError *error) {
+                              completionBlock(model, error);
+                          }];
+                      }
+                      errorHandler:^(NSError *error) {
+                          NSLog(@"API error: Unable to fetch campaign.");
+                          completionBlock(nil, error);
+                      }];
 }
 
 #pragma mark - Endpoint Requests
@@ -274,9 +281,16 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
     id extractedData = nil;
     
     if ([data length] > 0) {
+        // Try to extract JSON data first
         extractedData = [NSJSONSerialization JSONObjectWithData:data
                                                         options:kNilOptions
                                                           error:&extractionError];
+        if (!extractedData) {
+            // If JSON extraction fails, try to extract binary data
+            // For now, only image case is handled
+            // TODO: This really should be in a separate method, but I'm in too deep atm =/
+            extractedData = [UIImage imageWithData:data];
+        }
     }
     
     if (extractedData && !error) {
@@ -304,6 +318,22 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
         errorHandler(extractionError);
         NSLog(@"Error: Client: %@.", [extractionError localizedDescription]);
     }
+}
+
+#pragma mark - Asset Fetching
+
++ (void) fetchImageWithURLString:(NSString *) URLString
+                 completionBlock:(void (^)(UIImage *image, NSError *error)) completionBlock
+{
+    [self makeGetRequestToEndpoint:[NSURL URLWithString:URLString]
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                          completionBlock(returnData, nil);
+                          NSLog(@"Fetched image.");
+                      } errorHandler:^(NSError *error) {
+                          completionBlock(nil, error);
+                          NSLog(@"Unable to fetch image.");
+                      }];
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "WCCampaignHeaderModel.h"
 #import "WCCampaignDetailModel.h"
 #import "WCCreditCardModel.h"
+#import "WCClient.h"
 
 @implementation WCModelProcessor
 
@@ -41,22 +42,37 @@
     return array;
 }
 
-+ (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
++ (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
+                            completionBlock:(void (^)(WCCampaignDetailModel *model, NSError *error)) completionBlock
 {
     CGFloat donationAmount, donationTarget;
+    NSString *imageURLString;
     
     // Nasty cast + conversion to get the float value
     donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
     donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
+    imageURLString = [dictionary objectForKey:@"campaign_image_url"];
     
-    return [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
-                                                      title:[dictionary objectForKey:kAPIParameterCampaignName]
-                                                    endDate:nil
-                                             donationTarget:donationAmount
-                                             donationAmount:donationTarget
-                                                detailImage:nil
-                                          detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
-                                                   location:nil];
+    // Separate call to download the image - little wonky, I know
+    [WCClient fetchImageWithURLString:imageURLString
+                      completionBlock:^(UIImage *image, NSError *error) {
+                          WCCampaignDetailModel *detailModel;
+                          
+                          if (error) {
+                              NSLog(@"Error: ModelProcessor: Unable to fetch image");
+                          }
+                          
+                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
+                                                                                  title:[dictionary objectForKey:kAPIParameterCampaignName]
+                                                                                endDate:nil
+                                                                         donationTarget:donationAmount
+                                                                         donationAmount:donationTarget
+                                                                            detailImage:image
+                                                                      detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
+                                                                               location:nil];
+                          
+                          completionBlock(detailModel, error);
+                      }];
 }
 
 + (WCCreditCardModel *) createCreditCardModelFromFirstName:(NSString *) firstName

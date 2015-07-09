@@ -14,7 +14,9 @@
 
 + (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns;
 
-+ (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary;
++ (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
+                            completionBlock:(void (^)(WCCampaignDetailModel *model, NSError *error)) completionBlock;
+
 + (WCCreditCardModel *) createCreditCardModelFromFirstName:(NSString *) firstName
                                                   lastName:(NSString *) lastName
                                                 cardNumber:(NSString *) cardNumber

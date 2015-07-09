@@ -346,6 +346,7 @@
                         <outlet property="campaignDescription" destination="qzu-zN-Kqv" id="Ny5-wP-uFw"/>
                         <outlet property="campaignDonationProgress" destination="L3o-q2-7XQ" id="4OY-9h-lN0"/>
                         <outlet property="campaignDonationProgressBar" destination="o3Y-1z-qFq" id="oWE-dQ-iZK"/>
+                        <outlet property="campaignImage" destination="p0b-nd-NlA" id="k0B-87-dQR"/>
                         <outlet property="giveMoneyButton" destination="NdA-dh-KhA" id="FaZ-Yo-cf6"/>
                     </connections>
                 </viewController>
