@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *endDate;
 @property (weak, nonatomic) IBOutlet UILabel *donationProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+@property (weak, nonatomic) IBOutlet UIView *contentInsetView;
 
 @property (nonatomic, readwrite) BOOL hasImageLoaded;
 
@@ -50,6 +51,10 @@
                                   self.hasImageLoaded = YES;
                           }];
     }
+    
+    // Cell appearance customization
+    [self.contentInsetView.layer setBorderWidth:0.5f];
+    [self.contentInsetView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
 }
 
 @end
