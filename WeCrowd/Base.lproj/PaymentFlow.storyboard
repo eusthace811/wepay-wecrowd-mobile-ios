@@ -56,9 +56,9 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-eQ-G72">
-                                <rect key="frame" x="271" y="157" width="58" height="34"/>
+                                <rect key="frame" x="271" y="157" width="59" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Donate">
                                     <color key="titleColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -73,7 +73,6 @@
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="trailing" secondItem="Q7f-0A-JRq" secondAttribute="trailingMargin" id="6nD-2Q-3Ev"/>
                             <constraint firstItem="QOE-Kh-Wj0" firstAttribute="leading" secondItem="Q7f-0A-JRq" secondAttribute="leadingMargin" constant="20" id="Ltg-Um-No1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SvR-6H-qBO" secondAttribute="trailing" id="N1C-HC-W6v"/>
-                            <constraint firstAttribute="centerY" secondItem="w0T-Ke-GEe" secondAttribute="centerY" constant="162" id="OpY-BP-3AY"/>
                             <constraint firstItem="5cN-fJ-skt" firstAttribute="top" secondItem="SvR-6H-qBO" secondAttribute="bottom" constant="16" id="Oyb-Ju-WNu"/>
                             <constraint firstItem="GIa-eQ-G72" firstAttribute="top" secondItem="w0T-Ke-GEe" secondAttribute="bottom" constant="12" id="Uau-KM-eDg"/>
                             <constraint firstItem="QOE-Kh-Wj0" firstAttribute="centerY" secondItem="w0T-Ke-GEe" secondAttribute="centerY" id="UvA-Qb-HCV"/>
@@ -84,18 +83,9 @@
                             <constraint firstAttribute="centerX" secondItem="GIa-eQ-G72" secondAttribute="centerX" id="g1k-0b-wmW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w0T-Ke-GEe" secondAttribute="trailing" constant="20" id="gUd-W1-Z8I"/>
                             <constraint firstItem="GIa-eQ-G72" firstAttribute="centerX" secondItem="aff-pR-Ufo" secondAttribute="centerX" id="iAf-6G-IzD"/>
-                            <constraint firstAttribute="centerX" secondItem="SvR-6H-qBO" secondAttribute="centerX" id="qKq-Gv-LqX"/>
                             <constraint firstItem="SvR-6H-qBO" firstAttribute="top" secondItem="T0T-zz-vQr" secondAttribute="bottom" constant="16" id="rPF-vw-hXt"/>
                             <constraint firstItem="w0T-Ke-GEe" firstAttribute="top" secondItem="5cN-fJ-skt" secondAttribute="bottom" constant="12" id="t9S-NX-NdV"/>
-                            <constraint firstItem="aff-pR-Ufo" firstAttribute="top" secondItem="GIa-eQ-G72" secondAttribute="bottom" constant="8" id="zpH-Vb-vPO"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="qKq-Gv-LqX"/>
-                                <exclude reference="OpY-BP-3AY"/>
-                                <exclude reference="zpH-Vb-vPO"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="dyE-ae-d4I" appends="YES" id="ggg-9F-kLi"/>
                         </connections>
@@ -122,7 +112,6 @@
                         <outlet property="instructionLabel" destination="SvR-6H-qBO" id="2Yu-dP-B88"/>
                         <outlet property="submitButton" destination="GIa-eQ-G72" id="3jy-IB-25o"/>
                         <outlet property="swiperStatusLabel" destination="5cN-fJ-skt" id="mef-Tf-6N9"/>
-                        <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="dGc-Ic-WNA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WM1-9J-Eoq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,8 +152,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-yi-2d9" customClass="WCCreditCardInfoEntryView">
-                                <rect key="frame" x="32" y="80" width="536" height="205"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-yi-2d9" customClass="WCCreditCardInfoEntryView">
+                                <rect key="frame" x="32" y="36" width="536" height="205"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Donation Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="51W-xJ-teu">
                                         <rect key="frame" x="28" y="5" width="500" height="30"/>
@@ -328,10 +317,10 @@
                                     <outlet property="lastNameField" destination="4Xg-d5-OUx" id="bdq-T0-rMW"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
-                                <rect key="frame" x="271" y="271" width="58" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-0b-Es2">
+                                <rect key="frame" x="271" y="227" width="59" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Donate">
                                     <color key="titleColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -339,8 +328,8 @@
                                     <action selector="submitInformationAction:" destination="Zdb-yW-H1R" eventType="touchUpInside" id="i1j-xA-JMD"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
-                                <rect key="frame" x="282" y="271" width="37" height="37"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o8z-or-zq5">
+                                <rect key="frame" x="282" y="227" width="37" height="37"/>
                                 <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -379,7 +368,6 @@
                         <outlet property="activityIndicator" destination="o8z-or-zq5" id="Mcg-Wd-Liz"/>
                         <outlet property="cardInfoEntryView" destination="kKb-yi-2d9" id="5jc-M9-I16"/>
                         <outlet property="submitFormButton" destination="RsI-0b-Es2" id="TXk-qE-v07"/>
-                        <segue destination="alg-Zd-1vr" kind="show" identifier="paymentMethodToPaymentStatusSegue" id="3Se-mT-u07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npm-ru-lP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -391,48 +379,5 @@
             </objects>
             <point key="canvasLocation" x="1072" y="1015"/>
         </scene>
-        <!--Payment Succeeded!-->
-        <scene sceneID="hKZ-kG-Nq8">
-            <objects>
-                <viewController title="Payment Succeeded!" id="alg-Zd-1vr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FoF-Dt-LVK"/>
-                        <viewControllerLayoutGuide type="bottom" id="lk5-Vx-rLp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ynx-ia-FQS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Succeeded!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-Bp-xvw">
-                                <rect key="frame" x="188" y="255" width="225" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U01-rY-fin">
-                                <rect key="frame" x="211" y="315" width="178" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Return to Campaigns">
-                                    <color key="titleColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="7qo-Bp-xvw" secondAttribute="centerY" constant="30.5" id="JEO-M2-Fwx"/>
-                            <constraint firstAttribute="centerX" secondItem="U01-rY-fin" secondAttribute="centerX" id="XEe-yK-a7a"/>
-                            <constraint firstItem="U01-rY-fin" firstAttribute="top" secondItem="7qo-Bp-xvw" secondAttribute="bottom" constant="31" id="m7M-nY-e4n"/>
-                            <constraint firstAttribute="centerX" secondItem="7qo-Bp-xvw" secondAttribute="centerX" id="ssF-SO-KNP"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5YV-gF-05p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1789" y="653"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="dGc-Ic-WNA"/>
-    </inferredMetricsTieBreakers>
 </document>
