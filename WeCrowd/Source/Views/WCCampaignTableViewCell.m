@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *endDate;
-@property (weak, nonatomic) IBOutlet UILabel *donationProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIView *contentInsetView;
 
@@ -43,6 +42,7 @@
     self.donationProgress.text = pledgeProgress;
     // TODO: use thumbnail image from server
     [model fetchImageIfNeededWithCompletion:^(UIImage *image, NSError *error) {
+        [self.thumbnailImageView setContentMode:UIViewContentModeScaleToFill];
         self.thumbnailImageView.image = image;
     }];
     
