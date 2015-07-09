@@ -14,10 +14,12 @@
 #import "WCDonationManager.h"
 #import "WCLoginManager.h"
 #import "WCPaymentViewController.h"
+#import "WCAlerts.h"
 
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate, PaymentViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *campaignDescription;
+
+@property (weak, nonatomic) IBOutlet UITextView *campaignDescription;
 @property (weak, nonatomic) IBOutlet UILabel *campaignDonationProgress;
 @property (weak, nonatomic) IBOutlet UIProgressView *campaignDonationProgressBar;
 @property (weak, nonatomic) IBOutlet UIButton *giveMoneyButton;
@@ -37,8 +39,6 @@
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
         [self.giveMoneyButton setTitle:@"Donate" forState:UIControlStateNormal];
     }
-    
-    
 }
 
 - (void) didReceiveMemoryWarning {
@@ -51,26 +51,7 @@
 - (void) campaignFeedViewController:(UIViewController *) viewController
             didSelectCampaignWithID:(NSString *) campaignID
 {
-    [WCClient fetchCampaignWithID:campaignID
-                  completionBlock:^(WCCampaignDetailModel *campaign, NSError *error) {
-                      if (error) {
-                          // TODO: Handle campaign fetching error
-                      } else {
-                          CGFloat donationProgress;
-                          
-                          self.campaignDetail = campaign;
-                          
-                          donationProgress = self.campaignDetail.donationTargetAmount == 0 ? 0 : self.campaignDetail.donationAmount / self.campaignDetail.donationTargetAmount;
-                          
-                          // Configure the UI
-                          self.navigationItem.title = self.campaignDetail.title;
-                          self.campaignDescription.text = self.campaignDetail.detailDescription;
-                          self.campaignImage.image = self.campaignDetail.detailImage;
-                          self.campaignDonationProgress.text = [NSString stringWithFormat:@"%.f", donationProgress * 100];
-                          self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"%"];
-                          self.campaignDonationProgressBar.progress = donationProgress;
-                      }
-                  }];
+    [self executeFetchCampaignDetailWithID:campaignID];
 }
 
 #pragma mark - PaymentViewDelagate
@@ -141,6 +122,37 @@
     [navigationController setViewControllers:@[viewController] animated:NO];
     
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void) executeFetchCampaignDetailWithID:(NSString *) campaignID
+{
+    [WCClient fetchCampaignWithID:campaignID
+                  completionBlock:^(WCCampaignDetailModel *campaign, NSError *error) {
+                      if (error) {
+                          [WCAlerts showAlertWithOptionFromViewController:self
+                                                                withTitle:@"Unable to fetch campaign details"
+                                                                  message:@"The details of this campaign could not be fetched. Ensure you are connected to a network and try again."
+                                                              optionTitle:@"Try Again"
+                                                         optionCompletion:^{ [self executeFetchCampaignDetailWithID:campaignID]; }
+                                                          closeCompletion:nil];
+                      } else {
+                          CGFloat donationProgress;
+                          
+                          self.campaignDetail = campaign;
+                          
+                          donationProgress = self.campaignDetail.donationTargetAmount == 0 ? 0 : self.campaignDetail.donationAmount / self.campaignDetail.donationTargetAmount;
+                          
+                          // Configure the UI
+                          self.navigationItem.title = self.campaignDetail.title;
+                          self.campaignImage.image = self.campaignDetail.detailImage;
+                          self.campaignDonationProgress.text = [NSString stringWithFormat:@"%.f", donationProgress * 100];
+                          self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"%"];
+                          self.campaignDonationProgressBar.progress = donationProgress;
+                      }
+                      
+                      // Scroll the text view now the image height is calculated
+                      [self.campaignDescription setContentOffset:CGPointMake(0, 0) animated:YES];
+                  }];
 }
 
 @end
