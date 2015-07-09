@@ -144,7 +144,6 @@
 		C3060DF81B2652D500A9F596 = {
 			isa = PBXGroup;
 			children = (
-				C3D610B61B41B2A3005D188F /* Libs */,
 				C3060E031B2652D500A9F596 /* WeCrowd */,
 				C3060E1D1B2652D600A9F596 /* WeCrowdTests */,
 				C3060E021B2652D500A9F596 /* Products */,
@@ -313,13 +312,6 @@
 				C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		C3D610B61B41B2A3005D188F /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Libs;
 			sourceTree = "<group>";
 		};
 		C3DC8ED41B3C6B280053D405 /* Managers */ = {
