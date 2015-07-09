@@ -219,14 +219,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4d-1F-fLo">
                                             <rect key="frame" x="8" y="16" width="584" height="276"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-Vo-gKT">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-Vo-gKT">
                                                     <rect key="frame" x="8" y="208" width="576" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgR-Jp-vGB">
-                                                    <rect key="frame" x="8" y="236" width="71" height="21"/>
+                                                    <rect key="frame" x="261" y="236" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -245,22 +245,15 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donation Progress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQo-be-iPb">
-                                                    <rect key="frame" x="87" y="236" width="142" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="OQo-be-iPb" firstAttribute="leading" secondItem="VgR-Jp-vGB" secondAttribute="trailing" constant="8" id="9qp-bt-vNG"/>
                                                 <constraint firstItem="gLd-Vo-gKT" firstAttribute="leading" secondItem="V4d-1F-fLo" secondAttribute="leading" constant="8" id="CAE-Qq-PsG"/>
                                                 <constraint firstAttribute="trailing" secondItem="mlu-an-yCV" secondAttribute="trailing" id="DKQ-Wl-d6P"/>
                                                 <constraint firstItem="gLd-Vo-gKT" firstAttribute="top" secondItem="mlu-an-yCV" secondAttribute="bottom" constant="8" id="Efz-ty-9NG"/>
                                                 <constraint firstItem="mlu-an-yCV" firstAttribute="top" secondItem="V4d-1F-fLo" secondAttribute="top" id="JuH-cI-92c"/>
                                                 <constraint firstAttribute="trailing" secondItem="gLd-Vo-gKT" secondAttribute="trailing" id="MDn-WO-YiM"/>
-                                                <constraint firstItem="OQo-be-iPb" firstAttribute="centerY" secondItem="VgR-Jp-vGB" secondAttribute="centerY" id="WZF-1Z-eFB"/>
+                                                <constraint firstItem="gLd-Vo-gKT" firstAttribute="centerX" secondItem="VgR-Jp-vGB" secondAttribute="centerX" id="Vdw-LX-B1X"/>
                                                 <constraint firstItem="mlu-an-yCV" firstAttribute="leading" secondItem="V4d-1F-fLo" secondAttribute="leading" id="alC-aX-3tj"/>
                                                 <constraint firstItem="VgR-Jp-vGB" firstAttribute="leading" secondItem="gLd-Vo-gKT" secondAttribute="leading" id="nDP-W4-Zlw"/>
                                                 <constraint firstItem="VgR-Jp-vGB" firstAttribute="top" secondItem="gLd-Vo-gKT" secondAttribute="bottom" constant="8" id="rKF-aE-UYh"/>
@@ -271,6 +264,7 @@
                                                 <mask key="constraints">
                                                     <exclude reference="vXd-tI-3kM"/>
                                                     <exclude reference="wdC-gx-lUd"/>
+                                                    <exclude reference="nDP-W4-Zlw"/>
                                                 </mask>
                                             </variation>
                                         </view>
@@ -284,7 +278,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contentInsetView" destination="V4d-1F-fLo" id="eXg-sY-gJ9"/>
-                                    <outlet property="donationProgress" destination="OQo-be-iPb" id="B2t-6c-4Kw"/>
                                     <outlet property="endDate" destination="VgR-Jp-vGB" id="cc5-kw-kXf"/>
                                     <outlet property="thumbnailImageView" destination="mlu-an-yCV" id="xdI-iA-oHS"/>
                                     <outlet property="title" destination="gLd-Vo-gKT" id="jkU-PQ-pkt"/>

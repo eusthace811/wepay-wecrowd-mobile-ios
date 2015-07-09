@@ -8,7 +8,6 @@
 
 #import "WCCampaignTableViewCell.h"
 #import "WCCampaignHeaderModel.h"
-#import "WCClient.h"
 
 @interface WCCampaignTableViewCell ()
 
@@ -17,8 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *donationProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIView *contentInsetView;
-
-@property (nonatomic, readwrite) BOOL hasImageLoaded;
 
 @end
 
@@ -35,23 +32,18 @@
     
     // format the view information
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
-    // TODO: use end date from server
     timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
     pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
-    pledgeProgress = [pledgeProgress stringByAppendingString:@"%"];
+    pledgeProgress = [pledgeProgress stringByAppendingString:@"% funded"];
     
     // configure the display information within the view
     self.title.text = model.title;
     self.endDate.text = timeRemaining;
     self.donationProgress.text = pledgeProgress;
     // TODO: use thumbnail image from server
-    if (!self.hasImageLoaded) {
-        [WCClient fetchImageWithURLString:model.thumbnailImageURLString
-                          completionBlock:^(UIImage *image, NSError *error) {
-                                  self.thumbnailImageView.image = image;
-                                  self.hasImageLoaded = YES;
-                          }];
-    }
+    [model fetchImageIfNeededWithCompletion:^(UIImage *image, NSError *error) {
+        self.thumbnailImageView.image = image;
+    }];
     
     // Cell appearance customization
     backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.925 0.925 0.925"]];

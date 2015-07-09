@@ -7,6 +7,7 @@
 //
 
 #import "WCCampaignHeaderModel.h"
+#import "WCClient.h"
 
 #pragma mark - Interface
 
@@ -30,7 +31,8 @@
                    imageURLString:(NSString *) imageURLString
 {
     if (self = [super initWithCampaign:campaign
-                                 title:title endDate:endDate
+                                 title:title
+                               endDate:endDate
                         donationTarget:donationTarget
                         donationAmount:donationAmount])
     {
@@ -40,6 +42,20 @@
     }
     
     return self;
+}
+
+- (void) fetchImageIfNeededWithCompletion:(void (^)(UIImage *image, NSError *error)) completion
+{
+    // Only fetch the image if one isn't already stored
+    if (!self.thumbnailImage) {
+        [WCClient fetchImageWithURLString:self.thumbnailImageURLString
+                          completionBlock:^(UIImage *image, NSError *error) {
+                              self.thumbnailImage = image;
+                              completion(image, error);
+                          }];
+    } else {
+        completion(self.thumbnailImage, nil);
+    }
 }
 
 @end
