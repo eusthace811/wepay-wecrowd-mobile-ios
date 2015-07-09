@@ -300,7 +300,7 @@
             </objects>
             <point key="canvasLocation" x="770" y="981"/>
         </scene>
-        <!--Campaign Title-->
+        <!--Campaign Detail View Controller-->
         <scene sceneID="YBY-K7-UZU">
             <objects>
                 <viewController providesPresentationContextTransitionStyle="YES" id="YAU-Pu-HJg" customClass="WCCampaignDetailViewController" sceneMemberID="viewController">
@@ -380,7 +380,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Campaign Title" id="M3Z-JP-Zxp"/>
+                    <navigationItem key="navigationItem" id="M3Z-JP-Zxp"/>
                     <connections>
                         <outlet property="campaignDescription" destination="hex-tb-7f2" id="WVx-Nt-gzn"/>
                         <outlet property="campaignDonationProgress" destination="L3o-q2-7XQ" id="4OY-9h-lN0"/>
