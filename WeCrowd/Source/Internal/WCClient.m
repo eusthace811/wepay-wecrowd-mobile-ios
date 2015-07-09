@@ -104,7 +104,10 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
                        accessToken:nil
                       successBlock:^(NSArray *returnData) {
-                          completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
+                          [WCModelProcessor createProcessedArrayForCampaigns:returnData
+                                                                  completion:^(id model, NSError *error) {
+                                                                      completionBlock(model, error);
+                                                                  }];
                       }
                       errorHandler:^(NSError *error) {
                           completionBlock(nil, error);
@@ -120,7 +123,10 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
                            NSLog(@"Success: Client: Fetched campaigns for user.");
-                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
+                           [WCModelProcessor createProcessedArrayForCampaigns:returnData
+                                                                   completion:^(id model, NSError *error) {
+                                                                       completionBlock(model, error);
+                                                                   }];
                        }
                        errorHandler:^(NSError *error) {
                            NSLog(@"Error: Client: failed to fetch user campaigns.");
@@ -134,7 +140,10 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        accessToken:nil
                       successBlock:^(id returnData) {
                            NSLog(@"Success: Client: Fetched featured campaigns.");
-                          completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
+                          [WCModelProcessor createProcessedArrayForCampaigns:returnData
+                                                                  completion:^(id model, NSError *error) {
+                                                                      completionBlock(model, error);
+                                                                  }];
                       }
                       errorHandler:^(NSError *error) {
                           completionBlock(nil, error);

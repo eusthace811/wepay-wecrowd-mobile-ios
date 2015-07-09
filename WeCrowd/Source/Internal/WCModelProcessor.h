@@ -14,7 +14,8 @@ typedef void (^WCModelProcessorCompletion) (id model, NSError *error);
 
 @interface WCModelProcessor : NSObject
 
-+ (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns;
++ (void) createProcessedArrayForCampaigns:(NSArray *) campaigns
+                               completion:(WCModelProcessorCompletion) completion;
 
 + (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
                                  completion:(WCModelProcessorCompletion) completion;
