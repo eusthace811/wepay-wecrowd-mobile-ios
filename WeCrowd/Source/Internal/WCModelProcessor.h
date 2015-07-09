@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^WCModelProcessorCompletion) (id model, NSError *error);
+
 @class WCCampaignDetailModel, WCCreditCardModel;
 
 @interface WCModelProcessor : NSObject
 
 + (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns;
 
-+ (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary;
++ (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
+                                 completion:(WCModelProcessorCompletion) completion;
+
 + (WCCreditCardModel *) createCreditCardModelFromFirstName:(NSString *) firstName
                                                   lastName:(NSString *) lastName
                                                 cardNumber:(NSString *) cardNumber

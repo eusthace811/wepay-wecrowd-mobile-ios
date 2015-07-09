@@ -11,10 +11,11 @@
 #pragma mark - API
 
 // Endpoints
-NSString* const kAPIEndpointLogin     = @"/login";
-NSString* const kAPIEndpointCampaigns = @"/campaigns";
-NSString* const kAPIEndpointUsers     = @"/users";
-NSString* const kAPIEndpointDonate    = @"/donate";
+NSString* const kAPIEndpointLogin             = @"/login";
+NSString* const kAPIEndpointCampaigns         = @"/campaigns";
+NSString* const kAPIEndpointUsers             = @"/users";
+NSString* const kAPIEndpointDonate            = @"/donate";
+NSString* const kAPIEndpointFeaturedCampaigns = @"/featured_campaigns";
 
 // Parameters - User
 NSString* const kAPIParameterUserID    = @"user_id";

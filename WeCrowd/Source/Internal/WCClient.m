@@ -13,6 +13,8 @@
 #import "WCUserModel.h"
 #import "WCError.h"
 
+@class WCCampaignBaseModel;
+
 #pragma mark - Constants
 
 // Requests
@@ -97,10 +99,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                         }];
 }
 
-+ (void) fetchAllCampaigns:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
++ (void) fetchAllCampaigns:(WCArrayReturnBlock) completionBlock
 {
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
-                            values:nil
                        accessToken:nil
                       successBlock:^(NSArray *returnData) {
                           completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
@@ -112,7 +113,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 
 + (void) fetchAllCampaignsForUser:(NSString *) userID
                         withToken:(NSString *) token
-                  completionBlock:(void (^)(NSArray *campaigns, NSError *error)) completionBlock
+                  completionBlock:(WCArrayReturnBlock) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointUsers]
                              values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
@@ -127,20 +128,40 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        }];
 }
 
-+ (void) fetchCampaignWithID:(NSString *) campaignID
-             completionBlock:(void (^)(WCCampaignDetailModel *campaign, NSError *error)) completionBlock
++ (void) fetchFeaturedCampaigns:(WCArrayReturnBlock) completionBlock
 {
-    [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointCampaigns]
-                             values:@{ kAPIParameterCampaignID : campaignID }
-                        accessToken:nil
-                       successBlock:^(id returnData) {
-                           NSLog(@"Success: Client: Fetched campaign.");
-                           completionBlock([WCModelProcessor createCampaignDetailFromDictionary:returnData], nil);
-                       }
-                       errorHandler:^(NSError *error) {
-                           NSLog(@"API error: Unable to fetch campaign.");
-                           completionBlock(nil, error);
-                       }];
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:kAPIEndpointFeaturedCampaigns]
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                           NSLog(@"Success: Client: Fetched featured campaigns.");
+                          completionBlock([WCModelProcessor createProcessedArrayForCampaigns:returnData], nil);
+                      }
+                      errorHandler:^(NSError *error) {
+                          completionBlock(nil, error);
+                      }];
+}
+
++ (void) fetchCampaignWithID:(NSString *) campaignID
+             completionBlock:(WCCampaignDetailReturnBlock) completionBlock
+{
+    NSMutableString *URLString = [kAPIEndpointCampaigns mutableCopy];
+    NSNumber *APIID = (NSNumber *) campaignID;
+    [URLString appendString:[NSString stringWithFormat:@"/%@", [APIID stringValue]]];
+    
+    [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:URLString]
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                          NSLog(@"Success: Client: Fetched campaign.");
+                          
+                          [WCModelProcessor createCampaignDetailFromDictionary:returnData
+                                                                    completion:^(WCCampaignDetailModel *model, NSError *error) {
+                                                                        completionBlock(model, error);
+                                                                    }];
+                      }
+                      errorHandler:^(NSError *error) {
+                          NSLog(@"API error: Unable to fetch campaign.");
+                          completionBlock(nil, error);
+                      }];
 }
 
 #pragma mark - Endpoint Requests
@@ -160,14 +181,13 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 }
 
 + (void) makeGetRequestToEndpoint:(NSURL *) endpoint
-                           values:(NSDictionary *) values
                       accessToken:(NSString *) accessToken
                      successBlock:(void (^)(id returnData)) successHandler
                      errorHandler:(void (^)(NSError *)) errorHandler
 {
     [self makeRequestToEndPoint:endpoint
                          method:kHTTPRequestGet
-                         values:values
+                         values:nil
                     accessToken:accessToken
                    successBlock:successHandler
                    errorHandler:errorHandler];
@@ -263,9 +283,16 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
     id extractedData = nil;
     
     if ([data length] > 0) {
+        // Try to extract JSON data first
         extractedData = [NSJSONSerialization JSONObjectWithData:data
                                                         options:kNilOptions
                                                           error:&extractionError];
+        if (!extractedData) {
+            // If JSON extraction fails, try to extract binary data
+            // For now, only image case is handled
+            // TODO: This really should be in a separate method, but I'm in too deep atm =/
+            extractedData = [UIImage imageWithData:data];
+        }
     }
     
     if (extractedData && !error) {
@@ -293,6 +320,22 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
         errorHandler(extractionError);
         NSLog(@"Error: Client: %@.", [extractionError localizedDescription]);
     }
+}
+
+#pragma mark - Asset Fetching
+
++ (void) fetchImageWithURLString:(NSString *) URLString
+                 completionBlock:(void (^)(UIImage *image, NSError *error)) completionBlock
+{
+    [self makeGetRequestToEndpoint:[NSURL URLWithString:URLString]
+                       accessToken:nil
+                      successBlock:^(id returnData) {
+                          completionBlock(returnData, nil);
+                          NSLog(@"Fetched image.");
+                      } errorHandler:^(NSError *error) {
+                          completionBlock(nil, error);
+                          NSLog(@"Unable to fetch image.");
+                      }];
 }
 
 @end

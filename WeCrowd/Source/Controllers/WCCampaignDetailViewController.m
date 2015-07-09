@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *campaignDonationProgress;
 @property (weak, nonatomic) IBOutlet UIProgressView *campaignDonationProgressBar;
 @property (weak, nonatomic) IBOutlet UIButton *giveMoneyButton;
+@property (weak, nonatomic) IBOutlet UIImageView *campaignImage;
 
 @property (strong, nonatomic, readwrite) WCCampaignDetailModel *campaignDetail;
 
@@ -64,6 +65,7 @@
                           // Configure the UI
                           self.navigationItem.title = self.campaignDetail.title;
                           self.campaignDescription.text = self.campaignDetail.detailDescription;
+                          self.campaignImage.image = self.campaignDetail.detailImage;
                           self.campaignDonationProgress.text = [NSString stringWithFormat:@"%.f", donationProgress * 100];
                           self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"%"];
                           self.campaignDonationProgressBar.progress = donationProgress;

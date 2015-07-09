@@ -13,50 +13,70 @@
 #import "WCCampaignHeaderModel.h"
 #import "WCCampaignDetailModel.h"
 #import "WCCreditCardModel.h"
+#import "WCClient.h"
 
 @implementation WCModelProcessor
 
-+ (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns;
++ (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[campaigns count]];
     
     // Process the list of dictionaries
     for (int i = 0; i < [campaigns count]; ++i) {
         NSDictionary *campaign;
-        NSString *campaignID, *campaignName;
+        NSString *campaignID, *campaignName, *imageURLString;
         CGFloat campaignGoal;
         
         campaign = campaigns[i];
         
         campaignID = [campaign objectForKey:kAPIParameterCampaignID];
         campaignName = [campaign objectForKey:kAPIParameterCampaignName];
+        imageURLString = [campaign objectForKey:@"campaign_image_url"];
         campaignGoal = [((NSNumber *) [campaign objectForKey:kAPIParameterCampaignGoal]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
-                                                             title:campaignName endDate:nil
+                                                             title:campaignName
+                                                           endDate:nil
                                                     donationTarget:campaignGoal
-                                                    donationAmount:0];
+                                                    donationAmount:0
+                                                    imageURLString:imageURLString];
     }
     
     return array;
 }
 
-+ (WCCampaignDetailModel *) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
++ (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
+                                 completion:(WCModelProcessorCompletion) completion
 {
     CGFloat donationAmount, donationTarget;
+    NSString *imageURLString;
     
     // Nasty cast + conversion to get the float value
     donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
     donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
+    // TODO: Replace key with constant
+    imageURLString = [dictionary objectForKey:@"campaign_image_url"];
     
-    return [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
-                                                      title:[dictionary objectForKey:kAPIParameterCampaignName]
-                                                    endDate:nil
-                                             donationTarget:donationAmount
-                                             donationAmount:donationTarget
-                                                detailImage:nil
-                                          detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
-                                                   location:nil];
+    // Separate call to download the image - little wonky, I know
+    [WCClient fetchImageWithURLString:imageURLString
+                      completionBlock:^(UIImage *image, NSError *error) {
+                          WCCampaignDetailModel *detailModel;
+                          
+                          if (error) {
+                              NSLog(@"Error: ModelProcessor: Unable to fetch image");
+                          }
+                          
+                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
+                                                                                  title:[dictionary objectForKey:kAPIParameterCampaignName]
+                                                                                endDate:nil
+                                                                         donationTarget:donationAmount
+                                                                         donationAmount:donationTarget
+                                                                            detailImage:image
+                                                                      detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
+                                                                               location:nil];
+                          
+                          completion(detailModel, error);
+                      }];
 }
 
 + (WCCreditCardModel *) createCreditCardModelFromFirstName:(NSString *) firstName
