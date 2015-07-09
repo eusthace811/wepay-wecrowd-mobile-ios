@@ -46,7 +46,9 @@
                                              completion:nil];
         } else {
             // Disable the control and push the next view
-            ((UIControl *) sender).userInteractionEnabled = false;
+            if ([sender respondsToSelector:@selector(setUserInteractionEnabled:)]) {
+                ((UIControl *) sender).userInteractionEnabled = false;
+            }
             
             [self performSegueWithIdentifier:kIBSegueEntryToCampaignFeed sender:self];
         }

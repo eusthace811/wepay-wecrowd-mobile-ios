@@ -157,8 +157,8 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxD-Hv-Pif">
-                                <rect key="frame" x="269" y="229" width="62" height="41"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <rect key="frame" x="277" y="229" width="47" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -193,7 +193,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="XPA-Uq-fio"/>
+                    <navigationItem key="navigationItem" title="Login" id="XPA-Uq-fio">
+                        <barButtonItem key="rightBarButtonItem" title="Login" id="2o6-6R-g6q">
+                            <connections>
+                                <action selector="login:" destination="MwS-ML-hOQ" id="exn-z5-LIp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailField" destination="EjD-OD-ML4" id="ITB-jp-ebh"/>
                         <outlet property="passwordField" destination="tyb-ZU-jrP" id="THy-XZ-J3c"/>
