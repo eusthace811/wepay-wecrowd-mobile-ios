@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *endDate;
-@property (weak, nonatomic) IBOutlet UILabel *donationProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIView *contentInsetView;
 
@@ -40,9 +39,9 @@
     // Configure the display information within the view
     self.title.text = model.title;
     self.endDate.text = timeRemaining;
-    self.donationProgress.text = pledgeProgress;
     // TODO: use thumbnail image from server
     [model fetchImageIfNeededWithCompletion:^(UIImage *image, NSError *error) {
+        [self.thumbnailImageView setContentMode:UIViewContentModeScaleToFill];
         self.thumbnailImageView.image = image;
     }];
     
