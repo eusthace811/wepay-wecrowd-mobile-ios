@@ -30,13 +30,14 @@
     CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
     UIColor *backgroundColor;
     
-    // format the view information
+    // Format the view information
+    // Hard code random end date from now since there's no real end day
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
-    timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate date]]];
+    timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * (rand() % 10 + 1)]]];
     pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
     pledgeProgress = [pledgeProgress stringByAppendingString:@"% funded"];
     
-    // configure the display information within the view
+    // Configure the display information within the view
     self.title.text = model.title;
     self.endDate.text = timeRemaining;
     self.donationProgress.text = pledgeProgress;
