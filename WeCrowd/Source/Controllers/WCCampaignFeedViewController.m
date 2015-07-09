@@ -70,7 +70,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 #pragma mark - Navigation
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender
 {
     if ([segue.identifier isEqualToString:kIBSegueCampaignFeedToCampaignDetail]) {
         self.delegate = [segue destinationViewController];

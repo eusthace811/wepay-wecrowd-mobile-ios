@@ -24,17 +24,19 @@
     // Process the list of dictionaries
     for (int i = 0; i < [campaigns count]; ++i) {
         NSDictionary *campaign;
-        NSString *campaignID, *campaignName;
+        NSString *campaignID, *campaignName, *imageURLString;
         CGFloat campaignGoal;
         
         campaign = campaigns[i];
         
         campaignID = [campaign objectForKey:kAPIParameterCampaignID];
         campaignName = [campaign objectForKey:kAPIParameterCampaignName];
+        imageURLString = [campaign objectForKey:@"campaign_image_url"];
         campaignGoal = [((NSNumber *) [campaign objectForKey:kAPIParameterCampaignGoal]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
-                                                             title:campaignName endDate:nil
+                                                             title:campaignName
+                                                           endDate:nil
                                                     donationTarget:campaignGoal
                                                     donationAmount:0];
     }
@@ -43,7 +45,7 @@
 }
 
 + (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary
-                            completionBlock:(void (^)(WCCampaignDetailModel *model, NSError *error)) completionBlock
+                                 completion:(WCModelProcessorCompletion) completion
 {
     CGFloat donationAmount, donationTarget;
     NSString *imageURLString;
@@ -51,6 +53,7 @@
     // Nasty cast + conversion to get the float value
     donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
     donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
+    // TODO: Replace key with constant
     imageURLString = [dictionary objectForKey:@"campaign_image_url"];
     
     // Separate call to download the image - little wonky, I know
@@ -71,7 +74,7 @@
                                                                       detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
                                                                                location:nil];
                           
-                          completionBlock(detailModel, error);
+                          completion(detailModel, error);
                       }];
 }
 

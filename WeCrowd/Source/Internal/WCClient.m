@@ -152,9 +152,11 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        accessToken:nil
                       successBlock:^(id returnData) {
                           NSLog(@"Success: Client: Fetched campaign.");
-                          [WCModelProcessor createCampaignDetailFromDictionary:returnData completionBlock:^(WCCampaignDetailModel *model, NSError *error) {
-                              completionBlock(model, error);
-                          }];
+                          
+                          [WCModelProcessor createCampaignDetailFromDictionary:returnData
+                                                                    completion:^(WCCampaignDetailModel *model, NSError *error) {
+                                                                        completionBlock(model, error);
+                                                                    }];
                       }
                       errorHandler:^(NSError *error) {
                           NSLog(@"API error: Unable to fetch campaign.");
