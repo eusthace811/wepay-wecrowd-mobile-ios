@@ -31,13 +31,8 @@
 - (IBAction) login:(id) sender {
     NSString *username, *password;
     
-    #ifdef DEBUG
-    username = @"zachv+demo@wepay.com";
-    password = @"password";
-    #else
     username = self.emailField.text;
     password = self.passwordField.text;
-    #endif
 
     [WCLoginManager loginMerchantWithUsername:username
                                      password:password

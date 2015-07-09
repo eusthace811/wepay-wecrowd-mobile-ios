@@ -80,53 +80,25 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     }
 }
 
-- (NSArray *) reversedArrayFromArray:(NSArray *) array
-{
-    NSMutableArray *reversed = [NSMutableArray arrayWithCapacity:[array count]];
-    NSEnumerator *enumerator = [array reverseObjectEnumerator];
-    
-    for (id element in enumerator) {
-        [reversed addObject:element];
-    }
-    
-    return reversed;
-}
-
 #pragma mark - Helper Methods
 
 - (void) executeCampaignFetch
 {
-    WCUserModel *currentUser = [WCLoginManager currentUser];
-    
-    // Fetch the campaigns for the logged in user if it exists,
-    // otherwise fetch all the campaigns for the anonymous user
-    if (currentUser) {
-        [WCClient fetchAllCampaignsForUser:currentUser.userID
-                                 withToken:currentUser.token
-                           completionBlock:^(NSArray *campaigns, NSError *error) {
-                               if (error) {
-                                   [self showCampaignFeedError];
-                               } else {
-                                   self.campaigns = campaigns;
-                                   
-                                   // Force a refresh of the table since we can't guarantee
-                                   // when the request will finish until this block
-                                   [self.tableView reloadData];
-                               }
-                           }];
-    } else {
-        [WCClient fetchFeaturedCampaigns:^(NSArray *campaigns, NSError *error) {
+    [WCClient fetchFeaturedCampaigns:^(NSArray *campaigns, NSError *error) {
             if (error) {
                 [self showCampaignFeedError];
             } else {
-                self.campaigns = campaigns;
+                if ([WCLoginManager userType] == WCLoginUserPayer) {
+                    self.campaigns = campaigns;
+                } else {
+                    self.campaigns = [campaigns subarrayWithRange:NSMakeRange(0, campaigns.count / 3)];
+                }
                 
                 // Force a refresh of the table since we can't guarantee
                 // when the request will finish until this block
                 [self.tableView reloadData];
             }
         }];
-    }
 }
 
 - (void) showCampaignFeedError
