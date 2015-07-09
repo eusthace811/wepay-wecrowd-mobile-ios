@@ -289,20 +289,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="p0b-nd-NlA">
-                                <rect key="frame" x="24" y="72" width="552" height="80"/>
+                                <rect key="frame" x="16" y="64" width="568" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="tt6-8H-GXh"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="tt6-8H-GXh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-zN-Kqv">
-                                <rect key="frame" x="24" y="168" width="552" height="91"/>
+                                <rect key="frame" x="24" y="152" width="552" height="91"/>
                                 <string key="text">Description: Bacon ipsum dolor amet hamburger salami kevin tenderloin short loin shank. Porchetta pastrami meatball frankfurter cow turkey, short loin pork ball tip rump filet mignon shank ground round capicola. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DonationProgress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3o-q2-7XQ">
-                                <rect key="frame" x="213" y="275" width="174" height="26"/>
+                                <rect key="frame" x="213" y="259" width="174" height="26"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" red="0.32944389025926246" green="0.80239898989898983" blue="0.38134143433148898" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -318,7 +318,7 @@
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="o3Y-1z-qFq">
-                                <rect key="frame" x="24" y="267" width="552" height="3"/>
+                                <rect key="frame" x="24" y="251" width="552" height="3"/>
                                 <color key="progressTintColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" red="0.92662957700000004" green="0.92662957700000004" blue="0.92662957700000004" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
@@ -328,17 +328,17 @@
                             <constraint firstItem="L3o-q2-7XQ" firstAttribute="top" secondItem="qzu-zN-Kqv" secondAttribute="bottom" constant="16" id="0wC-o7-r8V"/>
                             <constraint firstItem="qzu-zN-Kqv" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="6dB-rA-cLq"/>
                             <constraint firstItem="o3Y-1z-qFq" firstAttribute="top" secondItem="qzu-zN-Kqv" secondAttribute="bottom" constant="8" id="7Mn-ZW-AKM"/>
-                            <constraint firstItem="qzu-zN-Kqv" firstAttribute="top" secondItem="p0b-nd-NlA" secondAttribute="bottom" constant="16" id="CQR-8t-Qak"/>
-                            <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="Gs7-rM-X1X"/>
+                            <constraint firstItem="qzu-zN-Kqv" firstAttribute="top" secondItem="p0b-nd-NlA" secondAttribute="bottom" constant="8" id="CQR-8t-Qak"/>
+                            <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" id="Gs7-rM-X1X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qzu-zN-Kqv" secondAttribute="trailing" constant="8" id="Qpo-Bx-0I4"/>
                             <constraint firstItem="jdk-S0-2oS" firstAttribute="top" secondItem="NdA-dh-KhA" secondAttribute="bottom" constant="20" id="V9a-3y-Gdf"/>
                             <constraint firstItem="o3Y-1z-qFq" firstAttribute="leading" secondItem="qzu-zN-Kqv" secondAttribute="leading" id="WPI-WL-L1K"/>
                             <constraint firstItem="o3Y-1z-qFq" firstAttribute="trailing" secondItem="qzu-zN-Kqv" secondAttribute="trailing" id="aaa-N9-GfJ"/>
                             <constraint firstItem="qzu-zN-Kqv" firstAttribute="centerX" secondItem="L3o-q2-7XQ" secondAttribute="centerX" id="bLa-Qe-wrr"/>
                             <constraint firstAttribute="centerX" secondItem="NdA-dh-KhA" secondAttribute="centerX" id="d8r-Rg-Bp1"/>
-                            <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" constant="8" id="gig-77-YOH"/>
+                            <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" id="gig-77-YOH"/>
                             <constraint firstItem="NdA-dh-KhA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="L3o-q2-7XQ" secondAttribute="bottom" constant="16" id="smr-QE-wQG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="p0b-nd-NlA" secondAttribute="trailing" constant="8" id="wtb-6W-BXh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p0b-nd-NlA" secondAttribute="trailing" id="wtb-6W-BXh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Campaign Title" id="M3Z-JP-Zxp"/>
