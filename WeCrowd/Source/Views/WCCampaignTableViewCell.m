@@ -31,6 +31,7 @@
     NSDateFormatter* standardDateFormat = [NSDateFormatter new];
     NSString* timeRemaining, *pledgeProgress;
     CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
+    UIColor *backgroundColor;
     
     // format the view information
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
@@ -53,8 +54,11 @@
     }
     
     // Cell appearance customization
+    backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.925 0.925 0.925"]];
+    
     [self.contentInsetView.layer setBorderWidth:0.5f];
-    [self.contentInsetView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.contentInsetView.layer setBorderColor:backgroundColor.CGColor];
+    [self.contentView setBackgroundColor:backgroundColor];
 }
 
 @end
