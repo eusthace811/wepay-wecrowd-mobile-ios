@@ -83,7 +83,7 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
-    NSString *message;
+    NSString *message = [NSString stringWithFormat:@"Could not complete donation. %@", [error localizedDescription]];
     
     [WCAlerts showSimpleAlertFromViewController:self
                                       withTitle:@"Unable to process information"
@@ -97,15 +97,6 @@
 
 - (void) setupCreditCardModel
 {
-    #ifdef DEBUG
-    self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:@"WeCrowd-iOS"
-                                                                       lastName:@"Demo"
-                                                                     cardNumber:@"5496198584584769"
-                                                                            cvv:@"123"
-                                                                        zipCode:@"94306"
-                                                                expirationMonth:@"04"
-                                                                 expirationYear:@"2020"];
-    #else
     self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:self.cardInfoEntryView.firstNameField.text
                                                                        lastName:self.cardInfoEntryView.lastNameField.text
                                                                      cardNumber:self.cardInfoEntryView.cardNumberField.text
@@ -113,19 +104,12 @@
                                                                         zipCode:self.cardInfoEntryView.expiryZipField.text
                                                                 expirationMonth:self.cardInfoEntryView.expiryMonthField.text
                                                                  expirationYear:self.cardInfoEntryView.expiryYearField.text];
-    #endif
 }
 
 - (void) setupDonation
 {
-    #ifdef DEBUG
-    self.donationAmount = @"50";
-    self.email = @"wp.ios.example@wepay.com";
-    
-    #else
     self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
     self.email = self.cardInfoEntryView.emailField.text;
-    #endif
 }
 
 - (void) executeDonation
