@@ -12,7 +12,8 @@
 
 @interface WCCampaignHeaderModel ()
 
-@property (nonatomic, strong, readwrite) UIImage * thumbnailImage;
+@property (nonatomic, strong, readwrite) UIImage *thumbnailImage;
+@property (nonatomic, strong, readwrite) NSString *thumbnailImageURLString;
 
 @end
 
@@ -27,6 +28,7 @@
                    donationTarget:(CGFloat) donationTarget
                    donationAmount:(CGFloat) donationAmount
                    thumbnailImage:(UIImage *) thumbnailImage
+                   imageURLString:(NSString *) imageURLString
 {
     if (self = [super initWithCampaign:campaign
                                  title:title endDate:endDate
@@ -34,8 +36,9 @@
                         donationAmount:donationAmount])
     {
         self.thumbnailImage = thumbnailImage;
+        self.thumbnailImageURLString = imageURLString;
     } else {
-        // do nothing
+        // Do nothing
     }
     
     return self;

@@ -17,8 +17,7 @@
 
 @implementation WCModelProcessor
 
-+ (void) createProcessedArrayForCampaigns:(NSArray *) campaigns
-                               completion:(WCModelProcessorCompletion) completion
++ (NSArray *) createProcessedArrayForCampaigns:(NSArray *) campaigns
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[campaigns count]];
     
@@ -41,6 +40,8 @@
                                                     donationTarget:campaignGoal
                                                     donationAmount:0];
     }
+    
+    return array;
 }
 
 + (void) createCampaignDetailFromDictionary:(NSDictionary *) dictionary

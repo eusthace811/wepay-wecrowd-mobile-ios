@@ -14,13 +14,14 @@
 
 @interface WCCampaignHeaderModel : WCCampaignBaseModel
 
-@property (nonatomic, strong, readonly) UIImage * thumbnailImage;
+@property (nonatomic, strong, readonly) NSString *thumbnailImageURLString;
 
 - (instancetype) initWithCampaign:(NSString *) campaign
                             title:(NSString *) title
                           endDate:(NSDate *) endDate
                    donationTarget:(CGFloat) donationTarget
                    donationAmount:(CGFloat) donationAmount
-                   thumbnailImage:(UIImage *) thumbnailImage;
+                   thumbnailImage:(UIImage *) thumbnailImage
+                   imageURLString:(NSString *) imageURLString;
 
 @end

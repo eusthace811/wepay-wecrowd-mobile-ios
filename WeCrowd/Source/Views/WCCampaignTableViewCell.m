@@ -8,6 +8,7 @@
 
 #import "WCCampaignTableViewCell.h"
 #import "WCCampaignHeaderModel.h"
+#import "WCClient.h"
 
 @interface WCCampaignTableViewCell ()
 
@@ -41,7 +42,10 @@
     self.endDate.text = timeRemaining;
     self.donationProgress.text = pledgeProgress;
     // TODO: use thumbnail image from server
-    self.thumbnailImageView.image = model.thumbnailImage;
+    [WCClient fetchImageWithURLString:model.thumbnailImageURLString
+                      completionBlock:^(UIImage *image, NSError *error) {
+                          self.thumbnailImageView.image = image;
+                      }];
 }
 
 @end
