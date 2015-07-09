@@ -38,7 +38,8 @@
                                                              title:campaignName
                                                            endDate:nil
                                                     donationTarget:campaignGoal
-                                                    donationAmount:0];
+                                                    donationAmount:0
+                                                    imageURLString:imageURLString];
     }
     
     return array;

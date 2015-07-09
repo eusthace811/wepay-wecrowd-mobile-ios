@@ -27,7 +27,6 @@
                           endDate:(NSDate *) endDate
                    donationTarget:(CGFloat) donationTarget
                    donationAmount:(CGFloat) donationAmount
-                   thumbnailImage:(UIImage *) thumbnailImage
                    imageURLString:(NSString *) imageURLString
 {
     if (self = [super initWithCampaign:campaign
@@ -35,7 +34,6 @@
                         donationTarget:donationTarget
                         donationAmount:donationAmount])
     {
-        self.thumbnailImage = thumbnailImage;
         self.thumbnailImageURLString = imageURLString;
     } else {
         // Do nothing

@@ -21,7 +21,6 @@
                           endDate:(NSDate *) endDate
                    donationTarget:(CGFloat) donationTarget
                    donationAmount:(CGFloat) donationAmount
-                   thumbnailImage:(UIImage *) thumbnailImage
                    imageURLString:(NSString *) imageURLString;
 
 @end

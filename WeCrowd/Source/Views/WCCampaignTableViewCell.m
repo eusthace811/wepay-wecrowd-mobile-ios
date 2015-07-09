@@ -15,8 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *endDate;
 @property (weak, nonatomic) IBOutlet UILabel *donationProgress;
-
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+
+@property (nonatomic, readwrite) BOOL hasImageLoaded;
 
 @end
 
@@ -42,10 +43,13 @@
     self.endDate.text = timeRemaining;
     self.donationProgress.text = pledgeProgress;
     // TODO: use thumbnail image from server
-    [WCClient fetchImageWithURLString:model.thumbnailImageURLString
-                      completionBlock:^(UIImage *image, NSError *error) {
-                          self.thumbnailImageView.image = image;
-                      }];
+    if (!self.hasImageLoaded) {
+        [WCClient fetchImageWithURLString:model.thumbnailImageURLString
+                          completionBlock:^(UIImage *image, NSError *error) {
+                                  self.thumbnailImageView.image = image;
+                                  self.hasImageLoaded = YES;
+                          }];
+    }
 }
 
 @end
