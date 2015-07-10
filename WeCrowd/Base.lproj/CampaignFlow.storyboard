@@ -40,18 +40,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRP-fF-Ets">
-                                <rect key="frame" x="163" y="72" width="275" height="77"/>
+                                <rect key="frame" x="163" y="262" width="275" height="77"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="64"/>
-                                <color key="textColor" red="0.42745098039215684" green="0.74509803921568629" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.38583996539999998" blue="0.2364585343" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIJ-8p-lg0">
-                                <rect key="frame" x="24" y="252" width="552" height="96"/>
+                                <rect key="frame" x="24" y="484" width="552" height="96"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
-                                        <rect key="frame" x="253" y="0.0" width="47" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <rect key="frame" x="0.0" y="8" width="552" height="35"/>
+                                        <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -59,9 +61,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-a5-BK4">
-                                        <rect key="frame" x="195" y="35" width="162" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <rect key="frame" x="0.0" y="61" width="552" height="35"/>
+                                        <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Browse campaigns">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -70,36 +74,40 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Zo0-a5-BK4" firstAttribute="top" secondItem="Jew-qO-dWS" secondAttribute="bottom" id="8SU-0a-L6z"/>
+                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="leading" secondItem="Zo0-a5-BK4" secondAttribute="leading" id="6wq-gN-FHk"/>
                                     <constraint firstAttribute="height" constant="96" id="BK5-4k-Wfj"/>
+                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="leading" secondItem="WIJ-8p-lg0" secondAttribute="leading" id="EOj-7x-v6j"/>
                                     <constraint firstAttribute="bottom" secondItem="Zo0-a5-BK4" secondAttribute="bottom" constant="32" id="IPV-Ay-0x6"/>
-                                    <constraint firstAttribute="centerX" secondItem="Jew-qO-dWS" secondAttribute="centerX" id="OC6-8f-jwc"/>
+                                    <constraint firstItem="Zo0-a5-BK4" firstAttribute="top" secondItem="Jew-qO-dWS" secondAttribute="bottom" constant="18" id="N5q-4f-9ER"/>
                                     <constraint firstAttribute="centerX" secondItem="Zo0-a5-BK4" secondAttribute="centerX" id="SA7-de-TxC"/>
-                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="top" secondItem="WIJ-8p-lg0" secondAttribute="top" id="rks-kq-PtW"/>
+                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="top" secondItem="WIJ-8p-lg0" secondAttribute="top" constant="8" id="iCw-aY-Ofa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jew-qO-dWS" secondAttribute="trailing" id="k7l-k9-X97"/>
+                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="trailing" secondItem="Zo0-a5-BK4" secondAttribute="trailing" id="pbj-TO-EtD"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="IPV-Ay-0x6"/>
+                                        <exclude reference="SA7-de-TxC"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like to do?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dW-Yo-YTP">
-                                <rect key="frame" x="196" y="231" width="208" height="21"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="WIJ-8p-lg0" secondAttribute="centerY" id="0Cc-kp-a30"/>
-                            <constraint firstItem="3dW-Yo-YTP" firstAttribute="centerX" secondItem="WIJ-8p-lg0" secondAttribute="centerX" id="9do-91-Jv7"/>
                             <constraint firstItem="CRP-fF-Ets" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9h0-cb-Ue3"/>
-                            <constraint firstAttribute="centerX" secondItem="CRP-fF-Ets" secondAttribute="centerX" constant="-0.5" id="NUg-3x-tVH"/>
+                            <constraint firstAttribute="centerY" secondItem="CRP-fF-Ets" secondAttribute="centerY" id="Mlv-aR-8eD"/>
+                            <constraint firstAttribute="centerX" secondItem="CRP-fF-Ets" secondAttribute="centerX" id="NUg-3x-tVH"/>
                             <constraint firstItem="WIJ-8p-lg0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="jIL-vn-2Pk"/>
-                            <constraint firstItem="WIJ-8p-lg0" firstAttribute="top" secondItem="3dW-Yo-YTP" secondAttribute="bottom" id="lxh-cN-Nsw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WIJ-8p-lg0" secondAttribute="trailing" constant="8" id="pKw-kd-qVk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WIJ-8p-lg0" secondAttribute="bottom" constant="20" id="tq9-4i-Qg9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9h0-cb-Ue3"/>
+                                <exclude reference="0Cc-kp-a30"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="WeCrowd" id="hV6-I7-wNt"/>
                     <connections>
