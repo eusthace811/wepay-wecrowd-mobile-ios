@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="8" width="552" height="35"/>
                                         <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                        <state key="normal" title="Login">
+                                        <state key="normal" title="Login as Merchant">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-a5-BK4">
-                                        <rect key="frame" x="0.0" y="61" width="552" height="35"/>
+                                        <rect key="frame" x="0.0" y="59" width="552" height="35"/>
                                         <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Browse campaigns">
@@ -78,7 +78,7 @@
                                     <constraint firstAttribute="height" constant="96" id="BK5-4k-Wfj"/>
                                     <constraint firstItem="Jew-qO-dWS" firstAttribute="leading" secondItem="WIJ-8p-lg0" secondAttribute="leading" id="EOj-7x-v6j"/>
                                     <constraint firstAttribute="bottom" secondItem="Zo0-a5-BK4" secondAttribute="bottom" constant="32" id="IPV-Ay-0x6"/>
-                                    <constraint firstItem="Zo0-a5-BK4" firstAttribute="top" secondItem="Jew-qO-dWS" secondAttribute="bottom" constant="18" id="N5q-4f-9ER"/>
+                                    <constraint firstItem="Zo0-a5-BK4" firstAttribute="top" secondItem="Jew-qO-dWS" secondAttribute="bottom" constant="16" id="N5q-4f-9ER"/>
                                     <constraint firstAttribute="centerX" secondItem="Zo0-a5-BK4" secondAttribute="centerX" id="SA7-de-TxC"/>
                                     <constraint firstItem="Jew-qO-dWS" firstAttribute="top" secondItem="WIJ-8p-lg0" secondAttribute="top" constant="8" id="iCw-aY-Ofa"/>
                                     <constraint firstAttribute="trailing" secondItem="Jew-qO-dWS" secondAttribute="trailing" id="k7l-k9-X97"/>
@@ -137,7 +137,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="wp.ios.example@wepay.com" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjD-OD-ML4">
-                                <rect key="frame" x="42" y="145" width="504" height="30"/>
+                                <rect key="frame" x="24" y="145" width="552" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="hYu-hW-GHS"/>
                                 </constraints>
@@ -151,7 +151,7 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tyb-ZU-jrP">
-                                <rect key="frame" x="42" y="191" width="504" height="30"/>
+                                <rect key="frame" x="24" y="191" width="552" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="bce-4s-ZYA"/>
                                 </constraints>
@@ -165,9 +165,11 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxD-Hv-Pif">
-                                <rect key="frame" x="277" y="229" width="47" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <rect key="frame" x="40" y="237" width="520" height="35"/>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -178,26 +180,37 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="26" id="5WH-he-Gi0"/>
-                            <constraint firstItem="HxD-Hv-Pif" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="8" id="FsP-mM-bMk"/>
+                            <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="EjD-OD-ML4" secondAttribute="leading" id="CBM-QW-bKg"/>
+                            <constraint firstItem="HxD-Hv-Pif" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="16" id="FsP-mM-bMk"/>
+                            <constraint firstItem="tyb-ZU-jrP" firstAttribute="trailing" secondItem="EjD-OD-ML4" secondAttribute="trailing" id="OfP-wc-Ss1"/>
                             <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="100" id="PNC-yj-2Ec"/>
                             <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="8" id="TB6-jb-0e4"/>
-                            <constraint firstItem="EjD-OD-ML4" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="26" id="Vfl-9m-bPu"/>
+                            <constraint firstItem="EjD-OD-ML4" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="8" id="Vfl-9m-bPu"/>
                             <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" constant="-40" id="Vxm-e7-506"/>
                             <constraint firstItem="EjD-OD-ML4" firstAttribute="top" secondItem="76J-ET-fHD" secondAttribute="bottom" constant="8" id="W19-83-clm"/>
+                            <constraint firstItem="HxD-Hv-Pif" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="32" id="Y8t-45-Ydk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tyb-ZU-jrP" secondAttribute="trailing" constant="38" id="ZL9-OO-5om"/>
                             <constraint firstAttribute="centerY" secondItem="EjD-OD-ML4" secondAttribute="centerY" constant="14" id="ZQN-N9-RN9"/>
                             <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" id="fJt-95-PqG"/>
                             <constraint firstAttribute="centerX" secondItem="76J-ET-fHD" secondAttribute="centerX" id="gG4-1T-OP8"/>
+                            <constraint firstItem="tyb-ZU-jrP" firstAttribute="trailing" secondItem="HxD-Hv-Pif" secondAttribute="trailing" constant="16" id="q6r-22-YDs"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="top" secondItem="EjD-OD-ML4" secondAttribute="bottom" constant="16" id="suE-Pj-P1B"/>
+                            <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="HxD-Hv-Pif" secondAttribute="leading" constant="-16" id="uim-N1-m98"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HxD-Hv-Pif" secondAttribute="trailing" constant="32" id="vcd-mv-GB1"/>
                             <constraint firstAttribute="centerX" secondItem="EjD-OD-ML4" secondAttribute="centerX" id="wCA-2D-YPm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EjD-OD-ML4" secondAttribute="trailing" constant="38" id="wmG-Hh-fM1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EjD-OD-ML4" secondAttribute="trailing" constant="8" id="wmG-Hh-fM1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ZQN-N9-RN9"/>
                                 <exclude reference="wCA-2D-YPm"/>
+                                <exclude reference="5WH-he-Gi0"/>
+                                <exclude reference="ZL9-OO-5om"/>
                                 <exclude reference="PNC-yj-2Ec"/>
                                 <exclude reference="Vxm-e7-506"/>
+                                <exclude reference="Y8t-45-Ydk"/>
+                                <exclude reference="fJt-95-PqG"/>
+                                <exclude reference="vcd-mv-GB1"/>
                             </mask>
                         </variation>
                     </view>
@@ -411,7 +424,7 @@
         <image name="Logo" width="300" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NMc-9M-Twa"/>
+        <segue reference="iuM-Qj-g2P"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>
