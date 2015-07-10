@@ -49,7 +49,7 @@
                                 <rect key="frame" x="24" y="252" width="552" height="96"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
-                                        <rect key="frame" x="253" y="8" width="47" height="35"/>
+                                        <rect key="frame" x="253" y="0.0" width="47" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Login">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,7 +59,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-a5-BK4">
-                                        <rect key="frame" x="195" y="43" width="162" height="35"/>
+                                        <rect key="frame" x="195" y="35" width="162" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Browse campaigns">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,7 +75,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Zo0-a5-BK4" secondAttribute="bottom" constant="32" id="IPV-Ay-0x6"/>
                                     <constraint firstAttribute="centerX" secondItem="Jew-qO-dWS" secondAttribute="centerX" id="OC6-8f-jwc"/>
                                     <constraint firstAttribute="centerX" secondItem="Zo0-a5-BK4" secondAttribute="centerX" id="SA7-de-TxC"/>
-                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="top" secondItem="WIJ-8p-lg0" secondAttribute="top" constant="8" id="rks-kq-PtW"/>
+                                    <constraint firstItem="Jew-qO-dWS" firstAttribute="top" secondItem="WIJ-8p-lg0" secondAttribute="top" id="rks-kq-PtW"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -84,7 +84,7 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like to do?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dW-Yo-YTP">
-                                <rect key="frame" x="196" y="223" width="208" height="21"/>
+                                <rect key="frame" x="196" y="231" width="208" height="21"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                             <constraint firstItem="CRP-fF-Ets" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9h0-cb-Ue3"/>
                             <constraint firstAttribute="centerX" secondItem="CRP-fF-Ets" secondAttribute="centerX" constant="-0.5" id="NUg-3x-tVH"/>
                             <constraint firstItem="WIJ-8p-lg0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="jIL-vn-2Pk"/>
-                            <constraint firstItem="WIJ-8p-lg0" firstAttribute="top" secondItem="3dW-Yo-YTP" secondAttribute="bottom" constant="8" id="lxh-cN-Nsw"/>
+                            <constraint firstItem="WIJ-8p-lg0" firstAttribute="top" secondItem="3dW-Yo-YTP" secondAttribute="bottom" id="lxh-cN-Nsw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WIJ-8p-lg0" secondAttribute="trailing" constant="8" id="pKw-kd-qVk"/>
                         </constraints>
                     </view>
@@ -398,7 +398,7 @@
         <image name="Logo" width="300" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iuM-Qj-g2P"/>
+        <segue reference="NMc-9M-Twa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>
