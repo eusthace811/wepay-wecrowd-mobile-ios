@@ -66,7 +66,7 @@
                                                              if (!error) {
                                                                  [self.activityIndicator stopAnimating];
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
-                                                                                                                forDuration:2.5f];
+                                                                                                                forDuration:3.f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              } else {
                                                                  [WCAlerts showAlertWithOptionFromViewController:self
