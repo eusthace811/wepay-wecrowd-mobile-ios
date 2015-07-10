@@ -3,6 +3,7 @@
 
 target 'WeCrowd' do
     pod 'CWStatusBarNotification', '~> 2.2.6'
+    pod 'WePay'
 end
 
 target 'WeCrowdTests' do

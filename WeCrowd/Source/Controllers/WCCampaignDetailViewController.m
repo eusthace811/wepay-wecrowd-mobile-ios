@@ -25,11 +25,24 @@
 @property (weak, nonatomic) IBOutlet UIButton *giveMoneyButton;
 @property (weak, nonatomic) IBOutlet UIImageView *campaignImage;
 
+@property (nonatomic, strong, readwrite) UILabel *titleLabel;
+
 @property (strong, nonatomic, readwrite) WCCampaignDetailModel *campaignDetail;
 
 @end
 
 @implementation WCCampaignDetailViewController
+
+- (instancetype) initWithCoder:(NSCoder *) aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setUpNavigationItemTitleLabel];
+    } else {
+        // Do nothing
+    }
+    
+    return self;
+}
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +52,8 @@
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
         [self.giveMoneyButton setTitle:@"Donate" forState:UIControlStateNormal];
     }
+    
+    self.navigationItem.titleView = self.titleLabel;
 }
 
 - (void) didReceiveMemoryWarning {
@@ -143,16 +158,26 @@
                           donationProgress = self.campaignDetail.donationTargetAmount == 0 ? 0 : self.campaignDetail.donationAmount / self.campaignDetail.donationTargetAmount;
                           
                           // Configure the UI
-                          self.navigationItem.title = self.campaignDetail.title;
+                          self.titleLabel.text = self.campaignDetail.title;
                           self.campaignImage.image = self.campaignDetail.detailImage;
                           self.campaignDonationProgress.text = [NSString stringWithFormat:@"%.f", donationProgress * 100];
-                          self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"%"];
+                          self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"% funded"];
                           self.campaignDonationProgressBar.progress = donationProgress;
                       }
                       
                       // Scroll the text view now the image height is calculated
                       [self.campaignDescription setContentOffset:CGPointMake(0, 0) animated:YES];
                   }];
+}
+
+#pragma mark Setup
+
+- (void) setUpNavigationItemTitleLabel
+{
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 32)];
+    self.titleLabel.minimumScaleFactor = 0.6f;
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.titleLabel.textColor = [UIColor whiteColor];
 }
 
 @end

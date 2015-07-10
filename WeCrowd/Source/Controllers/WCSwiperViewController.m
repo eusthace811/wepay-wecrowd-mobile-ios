@@ -29,7 +29,7 @@
 
 #pragma mark - UIViewController
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
     
@@ -69,7 +69,12 @@
 
 - (IBAction) submitAction:(id) sender
 {
-    [self executeCardRead];
+    [self.swiperStatusLabel setHidden:NO];
+    [self toggleWaitingActivity:YES];
+    
+    // Kick off the swiping payment sequence
+    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
+                                                            tokenizationDelegate:self];
 }
 
 - (IBAction) viewSwipeDownAction:(id) sender
@@ -91,10 +96,12 @@
 {
     if (status == kWPCardReaderStatusNotConnected) {
         self.swiperStatusLabel.text = @"Please connect the card reader to your device.";
+        [self.activityIndicator stopAnimating];
     } else if (status == kWPCardReaderStatusConnected) {
         self.swiperStatusLabel.text = @"Card reader connected.";
     } else if (status == kWPCardReaderStatusWaitingForSwipe) {
         self.swiperStatusLabel.text = @"Waiting for swipe...";
+        [self.activityIndicator stopAnimating];
     } else if (status == kWPCardReaderStatusSwipeDetected) {
         self.swiperStatusLabel.text = @"Detected swipe!";
         [self.activityIndicator startAnimating];
@@ -107,11 +114,7 @@
 
 - (void) donationFieldDidChange
 {
-    BOOL isValid = [self isDonationFieldValid];
-    
-    [self.submitButton setHidden:!isValid];
-    [self.swiperStatusLabel setHidden:isValid];
-    [self.instructionLabel setHidden:isValid];
+    [self updateFeedbackUI];
 }
 
 #pragma mark - WPCardReaderDelegate
@@ -129,7 +132,6 @@
                                         message:@"There was an error processing the card. Please try again."
                                      completion:nil];
     
-    [self resetFeedbackUI];
     NSLog(@"Error: Card reader: %@", [error localizedDescription]);
 }
 
@@ -139,7 +141,6 @@
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didTokenize:(WPPaymentToken *) paymentToken
 {
     [self executeDonationWithPaymentToken:paymentToken];
-    
     self.swiperStatusLabel.text = @"Processing donation...";
     
     NSLog(@"Success: Tokenization: Did tokenize!");
@@ -152,8 +153,8 @@
                                         message:@"There was a payment service error. Please try again."
                                      completion:nil];
     
+    [self.submitButton setHidden:YES];
     
-    [self resetFeedbackUI];
     NSLog(@"Error: Tokenization: %@", [error localizedDescription]);
 }
 
@@ -165,14 +166,12 @@
     [self.donationField setEnabled:NO];
     [self.submitButton setHidden:YES];
     [self.swiperStatusLabel setHidden:NO];
-    
-    // Kick off the swiping payment sequence
-    [[WCWePayManager sharedInstance] startCardReadTokenizationWithReaderDelegate:self
-                                                            tokenizationDelegate:self];
 }
 
 - (void) executeDonationWithPaymentToken:(WPPaymentToken *) paymentToken
 {
+    [self toggleWaitingActivity:YES];
+    
     [[WCDonationManager sharedManager] makeDonationForCampaignWithAmount:self.donationField.text
                                                                     name:nil
                                                                    email:nil
@@ -197,11 +196,9 @@
 
 - (void) setUpFeedbackUI
 {
-    // Status label
-    self.swiperStatusLabel.text = @"";
-    
-    // Submit button
-    [self.submitButton setHidden:YES];
+    // Swiper hasn't started yet so hide it
+    [self.swiperStatusLabel setHidden:YES];
+    [self.instructionLabel setHidden:YES];
     
     // Donation field
     [self.donationField addTarget:self
@@ -215,6 +212,26 @@
     [self.activityIndicator stopAnimating];
     [self.submitButton setHidden:NO];
     self.swiperStatusLabel.text = @"";
+}
+
+- (void) toggleWaitingActivity:(BOOL) waiting
+{
+    if (waiting) {
+        [self.activityIndicator startAnimating];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
+    
+    [self.submitButton setHidden:waiting];
+}
+
+- (void) updateFeedbackUI
+{
+    BOOL isValid = [self isDonationFieldValid];
+    
+    [self.submitButton setHidden:!isValid];
+    [self.swiperStatusLabel setHidden:!isValid];
+    [self.instructionLabel setHidden:isValid];
 }
 
 #pragma mark Checks

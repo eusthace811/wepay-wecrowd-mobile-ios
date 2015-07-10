@@ -22,4 +22,6 @@
 - (void) startCardReadTokenizationWithReaderDelegate:(id) readerDelegate
                                 tokenizationDelegate:(id) tokenizationDelegate;
 
+- (void) startCardReadWithDelegate:(id) readerDelegate;
+
 @end

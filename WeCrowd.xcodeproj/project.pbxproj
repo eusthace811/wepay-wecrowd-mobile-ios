@@ -33,18 +33,6 @@
 		C3D610A01B3E0314005D188F /* WCWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6109F1B3E0314005D188F /* WCWelcomeViewController.m */; };
 		C3D610A31B3E0C1A005D188F /* WCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D610A21B3E0C1A005D188F /* WCConstants.m */; };
 		C3D610A71B3E1D7C005D188F /* WCCampaignTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D610A61B3E1D7C005D188F /* WCCampaignTableViewCell.m */; };
-		C3D610A91B41B109005D188F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610A81B41B109005D188F /* AudioToolbox.framework */; };
-		C3D610AB1B41B113005D188F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610AA1B41B113005D188F /* AVFoundation.framework */; };
-		C3D610AD1B41B11C005D188F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610AC1B41B11C005D188F /* CoreBluetooth.framework */; };
-		C3D610AF1B41B124005D188F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610AE1B41B124005D188F /* CoreTelephony.framework */; };
-		C3D610B11B41B12A005D188F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610B01B41B12A005D188F /* MediaPlayer.framework */; };
-		C3D610B31B41B131005D188F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610B21B41B131005D188F /* SystemConfiguration.framework */; };
-		C3D610B51B41B13E005D188F /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610B41B41B13E005D188F /* libstdc++.6.0.9.dylib */; };
-		C3D610D41B41BAAA005D188F /* G4XSwiper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610CF1B41BAAA005D188F /* G4XSwiper.framework */; };
-		C3D610D51B41BAAA005D188F /* RPx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610D01B41BAAA005D188F /* RPx.framework */; };
-		C3D610D61B41BAAA005D188F /* RUA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610D11B41BAAA005D188F /* RUA.framework */; };
-		C3D610D71B41BAAA005D188F /* TrustDefenderMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610D21B41BAAA005D188F /* TrustDefenderMobile.framework */; };
-		C3D610D81B41BAAA005D188F /* WePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D610D31B41BAAA005D188F /* WePay.framework */; };
 		C3DC8ED71B3C6B5C0053D405 /* WCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */; };
 		C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */; };
 		C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC8EDC1B3CA0650053D405 /* WCCampaignDetailViewController.m */; };
@@ -113,18 +101,6 @@
 		C3D610A21B3E0C1A005D188F /* WCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCConstants.m; path = Source/Internal/WCConstants.m; sourceTree = "<group>"; };
 		C3D610A51B3E1D7C005D188F /* WCCampaignTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignTableViewCell.h; path = Source/Views/WCCampaignTableViewCell.h; sourceTree = "<group>"; };
 		C3D610A61B3E1D7C005D188F /* WCCampaignTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignTableViewCell.m; path = Source/Views/WCCampaignTableViewCell.m; sourceTree = "<group>"; };
-		C3D610A81B41B109005D188F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		C3D610AA1B41B113005D188F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C3D610AC1B41B11C005D188F /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		C3D610AE1B41B124005D188F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		C3D610B01B41B12A005D188F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		C3D610B21B41B131005D188F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C3D610B41B41B13E005D188F /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
-		C3D610CF1B41BAAA005D188F /* G4XSwiper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = G4XSwiper.framework; path = "../../../../../Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs/G4XSwiper.framework"; sourceTree = "<group>"; };
-		C3D610D01B41BAAA005D188F /* RPx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RPx.framework; path = "../../../../../Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs/RPx.framework"; sourceTree = "<group>"; };
-		C3D610D11B41BAAA005D188F /* RUA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RUA.framework; path = "../../../../../Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs/RUA.framework"; sourceTree = "<group>"; };
-		C3D610D21B41BAAA005D188F /* TrustDefenderMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TrustDefenderMobile.framework; path = "../../../../../Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs/TrustDefenderMobile.framework"; sourceTree = "<group>"; };
-		C3D610D31B41BAAA005D188F /* WePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WePay.framework; path = "../../../../../Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs/WePay.framework"; sourceTree = "<group>"; };
 		C3DC8ED51B3C6B5C0053D405 /* WCLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCLoginManager.h; path = Source/Managers/WCLoginManager.h; sourceTree = "<group>"; };
 		C3DC8ED61B3C6B5C0053D405 /* WCLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCLoginManager.m; path = Source/Managers/WCLoginManager.m; sourceTree = "<group>"; };
 		C3DC8ED81B3C93800053D405 /* WCModelProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCModelProcessor.h; path = Source/Internal/WCModelProcessor.h; sourceTree = "<group>"; };
@@ -143,18 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D610D41B41BAAA005D188F /* G4XSwiper.framework in Frameworks */,
-				C3D610D51B41BAAA005D188F /* RPx.framework in Frameworks */,
-				C3D610D61B41BAAA005D188F /* RUA.framework in Frameworks */,
-				C3D610D71B41BAAA005D188F /* TrustDefenderMobile.framework in Frameworks */,
-				C3D610D81B41BAAA005D188F /* WePay.framework in Frameworks */,
-				C3D610B51B41B13E005D188F /* libstdc++.6.0.9.dylib in Frameworks */,
-				C3D610B31B41B131005D188F /* SystemConfiguration.framework in Frameworks */,
-				C3D610B11B41B12A005D188F /* MediaPlayer.framework in Frameworks */,
-				C3D610AF1B41B124005D188F /* CoreTelephony.framework in Frameworks */,
-				C3D610AD1B41B11C005D188F /* CoreBluetooth.framework in Frameworks */,
-				C3D610AB1B41B113005D188F /* AVFoundation.framework in Frameworks */,
-				C3D610A91B41B109005D188F /* AudioToolbox.framework in Frameworks */,
 				79E77D27270F79FD0FB10D28 /* libPods-WeCrowd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +144,6 @@
 		C3060DF81B2652D500A9F596 = {
 			isa = PBXGroup;
 			children = (
-				C3D610B61B41B2A3005D188F /* Libs */,
 				C3060E031B2652D500A9F596 /* WeCrowd */,
 				C3060E1D1B2652D600A9F596 /* WeCrowdTests */,
 				C3060E021B2652D500A9F596 /* Products */,
@@ -205,7 +168,6 @@
 				C3060E2B1B29FF2500A9F596 /* UI */,
 				C39676671B2A66300071CEB5 /* Resources */,
 				C3060E041B2652D500A9F596 /* Supporting Files */,
-				C3060E111B2652D500A9F596 /* Images.xcassets */,
 			);
 			path = WeCrowd;
 			sourceTree = "<group>";
@@ -319,6 +281,7 @@
 		C39676671B2A66300071CEB5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3060E111B2652D500A9F596 /* Images.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -349,25 +312,6 @@
 				C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		C3D610B61B41B2A3005D188F /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				C3D610CF1B41BAAA005D188F /* G4XSwiper.framework */,
-				C3D610D01B41BAAA005D188F /* RPx.framework */,
-				C3D610D11B41BAAA005D188F /* RUA.framework */,
-				C3D610D21B41BAAA005D188F /* TrustDefenderMobile.framework */,
-				C3D610D31B41BAAA005D188F /* WePay.framework */,
-				C3D610B41B41B13E005D188F /* libstdc++.6.0.9.dylib */,
-				C3D610B21B41B131005D188F /* SystemConfiguration.framework */,
-				C3D610B01B41B12A005D188F /* MediaPlayer.framework */,
-				C3D610AE1B41B124005D188F /* CoreTelephony.framework */,
-				C3D610AC1B41B11C005D188F /* CoreBluetooth.framework */,
-				C3D610AA1B41B113005D188F /* AVFoundation.framework */,
-				C3D610A81B41B109005D188F /* AudioToolbox.framework */,
-			);
-			name = Libs;
 			sourceTree = "<group>";
 		};
 		C3DC8ED41B3C6B280053D405 /* Managers */ = {

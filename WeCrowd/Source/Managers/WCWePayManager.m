@@ -80,4 +80,9 @@
                                               tokenizationDelegate:tokenizationDelegate];
 }
 
+- (void) startCardReadWithDelegate:(id) readerDelegate
+{
+    [self.wepay startCardReaderForReadingWithCardReaderDelegate:readerDelegate];
+}
+
 @end
