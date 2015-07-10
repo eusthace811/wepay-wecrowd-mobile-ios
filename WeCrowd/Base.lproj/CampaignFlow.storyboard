@@ -327,9 +327,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-dh-KhA">
-                                <rect key="frame" x="237" y="558" width="126" height="34"/>
+                                <rect key="frame" x="48" y="558" width="504" height="34"/>
+                                <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Donate/Accept">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -361,7 +363,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NdA-dh-KhA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="32" id="7Gm-BZ-g54"/>
                             <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" id="Gs7-rM-X1X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NdA-dh-KhA" secondAttribute="trailing" constant="32" id="QLW-qR-In9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hex-tb-7f2" secondAttribute="trailing" id="ToO-7Z-FSh"/>
                             <constraint firstItem="hex-tb-7f2" firstAttribute="trailing" secondItem="o3Y-1z-qFq" secondAttribute="trailing" id="Uho-wI-d5U"/>
                             <constraint firstItem="jdk-S0-2oS" firstAttribute="top" secondItem="NdA-dh-KhA" secondAttribute="bottom" constant="8" id="V9a-3y-Gdf"/>
@@ -385,6 +389,7 @@
                                 <exclude reference="dFM-Df-rS4"/>
                                 <exclude reference="WKp-w3-QJc"/>
                                 <exclude reference="ezN-qk-siN"/>
+                                <exclude reference="d8r-Rg-Bp1"/>
                             </mask>
                         </variation>
                     </view>
