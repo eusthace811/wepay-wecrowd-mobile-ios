@@ -42,7 +42,7 @@
                                                     <rect key="frame" x="114" y="7" width="470" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-gA-hhc">
                                                     <rect key="frame" x="16" y="7" width="90" height="17"/>
@@ -141,7 +141,7 @@
                                                     <rect key="frame" x="114" y="7" width="470" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -162,7 +162,7 @@
                                                     <rect key="frame" x="114" y="7" width="470" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-pa-DkV">
                                                     <rect key="frame" x="16" y="7" width="90" height="17"/>
@@ -204,7 +204,7 @@
                                                     </constraints>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXB-hA-8uk">
                                                     <rect key="frame" x="138" y="7" width="12" height="17"/>
@@ -219,7 +219,7 @@
                                                     <rect key="frame" x="158" y="7" width="81" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -252,7 +252,7 @@
                                                     <rect key="frame" x="114" y="7" width="470" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -282,7 +282,7 @@
                                                     <rect key="frame" x="114" y="7" width="470" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -423,7 +423,7 @@
                             </variation>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Enter Card Information" id="jga-qe-kVE" userLabel="CardInformationSection">
+                            <tableViewSection headerTitle="Enter Donation Amount" id="jga-qe-kVE" userLabel="CardInformationSection">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" id="IIF-Yz-KUh" userLabel="DonationEntry">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -443,7 +443,7 @@
                                                     <rect key="frame" x="114" y="6" width="470" height="17"/>
                                                     <color key="textColor" red="0.39005287249999998" green="0.39005287249999998" blue="0.39005287249999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>

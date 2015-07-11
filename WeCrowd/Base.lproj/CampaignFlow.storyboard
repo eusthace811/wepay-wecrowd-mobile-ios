@@ -40,17 +40,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRP-fF-Ets">
-                                <rect key="frame" x="163" y="262" width="275" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <rect key="frame" x="197" y="271" width="207" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" red="1" green="0.38583996539999998" blue="0.2364585343" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIJ-8p-lg0" userLabel="ButtonContainer">
-                                <rect key="frame" x="24" y="484" width="552" height="96"/>
+                                <rect key="frame" x="24" y="452" width="552" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
-                                        <rect key="frame" x="0.0" y="8" width="552" height="35"/>
+                                        <rect key="frame" x="0.0" y="8" width="552" height="44"/>
                                         <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="NPm-p9-I5J"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Login as Merchant">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,8 +64,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-a5-BK4">
-                                        <rect key="frame" x="0.0" y="59" width="552" height="35"/>
+                                        <rect key="frame" x="0.0" y="68" width="552" height="44"/>
                                         <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="d6p-gn-T8b"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <state key="normal" title="Browse campaigns">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,7 +81,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Jew-qO-dWS" firstAttribute="leading" secondItem="Zo0-a5-BK4" secondAttribute="leading" id="6wq-gN-FHk"/>
-                                    <constraint firstAttribute="height" constant="96" id="BK5-4k-Wfj"/>
+                                    <constraint firstAttribute="height" constant="128" id="BK5-4k-Wfj"/>
                                     <constraint firstItem="Jew-qO-dWS" firstAttribute="leading" secondItem="WIJ-8p-lg0" secondAttribute="leading" id="EOj-7x-v6j"/>
                                     <constraint firstAttribute="bottom" secondItem="Zo0-a5-BK4" secondAttribute="bottom" constant="32" id="IPV-Ay-0x6"/>
                                     <constraint firstItem="Zo0-a5-BK4" firstAttribute="top" secondItem="Jew-qO-dWS" secondAttribute="bottom" constant="16" id="N5q-4f-9ER"/>
@@ -157,7 +163,7 @@
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bce-4s-ZYA"/>
@@ -424,7 +430,7 @@
         <image name="Logo" width="300" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NMc-9M-Twa"/>
+        <segue reference="iuM-Qj-g2P"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>
