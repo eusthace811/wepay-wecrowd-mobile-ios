@@ -12,7 +12,6 @@
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
 #import "WCLoginManager.h"
-#import "WCCreditCardInfoEntryView.h"
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
 #import "WCConstants.h"
