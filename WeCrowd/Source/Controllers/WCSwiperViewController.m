@@ -77,13 +77,6 @@
                                                             tokenizationDelegate:self];
 }
 
-- (IBAction) viewSwipeDownAction:(id) sender
-{
-    if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
-        [self.delegate didFinishWithSender:self];
-    }
-}
-
 - (IBAction) cancelAction:(id) sender
 {
     if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
@@ -186,7 +179,7 @@
                                                                                                  closeCompletion:^{ [self resetFeedbackUI]; }];
                                                              } else {
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
-                                                                                                                forDuration:2.5f];
+                                                                                                                forDuration:3.f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              }
                                                          }];
@@ -196,8 +189,8 @@
 
 - (void) setUpFeedbackUI
 {
-    // Swiper hasn't started yet so hide it
-    [self.swiperStatusLabel setHidden:YES];
+    self.swiperStatusLabel.text = @"Swiper Status";
+    
     [self.instructionLabel setHidden:YES];
     
     // Donation field

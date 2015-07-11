@@ -66,6 +66,8 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     self.selectedCampaignID = selectedCampaign.campaignID;
     
     [self performSegueWithIdentifier:kIBSegueCampaignFeedToCampaignDetail sender:self];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Navigation

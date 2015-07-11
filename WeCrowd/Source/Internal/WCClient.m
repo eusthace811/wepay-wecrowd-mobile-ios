@@ -331,10 +331,8 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                        accessToken:nil
                       successBlock:^(id returnData) {
                           completionBlock(returnData, nil);
-                          NSLog(@"Fetched image.");
                       } errorHandler:^(NSError *error) {
                           completionBlock(nil, error);
-                          NSLog(@"Unable to fetch image.");
                       }];
 }
 

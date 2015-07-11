@@ -35,6 +35,8 @@
     
     self.statusBarNotification = [CWStatusBarNotification new];
     
+    self.statusBarNotification.notificationStyle = CWNotificationStyleNavigationBarNotification;
+    self.statusBarNotification.notificationLabelFont = [UIFont systemFontOfSize:26];
     self.statusBarNotification.notificationLabelTextColor = [UIColor whiteColor];
     self.statusBarNotification.notificationLabelBackgroundColor = backgroundColor;
 }

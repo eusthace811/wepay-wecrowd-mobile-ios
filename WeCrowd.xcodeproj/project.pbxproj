@@ -18,7 +18,6 @@
 		C3060E341B2A017200A9F596 /* WCCampaignBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3060E331B2A017200A9F596 /* WCCampaignBaseModel.m */; };
 		C32293AD1B4AF94900876227 /* WCPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32293AC1B4AF94900876227 /* WCPaymentViewController.m */; };
 		C3249D901B420C5800C6CED7 /* WCSwiperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */; };
-		C32FABEC1B445CAC005C34AB /* WCCreditCardInfoEntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */; };
 		C32FABF21B44A614005C34AB /* WCDonationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABF11B44A614005C34AB /* WCDonationManager.m */; };
 		C36B3A881B4D997700EB8C9D /* WCAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A871B4D997700EB8C9D /* WCAlerts.m */; };
 		C36B3A8B1B4DC33200EB8C9D /* WCError.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A8A1B4DC33200EB8C9D /* WCError.m */; };
@@ -72,8 +71,6 @@
 		C32293AC1B4AF94900876227 /* WCPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCPaymentViewController.m; path = Source/Controllers/WCPaymentViewController.m; sourceTree = "<group>"; };
 		C3249D8E1B420C5800C6CED7 /* WCSwiperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCSwiperViewController.h; path = Source/Controllers/WCSwiperViewController.h; sourceTree = "<group>"; };
 		C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCSwiperViewController.m; path = Source/Controllers/WCSwiperViewController.m; sourceTree = "<group>"; };
-		C32FABEA1B445CA4005C34AB /* WCCreditCardInfoEntryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCCreditCardInfoEntryView.h; path = Source/Views/WCCreditCardInfoEntryView.h; sourceTree = "<group>"; };
-		C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCreditCardInfoEntryView.m; path = Source/Views/WCCreditCardInfoEntryView.m; sourceTree = "<group>"; };
 		C32FABF01B44A614005C34AB /* WCDonationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCDonationManager.h; path = Source/Managers/WCDonationManager.h; sourceTree = "<group>"; };
 		C32FABF11B44A614005C34AB /* WCDonationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCDonationManager.m; path = Source/Managers/WCDonationManager.m; sourceTree = "<group>"; };
 		C36B3A861B4D997700EB8C9D /* WCAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCAlerts.h; path = Source/Internal/WCAlerts.h; sourceTree = "<group>"; };
@@ -308,8 +305,6 @@
 			children = (
 				C3D610A51B3E1D7C005D188F /* WCCampaignTableViewCell.h */,
 				C3D610A61B3E1D7C005D188F /* WCCampaignTableViewCell.m */,
-				C32FABEA1B445CA4005C34AB /* WCCreditCardInfoEntryView.h */,
-				C32FABEB1B445CAC005C34AB /* WCCreditCardInfoEntryView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -476,7 +471,6 @@
 				C3D610A71B3E1D7C005D188F /* WCCampaignTableViewCell.m in Sources */,
 				C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */,
 				C36B3A881B4D997700EB8C9D /* WCAlerts.m in Sources */,
-				C32FABEC1B445CAC005C34AB /* WCCreditCardInfoEntryView.m in Sources */,
 				C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */,
 				C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */,
 				C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */,
@@ -636,11 +630,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/zachv/sandbox/wepay-ios-priv/WePay/Libs",
-					"/Users/zachv/Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs",
-				);
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -662,11 +651,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/zachv/sandbox/wepay-ios-priv/WePay/Libs",
-					"/Users/zachv/Downloads/wepay-ios-2015-06-24/wepay-ios-example/WePayExample/Libs",
-				);
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
