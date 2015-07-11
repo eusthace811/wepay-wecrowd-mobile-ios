@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField* emailField;
 @property (weak, nonatomic) IBOutlet UITextField* passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -25,6 +26,13 @@
 #pragma mark - Implementation
 
 @implementation WCLoginViewController
+
+- (void) viewWillAppear:(BOOL) animated
+{
+    [super viewWillAppear:animated];
+    
+    self.loginButton.userInteractionEnabled = YES;
+}
 
 #pragma mark - IBOutlets
 
@@ -47,7 +55,7 @@
         } else {
             // Disable the control and push the next view
             if ([sender respondsToSelector:@selector(setUserInteractionEnabled:)]) {
-                ((UIControl *) sender).userInteractionEnabled = false;
+                ((UIControl *) sender).userInteractionEnabled = NO;
             }
             
             [self performSegueWithIdentifier:kIBSegueEntryToCampaignFeed sender:self];

@@ -136,12 +136,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeCrowd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76J-ET-fHD">
-                                <rect key="frame" x="184" y="72" width="232" height="65"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
-                                <color key="textColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="wp.ios.example@wepay.com" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjD-OD-ML4">
                                 <rect key="frame" x="24" y="145" width="552" height="30"/>
                                 <constraints>
@@ -182,23 +176,26 @@
                                     <action selector="login:" destination="MwS-ML-hOQ" eventType="touchUpInside" id="nUW-Vk-Qua"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-bq-MAv">
+                                <rect key="frame" x="24" y="72" width="552" height="55"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="26" id="5WH-he-Gi0"/>
+                            <constraint firstItem="xdp-bq-MAv" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="8" id="8WX-8C-jH6"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="EjD-OD-ML4" secondAttribute="leading" id="CBM-QW-bKg"/>
                             <constraint firstItem="HxD-Hv-Pif" firstAttribute="top" secondItem="tyb-ZU-jrP" secondAttribute="bottom" constant="16" id="FsP-mM-bMk"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="trailing" secondItem="EjD-OD-ML4" secondAttribute="trailing" id="OfP-wc-Ss1"/>
-                            <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="100" id="PNC-yj-2Ec"/>
-                            <constraint firstItem="76J-ET-fHD" firstAttribute="top" secondItem="czX-YX-Htl" secondAttribute="bottom" constant="8" id="TB6-jb-0e4"/>
+                            <constraint firstItem="EjD-OD-ML4" firstAttribute="top" secondItem="xdp-bq-MAv" secondAttribute="bottom" constant="18" id="QUl-jT-ukH"/>
+                            <constraint firstItem="xdp-bq-MAv" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="8" id="RpP-Di-yKo"/>
                             <constraint firstItem="EjD-OD-ML4" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="8" id="Vfl-9m-bPu"/>
                             <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" constant="-40" id="Vxm-e7-506"/>
-                            <constraint firstItem="EjD-OD-ML4" firstAttribute="top" secondItem="76J-ET-fHD" secondAttribute="bottom" constant="8" id="W19-83-clm"/>
                             <constraint firstItem="HxD-Hv-Pif" firstAttribute="leading" secondItem="1Vk-Nd-WAN" secondAttribute="leadingMargin" constant="32" id="Y8t-45-Ydk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tyb-ZU-jrP" secondAttribute="trailing" constant="38" id="ZL9-OO-5om"/>
                             <constraint firstAttribute="centerY" secondItem="EjD-OD-ML4" secondAttribute="centerY" constant="14" id="ZQN-N9-RN9"/>
                             <constraint firstAttribute="centerX" secondItem="HxD-Hv-Pif" secondAttribute="centerX" id="fJt-95-PqG"/>
-                            <constraint firstAttribute="centerX" secondItem="76J-ET-fHD" secondAttribute="centerX" id="gG4-1T-OP8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xdp-bq-MAv" secondAttribute="trailing" constant="8" id="hzE-yQ-St9"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="trailing" secondItem="HxD-Hv-Pif" secondAttribute="trailing" constant="16" id="q6r-22-YDs"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="top" secondItem="EjD-OD-ML4" secondAttribute="bottom" constant="16" id="suE-Pj-P1B"/>
                             <constraint firstItem="tyb-ZU-jrP" firstAttribute="leading" secondItem="HxD-Hv-Pif" secondAttribute="leading" constant="-16" id="uim-N1-m98"/>
@@ -212,7 +209,6 @@
                                 <exclude reference="wCA-2D-YPm"/>
                                 <exclude reference="5WH-he-Gi0"/>
                                 <exclude reference="ZL9-OO-5om"/>
-                                <exclude reference="PNC-yj-2Ec"/>
                                 <exclude reference="Vxm-e7-506"/>
                                 <exclude reference="Y8t-45-Ydk"/>
                                 <exclude reference="fJt-95-PqG"/>
@@ -223,6 +219,7 @@
                     <navigationItem key="navigationItem" title="Login" id="XPA-Uq-fio"/>
                     <connections>
                         <outlet property="emailField" destination="EjD-OD-ML4" id="ITB-jp-ebh"/>
+                        <outlet property="loginButton" destination="HxD-Hv-Pif" id="2bd-yy-4bY"/>
                         <outlet property="passwordField" destination="tyb-ZU-jrP" id="THy-XZ-J3c"/>
                         <segue destination="tkk-YJ-SKn" kind="show" identifier="entryViewToFeedViewSegue" id="iuM-Qj-g2P"/>
                     </connections>
