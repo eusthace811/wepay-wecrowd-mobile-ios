@@ -9,7 +9,7 @@
         <scene sceneID="vWR-0G-iiI">
             <objects>
                 <navigationController storyboardIdentifier="PaymentNavigationController" id="WJV-6g-urE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I4v-xw-HUy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="I4v-xw-HUy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
