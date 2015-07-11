@@ -189,8 +189,8 @@
 
 - (void) setUpFeedbackUI
 {
-    // Swiper hasn't started yet so hide it
-    [self.swiperStatusLabel setHidden:YES];
+    self.swiperStatusLabel.text = @"Swiper Status";
+    
     [self.instructionLabel setHidden:YES];
     
     // Donation field

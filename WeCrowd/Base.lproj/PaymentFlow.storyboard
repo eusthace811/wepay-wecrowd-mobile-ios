@@ -26,7 +26,7 @@
         <scene sceneID="Sw5-83-H6w">
             <objects>
                 <tableViewController storyboardIdentifier="WCManualPaymentViewController" id="ivX-u3-Bl0" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="dWN-aM-t0G">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="dWN-aM-t0G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -384,7 +384,7 @@
         <scene sceneID="F3d-6r-nl8">
             <objects>
                 <tableViewController storyboardIdentifier="WCSwiperViewController" id="G7D-oN-nhZ" customClass="WCSwiperViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="UZZ-Aw-PXE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="UZZ-Aw-PXE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -401,11 +401,10 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting Up..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygH-HP-ypo">
                                     <rect key="frame" x="0.0" y="11" width="600" height="22"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="trailing" secondItem="ygH-HP-ypo" secondAttribute="trailing" id="4D6-4a-5gL"/>
                                 <constraint firstAttribute="trailing" secondItem="wX9-wg-NgL" secondAttribute="trailing" id="GIv-kh-m0F"/>
@@ -426,7 +425,7 @@
                         <sections>
                             <tableViewSection headerTitle="Enter Card Information" id="jga-qe-kVE" userLabel="CardInformationSection">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" id="IIF-Yz-KUh">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" id="IIF-Yz-KUh" userLabel="DonationEntry">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IIF-Yz-KUh" id="qdF-x1-qIp">
                                             <autoresizingMask key="autoresizingMask"/>
