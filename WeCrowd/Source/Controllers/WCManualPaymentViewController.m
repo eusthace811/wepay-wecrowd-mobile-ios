@@ -20,7 +20,16 @@
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
-@property (weak, nonatomic) IBOutlet WCCreditCardInfoEntryView *cardInfoEntryView;
+@property (weak, nonatomic) IBOutlet UITextField *donationField;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextField *cardNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *expiryMonthField;
+@property (weak, nonatomic) IBOutlet UITextField *expiryYearField;
+@property (weak, nonatomic) IBOutlet UITextField *cvvField;
+@property (weak, nonatomic) IBOutlet UITextField *zipCodeField;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *submitFormButton;
 
@@ -42,12 +51,6 @@
     
     [self executeDonation];
 }
-
-- (IBAction) swipeDownAction:(id) sender
-{
-    [self.delegate didFinishWithSender:self];
-}
-
 
 - (IBAction) cancelAction:(id) sender
 {
@@ -97,19 +100,19 @@
 
 - (void) setupCreditCardModel
 {
-    self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:self.cardInfoEntryView.firstNameField.text
-                                                                       lastName:self.cardInfoEntryView.lastNameField.text
-                                                                     cardNumber:self.cardInfoEntryView.cardNumberField.text
-                                                                            cvv:self.cardInfoEntryView.cardCVVField.text
-                                                                        zipCode:self.cardInfoEntryView.expiryZipField.text
-                                                                expirationMonth:self.cardInfoEntryView.expiryMonthField.text
-                                                                 expirationYear:self.cardInfoEntryView.expiryYearField.text];
+    self.creditCardModel = [WCModelProcessor createCreditCardModelFromFirstName:self.firstNameField.text
+                                                                       lastName:self.lastNameField.text
+                                                                     cardNumber:self.cardNumberField.text
+                                                                            cvv:self.cvvField.text
+                                                                        zipCode:self.zipCodeField.text
+                                                                expirationMonth:self.expiryMonthField.text
+                                                                 expirationYear:self.expiryYearField.text];
 }
 
 - (void) setupDonation
 {
-    self.donationAmount = self.cardInfoEntryView.donationAmountField.text;
-    self.email = self.cardInfoEntryView.emailField.text;
+    self.donationAmount = self.donationField.text;
+    self.email = self.emailField.text;
 }
 
 - (void) executeDonation

@@ -7,217 +7,200 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D276599A38045DFBC572E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6C507AF13AEDC343C7E5CA /* Foundation.framework */; };
-		45ED02669C6D540FB0D55556 /* Pods-WeCrowd-CWStatusBarNotification-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83E70200FC2DD1452F0CAE /* Pods-WeCrowd-CWStatusBarNotification-dummy.m */; };
-		67768B6FF56E96AF314C0246 /* Pods-WeCrowd-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A282C2A498A8A5142D6AB22 /* Pods-WeCrowd-dummy.m */; };
-		D49B27C795B4B2F783025415 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6C507AF13AEDC343C7E5CA /* Foundation.framework */; };
-		EDCA7EAA721C40A2A17DCD6D /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 9336DA8C81DEABC234CC6F42 /* CWStatusBarNotification.m */; };
-		F931CE8A5D41518A52BDADFD /* CWStatusBarNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = B3757C2C402172BD9760A8A0 /* CWStatusBarNotification.h */; };
+		11851BAADBC2013418A7ABE1 /* CWStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D520B5337FEF05BF83231 /* CWStatusBarNotification.m */; };
+		877D94B0FFA634D53C518E82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F418DEFD3E6A677605D8DC /* Foundation.framework */; };
+		ACEDCF3B746E2C5CE236CF3C /* Pods-WeCrowd-CWStatusBarNotification-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339D1B4F20ED3DCEF970018 /* Pods-WeCrowd-CWStatusBarNotification-dummy.m */; };
+		CE4F3EFCF48B80CD337C146E /* CWStatusBarNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 283C81F2914E5AABFFC837FC /* CWStatusBarNotification.h */; };
+		D5F35AD7D84CDF9C8DD6BD8E /* Pods-WeCrowd-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB9813165770D0EF273AA2A /* Pods-WeCrowd-dummy.m */; };
+		F8DB085DCECADBE0A2FCB5A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F418DEFD3E6A677605D8DC /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DFC419F5CD52809EEA6FDDB4 /* PBXContainerItemProxy */ = {
+		AFA28F42918C5CB0CB49CCAA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 79FAC4DE0250BB8730FCD757 /* Project object */;
+			containerPortal = 156686806E8DC160BD20913C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C4DC6835D8223AF2EC80207D;
+			remoteGlobalIDString = 1EF6C8352826F9CEF7C07762;
 			remoteInfo = "Pods-WeCrowd-CWStatusBarNotification";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05E3A6F681E13996F1539523 /* Pods-WeCrowd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd.release.xcconfig"; sourceTree = "<group>"; };
-		0EC06A881D1AD1469844CBB5 /* Pods-WeCrowd-CWStatusBarNotification-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeCrowd-CWStatusBarNotification-prefix.pch"; sourceTree = "<group>"; };
-		1A0F47E5B69C0BACBD5C3882 /* Pods-WeCrowd-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeCrowd-acknowledgements.plist"; sourceTree = "<group>"; };
-		466CD680279FEAAAE3EEC2FE /* libPods-WeCrowd-CWStatusBarNotification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeCrowd-CWStatusBarNotification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CFA4E949C77570B29956007 /* Pods-WeCrowd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd.debug.xcconfig"; sourceTree = "<group>"; };
-		58F7E572B11DA40BEC791B24 /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig"; sourceTree = "<group>"; };
-		77D6441253DEEE17872E8523 /* WePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WePay.framework; sourceTree = "<group>"; };
-		845E54CE3129A33E4B1B2169 /* RPx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RPx.framework; sourceTree = "<group>"; };
-		9336DA8C81DEABC234CC6F42 /* CWStatusBarNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CWStatusBarNotification.m; path = CWStatusBarNotification/CWStatusBarNotification.m; sourceTree = "<group>"; };
-		9845AE1EB06A2393E32D66E0 /* Pods-WeCrowd-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WeCrowd-resources.sh"; sourceTree = "<group>"; };
-		9917780E9D175E71AC988A19 /* Pods-WeCrowd-CWStatusBarNotification.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd-CWStatusBarNotification.xcconfig"; sourceTree = "<group>"; };
-		9A282C2A498A8A5142D6AB22 /* Pods-WeCrowd-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeCrowd-dummy.m"; sourceTree = "<group>"; };
-		A7A9C015AEDF2EEB581F1AC7 /* RUA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RUA.framework; sourceTree = "<group>"; };
-		AD83E70200FC2DD1452F0CAE /* Pods-WeCrowd-CWStatusBarNotification-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeCrowd-CWStatusBarNotification-dummy.m"; sourceTree = "<group>"; };
-		B09800DD603F9E26671FC2FD /* TrustDefenderMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefenderMobile.framework; sourceTree = "<group>"; };
-		B3757C2C402172BD9760A8A0 /* CWStatusBarNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CWStatusBarNotification.h; path = CWStatusBarNotification/CWStatusBarNotification.h; sourceTree = "<group>"; };
-		B45E49C1CBD8274A5877BD91 /* Pods-WeCrowd-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeCrowd-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BE6C507AF13AEDC343C7E5CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E0B55CF2D0D0FAD7E0D6459E /* libPods-WeCrowd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeCrowd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E182C36646361725754F1801 /* G4XSwiper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = G4XSwiper.framework; sourceTree = "<group>"; };
-		EC6DE8A1180357514824F692 /* Pods-WeCrowd-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeCrowd-environment.h"; sourceTree = "<group>"; };
-		EF8FFE64D6289FB91F3C2E10 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		05D166089D7E75A723CFD57B /* libPods-WeCrowd-CWStatusBarNotification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeCrowd-CWStatusBarNotification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0DD5CC83BE7D82FA74420A /* Pods-WeCrowd-CWStatusBarNotification-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeCrowd-CWStatusBarNotification-prefix.pch"; sourceTree = "<group>"; };
+		283C81F2914E5AABFFC837FC /* CWStatusBarNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CWStatusBarNotification.h; path = CWStatusBarNotification/CWStatusBarNotification.h; sourceTree = "<group>"; };
+		2D6BD02BF8CA07AD5686488F /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig"; sourceTree = "<group>"; };
+		5803A07CE01F0D344E32A7FF /* Pods-WeCrowd-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeCrowd-environment.h"; sourceTree = "<group>"; };
+		5FA48275616EF9B34A4F216A /* Pods-WeCrowd-CWStatusBarNotification.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd-CWStatusBarNotification.xcconfig"; sourceTree = "<group>"; };
+		6610F992CFCA9A76364F2F77 /* Pods-WeCrowd-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WeCrowd-resources.sh"; sourceTree = "<group>"; };
+		6DD1D52DA0565BB7BE8A0B5A /* RPx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RPx.framework; sourceTree = "<group>"; };
+		6FC9AF7E7F5DD0D743595D09 /* libPods-WeCrowd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeCrowd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7339D1B4F20ED3DCEF970018 /* Pods-WeCrowd-CWStatusBarNotification-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeCrowd-CWStatusBarNotification-dummy.m"; sourceTree = "<group>"; };
+		74FC4A56C54C8A822B20D411 /* G4XSwiper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = G4XSwiper.framework; sourceTree = "<group>"; };
+		7F0E063B48768D31F4473CF2 /* Pods-WeCrowd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd.debug.xcconfig"; sourceTree = "<group>"; };
+		966AFD39565DD0F705DF8447 /* RUA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RUA.framework; sourceTree = "<group>"; };
+		9DB9813165770D0EF273AA2A /* Pods-WeCrowd-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeCrowd-dummy.m"; sourceTree = "<group>"; };
+		A228FE4473AA6B8846522F47 /* Pods-WeCrowd-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeCrowd-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC1D520B5337FEF05BF83231 /* CWStatusBarNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CWStatusBarNotification.m; path = CWStatusBarNotification/CWStatusBarNotification.m; sourceTree = "<group>"; };
+		B4D200B88ECA714B23C7D8A4 /* WePay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WePay.framework; sourceTree = "<group>"; };
+		C2F418DEFD3E6A677605D8DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CA40774CF0417B1B3CD5BBF2 /* Pods-WeCrowd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeCrowd.release.xcconfig"; sourceTree = "<group>"; };
+		E91B50717D656188EC8326F5 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ED2EC80653E7A9A6B9F01A35 /* TrustDefenderMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefenderMobile.framework; sourceTree = "<group>"; };
+		FCC14D5C08AC2F97B6FECB2A /* Pods-WeCrowd-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeCrowd-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1CC29E0C7C9791398813A76A /* Frameworks */ = {
+		0B0B5114903124CECF2C7458 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D49B27C795B4B2F783025415 /* Foundation.framework in Frameworks */,
+				877D94B0FFA634D53C518E82 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91857E6BB83F9F1FE1D6BCAB /* Frameworks */ = {
+		B29FDF7EA6167B1737DCBD22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D276599A38045DFBC572E1E /* Foundation.framework in Frameworks */,
+				F8DB085DCECADBE0A2FCB5A9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C0E68C1AE0B052E4D016F7F /* CWStatusBarNotification */ = {
+		3672879C332FFBB37995E9DF = {
 			isa = PBXGroup;
 			children = (
-				B3757C2C402172BD9760A8A0 /* CWStatusBarNotification.h */,
-				9336DA8C81DEABC234CC6F42 /* CWStatusBarNotification.m */,
-				89017B1CF2A07E5E93B49DE8 /* Support Files */,
+				E91B50717D656188EC8326F5 /* Podfile */,
+				C2881B48ACFD90E21522557E /* Frameworks */,
+				3A7246D057C4AAFE60C7619A /* Pods */,
+				8044A98EAB09B39FCB6EF0C1 /* Products */,
+				CD87802CE778C45126AABA82 /* Targets Support Files */,
 			);
-			path = CWStatusBarNotification;
 			sourceTree = "<group>";
 		};
-		2C637C0514BE204D901C3035 /* WePay */ = {
+		394E12AA453863C72DC325BF /* Pods-WeCrowd */ = {
 			isa = PBXGroup;
 			children = (
-				BE540BDF272A1C93CAE3081C /* Frameworks */,
-			);
-			path = WePay;
-			sourceTree = "<group>";
-		};
-		673E5500AD789D3263D107F8 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				BE6C507AF13AEDC343C7E5CA /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		89017B1CF2A07E5E93B49DE8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9917780E9D175E71AC988A19 /* Pods-WeCrowd-CWStatusBarNotification.xcconfig */,
-				58F7E572B11DA40BEC791B24 /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */,
-				AD83E70200FC2DD1452F0CAE /* Pods-WeCrowd-CWStatusBarNotification-dummy.m */,
-				0EC06A881D1AD1469844CBB5 /* Pods-WeCrowd-CWStatusBarNotification-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-WeCrowd-CWStatusBarNotification";
-			sourceTree = "<group>";
-		};
-		BE540BDF272A1C93CAE3081C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E182C36646361725754F1801 /* G4XSwiper.framework */,
-				845E54CE3129A33E4B1B2169 /* RPx.framework */,
-				A7A9C015AEDF2EEB581F1AC7 /* RUA.framework */,
-				B09800DD603F9E26671FC2FD /* TrustDefenderMobile.framework */,
-				77D6441253DEEE17872E8523 /* WePay.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CA997659365063402BE5FE66 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E6BFF73C4EF6EEFC37BD6160 /* Pods-WeCrowd */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		E5D43286521A9C1190BC5405 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				673E5500AD789D3263D107F8 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E6BFF73C4EF6EEFC37BD6160 /* Pods-WeCrowd */ = {
-			isa = PBXGroup;
-			children = (
-				B45E49C1CBD8274A5877BD91 /* Pods-WeCrowd-acknowledgements.markdown */,
-				1A0F47E5B69C0BACBD5C3882 /* Pods-WeCrowd-acknowledgements.plist */,
-				9A282C2A498A8A5142D6AB22 /* Pods-WeCrowd-dummy.m */,
-				EC6DE8A1180357514824F692 /* Pods-WeCrowd-environment.h */,
-				9845AE1EB06A2393E32D66E0 /* Pods-WeCrowd-resources.sh */,
-				4CFA4E949C77570B29956007 /* Pods-WeCrowd.debug.xcconfig */,
-				05E3A6F681E13996F1539523 /* Pods-WeCrowd.release.xcconfig */,
+				FCC14D5C08AC2F97B6FECB2A /* Pods-WeCrowd-acknowledgements.markdown */,
+				A228FE4473AA6B8846522F47 /* Pods-WeCrowd-acknowledgements.plist */,
+				9DB9813165770D0EF273AA2A /* Pods-WeCrowd-dummy.m */,
+				5803A07CE01F0D344E32A7FF /* Pods-WeCrowd-environment.h */,
+				6610F992CFCA9A76364F2F77 /* Pods-WeCrowd-resources.sh */,
+				7F0E063B48768D31F4473CF2 /* Pods-WeCrowd.debug.xcconfig */,
+				CA40774CF0417B1B3CD5BBF2 /* Pods-WeCrowd.release.xcconfig */,
 			);
 			name = "Pods-WeCrowd";
 			path = "Target Support Files/Pods-WeCrowd";
 			sourceTree = "<group>";
 		};
-		F551E6E62B5EF7784FFD9D5A = {
+		3A7246D057C4AAFE60C7619A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EF8FFE64D6289FB91F3C2E10 /* Podfile */,
-				E5D43286521A9C1190BC5405 /* Frameworks */,
-				FC3F7A748629E2678701C246 /* Pods */,
-				FE4A1D185049C5C3401DDF80 /* Products */,
-				CA997659365063402BE5FE66 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		FC3F7A748629E2678701C246 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0C0E68C1AE0B052E4D016F7F /* CWStatusBarNotification */,
-				2C637C0514BE204D901C3035 /* WePay */,
+				5BC0925C2F61E7454A8AC2D5 /* CWStatusBarNotification */,
+				F2F55D6DF8CE5486E7C1E997 /* WePay */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FE4A1D185049C5C3401DDF80 /* Products */ = {
+		5BC0925C2F61E7454A8AC2D5 /* CWStatusBarNotification */ = {
 			isa = PBXGroup;
 			children = (
-				E0B55CF2D0D0FAD7E0D6459E /* libPods-WeCrowd.a */,
-				466CD680279FEAAAE3EEC2FE /* libPods-WeCrowd-CWStatusBarNotification.a */,
+				283C81F2914E5AABFFC837FC /* CWStatusBarNotification.h */,
+				AC1D520B5337FEF05BF83231 /* CWStatusBarNotification.m */,
+				F65EAA3139A4943F2FF1D769 /* Support Files */,
+			);
+			path = CWStatusBarNotification;
+			sourceTree = "<group>";
+		};
+		8044A98EAB09B39FCB6EF0C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FC9AF7E7F5DD0D743595D09 /* libPods-WeCrowd.a */,
+				05D166089D7E75A723CFD57B /* libPods-WeCrowd-CWStatusBarNotification.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		989A883925E0AA9303F54950 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74FC4A56C54C8A822B20D411 /* G4XSwiper.framework */,
+				6DD1D52DA0565BB7BE8A0B5A /* RPx.framework */,
+				966AFD39565DD0F705DF8447 /* RUA.framework */,
+				ED2EC80653E7A9A6B9F01A35 /* TrustDefenderMobile.framework */,
+				B4D200B88ECA714B23C7D8A4 /* WePay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2881B48ACFD90E21522557E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F62E580A73C88517D1541384 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD87802CE778C45126AABA82 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				394E12AA453863C72DC325BF /* Pods-WeCrowd */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F2F55D6DF8CE5486E7C1E997 /* WePay */ = {
+			isa = PBXGroup;
+			children = (
+				989A883925E0AA9303F54950 /* Frameworks */,
+			);
+			path = WePay;
+			sourceTree = "<group>";
+		};
+		F62E580A73C88517D1541384 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C2F418DEFD3E6A677605D8DC /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F65EAA3139A4943F2FF1D769 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FA48275616EF9B34A4F216A /* Pods-WeCrowd-CWStatusBarNotification.xcconfig */,
+				2D6BD02BF8CA07AD5686488F /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */,
+				7339D1B4F20ED3DCEF970018 /* Pods-WeCrowd-CWStatusBarNotification-dummy.m */,
+				1A0DD5CC83BE7D82FA74420A /* Pods-WeCrowd-CWStatusBarNotification-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-WeCrowd-CWStatusBarNotification";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		56093B12EF024F90240059F8 /* Headers */ = {
+		A788B80455B64AC6E5C3D2B2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F931CE8A5D41518A52BDADFD /* CWStatusBarNotification.h in Headers */,
+				CE4F3EFCF48B80CD337C146E /* CWStatusBarNotification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		774F889E4A8CE57BE2F44542 /* Pods-WeCrowd */ = {
+		1EF6C8352826F9CEF7C07762 /* Pods-WeCrowd-CWStatusBarNotification */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B02DA0E8EFD759C98AAB774 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd" */;
+			buildConfigurationList = CAC913D9493EE69D03C0B135 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd-CWStatusBarNotification" */;
 			buildPhases = (
-				545946496CBE09C25E448AD8 /* Sources */,
-				1CC29E0C7C9791398813A76A /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				55778794895C45E0ABAC7968 /* PBXTargetDependency */,
-			);
-			name = "Pods-WeCrowd";
-			productName = "Pods-WeCrowd";
-			productReference = E0B55CF2D0D0FAD7E0D6459E /* libPods-WeCrowd.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C4DC6835D8223AF2EC80207D /* Pods-WeCrowd-CWStatusBarNotification */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 57D84D000DCF9C4AAD27F433 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd-CWStatusBarNotification" */;
-			buildPhases = (
-				22427ED59FA2674FFF7A2D9D /* Sources */,
-				91857E6BB83F9F1FE1D6BCAB /* Frameworks */,
-				56093B12EF024F90240059F8 /* Headers */,
+				731F5791478622302F6A0B46 /* Sources */,
+				B29FDF7EA6167B1737DCBD22 /* Frameworks */,
+				A788B80455B64AC6E5C3D2B2 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -225,84 +208,85 @@
 			);
 			name = "Pods-WeCrowd-CWStatusBarNotification";
 			productName = "Pods-WeCrowd-CWStatusBarNotification";
-			productReference = 466CD680279FEAAAE3EEC2FE /* libPods-WeCrowd-CWStatusBarNotification.a */;
+			productReference = 05D166089D7E75A723CFD57B /* libPods-WeCrowd-CWStatusBarNotification.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5E7F7CD52E119059FEA2AE8D /* Pods-WeCrowd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EBA3EC3822192267DB22587 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd" */;
+			buildPhases = (
+				C1A472E208F41C0FA41C3BA6 /* Sources */,
+				0B0B5114903124CECF2C7458 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEDC87697A0D6F31E6073E1D /* PBXTargetDependency */,
+			);
+			name = "Pods-WeCrowd";
+			productName = "Pods-WeCrowd";
+			productReference = 6FC9AF7E7F5DD0D743595D09 /* libPods-WeCrowd.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		79FAC4DE0250BB8730FCD757 /* Project object */ = {
+		156686806E8DC160BD20913C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 8DE8B0B8ECA9B879A8262A2F /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = B1DE64DCA40EA3D22648E698 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = F551E6E62B5EF7784FFD9D5A;
-			productRefGroup = FE4A1D185049C5C3401DDF80 /* Products */;
+			mainGroup = 3672879C332FFBB37995E9DF;
+			productRefGroup = 8044A98EAB09B39FCB6EF0C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				774F889E4A8CE57BE2F44542 /* Pods-WeCrowd */,
-				C4DC6835D8223AF2EC80207D /* Pods-WeCrowd-CWStatusBarNotification */,
+				5E7F7CD52E119059FEA2AE8D /* Pods-WeCrowd */,
+				1EF6C8352826F9CEF7C07762 /* Pods-WeCrowd-CWStatusBarNotification */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		22427ED59FA2674FFF7A2D9D /* Sources */ = {
+		731F5791478622302F6A0B46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCA7EAA721C40A2A17DCD6D /* CWStatusBarNotification.m in Sources */,
-				45ED02669C6D540FB0D55556 /* Pods-WeCrowd-CWStatusBarNotification-dummy.m in Sources */,
+				11851BAADBC2013418A7ABE1 /* CWStatusBarNotification.m in Sources */,
+				ACEDCF3B746E2C5CE236CF3C /* Pods-WeCrowd-CWStatusBarNotification-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		545946496CBE09C25E448AD8 /* Sources */ = {
+		C1A472E208F41C0FA41C3BA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67768B6FF56E96AF314C0246 /* Pods-WeCrowd-dummy.m in Sources */,
+				D5F35AD7D84CDF9C8DD6BD8E /* Pods-WeCrowd-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		55778794895C45E0ABAC7968 /* PBXTargetDependency */ = {
+		EEDC87697A0D6F31E6073E1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-WeCrowd-CWStatusBarNotification";
-			target = C4DC6835D8223AF2EC80207D /* Pods-WeCrowd-CWStatusBarNotification */;
-			targetProxy = DFC419F5CD52809EEA6FDDB4 /* PBXContainerItemProxy */;
+			target = 1EF6C8352826F9CEF7C07762 /* Pods-WeCrowd-CWStatusBarNotification */;
+			targetProxy = AFA28F42918C5CB0CB49CCAA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0811027A4719E1B236052E01 /* Debug */ = {
+		1F9A80D1977CAFB68694C7D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CFA4E949C77570B29956007 /* Pods-WeCrowd.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		7C802F7C728F8FF2CD6A0759 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58F7E572B11DA40BEC791B24 /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */;
+			baseConfigurationReference = 2D6BD02BF8CA07AD5686488F /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-WeCrowd-CWStatusBarNotification/Pods-WeCrowd-CWStatusBarNotification-prefix.pch";
@@ -316,7 +300,55 @@
 			};
 			name = Release;
 		};
-		82336BA6994B4B41D51EED84 /* Debug */ = {
+		2BF45BFC4C36A1BA7136DBD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D6BD02BF8CA07AD5686488F /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-WeCrowd-CWStatusBarNotification/Pods-WeCrowd-CWStatusBarNotification-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		57FD44EB2AC2C74DF61BF312 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F0E063B48768D31F4473CF2 /* Pods-WeCrowd.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6723D66F6B94ABFC17455922 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA40774CF0417B1B3CD5BBF2 /* Pods-WeCrowd.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9647AB77B95C300E13B9C1CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,23 +387,7 @@
 			};
 			name = Debug;
 		};
-		9268DFCC1751DFF382275235 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05E3A6F681E13996F1539523 /* Pods-WeCrowd.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		D2686D79D78E679087FBAB96 /* Release */ = {
+		AD837DE299B12311ED61F74E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -405,53 +421,37 @@
 			};
 			name = Release;
 		};
-		E3A92216C1F263008D5A1E8D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58F7E572B11DA40BEC791B24 /* Pods-WeCrowd-CWStatusBarNotification-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-WeCrowd-CWStatusBarNotification/Pods-WeCrowd-CWStatusBarNotification-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B02DA0E8EFD759C98AAB774 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd" */ = {
+		1EBA3EC3822192267DB22587 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0811027A4719E1B236052E01 /* Debug */,
-				9268DFCC1751DFF382275235 /* Release */,
+				57FD44EB2AC2C74DF61BF312 /* Debug */,
+				6723D66F6B94ABFC17455922 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57D84D000DCF9C4AAD27F433 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd-CWStatusBarNotification" */ = {
+		B1DE64DCA40EA3D22648E698 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E3A92216C1F263008D5A1E8D /* Debug */,
-				7C802F7C728F8FF2CD6A0759 /* Release */,
+				9647AB77B95C300E13B9C1CD /* Debug */,
+				AD837DE299B12311ED61F74E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DE8B0B8ECA9B879A8262A2F /* Build configuration list for PBXProject "Pods" */ = {
+		CAC913D9493EE69D03C0B135 /* Build configuration list for PBXNativeTarget "Pods-WeCrowd-CWStatusBarNotification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82336BA6994B4B41D51EED84 /* Debug */,
-				D2686D79D78E679087FBAB96 /* Release */,
+				2BF45BFC4C36A1BA7136DBD2 /* Debug */,
+				1F9A80D1977CAFB68694C7D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 79FAC4DE0250BB8730FCD757 /* Project object */;
+	rootObject = 156686806E8DC160BD20913C /* Project object */;
 }

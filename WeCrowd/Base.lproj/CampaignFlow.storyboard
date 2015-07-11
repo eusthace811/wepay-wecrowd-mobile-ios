@@ -35,7 +35,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainContainer">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -45,7 +45,7 @@
                                 <color key="textColor" red="1" green="0.38583996539999998" blue="0.2364585343" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIJ-8p-lg0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIJ-8p-lg0" userLabel="ButtonContainer">
                                 <rect key="frame" x="24" y="484" width="552" height="96"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-qO-dWS">
@@ -57,7 +57,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="MwS-ML-hOQ" kind="show" identifier="segue-view-merchantlogin" id="4ST-3k-x5R"/>
+                                            <segue destination="MwS-ML-hOQ" kind="show" id="nmZ-fI-Z12"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-a5-BK4">
@@ -126,7 +126,7 @@
                         <viewControllerLayoutGuide type="top" id="czX-YX-Htl"/>
                         <viewControllerLayoutGuide type="bottom" id="Gp0-hn-b1G"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Vk-Nd-WAN">
+                    <view key="view" contentMode="scaleToFill" id="1Vk-Nd-WAN" userLabel="MainContainer">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -424,7 +424,7 @@
         <image name="Logo" width="300" height="55"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iuM-Qj-g2P"/>
+        <segue reference="NMc-9M-Twa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.38665899166867213" blue="0.2383080413807257" alpha="1" colorSpace="calibratedRGB"/>
 </document>

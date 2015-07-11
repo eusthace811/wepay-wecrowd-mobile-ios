@@ -77,13 +77,6 @@
                                                             tokenizationDelegate:self];
 }
 
-- (IBAction) viewSwipeDownAction:(id) sender
-{
-    if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
-        [self.delegate didFinishWithSender:self];
-    }
-}
-
 - (IBAction) cancelAction:(id) sender
 {
     if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {

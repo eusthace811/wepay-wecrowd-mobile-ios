@@ -17,7 +17,7 @@
 
 @end
 
-@interface WCPaymentViewController : UIViewController
+@interface WCPaymentViewController : UITableViewController
 
 @property (nonatomic, weak, readwrite) id<PaymentViewDelegate> delegate;
 @property (nonatomic, strong, readonly) CWStatusBarNotification *statusBarNotification;
