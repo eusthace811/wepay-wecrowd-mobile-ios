@@ -18,25 +18,25 @@ NSString* const kAPIEndpointDonate            = @"/donate";
 NSString* const kAPIEndpointFeaturedCampaigns = @"/featured_campaigns";
 
 // Parameters - User
-NSString* const kAPIParameterUserID    = @"user_id";
-NSString* const kAPIParameterUserToken = @"token";
-NSString* const kAPIParameterEmail     = @"user_email";
-NSString* const kAPIParameterPassword  = @"password";
+NSString* const kAPIUserIDKey    = @"user_id";
+NSString* const kAPIUserTokenKey = @"token";
+NSString* const kAPIEmailKey     = @"user_email";
+NSString* const kAPIPasswordKey  = @"password";
 
 // Parameters - Campaign
-NSString* const kAPIParameterCampaignID          = @"campaign_id";
-NSString* const kAPIParameterCampaignName        = @"campaign_name";
-NSString* const kAPIParameterCampaignGoal        = @"campaign_goal";
-NSString* const kAPIParameterCampaignProgress    = @"campaign_progress";
-NSString* const kAPIParameterCampaignDescription = @"campaign_description";
-NSString* const kAPICampaignImageURLKey          = @"campaign_image_url";
+NSString* const kAPICampaignIDKey          = @"campaign_id";
+NSString* const kAPICampaignNameKey        = @"campaign_name";
+NSString* const kAPICampaignGoalKey        = @"campaign_goal";
+NSString* const kAPICampaignProgressKey    = @"campaign_progress";
+NSString* const kAPICampaignDescriptionKey = @"campaign_description";
+NSString* const kAPICampaignImageURLKey    = @"campaign_image_url";
 
 // Parameters - Donation
-NSString* const kAPIParameterDonationID              = @"campaign_id";
-NSString* const kAPIParameterDonationAmount          = @"amount";
-NSString* const kAPIParameterDonationName            = @"user_name";
-NSString* const kAPIParameterDonationEmail           = @"user_email";
-NSString* const kAPIParameterDonationCreditCardToken = @"credit_card_id";
+NSString* const kAPIDonationIDKey              = @"campaign_id";
+NSString* const kAPIDonationAmountKey          = @"amount";
+NSString* const kAPIDonationNameKey            = @"user_name";
+NSString* const kAPIDonationEmailKey           = @"user_email";
+NSString* const kAPIDonationCreditCardTokenKey = @"credit_card_id";
 
 // Parameters - General
 NSString* const kAPIParameterErrorCode    = @"error_code";
@@ -47,7 +47,7 @@ NSString* const kAPIParameterErrorMessage = @"error_message";
 // Segues
 NSString* const kIBSegueEntryToCampaignFeed          = @"entryViewToFeedViewSegue";
 NSString* const kIBSegueCampaignFeedToCampaignDetail = @"campaignFeedToCampaignDetailSegue";
-NSString* const kIBSeguePaymentMethodToPaymentStatusSegue = @"paymentMethodToPaymentStatusSegue";
+NSString* const kIBSeguePaymentMethodToPaymentStatus = @"paymentMethodToPaymentStatusSegue";
 
 // Storyboards
 NSString* const kIBStoryboardPaymentFlow  = @"PaymentFlow";

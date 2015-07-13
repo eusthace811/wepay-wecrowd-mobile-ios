@@ -51,9 +51,9 @@ static WCLoginUserType userType = WCLoginUserPayer;
                         // Allocate memory if user instance has not been created
                         if (!user) { user = [WCUserModel new]; }
                         
-                        [user setUserID:[userInfo objectForKey:kAPIParameterUserID]
+                        [user setUserID:[userInfo objectForKey:kAPIUserIDKey]
                                   email:username
-                                  token:[userInfo objectForKey:kAPIParameterUserToken]];
+                                  token:[userInfo objectForKey:kAPIUserTokenKey]];
                     }
                     
                     completionBlock (error);

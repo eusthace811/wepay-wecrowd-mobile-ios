@@ -29,10 +29,10 @@
         
         campaign = campaigns[i];
         
-        campaignID = [campaign objectForKey:kAPIParameterCampaignID];
-        campaignName = [campaign objectForKey:kAPIParameterCampaignName];
+        campaignID = [campaign objectForKey:kAPICampaignIDKey];
+        campaignName = [campaign objectForKey:kAPICampaignNameKey];
         imageURLString = [campaign objectForKey:kAPICampaignImageURLKey];
-        campaignGoal = [((NSNumber *) [campaign objectForKey:kAPIParameterCampaignGoal]) floatValue];
+        campaignGoal = [((NSNumber *) [campaign objectForKey:kAPICampaignGoalKey]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
                                                              title:campaignName
@@ -49,8 +49,8 @@
     NSString *imageURLString;
     
     // Nasty cast + conversion to get the float value
-    donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
-    donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
+    donationAmount = [((NSNumber *) [dictionary objectForKey:kAPICampaignGoalKey]) floatValue];
+    donationTarget = [((NSNumber *) [dictionary objectForKey:kAPICampaignProgressKey]) floatValue];
     // TODO: Replace key with constant
     imageURLString = [dictionary objectForKey:kAPICampaignImageURLKey];
     
@@ -63,13 +63,13 @@
                               NSLog(@"Error: ModelProcessor: Unable to fetch image");
                           }
                           
-                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
-                                                                                  title:[dictionary objectForKey:kAPIParameterCampaignName]
+                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPICampaignIDKey]
+                                                                                  title:[dictionary objectForKey:kAPICampaignNameKey]
                                                                                 endDate:nil
                                                                          donationTarget:donationAmount
                                                                          donationAmount:donationTarget
                                                                             detailImage:image
-                                                                      detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]];
+                                                                      detailDescription:[dictionary objectForKey:kAPICampaignDescriptionKey]];
                           
                           completion(detailModel, error);
                       }];

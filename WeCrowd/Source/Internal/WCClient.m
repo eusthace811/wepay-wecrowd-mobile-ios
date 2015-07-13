@@ -36,7 +36,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
            completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointLogin]
-                             values:@{ kAPIParameterEmail : username, kAPIParameterPassword : password }
+                             values:@{ kAPIEmailKey : username, kAPIPasswordKey : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
                            // Check the status of the return data
@@ -69,9 +69,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
     amount = [NSNumber numberWithInteger:[donation.amount integerValue]];
     campaignID = [NSNumber numberWithInteger:[donation.campaignID integerValue]];
     
-    NSDictionary *values = @{ kAPIParameterDonationID              : campaignID,
-                              kAPIParameterDonationCreditCardToken : donation.creditCardID,
-                              kAPIParameterDonationAmount          : amount };
+    NSDictionary *values = @{ kAPIDonationIDKey              : campaignID,
+                              kAPIDonationCreditCardTokenKey : donation.creditCardID,
+                              kAPIDonationAmountKey          : amount };
     
      [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointDonate]
                               values:values
@@ -116,7 +116,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                   completionBlock:(WCArrayReturnBlock) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointUsers]
-                             values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
+                             values:@{ kAPIUserIDKey : userID, kAPIUserTokenKey : token }
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
                            NSLog(@"Success: Client: Fetched campaigns for user.");
