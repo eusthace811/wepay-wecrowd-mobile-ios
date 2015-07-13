@@ -52,3 +52,6 @@ NSString* const kIBSeguePaymentMethodToPaymentStatus = @"paymentMethodToPaymentS
 // Storyboards
 NSString* const kIBStoryboardPaymentFlow  = @"PaymentFlow";
 NSString* const kIBStoryboardCampaignFlow =  @"CampaignFlow";
+
+// Navigation Controllers
+NSString* const kIBPaymentNavigationControllerIdentifier = @"PaymentNavigationController";

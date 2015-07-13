@@ -52,3 +52,6 @@ FOUNDATION_EXPORT NSString* const kIBSeguePaymentMethodToPaymentStatus;
 // Storyboards
 FOUNDATION_EXPORT NSString* const kIBStoryboardPaymentFlow;
 FOUNDATION_EXPORT NSString* const kIBStoryboardCampaignFlow;
+
+// Navigation Controllers
+FOUNDATION_EXPORT NSString* const kIBPaymentNavigationControllerIdentifier;

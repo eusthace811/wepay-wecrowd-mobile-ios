@@ -299,7 +299,7 @@
                             </tableViewSection>
                             <tableViewSection id="z68-dj-8ev">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" rowHeight="44" id="qUw-ZW-J6D" customClass="WCTextEntryTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" rowHeight="44" id="qUw-ZW-J6D">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qUw-ZW-J6D" id="lLq-yJ-e9g">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -426,10 +426,10 @@
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="joT-R4-1dG"/>
-                                    <exclude reference="k7M-rd-BCz"/>
                                     <exclude reference="Rnd-yy-suG"/>
                                     <exclude reference="wqi-bA-7R6"/>
+                                    <exclude reference="joT-R4-1dG"/>
+                                    <exclude reference="k7M-rd-BCz"/>
                                 </mask>
                             </variation>
                         </view>
