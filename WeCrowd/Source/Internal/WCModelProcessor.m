@@ -31,7 +31,7 @@
         
         campaignID = [campaign objectForKey:kAPIParameterCampaignID];
         campaignName = [campaign objectForKey:kAPIParameterCampaignName];
-        imageURLString = [campaign objectForKey:@"campaign_image_url"];
+        imageURLString = [campaign objectForKey:kAPICampaignImageURLKey];
         campaignGoal = [((NSNumber *) [campaign objectForKey:kAPIParameterCampaignGoal]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
@@ -52,7 +52,7 @@
     donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
     donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
     // TODO: Replace key with constant
-    imageURLString = [dictionary objectForKey:@"campaign_image_url"];
+    imageURLString = [dictionary objectForKey:kAPICampaignImageURLKey];
     
     // Separate call to download the image - little wonky, I know
     [WCClient fetchImageWithURLString:imageURLString

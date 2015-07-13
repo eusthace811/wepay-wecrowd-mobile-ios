@@ -29,6 +29,7 @@ NSString* const kAPIParameterCampaignName        = @"campaign_name";
 NSString* const kAPIParameterCampaignGoal        = @"campaign_goal";
 NSString* const kAPIParameterCampaignProgress    = @"campaign_progress";
 NSString* const kAPIParameterCampaignDescription = @"campaign_description";
+NSString* const kAPICampaignImageURLKey          = @"campaign_image_url";
 
 // Parameters - Donation
 NSString* const kAPIParameterDonationID              = @"campaign_id";

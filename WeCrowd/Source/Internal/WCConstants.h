@@ -29,6 +29,7 @@ FOUNDATION_EXPORT NSString* const kAPIParameterCampaignName;
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignGoal;
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignProgress;
 FOUNDATION_EXPORT NSString* const kAPIParameterCampaignDescription;
+FOUNDATION_EXPORT NSString* const kAPICampaignImageURLKey;
 
 // Parameters - Donation
 FOUNDATION_EXPORT NSString* const kAPIParameterDonationID;
