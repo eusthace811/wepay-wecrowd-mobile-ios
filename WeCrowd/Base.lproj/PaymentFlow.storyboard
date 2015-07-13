@@ -30,6 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="Enter Card Information" id="jyT-SB-EyH">
                                 <cells>
@@ -352,6 +353,7 @@
                         <connections>
                             <outlet property="dataSource" destination="ivX-u3-Bl0" id="Xlr-1U-S1i"/>
                             <outlet property="delegate" destination="ivX-u3-Bl0" id="AW3-Gw-9Yi"/>
+                            <outletCollection property="gestureRecognizers" destination="mkh-Ii-OzI" appends="YES" id="Aae-KX-UPF"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Manual Entry" id="FL8-rN-oV7">
@@ -377,6 +379,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocb-JK-iKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mkh-Ii-OzI">
+                    <connections>
+                        <action selector="tapAction:" destination="ivX-u3-Bl0" id="4wV-Bf-6cd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1054" y="1042"/>
         </scene>
