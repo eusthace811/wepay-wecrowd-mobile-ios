@@ -396,23 +396,24 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="rSJ-UG-3oh" userLabel="HeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a donation amount" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wX9-wg-NgL">
-                                    <rect key="frame" x="0.0" y="11" width="600" height="22"/>
+                                    <rect key="frame" x="0.0" y="10" width="600" height="22"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="textColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting Up..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygH-HP-ypo">
-                                    <rect key="frame" x="0.0" y="11" width="600" height="22"/>
+                                    <rect key="frame" x="0.0" y="10" width="600" height="22"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="ygH-HP-ypo" firstAttribute="bottom" secondItem="wX9-wg-NgL" secondAttribute="bottom" id="16a-J2-aPb"/>
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="trailing" secondItem="ygH-HP-ypo" secondAttribute="trailing" id="4D6-4a-5gL"/>
                                 <constraint firstAttribute="trailing" secondItem="wX9-wg-NgL" secondAttribute="trailing" id="GIv-kh-m0F"/>
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="leading" secondItem="rSJ-UG-3oh" secondAttribute="leading" id="GdC-A5-mAl"/>
@@ -420,12 +421,15 @@
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="leading" secondItem="ygH-HP-ypo" secondAttribute="leading" id="hXL-lR-BOo"/>
                                 <constraint firstAttribute="centerX" secondItem="ygH-HP-ypo" secondAttribute="centerX" id="joT-R4-1dG"/>
                                 <constraint firstAttribute="centerY" secondItem="ygH-HP-ypo" secondAttribute="centerY" id="k7M-rd-BCz"/>
+                                <constraint firstAttribute="bottom" secondItem="wX9-wg-NgL" secondAttribute="bottom" id="kvh-qx-NLr"/>
                                 <constraint firstAttribute="centerX" secondItem="wX9-wg-NgL" secondAttribute="centerX" id="wqi-bA-7R6"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="wqi-bA-7R6"/>
                                     <exclude reference="joT-R4-1dG"/>
+                                    <exclude reference="k7M-rd-BCz"/>
+                                    <exclude reference="Rnd-yy-suG"/>
+                                    <exclude reference="wqi-bA-7R6"/>
                                 </mask>
                             </variation>
                         </view>
