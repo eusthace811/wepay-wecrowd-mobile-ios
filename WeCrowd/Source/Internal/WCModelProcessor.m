@@ -36,9 +36,6 @@
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
                                                              title:campaignName
-                                                           endDate:nil
-                                                    donationTarget:campaignGoal
-                                                    donationAmount:0
                                                     imageURLString:imageURLString];
     }
     
@@ -72,8 +69,7 @@
                                                                          donationTarget:donationAmount
                                                                          donationAmount:donationTarget
                                                                             detailImage:image
-                                                                      detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
-                                                                               location:nil];
+                                                                      detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]];
                           
                           completion(detailModel, error);
                       }];

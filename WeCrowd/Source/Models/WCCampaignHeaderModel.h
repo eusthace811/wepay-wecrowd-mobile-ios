@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "WCCampaignBaseModel.h"
 
-#pragma mark - Interface
-
 @interface WCCampaignHeaderModel : WCCampaignBaseModel
 
 @property (nonatomic, strong, readonly) NSString *thumbnailImageURLString;
@@ -19,9 +17,6 @@
 
 - (instancetype) initWithCampaign:(NSString *) campaign
                             title:(NSString *) title
-                          endDate:(NSDate *) endDate
-                   donationTarget:(CGFloat) donationTarget
-                   donationAmount:(CGFloat) donationAmount
                    imageURLString:(NSString *) imageURLString;
 
 - (void) fetchImageIfNeededWithCompletion:(void(^)(UIImage *image, NSError *error)) completion;

@@ -27,8 +27,6 @@
 
 @implementation WCCreditCardModel
 
-#pragma mark - Initialization
-
 - (instancetype) initWithFirstName:(NSString *) firstName
                           lastName:(NSString *) lastName
                         cardNumber:(NSString *) cardNumber

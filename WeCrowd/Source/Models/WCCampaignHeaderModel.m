@@ -18,23 +18,16 @@
 
 @end
 
-
 #pragma mark - Implementation
 
 @implementation WCCampaignHeaderModel
 
 - (instancetype) initWithCampaign:(NSString *) campaign
                             title:(NSString *) title
-                          endDate:(NSDate *) endDate
-                   donationTarget:(CGFloat) donationTarget
-                   donationAmount:(CGFloat) donationAmount
                    imageURLString:(NSString *) imageURLString
 {
     if (self = [super initWithCampaign:campaign
-                                 title:title
-                               endDate:endDate
-                        donationTarget:donationTarget
-                        donationAmount:donationAmount])
+                                 title:title])
     {
         self.thumbnailImageURLString = imageURLString;
     } else {
