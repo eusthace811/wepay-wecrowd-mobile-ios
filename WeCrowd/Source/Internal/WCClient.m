@@ -144,9 +144,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 + (void) fetchCampaignWithID:(NSString *) campaignID
              completionBlock:(WCCampaignDetailReturnBlock) completionBlock
 {
+    // Get the full URL Endpoint
     NSMutableString *URLString = [kAPIEndpointCampaigns mutableCopy];
-    NSNumber *APIID = (NSNumber *) campaignID;
-    [URLString appendString:[NSString stringWithFormat:@"/%@", [APIID stringValue]]];
+    [URLString appendString:[NSString stringWithFormat:@"/%@", campaignID]];
     
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:URLString]
                        accessToken:nil
@@ -306,7 +306,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
             NSDictionary *userInfo;
             NSString *description;
             
-            description = [NSString stringWithFormat:@"Error processing request %@.", response.URL.path];
+            description = [NSString stringWithFormat:@"Error: Client: Unable to process request %@.", response.URL.path];
             userInfo =  @{ NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
             
             errorHandler([NSError errorWithDomain:NSURLErrorDomain

@@ -29,7 +29,7 @@
         
         campaign = campaigns[i];
         
-        campaignID = [campaign objectForKey:kAPICampaignIDKey];
+        campaignID = [[campaign objectForKey:kAPICampaignIDKey] stringValue];
         campaignName = [campaign objectForKey:kAPICampaignNameKey];
         imageURLString = [campaign objectForKey:kAPICampaignImageURLKey];
         campaignGoal = [((NSNumber *) [campaign objectForKey:kAPICampaignGoalKey]) floatValue];
@@ -46,12 +46,14 @@
                                  completion:(WCModelProcessorCompletion) completion
 {
     CGFloat donationAmount, donationTarget;
-    NSString *imageURLString;
+    NSString *imageURLString, *campaignIDString;
     
     // Nasty cast + conversion to get the float value
     donationAmount = [((NSNumber *) [dictionary objectForKey:kAPICampaignGoalKey]) floatValue];
     donationTarget = [((NSNumber *) [dictionary objectForKey:kAPICampaignProgressKey]) floatValue];
+    
     imageURLString = [dictionary objectForKey:kAPICampaignImageURLKey];
+    campaignIDString = [[dictionary objectForKey:kAPICampaignIDKey] stringValue];
     
     // Separate call to download the image - little wonky, I know
     [WCClient fetchImageWithURLString:imageURLString
@@ -62,7 +64,7 @@
                               NSLog(@"Error: ModelProcessor: Unable to fetch image");
                           }
                           
-                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPICampaignIDKey]
+                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:campaignIDString
                                                                                   title:[dictionary objectForKey:kAPICampaignNameKey]
                                                                                 endDate:nil
                                                                          donationTarget:donationAmount
