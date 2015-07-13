@@ -57,14 +57,6 @@
     return YES;
 }
 
-#pragma mark - UIResponder
-
-- (void) touchesBegan:(NSSet *) touches withEvent:(UIEvent *) event
-{
-    // Dismiss the keyboard when user touches outside the text field
-    [self.donationField resignFirstResponder];
-}
-
 #pragma mark - Interface Builder
 
 - (IBAction) submitAction:(id) sender
@@ -82,6 +74,13 @@
     if ([[WCDonationManager sharedManager] donationStatus] == WCDonationStatusNone) {
         [self.delegate didFinishWithSender:self];
     }
+}
+
+
+- (IBAction) tapAction:(id) sender
+{
+    // Dismiss the keyboard
+    [self.view endEditing:YES];
 }
 
 

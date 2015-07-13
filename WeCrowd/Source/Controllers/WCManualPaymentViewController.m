@@ -40,7 +40,8 @@
 
 @implementation WCManualPaymentViewController
 
-- (IBAction) tapAction:(id) sender {
+- (IBAction) tapAction:(id) sender
+{
     // Dismiss the keyboard if there is one
     [self.view endEditing:YES];
 }

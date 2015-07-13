@@ -395,6 +395,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="rSJ-UG-3oh" userLabel="HeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -520,6 +521,7 @@
                         <connections>
                             <outlet property="dataSource" destination="G7D-oN-nhZ" id="Unj-xG-TBl"/>
                             <outlet property="delegate" destination="G7D-oN-nhZ" id="DV3-CQ-6Ql"/>
+                            <outletCollection property="gestureRecognizers" destination="yuj-HT-UQV" appends="YES" id="Udg-pl-WWd"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Swipe Card" id="u7E-Jy-3YL">
@@ -539,6 +541,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTw-BR-Udf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yuj-HT-UQV">
+                    <connections>
+                        <action selector="tapAction:" destination="G7D-oN-nhZ" id="U9L-sn-Ekk"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1054" y="353"/>
         </scene>
