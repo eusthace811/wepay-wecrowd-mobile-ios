@@ -159,7 +159,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                                                                     }];
                       }
                       errorHandler:^(NSError *error) {
-                          NSLog(@"API error: Unable to fetch campaign.");
+                          NSLog(@"Error: Client: Unable to fetch campaign.");
                           completionBlock(nil, error);
                       }];
 }

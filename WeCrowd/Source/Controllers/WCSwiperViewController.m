@@ -124,7 +124,7 @@
                                         message:@"There was an error processing the card. Please try again."
                                      completion:nil];
     
-    NSLog(@"Error: Card reader: %@", [error localizedDescription]);
+    NSLog(@"Error: Card reader: %@.", [error localizedDescription]);
 }
 
 
@@ -135,7 +135,7 @@
     [self executeDonationWithPaymentToken:paymentToken];
     self.swiperStatusLabel.text = @"Processing donation...";
     
-    NSLog(@"Success: Tokenization: Did tokenize!");
+    NSLog(@"Success: Tokenization: Did tokenize.");
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
@@ -147,7 +147,7 @@
     
     [self.submitButton setHidden:YES];
     
-    NSLog(@"Error: Tokenization: %@", [error localizedDescription]);
+    NSLog(@"Error: Tokenization: %@.", [error localizedDescription]);
 }
 
 #pragma mark - Internal Methods

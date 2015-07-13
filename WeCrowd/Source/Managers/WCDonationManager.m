@@ -49,9 +49,9 @@
     [WCClient donateWithDonation:donation
                  completionBlock:^(NSString *checkoutID, NSError *error) {
                      if (error) {
-                         NSLog(@"Error: DonationManager: Unable to make donation. Description: %@", [error localizedDescription]);
+                         NSLog(@"Error: DonationManager: Unable to make donation. Description: %@.", [error localizedDescription]);
                      } else {
-                         NSLog(@"Donation successful");
+                         NSLog(@"Success: DonationManager: Donation successful.");
                      }
                      
                      self.donationStatus = WCDonationStatusNone;

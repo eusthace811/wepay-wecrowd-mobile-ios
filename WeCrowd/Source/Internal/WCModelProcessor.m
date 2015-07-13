@@ -61,7 +61,7 @@
                           WCCampaignDetailModel *detailModel;
                           
                           if (error) {
-                              NSLog(@"Error: ModelProcessor: Unable to fetch image");
+                              NSLog(@"Error: ModelProcessor: Unable to fetch image.");
                           }
                           
                           detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:campaignIDString
