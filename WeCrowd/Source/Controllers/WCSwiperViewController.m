@@ -11,7 +11,7 @@
 #import "WCSwiperViewController.h"
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
-#import "WCAlerts.h"
+#import "WCAlert.h"
 
 @interface WCSwiperViewController () <WPCardReaderDelegate,
                                       WPTokenizationDelegate,
@@ -119,7 +119,7 @@
 
 - (void) didFailToReadPaymentInfoWithError:(NSError *) error
 {
-    [WCAlerts showSimpleAlertFromViewController:self
+    [WCAlert showSimpleAlertFromViewController:self
                                       withTitle:@"Unable to read card"
                                         message:@"There was an error processing the card. Please try again."
                                      completion:nil];
@@ -140,7 +140,7 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
-    [WCAlerts showSimpleAlertFromViewController:self
+    [WCAlert showSimpleAlertFromViewController:self
                                       withTitle:@"Unable to complete tokenization"
                                         message:@"There was a payment service error. Please try again."
                                      completion:nil];
@@ -170,7 +170,7 @@
                                                             creditCardID:paymentToken.tokenId
                                                          completionBlock:^(NSError *error) {
                                                              if (error) {
-                                                                 [WCAlerts showAlertWithOptionFromViewController:self
+                                                                 [WCAlert showAlertWithOptionFromViewController:self
                                                                                                        withTitle:@"Unable to complete donation"
                                                                                                          message:@"There was a server error. Please try again."
                                                                                                      optionTitle:@"Try Again"

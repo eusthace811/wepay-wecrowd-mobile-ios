@@ -12,7 +12,7 @@
 #import "WCClient.h"
 #import "WCConstants.h"
 #import "WCCampaignTableViewCell.h"
-#import "WCAlerts.h"
+#import "WCAlert.h"
 
 // UITableViewCell identifiers
 static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
@@ -105,7 +105,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 
 - (void) showCampaignFeedError
 {
-    [WCAlerts showAlertWithOptionFromViewController:self
+    [WCAlert showAlertWithOptionFromViewController:self
                                           withTitle:@"Unable to fetch campaigns."
                                             message:@"Could not retrieve the campaigns from the server"
                                         optionTitle:@"Try Again"
