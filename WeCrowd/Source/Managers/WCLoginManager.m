@@ -46,8 +46,9 @@ static WCLoginUserType userType = WCLoginUserPayer;
     [WCClient loginWithUsername:username
                        password:password
                 completionBlock:^(NSDictionary *userInfo, NSError *error) {
-                    // TODO: Perform proper error checking
-                    if (!error) {
+                    if (error) {
+                        NSLog(@"Error: LoginManager: Unable to login user. Description: %@", [error localizedDescription]);
+                    } else {
                         // Allocate memory if user instance has not been created
                         if (!user) { user = [WCUserModel new]; }
                         

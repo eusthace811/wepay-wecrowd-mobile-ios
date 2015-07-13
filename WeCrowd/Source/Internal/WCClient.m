@@ -290,7 +290,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
         if (!extractedData) {
             // If JSON extraction fails, try to extract binary data
             // For now, only image case is handled
-            // TODO: This really should be in a separate method, but I'm in too deep atm =/
+            // (This really should be in a separate method, but I'm in too deep atm =/)
             extractedData = [UIImage imageWithData:data];
         }
     }

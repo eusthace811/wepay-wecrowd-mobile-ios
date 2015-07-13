@@ -36,7 +36,6 @@
     // Configure the display information within the view
     self.title.text = model.title;
     self.endDate.text = timeRemaining;
-    // TODO: use thumbnail image from server
     [model fetchImageIfNeededWithCompletion:^(UIImage *image, NSError *error) {
         [self.thumbnailImageView setContentMode:UIViewContentModeScaleToFill];
         self.thumbnailImageView.image = image;

@@ -51,7 +51,6 @@
     // Nasty cast + conversion to get the float value
     donationAmount = [((NSNumber *) [dictionary objectForKey:kAPICampaignGoalKey]) floatValue];
     donationTarget = [((NSNumber *) [dictionary objectForKey:kAPICampaignProgressKey]) floatValue];
-    // TODO: Replace key with constant
     imageURLString = [dictionary objectForKey:kAPICampaignImageURLKey];
     
     // Separate call to download the image - little wonky, I know
