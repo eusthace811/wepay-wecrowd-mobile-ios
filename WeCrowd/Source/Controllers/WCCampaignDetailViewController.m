@@ -14,7 +14,9 @@
 #import "WCDonationManager.h"
 #import "WCLoginManager.h"
 #import "WCPaymentViewController.h"
-#import "WCAlerts.h"
+#import "WCManualPaymentViewController.h"
+#import "WCSwiperViewController.h"
+#import "WCAlert.h"
 
 @interface WCCampaignDetailViewController () <CampaignDetailDelegate, PaymentViewDelegate>
 
@@ -85,7 +87,7 @@
     if ([WCLoginManager userType] == WCLoginUserMerchant) {
         [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard];
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
-        [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController" forStoryboard:paymentStoryboard];
+        [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class]) forStoryboard:paymentStoryboard];
     }
     
     [[WCDonationManager sharedManager] setCampaignID:self.campaignDetail.campaignID];
@@ -104,13 +106,13 @@
     swipeAction = [UIAlertAction actionWithTitle:@"Swipe Card"
                                            style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action) {
-                                             [self pushViewControllerWithIdentifier:@"WCSwiperViewController"
+                                             [self pushViewControllerWithIdentifier:NSStringFromClass([WCSwiperViewController class])
                                                                       forStoryboard:storyboard];
                                          }];
     manualAction = [UIAlertAction actionWithTitle:@"Manual Entry"
                                             style:UIAlertActionStyleDefault
                                           handler:^(UIAlertAction *action) {
-                                              [self pushViewControllerWithIdentifier:@"WCManualPaymentViewController"
+                                              [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class])
                                                                        forStoryboard:storyboard];
                                           }];
     cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
@@ -133,7 +135,7 @@
     viewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
     viewController.delegate = self;
     
-    navigationController = [storyboard instantiateViewControllerWithIdentifier:@"PaymentNavigationController"];
+    navigationController = [storyboard instantiateViewControllerWithIdentifier:kIBPaymentNavigationControllerIdentifier];
     [navigationController setViewControllers:@[viewController] animated:NO];
     
     [self presentViewController:navigationController animated:YES completion:nil];
@@ -144,7 +146,7 @@
     [WCClient fetchCampaignWithID:campaignID
                   completionBlock:^(WCCampaignDetailModel *campaign, NSError *error) {
                       if (error) {
-                          [WCAlerts showAlertWithOptionFromViewController:self
+                          [WCAlert showAlertWithOptionFromViewController:self
                                                                 withTitle:@"Unable to fetch campaign details"
                                                                   message:@"The details of this campaign could not be fetched. Ensure you are connected to a network and try again."
                                                               optionTitle:@"Try Again"
@@ -174,6 +176,7 @@
 
 - (void) setUpNavigationItemTitleLabel
 {
+    // Style the detail title label so the text fits in the navbar
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 32)];
     self.titleLabel.minimumScaleFactor = 0.6f;
     self.titleLabel.adjustsFontSizeToFitWidth = YES;

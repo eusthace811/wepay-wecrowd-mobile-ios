@@ -10,7 +10,7 @@
 #import "WCLoginManager.h"
 #import "WCCampaignFeedViewController.h"
 #import "WCConstants.h"
-#import "WCAlerts.h"
+#import "WCAlert.h"
 
 #pragma mark - Interface
 
@@ -48,7 +48,7 @@
     {
         if (error) {
             // Notify the user of the error
-            [WCAlerts showSimpleAlertFromViewController:self
+            [WCAlert showSimpleAlertFromViewController:self
                                               withTitle:@"Please try again"
                                                 message:@"Unable to log you in. Please check your information and try again."
                                              completion:nil];

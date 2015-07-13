@@ -8,14 +8,16 @@
 
 #import "WCCampaignDetailModel.h"
 
-
 #pragma mark - Interface
 
 @interface WCCampaignDetailModel ()
 
 @property (nonatomic, strong, readwrite) UIImage* detailImage;
 @property (nonatomic, strong, readwrite) NSString* detailDescription;
-@property (nonatomic, strong, readwrite) NSString* location;
+@property (nonatomic, strong, readwrite) NSDate * dateEnd;
+
+@property (nonatomic, readwrite) CGFloat donationTargetAmount;
+@property (nonatomic, readwrite) CGFloat donationAmount;
 
 @end
 
@@ -24,8 +26,6 @@
 
 @implementation WCCampaignDetailModel
 
-#pragma mark - Initialization
-
 - (instancetype) initWithCampaign:(NSString *) campaign
                             title:(NSString *) title
                           endDate:(NSDate *) endDate
@@ -33,17 +33,15 @@
                    donationAmount:(CGFloat) donationAmount
                       detailImage:(UIImage *) detailImage
                 detailDescription:(NSString *) detailDescription
-                         location:(NSString *) location
 {
     if (self = [super initWithCampaign:campaign
-                                 title:title
-                               endDate:endDate
-                        donationTarget:donationTarget
-                        donationAmount:donationAmount])
+                                 title:title])
     {
         self.detailImage = detailImage;
         self.detailDescription = detailDescription;
-        self.location = location;
+        self.dateEnd = endDate;
+        self.donationTargetAmount = donationTarget;
+        self.donationAmount = donationAmount;
     } else {
         // Do nothing
     }

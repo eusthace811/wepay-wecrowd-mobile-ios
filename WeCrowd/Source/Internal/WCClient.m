@@ -36,7 +36,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
            completionBlock:(void (^)(NSDictionary *userInfo, NSError *)) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointLogin]
-                             values:@{ kAPIParameterEmail : username, kAPIParameterPassword : password }
+                             values:@{ kAPIEmailKey : username, kAPIPasswordKey : password }
                         accessToken:nil
                        successBlock:^(NSDictionary *returnData) {
                            // Check the status of the return data
@@ -69,9 +69,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
     amount = [NSNumber numberWithInteger:[donation.amount integerValue]];
     campaignID = [NSNumber numberWithInteger:[donation.campaignID integerValue]];
     
-    NSDictionary *values = @{ kAPIParameterDonationID              : campaignID,
-                              kAPIParameterDonationCreditCardToken : donation.creditCardID,
-                              kAPIParameterDonationAmount          : amount };
+    NSDictionary *values = @{ kAPIDonationIDKey              : campaignID,
+                              kAPIDonationCreditCardTokenKey : donation.creditCardID,
+                              kAPIDonationAmountKey          : amount };
     
      [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointDonate]
                               values:values
@@ -116,7 +116,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                   completionBlock:(WCArrayReturnBlock) completionBlock
 {
     [self makePostRequestToEndPoint:[self apiURLWithEndpoint:kAPIEndpointUsers]
-                             values:@{ kAPIParameterUserID : userID, kAPIParameterUserToken : token }
+                             values:@{ kAPIUserIDKey : userID, kAPIUserTokenKey : token }
                         accessToken:nil
                        successBlock:^(NSArray *returnData) {
                            NSLog(@"Success: Client: Fetched campaigns for user.");
@@ -144,9 +144,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
 + (void) fetchCampaignWithID:(NSString *) campaignID
              completionBlock:(WCCampaignDetailReturnBlock) completionBlock
 {
+    // Get the full URL Endpoint
     NSMutableString *URLString = [kAPIEndpointCampaigns mutableCopy];
-    NSNumber *APIID = (NSNumber *) campaignID;
-    [URLString appendString:[NSString stringWithFormat:@"/%@", [APIID stringValue]]];
+    [URLString appendString:[NSString stringWithFormat:@"/%@", campaignID]];
     
     [self makeGetRequestToEndpoint:[self apiURLWithEndpoint:URLString]
                        accessToken:nil
@@ -159,7 +159,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                                                                     }];
                       }
                       errorHandler:^(NSError *error) {
-                          NSLog(@"API error: Unable to fetch campaign.");
+                          NSLog(@"Error: Client: Unable to fetch campaign.");
                           completionBlock(nil, error);
                       }];
 }
@@ -290,7 +290,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
         if (!extractedData) {
             // If JSON extraction fails, try to extract binary data
             // For now, only image case is handled
-            // TODO: This really should be in a separate method, but I'm in too deep atm =/
+            // (This really should be in a separate method, but I'm in too deep atm =/)
             extractedData = [UIImage imageWithData:data];
         }
     }
@@ -306,7 +306,7 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
             NSDictionary *userInfo;
             NSString *description;
             
-            description = [NSString stringWithFormat:@"Error processing request %@.", response.URL.path];
+            description = [NSString stringWithFormat:@"Error: Client: Unable to process request %@.", response.URL.path];
             userInfo =  @{ NSLocalizedDescriptionKey : NSLocalizedString(description, nil) };
             
             errorHandler([NSError errorWithDomain:NSURLErrorDomain

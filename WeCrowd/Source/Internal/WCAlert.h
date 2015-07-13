@@ -1,5 +1,5 @@
 //
-//  WCAlerts.h
+//  WCAlert.h
 //  WeCrowd
 //
 //  Created by Zach Vega-Perkins on 7/8/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WCAlerts : NSObject
+@interface WCAlert : NSObject
 
 + (void) showSimpleAlertFromViewController:(UIViewController *) viewController
                                  withTitle:(NSString *) title

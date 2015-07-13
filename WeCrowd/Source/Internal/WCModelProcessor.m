@@ -29,16 +29,13 @@
         
         campaign = campaigns[i];
         
-        campaignID = [campaign objectForKey:kAPIParameterCampaignID];
-        campaignName = [campaign objectForKey:kAPIParameterCampaignName];
-        imageURLString = [campaign objectForKey:@"campaign_image_url"];
-        campaignGoal = [((NSNumber *) [campaign objectForKey:kAPIParameterCampaignGoal]) floatValue];
+        campaignID = [[campaign objectForKey:kAPICampaignIDKey] stringValue];
+        campaignName = [campaign objectForKey:kAPICampaignNameKey];
+        imageURLString = [campaign objectForKey:kAPICampaignImageURLKey];
+        campaignGoal = [((NSNumber *) [campaign objectForKey:kAPICampaignGoalKey]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
                                                              title:campaignName
-                                                           endDate:nil
-                                                    donationTarget:campaignGoal
-                                                    donationAmount:0
                                                     imageURLString:imageURLString];
     }
     
@@ -49,13 +46,14 @@
                                  completion:(WCModelProcessorCompletion) completion
 {
     CGFloat donationAmount, donationTarget;
-    NSString *imageURLString;
+    NSString *imageURLString, *campaignIDString;
     
     // Nasty cast + conversion to get the float value
-    donationAmount = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignGoal]) floatValue];
-    donationTarget = [((NSNumber *) [dictionary objectForKey:kAPIParameterCampaignProgress]) floatValue];
-    // TODO: Replace key with constant
-    imageURLString = [dictionary objectForKey:@"campaign_image_url"];
+    donationAmount = [((NSNumber *) [dictionary objectForKey:kAPICampaignGoalKey]) floatValue];
+    donationTarget = [((NSNumber *) [dictionary objectForKey:kAPICampaignProgressKey]) floatValue];
+    
+    imageURLString = [dictionary objectForKey:kAPICampaignImageURLKey];
+    campaignIDString = [[dictionary objectForKey:kAPICampaignIDKey] stringValue];
     
     // Separate call to download the image - little wonky, I know
     [WCClient fetchImageWithURLString:imageURLString
@@ -63,17 +61,16 @@
                           WCCampaignDetailModel *detailModel;
                           
                           if (error) {
-                              NSLog(@"Error: ModelProcessor: Unable to fetch image");
+                              NSLog(@"Error: ModelProcessor: Unable to fetch image.");
                           }
                           
-                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:[dictionary objectForKey:kAPIParameterCampaignID]
-                                                                                  title:[dictionary objectForKey:kAPIParameterCampaignName]
+                          detailModel = [[WCCampaignDetailModel alloc] initWithCampaign:campaignIDString
+                                                                                  title:[dictionary objectForKey:kAPICampaignNameKey]
                                                                                 endDate:nil
                                                                          donationTarget:donationAmount
                                                                          donationAmount:donationTarget
                                                                             detailImage:image
-                                                                      detailDescription:[dictionary objectForKey:kAPIParameterCampaignDescription]
-                                                                               location:nil];
+                                                                      detailDescription:[dictionary objectForKey:kAPICampaignDescriptionKey]];
                           
                           completion(detailModel, error);
                       }];

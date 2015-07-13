@@ -15,7 +15,7 @@
 #import "WCCreditCardModel.h"
 #import "WCModelProcessor.h"
 #import "WCConstants.h"
-#import "WCAlerts.h"
+#import "WCAlert.h"
 
 @interface WCManualPaymentViewController () <WPTokenizationDelegate>
 
@@ -77,7 +77,7 @@
                                                                                                                 forDuration:3.f];
                                                                  [self.delegate didFinishWithSender:self];
                                                              } else {
-                                                                 [WCAlerts showAlertWithOptionFromViewController:self
+                                                                 [WCAlert showAlertWithOptionFromViewController:self
                                                                                                        withTitle:@"Unable to complete donation"
                                                                                                          message:@"There was a server error. Please try again."
                                                                                                      optionTitle:@"Try Again"
@@ -93,7 +93,7 @@
 {
     NSString *message = [NSString stringWithFormat:@"Could not complete donation. %@", [error localizedDescription]];
     
-    [WCAlerts showSimpleAlertFromViewController:self
+    [WCAlert showSimpleAlertFromViewController:self
                                       withTitle:@"Unable to process information"
                                         message:message
                                      completion:nil];

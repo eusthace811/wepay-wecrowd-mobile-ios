@@ -19,7 +19,7 @@
 		C32293AD1B4AF94900876227 /* WCPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32293AC1B4AF94900876227 /* WCPaymentViewController.m */; };
 		C3249D901B420C5800C6CED7 /* WCSwiperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */; };
 		C32FABF21B44A614005C34AB /* WCDonationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C32FABF11B44A614005C34AB /* WCDonationManager.m */; };
-		C36B3A881B4D997700EB8C9D /* WCAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A871B4D997700EB8C9D /* WCAlerts.m */; };
+		C36B3A881B4D997700EB8C9D /* WCAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A871B4D997700EB8C9D /* WCAlert.m */; };
 		C36B3A8B1B4DC33200EB8C9D /* WCError.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B3A8A1B4DC33200EB8C9D /* WCError.m */; };
 		C37283EB1B38C9C400EE627C /* WCCampaignFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37283EA1B38C9C400EE627C /* WCCampaignFeedViewController.m */; };
 		C391DF511B3CC34F008FB2FD /* PaymentFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C391DF4F1B3CC34F008FB2FD /* PaymentFlow.storyboard */; };
@@ -73,8 +73,8 @@
 		C3249D8F1B420C5800C6CED7 /* WCSwiperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCSwiperViewController.m; path = Source/Controllers/WCSwiperViewController.m; sourceTree = "<group>"; };
 		C32FABF01B44A614005C34AB /* WCDonationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCDonationManager.h; path = Source/Managers/WCDonationManager.h; sourceTree = "<group>"; };
 		C32FABF11B44A614005C34AB /* WCDonationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCDonationManager.m; path = Source/Managers/WCDonationManager.m; sourceTree = "<group>"; };
-		C36B3A861B4D997700EB8C9D /* WCAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCAlerts.h; path = Source/Internal/WCAlerts.h; sourceTree = "<group>"; };
-		C36B3A871B4D997700EB8C9D /* WCAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCAlerts.m; path = Source/Internal/WCAlerts.m; sourceTree = "<group>"; };
+		C36B3A861B4D997700EB8C9D /* WCAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCAlert.h; path = Source/Internal/WCAlert.h; sourceTree = "<group>"; };
+		C36B3A871B4D997700EB8C9D /* WCAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCAlert.m; path = Source/Internal/WCAlert.m; sourceTree = "<group>"; };
 		C36B3A891B4DC33200EB8C9D /* WCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCError.h; path = Source/Internal/WCError.h; sourceTree = "<group>"; };
 		C36B3A8A1B4DC33200EB8C9D /* WCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCError.m; path = Source/Internal/WCError.m; sourceTree = "<group>"; };
 		C37283E91B38C9C400EE627C /* WCCampaignFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCCampaignFeedViewController.h; path = Source/Controllers/WCCampaignFeedViewController.h; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 				C3DC8ED91B3C93800053D405 /* WCModelProcessor.m */,
 				C3D610A11B3E0C1A005D188F /* WCConstants.h */,
 				C3D610A21B3E0C1A005D188F /* WCConstants.m */,
-				C36B3A861B4D997700EB8C9D /* WCAlerts.h */,
-				C36B3A871B4D997700EB8C9D /* WCAlerts.m */,
+				C36B3A861B4D997700EB8C9D /* WCAlert.h */,
+				C36B3A871B4D997700EB8C9D /* WCAlert.m */,
 				C36B3A891B4DC33200EB8C9D /* WCError.h */,
 				C36B3A8A1B4DC33200EB8C9D /* WCError.m */,
 			);
@@ -470,7 +470,7 @@
 			files = (
 				C3D610A71B3E1D7C005D188F /* WCCampaignTableViewCell.m in Sources */,
 				C3DC8EDA1B3C93800053D405 /* WCModelProcessor.m in Sources */,
-				C36B3A881B4D997700EB8C9D /* WCAlerts.m in Sources */,
+				C36B3A881B4D997700EB8C9D /* WCAlert.m in Sources */,
 				C396765C1B2A57380071CEB5 /* WCCreditCardModel.m in Sources */,
 				C3DC8EDD1B3CA0650053D405 /* WCCampaignDetailViewController.m in Sources */,
 				C39C9B4F1B34B8E900C5E9A7 /* WCClient.m in Sources */,

@@ -25,21 +25,17 @@
 - (void) configureForCampaignHeader:(WCCampaignHeaderModel *) model
 {
     NSDateFormatter* standardDateFormat = [NSDateFormatter new];
-    NSString* timeRemaining, *pledgeProgress;
-    CGFloat pledgeProgressNum = model.donationAmount > 0 ? model.donationTargetAmount / model.donationAmount : 0;
+    NSString* timeRemaining;
     UIColor *backgroundColor;
     
     // Format the view information
     // Hard code random end date from now since there's no real end day
     [standardDateFormat setDateStyle:NSDateFormatterShortStyle];
     timeRemaining = [NSString stringWithFormat:@"Ends %@", [standardDateFormat stringFromDate:[NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * (rand() % 10 + 1)]]];
-    pledgeProgress = [NSString stringWithFormat:@"%.f", pledgeProgressNum];
-    pledgeProgress = [pledgeProgress stringByAppendingString:@"% funded"];
     
     // Configure the display information within the view
     self.title.text = model.title;
     self.endDate.text = timeRemaining;
-    // TODO: use thumbnail image from server
     [model fetchImageIfNeededWithCompletion:^(UIImage *image, NSError *error) {
         [self.thumbnailImageView setContentMode:UIViewContentModeScaleToFill];
         self.thumbnailImageView.image = image;

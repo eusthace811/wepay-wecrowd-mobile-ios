@@ -11,13 +11,14 @@
 
 @class WCCampaignBaseModel, UIImage;
 
-#pragma mark - Interface
-
 @interface WCCampaignDetailModel : WCCampaignBaseModel
 
 @property (nonatomic, strong, readonly) UIImage* detailImage;
 @property (nonatomic, strong, readonly) NSString* detailDescription;
-@property (nonatomic, strong, readonly) NSString* location; // consider using location object
+@property (nonatomic, strong, readonly) NSDate * dateEnd;
+
+@property (nonatomic, readonly) CGFloat donationTargetAmount;
+@property (nonatomic, readonly) CGFloat donationAmount;
 
 - (instancetype) initWithCampaign:(NSString *) campaign
                             title:(NSString *) title
@@ -25,7 +26,6 @@
                    donationTarget:(CGFloat) donationTarget
                    donationAmount:(CGFloat) donationAmount
                       detailImage:(UIImage *) detailImage
-                detailDescription:(NSString *) detailDescription
-                         location:(NSString *) location;
+                detailDescription:(NSString *) detailDescription;
 
 @end
