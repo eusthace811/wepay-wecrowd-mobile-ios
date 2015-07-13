@@ -26,10 +26,11 @@
         <scene sceneID="Sw5-83-H6w">
             <objects>
                 <tableViewController storyboardIdentifier="WCManualPaymentViewController" id="ivX-u3-Bl0" customClass="WCManualPaymentViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="dWN-aM-t0G">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="dWN-aM-t0G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="Enter Card Information" id="jyT-SB-EyH">
                                 <cells>
@@ -324,7 +325,6 @@
                                                 </button>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Eax-ha-cRw">
                                                     <rect key="frame" x="282" y="3" width="37" height="37"/>
-                                                    <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
@@ -352,6 +352,7 @@
                         <connections>
                             <outlet property="dataSource" destination="ivX-u3-Bl0" id="Xlr-1U-S1i"/>
                             <outlet property="delegate" destination="ivX-u3-Bl0" id="AW3-Gw-9Yi"/>
+                            <outletCollection property="gestureRecognizers" destination="mkh-Ii-OzI" appends="YES" id="Aae-KX-UPF"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Manual Entry" id="FL8-rN-oV7">
@@ -377,6 +378,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocb-JK-iKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mkh-Ii-OzI">
+                    <connections>
+                        <action selector="tapAction:" destination="ivX-u3-Bl0" id="4wV-Bf-6cd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1054" y="1042"/>
         </scene>
@@ -384,28 +390,30 @@
         <scene sceneID="F3d-6r-nl8">
             <objects>
                 <tableViewController storyboardIdentifier="WCSwiperViewController" id="G7D-oN-nhZ" customClass="WCSwiperViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="UZZ-Aw-PXE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="UZZ-Aw-PXE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="rSJ-UG-3oh" userLabel="HeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a donation amount" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wX9-wg-NgL">
-                                    <rect key="frame" x="0.0" y="11" width="600" height="22"/>
+                                    <rect key="frame" x="0.0" y="10" width="600" height="22"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="textColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting Up..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygH-HP-ypo">
-                                    <rect key="frame" x="0.0" y="11" width="600" height="22"/>
+                                    <rect key="frame" x="0.0" y="10" width="600" height="22"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="ygH-HP-ypo" firstAttribute="bottom" secondItem="wX9-wg-NgL" secondAttribute="bottom" id="16a-J2-aPb"/>
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="trailing" secondItem="ygH-HP-ypo" secondAttribute="trailing" id="4D6-4a-5gL"/>
                                 <constraint firstAttribute="trailing" secondItem="wX9-wg-NgL" secondAttribute="trailing" id="GIv-kh-m0F"/>
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="leading" secondItem="rSJ-UG-3oh" secondAttribute="leading" id="GdC-A5-mAl"/>
@@ -413,12 +421,15 @@
                                 <constraint firstItem="wX9-wg-NgL" firstAttribute="leading" secondItem="ygH-HP-ypo" secondAttribute="leading" id="hXL-lR-BOo"/>
                                 <constraint firstAttribute="centerX" secondItem="ygH-HP-ypo" secondAttribute="centerX" id="joT-R4-1dG"/>
                                 <constraint firstAttribute="centerY" secondItem="ygH-HP-ypo" secondAttribute="centerY" id="k7M-rd-BCz"/>
+                                <constraint firstAttribute="bottom" secondItem="wX9-wg-NgL" secondAttribute="bottom" id="kvh-qx-NLr"/>
                                 <constraint firstAttribute="centerX" secondItem="wX9-wg-NgL" secondAttribute="centerX" id="wqi-bA-7R6"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="wqi-bA-7R6"/>
                                     <exclude reference="joT-R4-1dG"/>
+                                    <exclude reference="k7M-rd-BCz"/>
+                                    <exclude reference="Rnd-yy-suG"/>
+                                    <exclude reference="wqi-bA-7R6"/>
                                 </mask>
                             </variation>
                         </view>
@@ -485,7 +496,6 @@
                                                 </button>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tCL-aI-Sra">
                                                     <rect key="frame" x="282" y="4" width="37" height="37"/>
-                                                    <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
@@ -513,6 +523,7 @@
                         <connections>
                             <outlet property="dataSource" destination="G7D-oN-nhZ" id="Unj-xG-TBl"/>
                             <outlet property="delegate" destination="G7D-oN-nhZ" id="DV3-CQ-6Ql"/>
+                            <outletCollection property="gestureRecognizers" destination="yuj-HT-UQV" appends="YES" id="Udg-pl-WWd"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Swipe Card" id="u7E-Jy-3YL">
@@ -532,6 +543,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTw-BR-Udf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yuj-HT-UQV">
+                    <connections>
+                        <action selector="tapAction:" destination="G7D-oN-nhZ" id="U9L-sn-Ekk"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1054" y="353"/>
         </scene>

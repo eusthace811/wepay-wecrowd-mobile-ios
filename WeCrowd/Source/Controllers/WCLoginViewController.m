@@ -63,4 +63,12 @@
     }];
 }
 
+#pragma mark - UIResponder
+
+- (void) touchesBegan:(NSSet *) touches withEvent:(UIEvent *) event
+{
+    [self.emailField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+}
+
 @end
