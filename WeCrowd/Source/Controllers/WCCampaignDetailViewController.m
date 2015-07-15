@@ -85,7 +85,7 @@
     UIStoryboard *paymentStoryboard = [UIStoryboard storyboardWithName:kIBStoryboardPaymentFlow bundle:nil];
     
     if ([WCLoginManager userType] == WCLoginUserMerchant) {
-        [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard];
+        [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard sender:sender];
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
         [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class]) forStoryboard:paymentStoryboard];
     }
@@ -95,14 +95,17 @@
 
 #pragma mark - Helper Methods
 
-- (void) displayPaymentOptionActionSheetWithStoryboard:(UIStoryboard *) storyboard
+- (void) displayPaymentOptionActionSheetWithStoryboard:(UIStoryboard *) storyboard sender:(UIButton *) sender
 {
     UIAlertController *alertController;
     UIAlertAction *swipeAction, *manualAction, *cancelAction;
+    UIPopoverPresentationController *popoverPresenter;  // iPad support
+    
     
     alertController  = [UIAlertController alertControllerWithTitle:@"Choose payment method."
                                                            message:nil
                                                     preferredStyle:UIAlertControllerStyleActionSheet];
+    
     swipeAction = [UIAlertAction actionWithTitle:@"Swipe Card"
                                            style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action) {
@@ -122,6 +125,13 @@
     [alertController addAction:swipeAction];
     [alertController addAction:manualAction];
     [alertController addAction:cancelAction];
+    
+    // iPad support - Anything popover
+    [alertController setModalPresentationStyle:UIModalPresentationPopover];
+    
+    popoverPresenter = [alertController popoverPresentationController];
+    popoverPresenter.sourceView = sender;
+    popoverPresenter.sourceRect = sender.bounds;
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
