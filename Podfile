@@ -4,6 +4,7 @@
 target 'WeCrowd' do
     pod 'CWStatusBarNotification', '~> 2.2.6'
     pod 'WePay'
+    pod "PPSSignatureView"
 end
 
 target 'WeCrowdTests' do
