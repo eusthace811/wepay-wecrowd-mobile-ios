@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 WePay. All rights reserved.
 //
 
-#import <WePay/WePay.h>
-
 #import "WCSwiperViewController.h"
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"

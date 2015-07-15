@@ -75,7 +75,8 @@
                                                                  [self.activityIndicator stopAnimating];
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
-                                                                 [self.delegate didFinishWithSender:self];
+                                                                 [self pushSignatureView];
+//                                                                 [self.delegate didFinishWithSender:self];
                                                              } else {
                                                                  [WCAlert showAlertWithOptionFromViewController:self
                                                                                                        withTitle:@"Unable to complete donation"

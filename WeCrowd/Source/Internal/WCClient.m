@@ -89,7 +89,9 @@ static NSString* const kAPIURLString = @"http://wecrowd.wepay.com/api";
                                 NSLog(@"Error: API: %@.", [returnData objectForKey:kAPIParameterErrorMessage]);
                             } else {
                                 // No error code, so hand off the data
-                                completionBlock(returnData, nil);
+                                NSNumber *checkoutIDNum = [returnData objectForKey:@"checkout_id"];
+                                
+                                completionBlock([checkoutIDNum stringValue], nil);
                             }
                         }
                         errorHandler:^(NSError *error) {

@@ -8,7 +8,7 @@
 
 #import "WCSignatureViewController.h"
 #import "WCWePayManager.h"
-#import <WePay/WePay.h>
+#import "WCDonationManager.h"
 
 @interface WCSignatureViewController () <WPCheckoutDelegate>
 
@@ -39,19 +39,21 @@
 
 - (IBAction) submitSignatureAction:(id) sender
 {
-    
+    [[WCWePayManager sharedInstance] storeSignatureImage:self.signatureView.signatureImage
+                                           forCheckoutID:[WCDonationManager sharedManager].checkoutID
+                                       signatureDelegate:self];
 }
 
 - (void) didStoreSignature:(NSString *) signatureUrl forCheckoutId:(NSString *) checkoutId
 {
-    
+    NSLog(@"Success: SignatureViewController: Stored signature at URL %@.", signatureUrl);
 }
 
 - (void) didFailToStoreSignatureImage:(UIImage *) image
                         forCheckoutId:(NSString *) checkoutId
                             withError:(NSError *) error
 {
-    
+    NSLog(@"Error: SignatureViewController: Failed to store signature.");
 }
 
 @end

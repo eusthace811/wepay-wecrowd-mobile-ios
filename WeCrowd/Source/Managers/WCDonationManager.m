@@ -12,7 +12,8 @@
 
 @interface WCDonationManager ()
 
-@property (nonatomic, readwrite) WCCampaignDonationModel *donation;
+@property (nonatomic, strong, readwrite) WCCampaignDonationModel *donation;
+@property (nonatomic, strong, readwrite) NSString *checkoutID;
 @property (nonatomic, readwrite) WCDonationStatus donationStatus;
 
 @end
@@ -38,11 +39,6 @@
     self.donation.campaignID = campaignID;
 }
 
-- (void) configureDonationForCheckoutID:(NSString *) checkoutID
-{
-    self.donation.checkoutID = checkoutID;
-}
-
 - (void) makeDonationForCampaignWithAmount:(NSString *) amount
                                       name:(NSString *) name
                                      email:(NSString *) email
@@ -57,6 +53,8 @@
                      if (error) {
                          NSLog(@"Error: DonationManager: Unable to make donation. Description: %@.", [error localizedDescription]);
                      } else {
+                         self.donation.checkoutID = checkoutID;
+                         self.checkoutID = self.donation.checkoutID;
                          NSLog(@"Success: DonationManager: Donation successful.");
                      }
                      

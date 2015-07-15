@@ -9,8 +9,6 @@
 #import "WCWePayManager.h"
 #import "WCCreditCardModel.h"
 
-#import <WePay/WePay.h>
-
 @interface WCWePayManager ()
 
 @property (nonatomic, strong, readwrite) WePay *wepay;
