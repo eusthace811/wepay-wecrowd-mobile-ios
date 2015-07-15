@@ -91,7 +91,7 @@
 //        [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class]) forStoryboard:paymentStoryboard];
     }
     
-    [[WCDonationManager sharedManager] setCampaignID:self.campaignDetail.campaignID];
+    [[WCDonationManager sharedManager] configureDonationForCampaignID:self.campaignDetail.campaignID];
 }
 
 #pragma mark - Helper Methods

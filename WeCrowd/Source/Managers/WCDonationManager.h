@@ -17,10 +17,13 @@ typedef NS_ENUM(NSInteger, WCDonationStatus) {
     WCDonationStatusPending = 1
 };
 
-@property (nonatomic, strong, readwrite) NSString *campaignID;
+@property (nonatomic, readonly) WCCampaignDonationModel *donation;
 @property (nonatomic, readonly) WCDonationStatus donationStatus;
 
 + (instancetype) sharedManager;
+
+- (void) configureDonationForCampaignID:(NSString *) campaignID;
+- (void) configureDonationForCheckoutID:(NSString *) checkoutID;
 
 - (void) makeDonationForCampaignWithAmount:(NSString *) amount
                                       name:(NSString *) name

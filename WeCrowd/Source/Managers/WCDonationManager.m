@@ -12,6 +12,7 @@
 
 @interface WCDonationManager ()
 
+@property (nonatomic, readwrite) WCCampaignDonationModel *donation;
 @property (nonatomic, readwrite) WCDonationStatus donationStatus;
 
 @end
@@ -26,9 +27,20 @@
     
     dispatch_once(&onceToken, ^{
         instance = [WCDonationManager new];
+        instance.donation = [WCCampaignDonationModel new];
     });
     
     return instance;
+}
+
+- (void) configureDonationForCampaignID:(NSString *) campaignID
+{
+    self.donation.campaignID = campaignID;
+}
+
+- (void) configureDonationForCheckoutID:(NSString *) checkoutID
+{
+    self.donation.checkoutID = checkoutID;
 }
 
 - (void) makeDonationForCampaignWithAmount:(NSString *) amount
@@ -37,16 +49,10 @@
                               creditCardID:(NSString *) creditCardID
                            completionBlock:(void (^)(NSError *error)) completionBlock
 {
-    WCCampaignDonationModel *donation;
-    
-    donation = [[WCCampaignDonationModel alloc] initWithCampaignID:self.campaignID
-                                                       donatorName:name
-                                                      donatorEmail:email
-                                                      creditCardID:creditCardID
-                                                            amount:amount];
+    [self configureDonationWithAmount:amount name:name email:email creditCardID:creditCardID];
     
     // Make the API donate call
-    [WCClient donateWithDonation:donation
+    [WCClient donateWithDonation:self.donation
                  completionBlock:^(NSString *checkoutID, NSError *error) {
                      if (error) {
                          NSLog(@"Error: DonationManager: Unable to make donation. Description: %@.", [error localizedDescription]);
@@ -60,6 +66,17 @@
     
     // Set the status
     self.donationStatus = WCDonationStatusPending;
+}
+
+- (void) configureDonationWithAmount:(NSString *) amount
+                                name:(NSString *) name
+                               email:(NSString *) email
+                        creditCardID:(NSString *) creditCardID
+{
+    self.donation.amount = amount;
+    self.donation.donatorName = name;
+    self.donation.donatorEmail = email;
+    self.donation.creditCardID = creditCardID;
 }
 
 @end
