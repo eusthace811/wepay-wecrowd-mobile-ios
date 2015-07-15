@@ -7,6 +7,7 @@
 //
 
 #import "WCSignatureViewController.h"
+#import "WCWePayManager.h"
 #import <WePay/WePay.h>
 
 @interface WCSignatureViewController () <WPCheckoutDelegate>
@@ -36,9 +37,9 @@
 }
 
 
-- (IBAction)submitSignatureAction:(id) sender
+- (IBAction) submitSignatureAction:(id) sender
 {
-
+    
 }
 
 - (void) didStoreSignature:(NSString *) signatureUrl forCheckoutId:(NSString *) checkoutId
