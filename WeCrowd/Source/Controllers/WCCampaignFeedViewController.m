@@ -34,6 +34,10 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     [super viewDidLoad];
     
     [self executeCampaignFetch];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.tableView.rowHeight = 500;
+    }
 }
 
 #pragma mark - UITableViewDataSource
