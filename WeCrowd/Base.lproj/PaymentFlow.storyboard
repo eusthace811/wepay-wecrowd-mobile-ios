@@ -396,7 +396,7 @@
                         <viewControllerLayoutGuide type="top" id="xqc-AJ-cHf"/>
                         <viewControllerLayoutGuide type="bottom" id="9V1-IV-2Pg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vBu-49-8hd" customClass="PPSSignatureView">
+                    <view key="view" contentMode="scaleToFill" id="vBu-49-8hd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -411,12 +411,42 @@
                                     <action selector="clearSignatureAction:" destination="VBZ-7P-gal" eventType="touchUpInside" id="jDU-Rj-g1l"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-Of-SYi" customClass="PPSSignatureView">
+                                <rect key="frame" x="32" y="434" width="536" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="GGx-cN-Bpb"/>
+                                    <constraint firstAttribute="height" constant="100" id="vcV-ug-IQc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GGx-cN-Bpb"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="vBu-49-8hd" secondAttribute="leadingMargin" constant="16" id="2Ut-zV-8q3"/>
+                            <constraint firstItem="pAG-X4-QG8" firstAttribute="top" secondItem="sVI-Of-SYi" secondAttribute="bottom" constant="16" id="AaR-iJ-bMy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" constant="16" id="Hur-Sh-xPB"/>
+                            <constraint firstItem="sVI-Of-SYi" firstAttribute="top" secondItem="xqc-AJ-cHf" secondAttribute="bottom" constant="64" id="KnB-6f-ztI"/>
+                            <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="sVI-Of-SYi" secondAttribute="bottom" constant="64" id="M0h-Q9-070"/>
                             <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="pAG-X4-QG8" secondAttribute="bottom" constant="16" id="PLV-NT-d9E"/>
+                            <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="vBu-49-8hd" secondAttribute="leadingMargin" constant="16" id="T1q-Wb-Qu5"/>
+                            <constraint firstAttribute="centerX" secondItem="sVI-Of-SYi" secondAttribute="centerX" id="YDz-Ov-vkB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" constant="16" id="a7i-HR-BlM"/>
                             <constraint firstAttribute="centerX" secondItem="pAG-X4-QG8" secondAttribute="centerX" id="ilP-nn-3Dc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KnB-6f-ztI"/>
+                                <exclude reference="T1q-Wb-Qu5"/>
+                                <exclude reference="YDz-Ov-vkB"/>
+                                <exclude reference="a7i-HR-BlM"/>
+                                <exclude reference="M0h-Q9-070"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Please Sign" id="1sa-GL-bvO">
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="Rnn-9F-yNl">
@@ -427,7 +457,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="signatureView" destination="vBu-49-8hd" id="s3k-Px-qiZ"/>
+                        <outlet property="signatureView" destination="sVI-Of-SYi" id="aay-vn-ijc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfT-UA-3WF" userLabel="First Responder" sceneMemberID="firstResponder"/>

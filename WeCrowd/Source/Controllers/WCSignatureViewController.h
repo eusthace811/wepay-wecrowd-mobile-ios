@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PPSSignatureView.h"
 
-@interface WCSignatureViewController : GLKViewController
+@interface WCSignatureViewController : UIViewController
 
 @end

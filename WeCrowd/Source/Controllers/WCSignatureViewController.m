@@ -21,7 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self.signatureView.layer setBorderWidth:2];
+    [self.signatureView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
