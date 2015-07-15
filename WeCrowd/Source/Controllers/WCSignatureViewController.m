@@ -19,14 +19,13 @@
 
 @implementation WCSignatureViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
 
-    [self.signatureView.layer setBorderWidth:2];
-    [self.signatureView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self styleSignatureView];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -56,6 +55,17 @@
                             withError:(NSError *) error
 {
     NSLog(@"Error: SignatureViewController: %@.", [error localizedDescription]);
+}
+
+- (void) styleSignatureView
+{
+    UIColor *borderColor;
+    
+    // orange: "0.91 0.306 0.15"
+    borderColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.4 0.737 0.894"]];
+    
+    [self.signatureView.layer setBorderWidth:1];
+    [self.signatureView.layer setBorderColor:borderColor.CGColor];
 }
 
 @end

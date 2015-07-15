@@ -412,11 +412,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-Of-SYi" customClass="PPSSignatureView">
-                                <rect key="frame" x="32" y="434" width="536" height="100"/>
+                                <rect key="frame" x="16" y="438" width="568" height="96"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="GGx-cN-Bpb"/>
-                                    <constraint firstAttribute="height" constant="100" id="vcV-ug-IQc"/>
+                                    <constraint firstAttribute="height" constant="96" id="vcV-ug-IQc"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -427,9 +427,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="vBu-49-8hd" secondAttribute="leadingMargin" constant="16" id="2Ut-zV-8q3"/>
+                            <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="vBu-49-8hd" secondAttribute="leadingMargin" id="2Ut-zV-8q3"/>
                             <constraint firstItem="pAG-X4-QG8" firstAttribute="top" secondItem="sVI-Of-SYi" secondAttribute="bottom" constant="16" id="AaR-iJ-bMy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" constant="16" id="Hur-Sh-xPB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" id="Hur-Sh-xPB"/>
                             <constraint firstItem="sVI-Of-SYi" firstAttribute="top" secondItem="xqc-AJ-cHf" secondAttribute="bottom" constant="64" id="KnB-6f-ztI"/>
                             <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="sVI-Of-SYi" secondAttribute="bottom" constant="64" id="M0h-Q9-070"/>
                             <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="pAG-X4-QG8" secondAttribute="bottom" constant="16" id="PLV-NT-d9E"/>
