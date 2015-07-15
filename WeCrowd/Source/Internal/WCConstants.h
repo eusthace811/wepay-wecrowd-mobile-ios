@@ -47,7 +47,7 @@ FOUNDATION_EXPORT NSString* const kAPIParameterErrorMessage;
 // Segues
 FOUNDATION_EXPORT NSString* const kIBSegueEntryToCampaignFeed;
 FOUNDATION_EXPORT NSString* const kIBSegueCampaignFeedToCampaignDetail;
-FOUNDATION_EXPORT NSString* const kIBSeguePaymentMethodToPaymentStatus;
+FOUNDATION_EXPORT NSString* const kIBSeguePaymentViewtoSignatureView;
 
 // Storyboards
 FOUNDATION_EXPORT NSString* const kIBStoryboardPaymentFlow;

@@ -87,7 +87,8 @@
     if ([WCLoginManager userType] == WCLoginUserMerchant) {
         [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard sender:sender];
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
-        [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class]) forStoryboard:paymentStoryboard];
+        [self.navigationController pushViewController:[paymentStoryboard instantiateInitialViewController] animated:YES];
+//        [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class]) forStoryboard:paymentStoryboard];
     }
     
     [[WCDonationManager sharedManager] setCampaignID:self.campaignDetail.campaignID];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G7D-oN-nhZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VBZ-7P-gal">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -375,6 +375,7 @@
                         <outlet property="lastNameField" destination="8eg-VH-Tzv" id="Gc5-II-aTi"/>
                         <outlet property="submitFormButton" destination="pyV-Uw-lTY" id="tzL-kk-n4m"/>
                         <outlet property="zipCodeField" destination="oZ2-2y-Sga" id="sQW-li-ffv"/>
+                        <segue destination="VBZ-7P-gal" kind="show" identifier="paymentToSignatureSegue" id="9UV-wG-lWp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocb-JK-iKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -385,6 +386,55 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1054" y="1042"/>
+        </scene>
+        <!--Signature View Controller-->
+        <scene sceneID="Ufq-Sp-Pfw">
+            <objects>
+                <viewController id="VBZ-7P-gal" customClass="WCSignatureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xqc-AJ-cHf"/>
+                        <viewControllerLayoutGuide type="bottom" id="9V1-IV-2Pg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vBu-49-8hd" customClass="PPSSignatureView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAG-X4-QG8">
+                                <rect key="frame" x="279" y="550" width="43" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="1" green="0.46706250729999998" blue="0.085921665899999999" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearSignatureAction:" destination="VBZ-7P-gal" eventType="touchUpInside" id="jDU-Rj-g1l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orl-p8-TfG">
+                                <rect key="frame" x="503" y="52" width="49" height="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitSignatureAction:" destination="VBZ-7P-gal" eventType="touchUpInside" id="gHz-3m-Dq2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="pAG-X4-QG8" secondAttribute="bottom" constant="16" id="PLV-NT-d9E"/>
+                            <constraint firstAttribute="centerX" secondItem="pAG-X4-QG8" secondAttribute="centerX" id="ilP-nn-3Dc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="orl-p8-TfG" secondAttribute="trailing" constant="32" id="vFV-nQ-eKC"/>
+                            <constraint firstItem="orl-p8-TfG" firstAttribute="top" secondItem="xqc-AJ-cHf" secondAttribute="bottom" constant="32" id="zbw-QD-OVM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signatureView" destination="vBu-49-8hd" id="s3k-Px-qiZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HfT-UA-3WF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="671"/>
         </scene>
         <!--Swipe Card-->
         <scene sceneID="F3d-6r-nl8">
@@ -540,6 +590,7 @@
                         <outlet property="instructionLabel" destination="wX9-wg-NgL" id="BR8-1J-FOs"/>
                         <outlet property="submitButton" destination="kFY-qA-WBE" id="cQp-uq-GON"/>
                         <outlet property="swiperStatusLabel" destination="ygH-HP-ypo" id="hhU-vg-oUq"/>
+                        <segue destination="VBZ-7P-gal" kind="show" identifier="paymentToSignatureSegue" id="Uj0-eE-bcU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTw-BR-Udf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,4 +603,7 @@
             <point key="canvasLocation" x="1054" y="353"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Uj0-eE-bcU"/>
+    </inferredMetricsTieBreakers>
 </document>
