@@ -12,6 +12,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="I4v-xw-HUy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="1" green="0.38665899170000001" blue="0.2383080414" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,7 +388,7 @@
             </objects>
             <point key="canvasLocation" x="1054" y="1042"/>
         </scene>
-        <!--Signature View Controller-->
+        <!--Please Sign-->
         <scene sceneID="Ufq-Sp-Pfw">
             <objects>
                 <viewController id="VBZ-7P-gal" customClass="WCSignatureViewController" sceneMemberID="viewController">
@@ -410,24 +411,21 @@
                                     <action selector="clearSignatureAction:" destination="VBZ-7P-gal" eventType="touchUpInside" id="jDU-Rj-g1l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orl-p8-TfG">
-                                <rect key="frame" x="503" y="52" width="49" height="30"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitSignatureAction:" destination="VBZ-7P-gal" eventType="touchUpInside" id="gHz-3m-Dq2"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="pAG-X4-QG8" secondAttribute="bottom" constant="16" id="PLV-NT-d9E"/>
                             <constraint firstAttribute="centerX" secondItem="pAG-X4-QG8" secondAttribute="centerX" id="ilP-nn-3Dc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="orl-p8-TfG" secondAttribute="trailing" constant="32" id="vFV-nQ-eKC"/>
-                            <constraint firstItem="orl-p8-TfG" firstAttribute="top" secondItem="xqc-AJ-cHf" secondAttribute="bottom" constant="32" id="zbw-QD-OVM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Please Sign" id="1sa-GL-bvO">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="Rnn-9F-yNl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="submitSignatureAction:" destination="VBZ-7P-gal" id="3QP-6T-pSh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="signatureView" destination="vBu-49-8hd" id="s3k-Px-qiZ"/>
                     </connections>

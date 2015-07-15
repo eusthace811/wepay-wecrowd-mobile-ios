@@ -53,7 +53,7 @@
                         forCheckoutId:(NSString *) checkoutId
                             withError:(NSError *) error
 {
-    NSLog(@"Error: SignatureViewController: Failed to store signature.");
+    NSLog(@"Error: SignatureViewController: %@.", [error localizedDescription]);
 }
 
 @end
