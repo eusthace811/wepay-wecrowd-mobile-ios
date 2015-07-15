@@ -262,7 +262,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="H56-eJ-L06"/>
                                                         <constraint firstAttribute="width" constant="80" id="IsP-42-xfj"/>
-                                                        <constraint firstAttribute="height" constant="200" id="zXR-4C-p8h"/>
+                                                        <constraint firstAttribute="height" constant="200" id="zXR-4C-p8h">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -339,7 +341,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="p0b-nd-NlA">
                                 <rect key="frame" x="16" y="64" width="568" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="tt6-8H-GXh"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="tt6-8H-GXh">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                    </constraint>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-dh-KhA">
@@ -365,7 +369,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="ZM0-pt-E6v"/>
                                 </constraints>
-                                <string key="text">Bacon ipsum dolor amet hamburger salami kevin tenderloin short loin shank. Porchetta pastrami meatball frankfurter cow turkey, short loin pork ball tip rump filet mignon shank ground round capicola. </string>
+                                <string key="text">Bacon ipsum dolor amet biltong strip steak incididunt cillum flank aliquip occaecat. Non tri-tip pig commodo cupidatat eu. Cupidatat chicken ex, meatloaf short ribs eu commodo magna. Boudin aliqua meatball venison kevin in velit laborum pastrami. Deserunt shoulder rump, ham fugiat sausage dolore duis exercitation eiusmod prosciutto veniam. Et ipsum occaecat ground round venison est strip steak ad picanha jowl laboris. Ham capicola prosciutto, pastrami doner sirloin pig pork belly ut.</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -393,7 +397,9 @@
                             <constraint firstItem="o3Y-1z-qFq" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="dFM-Df-rS4"/>
                             <constraint firstItem="L3o-q2-7XQ" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="ezN-qk-siN"/>
                             <constraint firstItem="L3o-q2-7XQ" firstAttribute="trailing" secondItem="o3Y-1z-qFq" secondAttribute="trailing" id="g6V-lY-fw9"/>
-                            <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" id="gig-77-YOH"/>
+                            <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" id="gig-77-YOH">
+                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                            </constraint>
                             <constraint firstItem="L3o-q2-7XQ" firstAttribute="top" secondItem="o3Y-1z-qFq" secondAttribute="bottom" constant="8" id="m0Q-Ag-bWP"/>
                             <constraint firstItem="hex-tb-7f2" firstAttribute="leading" secondItem="o3Y-1z-qFq" secondAttribute="leading" id="pNg-pL-OSw"/>
                             <constraint firstItem="L3o-q2-7XQ" firstAttribute="leading" secondItem="o3Y-1z-qFq" secondAttribute="leading" id="s1s-Ev-k2a"/>
