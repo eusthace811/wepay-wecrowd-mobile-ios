@@ -165,6 +165,8 @@
                       } else {
                           CGFloat donationProgress;
                           
+
+                          
                           self.campaignDetail = campaign;
                           
                           donationProgress = self.campaignDetail.donationTargetAmount == 0 ? 0 : self.campaignDetail.donationAmount / self.campaignDetail.donationTargetAmount;
@@ -175,6 +177,18 @@
                           self.campaignDonationProgress.text = [NSString stringWithFormat:@"%.f", donationProgress * 100];
                           self.campaignDonationProgress.text = [self.campaignDonationProgress.text stringByAppendingString:@"% funded"];
                           self.campaignDonationProgressBar.progress = donationProgress;
+                          
+                          // Hack for resizing the headerview on iPad since the imageview does not
+                          // respect the header view height
+                          if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                              CGRect headerFrame;
+                              
+                              headerFrame = self.tableView.tableHeaderView.frame;
+                              headerFrame.size.height = self.campaignImage.frame.size.height + 400;
+                              
+                              self.tableView.tableHeaderView.frame = headerFrame;
+                              self.tableView.tableHeaderView = self.campaignImage;
+                          }
                       }
                       
                       // Scroll the text view now the image height is calculated
