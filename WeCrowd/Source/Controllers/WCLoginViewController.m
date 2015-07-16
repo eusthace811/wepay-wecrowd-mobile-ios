@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField* passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
+@property (nonatomic, readwrite) BOOL isLoadingCampaigns;
+
 @end
 
 
@@ -31,7 +33,7 @@
 {
     [super viewWillAppear:animated];
     
-    self.loginButton.userInteractionEnabled = YES;
+    self.isLoadingCampaigns = NO;
 }
 
 #pragma mark - IBOutlets
@@ -56,12 +58,9 @@
                                               withTitle:@"Please try again"
                                                 message:message
                                              completion:nil];
-        } else {
-            // Disable the control and push the next view
-            if ([sender respondsToSelector:@selector(setUserInteractionEnabled:)]) {
-                ((UIControl *) sender).userInteractionEnabled = NO;
-            }
-            
+        } else if (!self.isLoadingCampaigns) {
+            self.isLoadingCampaigns = YES;
+
             [self performSegueWithIdentifier:kIBSegueEntryToCampaignFeed sender:self];
         }
     }];
