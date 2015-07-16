@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <WePay/WePay.h>
 
 @class WCCreditCardModel;
 
@@ -23,5 +25,9 @@
                                 tokenizationDelegate:(id) tokenizationDelegate;
 
 - (void) startCardReadWithDelegate:(id) readerDelegate;
+
+- (void) storeSignatureImage:(UIImage *) signatureImage
+               forCheckoutID:(NSString *) checkoutID
+           signatureDelegate:(id) signatureDelegate;
 
 @end

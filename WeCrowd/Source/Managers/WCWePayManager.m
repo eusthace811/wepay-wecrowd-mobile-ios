@@ -9,8 +9,6 @@
 #import "WCWePayManager.h"
 #import "WCCreditCardModel.h"
 
-#import <WePay/WePay.h>
-
 @interface WCWePayManager ()
 
 @property (nonatomic, strong, readwrite) WePay *wepay;
@@ -83,6 +81,15 @@
 - (void) startCardReadWithDelegate:(id) readerDelegate
 {
     [self.wepay startCardReaderForReadingWithCardReaderDelegate:readerDelegate];
+}
+
+- (void) storeSignatureImage:(UIImage *) signatureImage
+               forCheckoutID:(NSString *) checkoutID
+           signatureDelegate:(id) signatureDelegate
+{
+    [self.wepay storeSignatureImage:signatureImage
+                      forCheckoutId:checkoutID
+                   checkoutDelegate:signatureDelegate];
 }
 
 @end

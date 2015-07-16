@@ -20,6 +20,7 @@
 @property (nonatomic, strong, readwrite) NSString *donatorEmail;
 @property (nonatomic, strong, readwrite) NSString *creditCardID;
 @property (nonatomic, strong, readwrite) NSString *amount;
+@property (nonatomic, strong, readwrite) NSString *checkoutID;
 
 - (instancetype) initWithCampaignID:(NSString *) campaignID
                         donatorName:(NSString *) donatorName

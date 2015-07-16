@@ -7,6 +7,8 @@
 //
 
 #import "WCPaymentViewController.h"
+#import "WCConstants.h"
+#import "WCSignatureViewController.h"
 
 @interface WCPaymentViewController ()
 
@@ -39,6 +41,22 @@
     self.statusBarNotification.notificationLabelFont = [UIFont systemFontOfSize:26];
     self.statusBarNotification.notificationLabelTextColor = [UIColor whiteColor];
     self.statusBarNotification.notificationLabelBackgroundColor = backgroundColor;
+}
+
+
+- (void) pushSignatureView
+{
+    [self performSegueWithIdentifier:kIBSeguePaymentViewtoSignatureView sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender
+{
+    if ([segue.identifier isEqualToString:kIBSeguePaymentViewtoSignatureView]) {
+        WCSignatureViewController *signatureViewController;
+        
+        signatureViewController = segue.destinationViewController;
+        signatureViewController.delegate = self.delegate;
+    }
 }
 
 @end

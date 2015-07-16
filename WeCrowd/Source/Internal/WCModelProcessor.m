@@ -25,14 +25,12 @@
     for (int i = 0; i < [campaigns count]; ++i) {
         NSDictionary *campaign;
         NSString *campaignID, *campaignName, *imageURLString;
-        CGFloat campaignGoal;
         
         campaign = campaigns[i];
         
         campaignID = [[campaign objectForKey:kAPICampaignIDKey] stringValue];
         campaignName = [campaign objectForKey:kAPICampaignNameKey];
         imageURLString = [campaign objectForKey:kAPICampaignImageURLKey];
-        campaignGoal = [((NSNumber *) [campaign objectForKey:kAPICampaignGoalKey]) floatValue];
         
         array[i] = [[WCCampaignHeaderModel alloc] initWithCampaign:campaignID
                                                              title:campaignName

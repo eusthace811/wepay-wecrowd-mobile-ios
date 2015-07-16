@@ -18,7 +18,7 @@
 #import "WCSwiperViewController.h"
 #import "WCAlert.h"
 
-@interface WCCampaignDetailViewController () <CampaignDetailDelegate, PaymentViewDelegate>
+@interface WCCampaignDetailViewController () <CampaignDetailDelegate, PaymentFlowDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextView *campaignDescription;
@@ -73,7 +73,7 @@
 
 #pragma mark - PaymentViewDelagate
 
-- (void) didFinishWithSender:(WCPaymentViewController *) sender
+- (void) didFinishWithSender:(id) sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -87,10 +87,11 @@
     if ([WCLoginManager userType] == WCLoginUserMerchant) {
         [self displayPaymentOptionActionSheetWithStoryboard:paymentStoryboard sender:sender];
     } else if ([WCLoginManager userType] == WCLoginUserPayer) {
+//        [self.navigationController pushViewController:[paymentStoryboard instantiateInitialViewController] animated:YES];
         [self pushViewControllerWithIdentifier:NSStringFromClass([WCManualPaymentViewController class]) forStoryboard:paymentStoryboard];
     }
     
-    [[WCDonationManager sharedManager] setCampaignID:self.campaignDetail.campaignID];
+    [[WCDonationManager sharedManager] configureDonationForCampaignID:self.campaignDetail.campaignID];
 }
 
 #pragma mark - Helper Methods

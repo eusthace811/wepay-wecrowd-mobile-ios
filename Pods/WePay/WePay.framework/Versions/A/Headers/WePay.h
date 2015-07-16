@@ -21,20 +21,20 @@
 @class WPPaymentToken;
 
 // Environments
-static NSString* const kWPEnvironmentStage = @"stage";
-static NSString* const kWPEnvironmentProduction = @"production";
+extern NSString * const kWPEnvironmentStage;
+extern NSString * const kWPEnvironmentProduction;
 
 // Payment Methods
-static NSString* const kWPPaymentMethodSwipe = @"Swipe";
-static NSString* const kWPPaymentMethodManual = @"Manual";
+extern NSString * const kWPPaymentMethodSwipe;
+extern NSString * const kWPPaymentMethodManual;
 
 // Card Reader status
-static NSString* const kWPCardReaderStatusNotConnected = @"card reader not connected";
-static NSString* const kWPCardReaderStatusConnected = @"card reader connected";
-static NSString* const kWPCardReaderStatusWaitingForSwipe = @"waiting for swipe";
-static NSString* const kWPCardReaderStatusSwipeDetected = @"swipe detected";
-static NSString* const kWPCardReaderStatusTokenizing = @"tokenizing";
-static NSString* const kWPCardReaderStatusStopped = @"stopped";
+extern NSString * const kWPCardReaderStatusNotConnected;
+extern NSString * const kWPCardReaderStatusConnected;
+extern NSString * const kWPCardReaderStatusWaitingForSwipe;
+extern NSString * const kWPCardReaderStatusSwipeDetected;
+extern NSString * const kWPCardReaderStatusTokenizing;
+extern NSString * const kWPCardReaderStatusStopped;
 
 
 /** \protocol WPTokenizationDelegate
@@ -241,4 +241,3 @@ static NSString* const kWPCardReaderStatusStopped = @"stopped";
 ///@}
 
 @end
-

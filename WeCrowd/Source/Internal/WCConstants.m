@@ -47,7 +47,7 @@ NSString* const kAPIParameterErrorMessage = @"error_message";
 // Segues
 NSString* const kIBSegueEntryToCampaignFeed          = @"entryViewToFeedViewSegue";
 NSString* const kIBSegueCampaignFeedToCampaignDetail = @"campaignFeedToCampaignDetailSegue";
-NSString* const kIBSeguePaymentMethodToPaymentStatus = @"paymentMethodToPaymentStatusSegue";
+NSString* const kIBSeguePaymentViewtoSignatureView   = @"paymentToSignatureSegue";
 
 // Storyboards
 NSString* const kIBStoryboardPaymentFlow  = @"PaymentFlow";

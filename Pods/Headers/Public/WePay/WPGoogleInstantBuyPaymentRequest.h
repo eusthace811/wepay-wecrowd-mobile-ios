@@ -1,1 +1,0 @@
-../../../WePay/WePay.framework/Versions/A/Headers/WPGoogleInstantBuyPaymentRequest.h
