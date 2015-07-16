@@ -165,8 +165,6 @@
                       } else {
                           CGFloat donationProgress;
                           
-
-                          
                           self.campaignDetail = campaign;
                           
                           donationProgress = self.campaignDetail.donationTargetAmount == 0 ? 0 : self.campaignDetail.donationAmount / self.campaignDetail.donationTargetAmount;
