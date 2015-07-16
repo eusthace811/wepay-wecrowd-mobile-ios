@@ -168,9 +168,13 @@
                                                             creditCardID:paymentToken.tokenId
                                                          completionBlock:^(NSError *error) {
                                                              if (error) {
+                                                                 NSString *message;
+                                                                 
+                                                                 message = [NSString stringWithFormat:@"There was a server error: %@ Please try again.", [error localizedDescription]];
+                                                                 
                                                                  [WCAlert showAlertWithOptionFromViewController:self
                                                                                                        withTitle:@"Unable to complete donation"
-                                                                                                         message:@"There was a server error. Please try again."
+                                                                                                         message:message
                                                                                                      optionTitle:@"Try Again"
                                                                                                 optionCompletion:^{ [self executeCardRead]; }
                                                                                                  closeCompletion:^{ [self resetFeedbackUI]; }];
@@ -178,7 +182,6 @@
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
                                                                  [self pushSignatureView];
-//                                                                 [self.delegate didFinishWithSender:self];
                                                              }
                                                          }];
 }

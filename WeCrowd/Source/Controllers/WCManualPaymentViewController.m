@@ -82,9 +82,13 @@
                                                                      [self.delegate didFinishWithSender:self];
                                                                  }
                                                              } else {
+                                                                 NSString *message;
+                                                                 
+                                                                 message = [NSString stringWithFormat:@"There was a server error: %@ Please try again.", [error localizedDescription]];
+                                                                 
                                                                  [WCAlert showAlertWithOptionFromViewController:self
                                                                                                        withTitle:@"Unable to complete donation"
-                                                                                                         message:@"There was a server error. Please try again."
+                                                                                                         message:message
                                                                                                      optionTitle:@"Try Again"
                                                                                                 optionCompletion:^{ [self executeDonation]; }
                                                                                                  closeCompletion:nil];
