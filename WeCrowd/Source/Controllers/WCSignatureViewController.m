@@ -55,10 +55,18 @@
 
 - (IBAction) submitSignatureAction:(id) sender
 {
-    [self.activityIndicator startAnimating];
-    self.signatureView.backgroundColor = [UIColor lightGrayColor];
-    
-    [self storeSignature];
+    if (self.signatureView.hasSignature) {
+        [self switchElementsForProcessing:YES];
+        
+        [self storeSignature];
+    } else {
+        [self switchElementsForProcessing:NO];
+        
+        [WCAlert showSimpleAlertFromViewController:self
+                                         withTitle:@"Signature Required"
+                                           message:@"Please sign in the space provided."
+                                        completion:nil];
+    }
 }
 
 #pragma mark - WPCheckoutDelegate
@@ -77,8 +85,7 @@
                         forCheckoutId:(NSString *) checkoutId
                             withError:(NSError *) error
 {
-    [self.activityIndicator stopAnimating];
-    self.signatureView.backgroundColor = [UIColor clearColor];
+    [self switchElementsForProcessing:NO];
     
     [WCAlert showAlertWithOptionFromViewController:self
                                          withTitle:@"Unable to store signature."
@@ -123,6 +130,19 @@
     self.notification.notificationLabelFont = [UIFont systemFontOfSize:26];
     self.notification.notificationLabelTextColor = [UIColor whiteColor];
     self.notification.notificationLabelBackgroundColor = backgroundColor;
+}
+
+- (void) switchElementsForProcessing:(BOOL) processing
+{
+    if (processing) {
+        [self.activityIndicator startAnimating];
+        [self.signatureView setUserInteractionEnabled:NO];
+        self.signatureView.backgroundColor = [UIColor lightGrayColor];
+    } else {
+        [self.activityIndicator stopAnimating];
+        [self.signatureView setUserInteractionEnabled:YES];
+        self.signatureView.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 @end
