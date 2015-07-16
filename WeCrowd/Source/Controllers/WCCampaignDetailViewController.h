@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WCCampaignDetailViewController : UIViewController
+@interface WCCampaignDetailViewController : UITableViewController
 
 @end

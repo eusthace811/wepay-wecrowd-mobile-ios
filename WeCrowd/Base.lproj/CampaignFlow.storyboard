@@ -319,114 +319,127 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Campaigns" id="QCa-y8-8n7"/>
                     <connections>
-                        <segue destination="YAU-Pu-HJg" kind="show" identifier="campaignFeedToCampaignDetailSegue" id="GVO-2V-2dA"/>
+                        <segue destination="Q03-mz-BQq" kind="show" identifier="campaignFeedToCampaignDetailSegue" id="w1r-W2-02e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Na-yv-FnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="770" y="981"/>
         </scene>
-        <!--Campaign Detail View Controller-->
-        <scene sceneID="YBY-K7-UZU">
+        <!--Campaign Detail-->
+        <scene sceneID="jH0-ka-EnJ">
             <objects>
-                <viewController providesPresentationContextTransitionStyle="YES" id="YAU-Pu-HJg" customClass="WCCampaignDetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RIa-K6-i8G"/>
-                        <viewControllerLayoutGuide type="bottom" id="jdk-S0-2oS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xU8-e1-N3Z">
+                <tableViewController title="Campaign Detail" id="Q03-mz-BQq" customClass="WCCampaignDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HeG-xa-j94">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="p0b-nd-NlA">
-                                <rect key="frame" x="16" y="64" width="568" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="tt6-8H-GXh">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="400"/>
-                                    </constraint>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-dh-KhA">
-                                <rect key="frame" x="48" y="558" width="504" height="34"/>
-                                <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Donate/Accept">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressPaymentButton:" destination="YAU-Pu-HJg" eventType="touchUpInside" id="adM-3w-rLH"/>
-                                </connections>
-                            </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="o3Y-1z-qFq">
-                                <rect key="frame" x="16" y="255" width="568" height="3"/>
-                                <color key="progressTintColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="trackTintColor" red="0.92662957700000004" green="0.92662957700000004" blue="0.92662957700000004" alpha="1" colorSpace="calibratedRGB"/>
-                            </progressView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hex-tb-7f2">
-                                <rect key="frame" x="16" y="127" width="568" height="120"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="ZM0-pt-E6v"/>
-                                </constraints>
-                                <string key="text">Bacon ipsum dolor amet biltong strip steak incididunt cillum flank aliquip occaecat. Non tri-tip pig commodo cupidatat eu. Cupidatat chicken ex, meatloaf short ribs eu commodo magna. Boudin aliqua meatball venison kevin in velit laborum pastrami. Deserunt shoulder rump, ham fugiat sausage dolore duis exercitation eiusmod prosciutto veniam. Et ipsum occaecat ground round venison est strip steak ad picanha jowl laboris. Ham capicola prosciutto, pastrami doner sirloin pig pork belly ut.</string>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DonationProgress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3o-q2-7XQ">
-                                <rect key="frame" x="16" y="265" width="568" height="20"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <color key="textColor" red="0.32944389025926246" green="0.80239898989898983" blue="0.38134143433148898" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NdA-dh-KhA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="32" id="7Gm-BZ-g54"/>
-                            <constraint firstItem="p0b-nd-NlA" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" id="Gs7-rM-X1X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NdA-dh-KhA" secondAttribute="trailing" constant="32" id="QLW-qR-In9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hex-tb-7f2" secondAttribute="trailing" id="ToO-7Z-FSh"/>
-                            <constraint firstItem="hex-tb-7f2" firstAttribute="trailing" secondItem="o3Y-1z-qFq" secondAttribute="trailing" id="Uho-wI-d5U"/>
-                            <constraint firstItem="jdk-S0-2oS" firstAttribute="top" secondItem="NdA-dh-KhA" secondAttribute="bottom" constant="8" id="V9a-3y-Gdf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L3o-q2-7XQ" secondAttribute="trailing" constant="8" id="WKp-w3-QJc"/>
-                            <constraint firstItem="o3Y-1z-qFq" firstAttribute="top" secondItem="hex-tb-7f2" secondAttribute="bottom" constant="8" id="XFl-Lj-ydZ"/>
-                            <constraint firstItem="hex-tb-7f2" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" id="b8O-1f-lEs"/>
-                            <constraint firstItem="hex-tb-7f2" firstAttribute="top" secondItem="p0b-nd-NlA" secondAttribute="bottom" constant="8" id="cvY-By-fse"/>
-                            <constraint firstAttribute="centerX" secondItem="NdA-dh-KhA" secondAttribute="centerX" id="d8r-Rg-Bp1"/>
-                            <constraint firstItem="o3Y-1z-qFq" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="dFM-Df-rS4"/>
-                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="leading" secondItem="xU8-e1-N3Z" secondAttribute="leadingMargin" constant="8" id="ezN-qk-siN"/>
-                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="trailing" secondItem="o3Y-1z-qFq" secondAttribute="trailing" id="g6V-lY-fw9"/>
-                            <constraint firstItem="p0b-nd-NlA" firstAttribute="top" secondItem="RIa-K6-i8G" secondAttribute="bottom" id="gig-77-YOH">
-                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
-                            </constraint>
-                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="top" secondItem="o3Y-1z-qFq" secondAttribute="bottom" constant="8" id="m0Q-Ag-bWP"/>
-                            <constraint firstItem="hex-tb-7f2" firstAttribute="leading" secondItem="o3Y-1z-qFq" secondAttribute="leading" id="pNg-pL-OSw"/>
-                            <constraint firstItem="L3o-q2-7XQ" firstAttribute="leading" secondItem="o3Y-1z-qFq" secondAttribute="leading" id="s1s-Ev-k2a"/>
-                            <constraint firstItem="NdA-dh-KhA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="L3o-q2-7XQ" secondAttribute="bottom" constant="16" id="smr-QE-wQG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="p0b-nd-NlA" secondAttribute="trailing" id="wtb-6W-BXh"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="dFM-Df-rS4"/>
-                                <exclude reference="WKp-w3-QJc"/>
-                                <exclude reference="ezN-qk-siN"/>
-                                <exclude reference="d8r-Rg-Bp1"/>
-                            </mask>
-                        </variation>
-                    </view>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" id="M20-x7-efH">
+                            <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <sections>
+                            <tableViewSection id="mRF-nL-aSn">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="9mY-Lg-OBN" userLabel="Body Cell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9mY-Lg-OBN" id="WV2-Qm-oTu">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAC-ft-m3t">
+                                                    <rect key="frame" x="8" y="8" width="584" height="120"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="120" id="52g-Ll-XUL"/>
+                                                        <constraint firstAttribute="height" constant="120" id="TSk-5K-30v"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Zmn-Ok-7dk"/>
+                                                    </constraints>
+                                                    <string key="text">Bacon ipsum dolor amet biltong strip steak incididunt cillum flank aliquip occaecat. Non tri-tip pig commodo cupidatat eu. Cupidatat chicken ex, meatloaf short ribs eu commodo magna. Boudin aliqua meatball venison kevin in velit laborum pastrami. Deserunt shoulder rump, ham fugiat sausage dolore duis exercitation eiusmod prosciutto veniam. Et ipsum occaecat ground round venison est strip steak ad picanha jowl laboris. Ham capicola prosciutto, pastrami doner sirloin pig pork belly ut.</string>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Zmn-Ok-7dk"/>
+                                                            <exclude reference="TSk-5K-30v"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5dX-kR-PkR">
+                                                    <rect key="frame" x="16" y="136" width="568" height="3"/>
+                                                    <color key="progressTintColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="trackTintColor" red="0.92662957700000004" green="0.92662957700000004" blue="0.92662957700000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DonationProgress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3J-aJ-YDV">
+                                                    <rect key="frame" x="16" y="146" width="568" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <color key="textColor" red="0.32944389029999999" green="0.80239898990000003" blue="0.3813414343" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5dX-kR-PkR" firstAttribute="trailing" secondItem="gAC-ft-m3t" secondAttribute="trailing" constant="-8" id="1AL-Ye-hQ3"/>
+                                                <constraint firstItem="gAC-ft-m3t" firstAttribute="leading" secondItem="WV2-Qm-oTu" secondAttribute="leadingMargin" id="2ro-6X-OpQ"/>
+                                                <constraint firstItem="5dX-kR-PkR" firstAttribute="top" secondItem="gAC-ft-m3t" secondAttribute="bottom" constant="8" id="5Lf-CN-NTV"/>
+                                                <constraint firstItem="5dX-kR-PkR" firstAttribute="leading" secondItem="f3J-aJ-YDV" secondAttribute="leading" id="9ws-Re-Rjg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gAC-ft-m3t" secondAttribute="trailing" id="Y2q-4m-2Xw"/>
+                                                <constraint firstItem="f3J-aJ-YDV" firstAttribute="top" secondItem="5dX-kR-PkR" secondAttribute="bottom" constant="8" id="YGd-aF-nO0"/>
+                                                <constraint firstItem="5dX-kR-PkR" firstAttribute="leading" secondItem="gAC-ft-m3t" secondAttribute="leading" constant="8" id="gig-J5-nMC"/>
+                                                <constraint firstItem="gAC-ft-m3t" firstAttribute="top" secondItem="WV2-Qm-oTu" secondAttribute="topMargin" id="iex-Jz-npd"/>
+                                                <constraint firstItem="5dX-kR-PkR" firstAttribute="trailing" secondItem="f3J-aJ-YDV" secondAttribute="trailing" id="pOt-xo-NwN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="eHA-1C-gry">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="ud0-rp-VWO">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ud0-rp-VWO" id="Cvv-Bm-Rbe">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdA-dh-KhA">
+                                                    <rect key="frame" x="8" y="8" width="584" height="27"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <state key="normal" title="Donate/Accept">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didPressPaymentButton:" destination="Q03-mz-BQq" eventType="touchUpInside" id="FmI-2e-wGU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="NdA-dh-KhA" firstAttribute="top" secondItem="Cvv-Bm-Rbe" secondAttribute="topMargin" id="7Fh-vA-rKE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NdA-dh-KhA" secondAttribute="trailing" id="ETa-h8-LED"/>
+                                                <constraint firstItem="NdA-dh-KhA" firstAttribute="leading" secondItem="Cvv-Bm-Rbe" secondAttribute="leadingMargin" id="cpB-C4-iT4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="NdA-dh-KhA" secondAttribute="bottom" id="mPp-XP-m7a"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Q03-mz-BQq" id="Mkv-A6-9ZU"/>
+                            <outlet property="delegate" destination="Q03-mz-BQq" id="iCd-fU-sbM"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" id="M3Z-JP-Zxp"/>
                     <connections>
-                        <outlet property="campaignDescription" destination="hex-tb-7f2" id="WVx-Nt-gzn"/>
-                        <outlet property="campaignDonationProgress" destination="L3o-q2-7XQ" id="4OY-9h-lN0"/>
-                        <outlet property="campaignDonationProgressBar" destination="o3Y-1z-qFq" id="oWE-dQ-iZK"/>
-                        <outlet property="campaignImage" destination="p0b-nd-NlA" id="k0B-87-dQR"/>
-                        <outlet property="giveMoneyButton" destination="NdA-dh-KhA" id="FaZ-Yo-cf6"/>
+                        <outlet property="campaignDescription" destination="gAC-ft-m3t" id="fI6-28-tmv"/>
+                        <outlet property="campaignDonationProgress" destination="f3J-aJ-YDV" id="n09-sr-XDQ"/>
+                        <outlet property="campaignDonationProgressBar" destination="5dX-kR-PkR" id="Dj8-Qd-qif"/>
+                        <outlet property="campaignImage" destination="M20-x7-efH" id="qPO-31-Tjh"/>
+                        <outlet property="giveMoneyButton" destination="NdA-dh-KhA" id="xSE-KE-tff"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aHU-tn-aNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYL-su-AOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="981"/>
+            <point key="canvasLocation" x="1515" y="981"/>
         </scene>
     </scenes>
     <resources>
