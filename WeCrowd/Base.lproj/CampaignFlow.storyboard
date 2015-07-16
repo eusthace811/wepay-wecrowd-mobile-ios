@@ -360,8 +360,8 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="Zmn-Ok-7dk"/>
                                                             <exclude reference="TSk-5K-30v"/>
+                                                            <exclude reference="Zmn-Ok-7dk"/>
                                                         </mask>
                                                     </variation>
                                                 </textView>

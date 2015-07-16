@@ -126,6 +126,10 @@
                                        message:message
                                      completion:nil];
     
+    [self.donationField setEnabled:YES];
+    [self.activityIndicator stopAnimating];
+    [self.submitButton setHidden:NO];
+    
     NSLog(@"Error: Card reader: %@.", [error localizedDescription]);
 }
 
