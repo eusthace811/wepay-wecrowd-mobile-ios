@@ -418,19 +418,34 @@
                                         <rect key="frame" x="266" y="29" width="37" height="37"/>
                                         <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSP-Zj-qcO">
+                                        <rect key="frame" x="8" y="87" width="552" height="1"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="m7D-Kx-dD2"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lI1-Vq-6CI">
+                                        <rect key="frame" x="8" y="51" width="21" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="9gp-wp-Cbm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="bBT-KQ-o4v" secondAttribute="centerX" id="7nR-Tp-BSf"/>
-                                    <constraint firstAttribute="width" constant="250" id="GGx-cN-Bpb"/>
+                                    <constraint firstAttribute="bottom" secondItem="YSP-Zj-qcO" secondAttribute="bottom" constant="8" id="Bwa-QG-ksv"/>
+                                    <constraint firstItem="YSP-Zj-qcO" firstAttribute="leading" secondItem="lI1-Vq-6CI" secondAttribute="leading" id="O55-e5-gg4"/>
+                                    <constraint firstAttribute="trailing" secondItem="YSP-Zj-qcO" secondAttribute="trailing" constant="8" id="gJF-vO-Nn7"/>
+                                    <constraint firstItem="YSP-Zj-qcO" firstAttribute="leading" secondItem="sVI-Of-SYi" secondAttribute="leading" constant="8" id="lVM-fZ-jyC"/>
                                     <constraint firstAttribute="centerY" secondItem="bBT-KQ-o4v" secondAttribute="centerY" id="tmS-11-hh7"/>
                                     <constraint firstAttribute="height" constant="96" id="vcV-ug-IQc"/>
+                                    <constraint firstItem="YSP-Zj-qcO" firstAttribute="top" secondItem="lI1-Vq-6CI" secondAttribute="bottom" id="whp-s2-Bsy"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="GGx-cN-Bpb"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
