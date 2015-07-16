@@ -38,6 +38,8 @@
     [super viewDidLoad];
 
     [self styleSignatureView];
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void) didReceiveMemoryWarning {
