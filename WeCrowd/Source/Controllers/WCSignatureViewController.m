@@ -9,6 +9,7 @@
 #import "WCSignatureViewController.h"
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
+#import "WCAlert.h"
 
 @interface WCSignatureViewController () <WPCheckoutDelegate>
 
@@ -40,13 +41,15 @@
 
 - (IBAction) submitSignatureAction:(id) sender
 {
-    [[WCWePayManager sharedInstance] storeSignatureImage:self.signatureView.signatureImage
-                                           forCheckoutID:[WCDonationManager sharedManager].checkoutID
-                                       signatureDelegate:self];
+    [self storeSignature];
 }
+
+#pragma mark - WPCheckoutDelegate
 
 - (void) didStoreSignature:(NSString *) signatureUrl forCheckoutId:(NSString *) checkoutId
 {
+    [self.delegate didFinishWithSender:self];
+    
     NSLog(@"Success: SignatureViewController: Stored signature at URL %@.", signatureUrl);
 }
 
@@ -54,18 +57,35 @@
                         forCheckoutId:(NSString *) checkoutId
                             withError:(NSError *) error
 {
+    [WCAlert showAlertWithOptionFromViewController:self
+                                         withTitle:@"Unable to store signature."
+                                           message:[NSString stringWithFormat:@"Storing the signature failed. %@", [error localizedDescription]]
+                                       optionTitle:@"Try Again"
+                                  optionCompletion:^{
+                                      [self storeSignature];
+                                  }
+                                   closeCompletion:nil];
+    
     NSLog(@"Error: SignatureViewController: %@.", [error localizedDescription]);
 }
+
+#pragma mark - Helpers
 
 - (void) styleSignatureView
 {
     UIColor *borderColor;
     
-    // orange: "0.91 0.306 0.15"
     borderColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.4 0.737 0.894"]];
     
     [self.signatureView.layer setBorderWidth:1];
     [self.signatureView.layer setBorderColor:borderColor.CGColor];
+}
+
+- (void) storeSignature
+{
+    [[WCWePayManager sharedInstance] storeSignatureImage:self.signatureView.signatureImage
+                                           forCheckoutID:[WCDonationManager sharedManager].checkoutID
+                                       signatureDelegate:self];
 }
 
 @end

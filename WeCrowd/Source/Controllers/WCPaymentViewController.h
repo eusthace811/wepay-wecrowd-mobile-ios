@@ -8,18 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CWStatusBarNotification.h"
-
-@class WCPaymentViewController;
-
-@protocol PaymentViewDelegate <NSObject>
-
-- (void) didFinishWithSender:(WCPaymentViewController *) sender;
-
-@end
+#import "WCPaymentFlowDelegate.h"
 
 @interface WCPaymentViewController : UITableViewController
 
-@property (nonatomic, weak, readwrite) id<PaymentViewDelegate> delegate;
+@property (nonatomic, weak, readwrite) id<PaymentFlowDelegate> delegate;
 @property (nonatomic, strong, readonly) CWStatusBarNotification *statusBarNotification;
 
 - (void) pushSignatureView;

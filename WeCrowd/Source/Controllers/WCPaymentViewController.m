@@ -8,6 +8,7 @@
 
 #import "WCPaymentViewController.h"
 #import "WCConstants.h"
+#import "WCSignatureViewController.h"
 
 @interface WCPaymentViewController ()
 
@@ -46,6 +47,16 @@
 - (void) pushSignatureView
 {
     [self performSegueWithIdentifier:kIBSeguePaymentViewtoSignatureView sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender
+{
+    if ([segue.identifier isEqualToString:kIBSeguePaymentViewtoSignatureView]) {
+        WCSignatureViewController *signatureViewController;
+        
+        signatureViewController = segue.destinationViewController;
+        signatureViewController.delegate = self.delegate;
+    }
 }
 
 @end

@@ -70,6 +70,7 @@
 		C3060E331B2A017200A9F596 /* WCCampaignBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCCampaignBaseModel.m; path = Source/Models/WCCampaignBaseModel.m; sourceTree = "<group>"; };
 		C31B7F0D1B5701E7006689C3 /* WCSignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCSignatureViewController.h; path = Source/Controllers/WCSignatureViewController.h; sourceTree = "<group>"; };
 		C31B7F0E1B5701E7006689C3 /* WCSignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCSignatureViewController.m; path = Source/Controllers/WCSignatureViewController.m; sourceTree = "<group>"; };
+		C31B7F101B573154006689C3 /* WCPaymentFlowDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCPaymentFlowDelegate.h; path = Source/Internal/WCPaymentFlowDelegate.h; sourceTree = "<group>"; };
 		C32293AB1B4AF94800876227 /* WCPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCPaymentViewController.h; path = Source/Controllers/WCPaymentViewController.h; sourceTree = "<group>"; };
 		C32293AC1B4AF94900876227 /* WCPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCPaymentViewController.m; path = Source/Controllers/WCPaymentViewController.m; sourceTree = "<group>"; };
 		C3249D8E1B420C5800C6CED7 /* WCSwiperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCSwiperViewController.h; path = Source/Controllers/WCSwiperViewController.h; sourceTree = "<group>"; };
@@ -301,6 +302,7 @@
 				C36B3A871B4D997700EB8C9D /* WCAlert.m */,
 				C36B3A891B4DC33200EB8C9D /* WCError.h */,
 				C36B3A8A1B4DC33200EB8C9D /* WCError.m */,
+				C31B7F101B573154006689C3 /* WCPaymentFlowDelegate.h */,
 			);
 			name = Internal;
 			sourceTree = "<group>";

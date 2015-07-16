@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PPSSignatureView.h"
+#import "WCPaymentFlowDelegate.h"
 
 @interface WCSignatureViewController : UIViewController
+
+@property (nonatomic, weak, readwrite) id<PaymentFlowDelegate> delegate;
 
 @end
