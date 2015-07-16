@@ -47,10 +47,14 @@
                               completionBlock:^(NSError *error)
     {
         if (error) {
+            NSString *message;
+            
+            message = [NSString stringWithFormat:@"Unable to log you in: %@. Please check your information and try again.", [error localizedDescription]];
+            
             // Notify the user of the error
             [WCAlert showSimpleAlertFromViewController:self
                                               withTitle:@"Please try again"
-                                                message:@"Unable to log you in. Please check your information and try again."
+                                                message:message
                                              completion:nil];
         } else {
             // Disable the control and push the next view
