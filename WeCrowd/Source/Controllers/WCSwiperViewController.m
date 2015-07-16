@@ -182,7 +182,6 @@
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
                                                                  [self pushSignatureView];
-//                                                                 [self.delegate didFinishWithSender:self];
                                                              }
                                                          }];
 }
