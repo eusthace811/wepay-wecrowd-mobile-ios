@@ -10,15 +10,28 @@
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
 #import "WCAlert.h"
+#import "CWStatusBarNotification.h"
 
 @interface WCSignatureViewController () <WPCheckoutDelegate>
 
-// Explicit reference
 @property (strong, nonatomic) IBOutlet PPSSignatureView *signatureView;
+
+@property (nonatomic, strong, readwrite) CWStatusBarNotification *notification;
 
 @end
 
 @implementation WCSignatureViewController
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setUpNotification];
+    } else {
+        // Do nothing
+    }
+    
+    return self;
+}
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +61,8 @@
 
 - (void) didStoreSignature:(NSString *) signatureUrl forCheckoutId:(NSString *) checkoutId
 {
+    [self.notification displayNotificationWithMessage:@"Signature Stored!" forDuration:3];
+    
     [self.delegate didFinishWithSender:self];
     
     NSLog(@"Success: SignatureViewController: Stored signature at URL %@.", signatureUrl);
@@ -86,6 +101,20 @@
     [[WCWePayManager sharedInstance] storeSignatureImage:self.signatureView.signatureImage
                                            forCheckoutID:[WCDonationManager sharedManager].checkoutID
                                        signatureDelegate:self];
+}
+
+- (void) setUpNotification
+{
+    UIColor *backgroundColor;
+    
+    backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithString:@"0.337 0.8 0.38"]];
+    
+    self.notification = [CWStatusBarNotification new];
+    
+    self.notification.notificationStyle = CWNotificationStyleNavigationBarNotification;
+    self.notification.notificationLabelFont = [UIFont systemFontOfSize:26];
+    self.notification.notificationLabelTextColor = [UIColor whiteColor];
+    self.notification.notificationLabelBackgroundColor = backgroundColor;
 }
 
 @end
