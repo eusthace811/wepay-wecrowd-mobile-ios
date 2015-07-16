@@ -177,7 +177,8 @@
                                                              } else {
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
-                                                                 [self.delegate didFinishWithSender:self];
+                                                                 [self pushSignatureView];
+//                                                                 [self.delegate didFinishWithSender:self];
                                                              }
                                                          }];
 }

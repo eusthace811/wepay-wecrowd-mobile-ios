@@ -75,8 +75,12 @@
                                                                  [self.activityIndicator stopAnimating];
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
-                                                                 [self pushSignatureView];
-//                                                                 [self.delegate didFinishWithSender:self];
+                                                                 
+                                                                 if ([WCLoginManager userType] == WCLoginUserMerchant) {
+                                                                     [self pushSignatureView];
+                                                                 } else {
+                                                                     [self.delegate didFinishWithSender:self];
+                                                                 }
                                                              } else {
                                                                  [WCAlert showAlertWithOptionFromViewController:self
                                                                                                        withTitle:@"Unable to complete donation"
