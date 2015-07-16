@@ -15,6 +15,7 @@
 @interface WCSignatureViewController () <WPCheckoutDelegate>
 
 @property (strong, nonatomic) IBOutlet PPSSignatureView *signatureView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong, readwrite) CWStatusBarNotification *notification;
 
@@ -54,6 +55,9 @@
 
 - (IBAction) submitSignatureAction:(id) sender
 {
+    [self.activityIndicator startAnimating];
+    self.signatureView.backgroundColor = [UIColor lightGrayColor];
+    
     [self storeSignature];
 }
 
@@ -62,6 +66,7 @@
 - (void) didStoreSignature:(NSString *) signatureUrl forCheckoutId:(NSString *) checkoutId
 {
     [self.notification displayNotificationWithMessage:@"Signature Stored!" forDuration:3];
+    [self.activityIndicator stopAnimating];
     
     [self.delegate didFinishWithSender:self];
     
@@ -72,6 +77,9 @@
                         forCheckoutId:(NSString *) checkoutId
                             withError:(NSError *) error
 {
+    [self.activityIndicator stopAnimating];
+    self.signatureView.backgroundColor = [UIColor clearColor];
+    
     [WCAlert showAlertWithOptionFromViewController:self
                                          withTitle:@"Unable to store signature."
                                            message:[NSString stringWithFormat:@"Storing the signature failed. %@", [error localizedDescription]]
