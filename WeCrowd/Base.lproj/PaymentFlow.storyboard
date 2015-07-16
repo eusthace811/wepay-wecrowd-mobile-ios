@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VBZ-7P-gal">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -376,7 +376,7 @@
                         <outlet property="lastNameField" destination="8eg-VH-Tzv" id="Gc5-II-aTi"/>
                         <outlet property="submitFormButton" destination="pyV-Uw-lTY" id="tzL-kk-n4m"/>
                         <outlet property="zipCodeField" destination="oZ2-2y-Sga" id="sQW-li-ffv"/>
-                        <segue destination="VBZ-7P-gal" kind="show" identifier="paymentToSignatureSegue" id="9UV-wG-lWp"/>
+                        <segue destination="muR-e4-BZ6" kind="show" identifier="paymentToSignatureSegue" id="AnY-YM-pUf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocb-JK-iKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,106 +387,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1054" y="1042"/>
-        </scene>
-        <!--Please Sign-->
-        <scene sceneID="Ufq-Sp-Pfw">
-            <objects>
-                <viewController id="VBZ-7P-gal" customClass="WCSignatureViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xqc-AJ-cHf"/>
-                        <viewControllerLayoutGuide type="bottom" id="9V1-IV-2Pg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vBu-49-8hd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAG-X4-QG8">
-                                <rect key="frame" x="279" y="550" width="43" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Clear">
-                                    <color key="titleColor" red="1" green="0.46706250729999998" blue="0.085921665899999999" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearSignatureAction:" destination="VBZ-7P-gal" eventType="touchUpInside" id="jDU-Rj-g1l"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-Of-SYi" customClass="PPSSignatureView">
-                                <rect key="frame" x="16" y="438" width="568" height="96"/>
-                                <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-KQ-o4v">
-                                        <rect key="frame" x="266" y="29" width="37" height="37"/>
-                                        <color key="color" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                    </activityIndicatorView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSP-Zj-qcO">
-                                        <rect key="frame" x="8" y="87" width="552" height="1"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="m7D-Kx-dD2"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lI1-Vq-6CI">
-                                        <rect key="frame" x="8" y="51" width="21" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="9gp-wp-Cbm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="bBT-KQ-o4v" secondAttribute="centerX" id="7nR-Tp-BSf"/>
-                                    <constraint firstAttribute="bottom" secondItem="YSP-Zj-qcO" secondAttribute="bottom" constant="8" id="Bwa-QG-ksv"/>
-                                    <constraint firstItem="YSP-Zj-qcO" firstAttribute="leading" secondItem="lI1-Vq-6CI" secondAttribute="leading" id="O55-e5-gg4"/>
-                                    <constraint firstAttribute="trailing" secondItem="YSP-Zj-qcO" secondAttribute="trailing" constant="8" id="gJF-vO-Nn7"/>
-                                    <constraint firstItem="YSP-Zj-qcO" firstAttribute="leading" secondItem="sVI-Of-SYi" secondAttribute="leading" constant="8" id="lVM-fZ-jyC"/>
-                                    <constraint firstAttribute="centerY" secondItem="bBT-KQ-o4v" secondAttribute="centerY" id="tmS-11-hh7"/>
-                                    <constraint firstAttribute="height" constant="96" id="vcV-ug-IQc"/>
-                                    <constraint firstItem="YSP-Zj-qcO" firstAttribute="top" secondItem="lI1-Vq-6CI" secondAttribute="bottom" id="whp-s2-Bsy"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="vBu-49-8hd" secondAttribute="leadingMargin" id="2Ut-zV-8q3"/>
-                            <constraint firstItem="pAG-X4-QG8" firstAttribute="top" secondItem="sVI-Of-SYi" secondAttribute="bottom" constant="16" id="AaR-iJ-bMy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" id="Hur-Sh-xPB"/>
-                            <constraint firstItem="sVI-Of-SYi" firstAttribute="top" secondItem="xqc-AJ-cHf" secondAttribute="bottom" constant="64" id="KnB-6f-ztI"/>
-                            <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="sVI-Of-SYi" secondAttribute="bottom" constant="64" id="M0h-Q9-070"/>
-                            <constraint firstItem="9V1-IV-2Pg" firstAttribute="top" secondItem="pAG-X4-QG8" secondAttribute="bottom" constant="16" id="PLV-NT-d9E"/>
-                            <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="vBu-49-8hd" secondAttribute="leadingMargin" constant="16" id="T1q-Wb-Qu5"/>
-                            <constraint firstAttribute="centerX" secondItem="sVI-Of-SYi" secondAttribute="centerX" id="YDz-Ov-vkB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" constant="16" id="a7i-HR-BlM"/>
-                            <constraint firstAttribute="centerX" secondItem="pAG-X4-QG8" secondAttribute="centerX" id="ilP-nn-3Dc"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="KnB-6f-ztI"/>
-                                <exclude reference="T1q-Wb-Qu5"/>
-                                <exclude reference="YDz-Ov-vkB"/>
-                                <exclude reference="a7i-HR-BlM"/>
-                                <exclude reference="M0h-Q9-070"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Please Sign" id="1sa-GL-bvO">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="Rnn-9F-yNl">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="submitSignatureAction:" destination="VBZ-7P-gal" id="3QP-6T-pSh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicator" destination="bBT-KQ-o4v" id="uTg-2l-Q3F"/>
-                        <outlet property="signatureView" destination="sVI-Of-SYi" id="aay-vn-ijc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HfT-UA-3WF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1772" y="671"/>
         </scene>
         <!--Swipe Card-->
         <scene sceneID="F3d-6r-nl8">
@@ -642,7 +542,7 @@
                         <outlet property="instructionLabel" destination="wX9-wg-NgL" id="BR8-1J-FOs"/>
                         <outlet property="submitButton" destination="kFY-qA-WBE" id="cQp-uq-GON"/>
                         <outlet property="swiperStatusLabel" destination="ygH-HP-ypo" id="hhU-vg-oUq"/>
-                        <segue destination="VBZ-7P-gal" kind="show" identifier="paymentToSignatureSegue" id="Uj0-eE-bcU"/>
+                        <segue destination="muR-e4-BZ6" kind="show" identifier="paymentToSignatureSegue" id="UKU-nX-JcC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTw-BR-Udf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,8 +554,147 @@
             </objects>
             <point key="canvasLocation" x="1054" y="353"/>
         </scene>
+        <!--Signature-->
+        <scene sceneID="Of6-fw-DJD">
+            <objects>
+                <tableViewController storyboardIdentifier="WCSignatureViewController" title="Signature" id="muR-e4-BZ6" customClass="WCSignatureViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="32" sectionHeaderHeight="10" sectionFooterHeight="10" id="mRV-0O-dd6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <sections>
+                            <tableViewSection headerTitle="Please sign" id="VYw-3B-ch6" userLabel="CardInformationSection">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" rowHeight="250" id="zzI-vW-NfN" userLabel="Signature Cell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zzI-vW-NfN" id="fhG-P4-OZ0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-Of-SYi" customClass="PPSSignatureView">
+                                                    <rect key="frame" x="8" y="8" width="584" height="233"/>
+                                                    <subviews>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bBT-KQ-o4v">
+                                                            <rect key="frame" x="274" y="98" width="37" height="37"/>
+                                                        </activityIndicatorView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSP-Zj-qcO" userLabel="Line">
+                                                            <rect key="frame" x="8" y="148" width="568" height="1"/>
+                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="m7D-Kx-dD2"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lI1-Vq-6CI">
+                                                            <rect key="frame" x="8" y="112" width="21" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="36" id="9gp-wp-Cbm"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="centerY" secondItem="YSP-Zj-qcO" secondAttribute="centerY" constant="-32" id="2sr-Cy-Sl2"/>
+                                                        <constraint firstAttribute="centerX" secondItem="bBT-KQ-o4v" secondAttribute="centerX" id="7nR-Tp-BSf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="YSP-Zj-qcO" secondAttribute="bottom" constant="8" id="Bwa-QG-ksv"/>
+                                                        <constraint firstItem="YSP-Zj-qcO" firstAttribute="leading" secondItem="lI1-Vq-6CI" secondAttribute="leading" id="O55-e5-gg4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="YSP-Zj-qcO" secondAttribute="trailing" constant="8" id="gJF-vO-Nn7"/>
+                                                        <constraint firstItem="YSP-Zj-qcO" firstAttribute="leading" secondItem="sVI-Of-SYi" secondAttribute="leading" constant="8" id="lVM-fZ-jyC"/>
+                                                        <constraint firstAttribute="centerY" secondItem="bBT-KQ-o4v" secondAttribute="centerY" id="tmS-11-hh7"/>
+                                                        <constraint firstItem="YSP-Zj-qcO" firstAttribute="top" secondItem="lI1-Vq-6CI" secondAttribute="bottom" id="whp-s2-Bsy"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Bwa-QG-ksv"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sVI-Of-SYi" firstAttribute="top" secondItem="fhG-P4-OZ0" secondAttribute="topMargin" id="3hf-Gy-Hpx"/>
+                                                <constraint firstItem="sVI-Of-SYi" firstAttribute="leading" secondItem="fhG-P4-OZ0" secondAttribute="leadingMargin" id="51G-4k-0Ua"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sVI-Of-SYi" secondAttribute="bottom" id="DYG-y9-ZRe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sVI-Of-SYi" secondAttribute="trailing" id="phV-db-AXz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="xVg-cm-f2d" userLabel="DonateSection">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEntryCell" rowHeight="44" id="Zlr-nV-ElR" userLabel="DonateContainer">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zlr-nV-ElR" id="3Jz-gf-28h">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFO-mE-9yB">
+                                                    <rect key="frame" x="8" y="5" width="584" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="AzZ-8m-pFW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <state key="normal" title="Submit">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="AzZ-8m-pFW"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="submitSignatureAction:" destination="muR-e4-BZ6" eventType="touchUpInside" id="hc9-5K-9cV"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="WFO-mE-9yB" secondAttribute="centerX" id="2zw-sY-gwR"/>
+                                                <constraint firstItem="WFO-mE-9yB" firstAttribute="leading" secondItem="3Jz-gf-28h" secondAttribute="leadingMargin" id="5Ub-Db-lDk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WFO-mE-9yB" secondAttribute="trailing" id="LTI-m7-qNr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WFO-mE-9yB" secondAttribute="trailing" id="SnE-ig-v7n"/>
+                                                <constraint firstItem="WFO-mE-9yB" firstAttribute="leading" secondItem="3Jz-gf-28h" secondAttribute="leadingMargin" id="ZzI-gl-7YJ"/>
+                                                <constraint firstAttribute="centerY" secondItem="WFO-mE-9yB" secondAttribute="centerY" id="pA2-gE-nIf"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="LTI-m7-qNr"/>
+                                                    <exclude reference="ZzI-gl-7YJ"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="muR-e4-BZ6" id="wAJ-xV-Ox3"/>
+                            <outlet property="delegate" destination="muR-e4-BZ6" id="K8O-B9-ewr"/>
+                            <outletCollection property="gestureRecognizers" destination="6zN-OX-d8x" appends="YES" id="Duv-zn-bbh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Signature" id="1sa-GL-bvO">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Rnn-9F-yNl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clearSignatureAction:" destination="muR-e4-BZ6" id="uPC-02-UgX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="bBT-KQ-o4v" id="p1J-HV-N0g"/>
+                        <outlet property="signatureView" destination="sVI-Of-SYi" id="oyW-td-VPD"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXe-6z-Hbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6zN-OX-d8x"/>
+            </objects>
+            <point key="canvasLocation" x="1771" y="671"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Uj0-eE-bcU"/>
+        <segue reference="AnY-YM-pUf"/>
     </inferredMetricsTieBreakers>
 </document>

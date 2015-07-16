@@ -10,7 +10,7 @@
 #import "PPSSignatureView.h"
 #import "WCPaymentFlowDelegate.h"
 
-@interface WCSignatureViewController : UIViewController
+@interface WCSignatureViewController : UITableViewController
 
 @property (nonatomic, weak, readwrite) id<PaymentFlowDelegate> delegate;
 
