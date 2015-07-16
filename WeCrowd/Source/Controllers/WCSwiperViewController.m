@@ -117,9 +117,13 @@
 
 - (void) didFailToReadPaymentInfoWithError:(NSError *) error
 {
+    NSString *message;
+    
+    message = [NSString stringWithFormat:@"There was an error processing the card: %@. Please try again.", [error localizedDescription]];
+    
     [WCAlert showSimpleAlertFromViewController:self
                                       withTitle:@"Unable to read card"
-                                        message:@"There was an error processing the card. Please try again."
+                                       message:message
                                      completion:nil];
     
     NSLog(@"Error: Card reader: %@.", [error localizedDescription]);
@@ -138,9 +142,13 @@
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
 {
+    NSString *message;
+    
+    message = [NSString stringWithFormat:@"There was a payment service error: %@. Please try again.", [error localizedDescription]];
+    
     [WCAlert showSimpleAlertFromViewController:self
                                       withTitle:@"Unable to complete tokenization"
-                                        message:@"There was a payment service error. Please try again."
+                                        message:message
                                      completion:nil];
     
     [self.submitButton setHidden:YES];

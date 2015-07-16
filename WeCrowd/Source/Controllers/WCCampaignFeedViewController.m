@@ -40,6 +40,13 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
     }
 }
 
+- (void) didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    
+    NSLog(@"%@: Received memory warning", NSStringFromClass([self class]));
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger) tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger) section
@@ -92,7 +99,7 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
 {
     [WCClient fetchFeaturedCampaigns:^(NSArray *campaigns, NSError *error) {
             if (error) {
-                [self showCampaignFeedError];
+                [self showCampaignFeedError:error];
             } else {
                 if ([WCLoginManager userType] == WCLoginUserPayer) {
                     self.campaigns = campaigns;
@@ -107,11 +114,15 @@ static NSString* const kCampaignCellReuseIdentifier = @"CampaignCell";
         }];
 }
 
-- (void) showCampaignFeedError
+- (void) showCampaignFeedError:(NSError *) error
 {
+    NSString *message;
+    
+    message = [NSString stringWithFormat:@"Could not retrieve the campaigns from the server: %@", message];
+    
     [WCAlert showAlertWithOptionFromViewController:self
                                           withTitle:@"Unable to fetch campaigns."
-                                            message:@"Could not retrieve the campaigns from the server"
+                                            message:message
                                         optionTitle:@"Try Again"
                                    optionCompletion:^{ [self executeCampaignFetch]; }
                                     closeCompletion:nil];

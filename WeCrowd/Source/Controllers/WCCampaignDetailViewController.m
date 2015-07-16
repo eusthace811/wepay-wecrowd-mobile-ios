@@ -156,9 +156,14 @@
     [WCClient fetchCampaignWithID:campaignID
                   completionBlock:^(WCCampaignDetailModel *campaign, NSError *error) {
                       if (error) {
+                          NSString *message;
+                          
+                          message = [NSString stringWithFormat:@"The details of this campaign could not be fetched: %@.\
+                                                                Ensure you are connected to a network and try again.", [error localizedDescription]];
+                          
                           [WCAlert showAlertWithOptionFromViewController:self
                                                                 withTitle:@"Unable to fetch campaign details"
-                                                                  message:@"The details of this campaign could not be fetched. Ensure you are connected to a network and try again."
+                                                                  message:message
                                                               optionTitle:@"Try Again"
                                                          optionCompletion:^{ [self executeFetchCampaignDetailWithID:campaignID]; }
                                                           closeCompletion:nil];
