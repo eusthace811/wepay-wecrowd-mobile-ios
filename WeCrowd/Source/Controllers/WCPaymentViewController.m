@@ -43,12 +43,6 @@
     self.statusBarNotification.notificationLabelBackgroundColor = backgroundColor;
 }
 
-
-- (void) pushSignatureView
-{
-    [self performSegueWithIdentifier:kIBSeguePaymentViewtoSignatureView sender:self];
-}
-
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender
 {
     if ([segue.identifier isEqualToString:kIBSeguePaymentViewtoSignatureView]) {

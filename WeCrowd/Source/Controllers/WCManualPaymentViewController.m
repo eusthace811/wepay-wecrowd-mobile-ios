@@ -75,12 +75,7 @@
                                                                  [self.activityIndicator stopAnimating];
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
-                                                                 
-                                                                 if ([WCLoginManager userType] == WCLoginUserMerchant) {
-                                                                     [self pushSignatureView];
-                                                                 } else {
-                                                                     [self.delegate didFinishWithSender:self];
-                                                                 }
+                                                                 [self.delegate didFinishWithSender:self];
                                                              } else {
                                                                  NSString *message;
                                                                  
@@ -96,6 +91,12 @@
                                                              
                                                              [self shouldDisplayPaymentFeedback:NO];
                                                          }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:10
+                                     target:self
+                                   selector:@selector(donationDidTimeout)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 - (void) paymentInfo:(WPPaymentInfo *) paymentInfo didFailTokenization:(NSError *) error
@@ -149,6 +150,13 @@
         [self.activityIndicator stopAnimating];
         [self.submitFormButton setHidden:NO];
     }
+}
+
+- (void) donationDidTimeout
+{
+    [WCAlert showTimeoutAlertFromViewController:self fromActionWithTitle:@"Donation"
+                                retryCompletion:^{ [self executeDonation]; }
+                                closeCompletion:^ { [self shouldDisplayPaymentFeedback:NO]; }];
 }
 
 @end

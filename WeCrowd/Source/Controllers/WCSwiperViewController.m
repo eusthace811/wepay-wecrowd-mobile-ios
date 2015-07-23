@@ -10,6 +10,7 @@
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
 #import "WCAlert.h"
+#import "WCConstants.h"
 
 @interface WCSwiperViewController () <WPCardReaderDelegate,
                                       WPTokenizationDelegate,
@@ -196,9 +197,15 @@
                                                                  [self pushSignatureView];
                                                              }
                                                          }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:10
+                                     target:self
+                                   selector:@selector(donationDidTimeout)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
-#pragma UI
+#pragma mark UI
 
 - (void) setUpFeedbackUI
 {
@@ -240,6 +247,11 @@
     [self.instructionLabel setHidden:isValid];
 }
 
+- (void) pushSignatureView
+{
+    [self performSegueWithIdentifier:kIBSeguePaymentViewtoSignatureView sender:self];
+}
+
 #pragma mark Checks
 
 - (BOOL) isDonationFieldValid
@@ -247,6 +259,15 @@
     NSScanner *scanner = [NSScanner scannerWithString:self.donationField.text];
     
     return [scanner scanInteger:NULL] && [scanner isAtEnd];
+}
+
+#pragma mark Helpers
+
+- (void) donationDidTimeout
+{
+    [WCAlert showTimeoutAlertFromViewController:self fromActionWithTitle:@"Donation"
+                                retryCompletion:^{ [self executeCardRead]; }
+                                closeCompletion:^ { [self resetFeedbackUI]; }];
 }
 
 @end

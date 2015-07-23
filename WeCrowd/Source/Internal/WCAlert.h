@@ -21,4 +21,10 @@
                                    optionTitle:(NSString *) optionTitle
                               optionCompletion:(void (^) ()) optionCompletion
                                closeCompletion:(void (^) ()) closeCompletion;
+
++ (void) showTimeoutAlertFromViewController:(UIViewController *) viewController
+                        fromActionWithTitle:(NSString *) title
+                            retryCompletion:(void (^) ()) retryCompletion
+                            closeCompletion:(void (^) ()) closeCompletion;
+
 @end
