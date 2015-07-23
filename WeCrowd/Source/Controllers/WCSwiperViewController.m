@@ -10,6 +10,7 @@
 #import "WCWePayManager.h"
 #import "WCDonationManager.h"
 #import "WCAlert.h"
+#import "WCConstants.h"
 
 @interface WCSwiperViewController () <WPCardReaderDelegate,
                                       WPTokenizationDelegate,
@@ -198,7 +199,7 @@
                                                          }];
 }
 
-#pragma UI
+#pragma mark UI
 
 - (void) setUpFeedbackUI
 {
@@ -238,6 +239,11 @@
     [self.submitButton setHidden:!isValid];
     [self.swiperStatusLabel setHidden:!isValid];
     [self.instructionLabel setHidden:isValid];
+}
+
+- (void) pushSignatureView
+{
+    [self performSegueWithIdentifier:kIBSeguePaymentViewtoSignatureView sender:self];
 }
 
 #pragma mark Checks

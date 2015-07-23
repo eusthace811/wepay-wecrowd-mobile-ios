@@ -75,12 +75,7 @@
                                                                  [self.activityIndicator stopAnimating];
                                                                  [self.statusBarNotification displayNotificationWithMessage:@"Donation Processed!"
                                                                                                                 forDuration:3.f];
-                                                                 
-                                                                 if ([WCLoginManager userType] == WCLoginUserMerchant) {
-                                                                     [self pushSignatureView];
-                                                                 } else {
-                                                                     [self.delegate didFinishWithSender:self];
-                                                                 }
+                                                                 [self.delegate didFinishWithSender:self];
                                                              } else {
                                                                  NSString *message;
                                                                  

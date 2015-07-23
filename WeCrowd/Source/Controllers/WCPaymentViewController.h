@@ -15,6 +15,4 @@
 @property (nonatomic, weak, readwrite) id<PaymentFlowDelegate> delegate;
 @property (nonatomic, strong, readonly) CWStatusBarNotification *statusBarNotification;
 
-- (void) pushSignatureView;
-
 @end
