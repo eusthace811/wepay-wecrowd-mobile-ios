@@ -3,7 +3,7 @@
 ![WeCrowd logo](http://wecrowd.wepay.com/assets/wecrowd-35e0bdd2be0a74e932a5af64576afa02.png "WeCrowd")
 
 ## Overview
-Native application for [WeCrowd] (http://wecrowd.wepay.com/), a sample crowdfunding platform that showcases easy payment transactions courtesy of the WePay [iOS SDK] (https://github.com/wepay/wepay-ios) and [API] (https://www.wepay.com/developer/). Note that WeCrowd does not actually process any payments.
+Native application for [WeCrowd] (http://wecrowd.wepay.com/), a sample crowdfunding platform that showcases easy payment transactions courtesy of the WePay [iOS SDK] (https://github.com/wepay/wepay-ios) and [API] (https://www.wepay.com/developer/). *Note that WeCrowd does not actually process any payments*.
 
 ## What the app is for
 * The app demonstrates donation flow from two perspectives: a merchant and a payer. A merchant can accept donations via a card swiper or [virtual terminal] (https://en.wikipedia.org/wiki/Virtual_terminal). A virtual terminal is basically a way for someone (presumably a merchant) to enter credit card information on behalf of someone else (presumably a payer).
