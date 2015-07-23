@@ -197,6 +197,12 @@
                                                                  [self pushSignatureView];
                                                              }
                                                          }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:10
+                                     target:self
+                                   selector:@selector(donationDidTimeout)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 #pragma mark UI
@@ -253,6 +259,15 @@
     NSScanner *scanner = [NSScanner scannerWithString:self.donationField.text];
     
     return [scanner scanInteger:NULL] && [scanner isAtEnd];
+}
+
+#pragma mark Helpers
+
+- (void) donationDidTimeout
+{
+    [WCAlert showTimeoutAlertFromViewController:self fromActionWithTitle:@"Donation"
+                                retryCompletion:^{ [self executeCardRead]; }
+                                closeCompletion:^ { [self resetFeedbackUI]; }];
 }
 
 @end
