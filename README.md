@@ -1,6 +1,6 @@
-![WeCrowd logo](http://wecrowd.wepay.com/assets/wecrowd-35e0bdd2be0a74e932a5af64576afa02.png "WeCrowd")
-
 # WeCrowd iOS
+
+![WeCrowd logo](http://wecrowd.wepay.com/assets/wecrowd-35e0bdd2be0a74e932a5af64576afa02.png "WeCrowd")
 
 ## Overview
 Native application for [WeCrowd] (http://wecrowd.wepay.com/), a sample crowdfunding platform that showcases easy payment transactions courtesy of the WePay [iOS SDK] (https://github.com/wepay/wepay-ios) and [API] (https://www.wepay.com/developer/). Note that WeCrowd does not actually process any payments.
