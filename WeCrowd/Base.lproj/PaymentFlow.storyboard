@@ -590,7 +590,7 @@
                                                                 <constraint firstAttribute="height" constant="36" id="9gp-wp-Cbm"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -695,6 +695,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UKU-nX-JcC"/>
+        <segue reference="AnY-YM-pUf"/>
     </inferredMetricsTieBreakers>
 </document>
