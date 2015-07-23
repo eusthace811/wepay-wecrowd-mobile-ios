@@ -1,3 +1,5 @@
+![WeCrowd logo](http://wecrowd.wepay.com/assets/wecrowd-35e0bdd2be0a74e932a5af64576afa02.png "WeCrowd")
+
 # WeCrowd iOS
 
 ## Overview
