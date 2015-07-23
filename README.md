@@ -15,7 +15,7 @@ Native application for [WeCrowd] (http://wecrowd.wepay.com/), a sample crowdfund
 Huge shout out to these awesome open source [pods] (https://cocoapods.org/)!
 * [CWStatusBarNotification] (https://github.com/cezarywojcik/CWStatusBarNotification) - Used for confirmation notifications.
 * [PPSSignatureView] (https://github.com/jharwig/PPSSignatureView) - Used for payer signing after card swipe donation.
-* [WePay] (https://github.com/wepay/wepay-ios) - Used for all the card tokenization and signature handling.
+* [WePay iOS SDK] (https://github.com/wepay/wepay-ios) - Used for all the card tokenization and signature handling.
 
 ## License
 See the [LICENSE] (LICENSE.md) file for license rights and limitations (MIT).
