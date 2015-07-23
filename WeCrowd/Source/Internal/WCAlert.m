@@ -37,7 +37,7 @@
                               optionCompletion:(void (^) ()) optionCompletion
                                closeCompletion:(void (^) ()) closeCompletion
 {
-    UIAlertController * alertController;
+    UIAlertController *alertController;
     UIAlertAction *alternateAction, *closeAction;
     
     alertController = [UIAlertController alertControllerWithTitle:title
@@ -55,6 +55,24 @@
     [alertController addAction:closeAction];
     
     [viewController presentViewController:alertController animated:YES completion:nil];
+}
+
++ (void) showTimeoutAlertFromViewController:(UIViewController *) viewController
+                        fromActionWithTitle:(NSString *) title
+                            retryCompletion:(void (^) ()) retryCompletion
+                            closeCompletion:(void (^) ()) closeCompletion
+{
+    NSString *alertTitle, *message;
+    
+    alertTitle = [title stringByAppendingString:@" timed out"];
+    message = [NSString stringWithFormat:@"The process timed out. Please check your connection and try again"];
+    
+    [self showAlertWithOptionFromViewController:viewController
+                                      withTitle:alertTitle
+                                        message:message
+                                    optionTitle:@"Retry"
+                               optionCompletion:retryCompletion
+                                closeCompletion:closeCompletion];
 }
 
 
