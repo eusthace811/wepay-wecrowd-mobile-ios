@@ -8,15 +8,16 @@
 
 #import "WCCampaignDetailModel.h"
 
-
 #pragma mark - Interface
 
 @interface WCCampaignDetailModel ()
 
-@property (strong, nonatomic, readwrite) WCCampaignBaseModel* baseModel;
-@property (strong, nonatomic, readwrite) UIImage* detailImage;
-@property (strong, nonatomic, readwrite) NSString* detailDescription;
-@property (strong, nonatomic, readwrite) NSString* location;
+@property (nonatomic, strong, readwrite) UIImage* detailImage;
+@property (nonatomic, strong, readwrite) NSString* detailDescription;
+@property (nonatomic, strong, readwrite) NSDate * dateEnd;
+
+@property (nonatomic, readwrite) CGFloat donationTargetAmount;
+@property (nonatomic, readwrite) CGFloat donationAmount;
 
 @end
 
@@ -25,20 +26,24 @@
 
 @implementation WCCampaignDetailModel
 
-#pragma mark - Initialization
-
-- (id) initWithCampaignBaseModel:(WCCampaignBaseModel *) baseModel
-                     detailImage:(UIImage *) detailImage
-               detailDescription:(NSString *) detailDescription
-                        location:(NSString *) location
+- (instancetype) initWithCampaign:(NSString *) campaign
+                            title:(NSString *) title
+                          endDate:(NSDate *) endDate
+                   donationTarget:(CGFloat) donationTarget
+                   donationAmount:(CGFloat) donationAmount
+                      detailImage:(UIImage *) detailImage
+                detailDescription:(NSString *) detailDescription
 {
-    if (self = [super init]) {
-        self.baseModel = baseModel;
+    if (self = [super initWithCampaign:campaign
+                                 title:title])
+    {
         self.detailImage = detailImage;
         self.detailDescription = detailDescription;
-        self.location = location;
+        self.dateEnd = endDate;
+        self.donationTargetAmount = donationTarget;
+        self.donationAmount = donationAmount;
     } else {
-        // unable to initialize objects
+        // Do nothing
     }
     
     return self;

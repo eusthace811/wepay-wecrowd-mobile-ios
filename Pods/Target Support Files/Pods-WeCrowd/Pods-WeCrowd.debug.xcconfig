@@ -1,0 +1,7 @@
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/WePay" "$(PODS_ROOT)/WePay" "$(PODS_ROOT)/WePay" "$(PODS_ROOT)/WePay" "$(PODS_ROOT)/WePay"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CWStatusBarNotification" "${PODS_ROOT}/Headers/Public/PPSSignatureView" "${PODS_ROOT}/Headers/Public/WePay"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CWStatusBarNotification" -isystem "${PODS_ROOT}/Headers/Public/PPSSignatureView" -isystem "${PODS_ROOT}/Headers/Public/WePay"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-WeCrowd-CWStatusBarNotification" -l"Pods-WeCrowd-PPSSignatureView" -l"stdc++.6.0.9" -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreBluetooth" -framework "CoreTelephony" -framework "G4XSwiper" -framework "GLKit" -framework "MediaPlayer" -framework "OpenGLES" -framework "RPx" -framework "RUA" -framework "SystemConfiguration" -framework "TrustDefenderMobile" -framework "WePay"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

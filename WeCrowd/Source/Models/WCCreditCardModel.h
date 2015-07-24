@@ -8,21 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-
 #pragma mark - Interface
 
 @interface WCCreditCardModel : NSObject
 
-@property (strong, nonatomic, readonly) NSString* name;
-@property (strong, nonatomic, readonly) NSString* cardNumber;
-@property (strong, nonatomic, readonly) NSString* cvvNumber;
-@property (strong, nonatomic, readonly) NSString* zipCode;
-@property (strong, nonatomic, readonly) NSDate* expirationDate;
+@property (nonatomic, strong, readonly) NSString *firstName;
+@property (nonatomic, strong, readonly) NSString *lastName;
+@property (nonatomic, strong, readonly) NSString *fullName;
+@property (nonatomic, strong, readonly) NSString *cardNumber;
+@property (nonatomic, strong, readonly) NSString *cvvNumber;
+@property (nonatomic, strong, readonly) NSString *zipCode;
+@property (nonatomic, strong, readonly) NSDate *expirationDate;
 
-- (id) initWithName:(NSString *)name
-         cardNumber:(NSString *) cardNumber
-          cvvNumber:(NSString *) cvvNumber
-            zipCode:(NSString *) zipCode
-     expirationDate:(NSDate *) expirationDate;
+- (instancetype) initWithFirstName:(NSString *) firstName
+                          lastName:(NSString *) lastName
+                        cardNumber:(NSString *) cardNumber
+                         cvvNumber:(NSString *) cvvNumber
+                           zipCode:(NSString *) zipCode
+                    expirationDate:(NSDate *) expirationDate;
 
 @end

@@ -1,0 +1,16 @@
+PODS:
+  - CWStatusBarNotification (2.2.6)
+  - PPSSignatureView (0.1.2)
+  - WePay (2.0.1)
+
+DEPENDENCIES:
+  - CWStatusBarNotification (~> 2.2.6)
+  - PPSSignatureView
+  - WePay
+
+SPEC CHECKSUMS:
+  CWStatusBarNotification: b7d08c63bbfcceee08b63cab041560a6f5cdefb6
+  PPSSignatureView: 746f1fc186dea15c248bc99cc64182f93af131b9
+  WePay: bf20fbfd0f173c9dcc32c48085ead1d6a6341db6
+
+COCOAPODS: 0.37.2

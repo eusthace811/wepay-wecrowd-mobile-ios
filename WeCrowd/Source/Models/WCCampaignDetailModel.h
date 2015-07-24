@@ -7,21 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WCCampaignBaseModel.h"
 
 @class WCCampaignBaseModel, UIImage;
 
-#pragma mark - Interface
+@interface WCCampaignDetailModel : WCCampaignBaseModel
 
-@interface WCCampaignDetailModel : NSObject
+@property (nonatomic, strong, readonly) UIImage* detailImage;
+@property (nonatomic, strong, readonly) NSString* detailDescription;
+@property (nonatomic, strong, readonly) NSDate * dateEnd;
 
-@property (strong, nonatomic, readonly) WCCampaignBaseModel* baseModel;
-@property (strong, nonatomic, readonly) UIImage* detailImage;
-@property (strong, nonatomic, readonly) NSString* detailDescription;
-@property (strong, nonatomic, readonly) NSString* location; // consider using location object
+@property (nonatomic, readonly) CGFloat donationTargetAmount;
+@property (nonatomic, readonly) CGFloat donationAmount;
 
-- (id) initWithCampaignBaseModel:(WCCampaignBaseModel *) baseModel
-                     detailImage:(UIImage *) detailImage
-               detailDescription:(NSString *) detailDescription
-                        location:(NSString *) location;
+- (instancetype) initWithCampaign:(NSString *) campaign
+                            title:(NSString *) title
+                          endDate:(NSDate *) endDate
+                   donationTarget:(CGFloat) donationTarget
+                   donationAmount:(CGFloat) donationAmount
+                      detailImage:(UIImage *) detailImage
+                detailDescription:(NSString *) detailDescription;
 
 @end

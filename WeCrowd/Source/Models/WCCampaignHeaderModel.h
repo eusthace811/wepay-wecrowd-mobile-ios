@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "WCCampaignBaseModel.h"
 
-@class WCCampaignBaseModel;
+@interface WCCampaignHeaderModel : WCCampaignBaseModel
 
-#pragma mark - Interface
+@property (nonatomic, strong, readonly) NSString *thumbnailImageURLString;
+@property (nonatomic, strong, readonly) UIImage *thumbnailImage;
 
-@interface WCCampaignHeaderModel : NSObject
+- (instancetype) initWithCampaign:(NSString *) campaign
+                            title:(NSString *) title
+                   imageURLString:(NSString *) imageURLString;
 
-@property (strong, nonatomic, readonly) WCCampaignBaseModel* baseModel;
-@property (strong, nonatomic, readonly) UIImage* thumbnailImage;
-
-- (id) initWithCampaignBaseModel:(WCCampaignBaseModel *) campaignBaseModel
-                  thumbnailImage:(UIImage *) thumbnailImage;
+- (void) fetchImageIfNeededWithCompletion:(void(^)(UIImage *image, NSError *error)) completion;
 
 @end
